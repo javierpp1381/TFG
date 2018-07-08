@@ -45,7 +45,7 @@ main (int argc, char** argv)
     if (pcl::io::loadPCDFile (filename, *cloud) == -1)
     {
       cerr << "Was not able to open file \""<<filename<<"\".\n";
-      return 0;
+      return -1;
     }
   }
     else
