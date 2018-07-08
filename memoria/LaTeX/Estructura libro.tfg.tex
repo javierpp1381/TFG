@@ -1,0 +1,66 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LaTeX book template                           %%
+%% Author:  Amber Jain (http://amberj.devio.us/) %%
+%% License: ISC license                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,11pt]{book}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{enumerate}
+
+\usepackage{import}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+
+
+\input{funciones}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%PORTADA                         
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%nota, para poner nota al pie de pagina se pone despues de } lo siguiente "\footnote{This is a footnote.}"
+% Book's title and subtitle
+\title{\Huge \textbf{T\'itulo }   \\ \huge subtitulo}
+% Author
+\author{\textsc{Javier Pina De Paz}} %
+
+
+\begin{document}
+
+\frontmatter
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%DEDICATORIA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{dedication}
+Dedico este TFG a mi estupidez por matricularme antes de tiempo :D
+\end{dedication}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INDICE AUTOGENERADO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+%\listoftables    "Esto lo que hace es otra pagina despues del índice con las tablas
+
+\mainmatter  %esto no sé qué hace pero lo dejo por si acaso
+
+%%%%%%%%%%%%%%%%
+%CAPITULOS Y SECCIONES
+%%%%%%%%%%%%%%%%
+\input{prefacio}
+\input{capitulo_introductorio}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%BIBLIOGRAFIA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{99}
+\bibitem {Lasalle} Hassan Khalil. (2). (1996). Nonlinear systems. New Jersey, USA: Prentice Hall. %113-116
+\end{thebibliography}
+
+
+\end{document}
