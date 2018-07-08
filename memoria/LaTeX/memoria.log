@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.27)  5 JUL 2018 23:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.27)  8 JUL 2018 22:18
 entering extended mode
 **./memoria.tex
 (memoria.tex
@@ -22,6 +22,43 @@ File: bk11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
+("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.s
+ty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval.sty
+"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.st
+y"
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.s
+ty"
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.s
+ty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count88
+\Gm@cntv=\count89
+\c@Gm@tempcnt=\count90
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
+
+("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.c
+fg"))
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\fontenc.sty"
 Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
 
@@ -31,8 +68,8 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\inputenc.sty"
 Package: inputenc 2015/03/17 v1.2c Input encoding file
-\inpenc@prehook=\toks14
-\inpenc@posthook=\toks15
+\inpenc@prehook=\toks16
+\inpenc@posthook=\toks17
 
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
@@ -384,7 +421,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\enumerate.sty
 "
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
-\@enLab=\toks16
+\@enLab=\toks18
 ) ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\import\import.sty
 "
 Package: import 2009/03/23  v 5.1
@@ -406,10 +443,9 @@ Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
-Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
-Package ifvtex Info: VTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
 Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
-Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
@@ -439,15 +475,6 @@ Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
 Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 )
-("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval.sty
-"
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks17
-)
-("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.s
-ty"
-Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
-)
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\auxhook.st
 y"
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
@@ -456,9 +483,9 @@ Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 sty"
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
-\@linkdim=\dimen103
-\Hy@linkcounter=\count88
-\Hy@pagecounter=\count89
+\@linkdim=\dimen111
+\Hy@linkcounter=\count91
+\Hy@pagecounter=\count92
 
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def
 "
@@ -466,7 +493,7 @@ File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count90
+\Hy@SavedSpaceFactor=\count93
 
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\hyperref.c
 fg"
@@ -479,16 +506,16 @@ Package hyperref Info: Plain pages OFF on input line 4524.
 Package hyperref Info: Backreferencing OFF on input line 4529.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4762.
-\c@Hy@tempcnt=\count91
+\c@Hy@tempcnt=\count94
  ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\url\url.sty"
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5115.
-\XeTeXLinkMargin=\dimen104
-\Fld@menulength=\count92
-\Field@Width=\dimen105
-\Fld@charsize=\dimen106
+\XeTeXLinkMargin=\dimen112
+\Fld@menulength=\count95
+\Field@Width=\dimen113
+\Fld@charsize=\dimen114
 Package hyperref Info: Hyper figures OFF on input line 6369.
 Package hyperref Info: Link nesting OFF on input line 6374.
 Package hyperref Info: Hyper index ON on input line 6377.
@@ -498,17 +525,17 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6394.
 Package hyperref Info: PDF/A mode OFF on input line 6399.
 LaTeX Info: Redefining \ref on input line 6439.
 LaTeX Info: Redefining \pageref on input line 6443.
-\Hy@abspage=\count93
-\c@Item=\count94
-\c@Hfootnote=\count95
+\Hy@abspage=\count96
+\c@Item=\count97
+\c@Hfootnote=\count98
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hpdftex.de
 f"
 File: hpdftex.def 2018/02/06 v6.86b Hyperref driver for pdfTeX
-\Fld@listcount=\count96
-\c@bookmark@seq@number=\count97
+\Fld@listcount=\count99
+\c@bookmark@seq@number=\count100
 
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\rerunfilec
 heck.sty"
@@ -539,8 +566,8 @@ Package graphics Info: Driver file: pdftex.def on input line 99.
 .def"
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen107
-\Gin@req@width=\dimen108
+\Gin@req@height=\dimen115
+\Gin@req@width=\dimen116
 )
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.sty"
 Package: babel 2018/02/14 3.18 The Babel package
@@ -561,46 +588,89 @@ Language: spanish.ldf 2016/03/03 v5.0p Spanish support from the babel system
 
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.def"
 File: babel.def 2018/02/14 3.18 Babel common definitions
-\babel@savecnt=\count98
-\U@D=\dimen109
+\babel@savecnt=\count101
+\U@D=\dimen117
 
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\txtbabel.de
 f")
-\bbl@dirlevel=\count99
+\bbl@dirlevel=\count102
 )
-\es@quottoks=\toks18
-\es@quotdepth=\count100
+\es@quottoks=\toks19
+\es@quotdepth=\count103
 Package babel Info: Making " an active character on input line 561.
 Package babel Info: Making . an active character on input line 662.
 Package babel Info: Making < an active character on input line 707.
 Package babel Info: Making > an active character on input line 707.
-)) (funciones.tex) (memoria.aux
+))
+("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\wrapfig\wrapfig.sty
+"
+\wrapoverhang=\dimen118
+\WF@size=\dimen119
+\c@WF@wrappedlines=\count104
+\WF@box=\box26
+\WF@everypar=\toks20
+Package: wrapfig 2003/01/31  v 3.6
+) (funciones.tex) (memoria.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 )
 \openout1 = `memoria.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 30.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 33.
 
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-\AtBeginShipoutBox=\box26
-Package hyperref Info: Link coloring OFF on input line 30.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(90.3375pt, 416.83289pt, 90.3375pt)
+* v-part:(T,H,B)=(90.3375pt, 664.37186pt, 90.3375pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=416.83289pt
+* \textheight=664.37186pt
+* \oddsidemargin=18.0675pt
+* \evensidemargin=18.0675pt
+* \topmargin=-13.80629pt
+* \headheight=12.0pt
+* \headsep=19.8738pt
+* \topskip=11.0pt
+* \footskip=21.68121pt
+* \marginparwidth=106.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\AtBeginShipoutBox=\box27
+Package hyperref Info: Link coloring OFF on input line 33.
 
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.st
 y"
@@ -610,11 +680,11 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 string.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count101
+\c@section@level=\count105
 )
-LaTeX Info: Redefining \ref on input line 30.
-LaTeX Info: Redefining \pageref on input line 30.
-LaTeX Info: Redefining \nameref on input line 30.
+LaTeX Info: Redefining \ref on input line 33.
+LaTeX Info: Redefining \pageref on input line 33.
+LaTeX Info: Redefining \nameref on input line 33.
  (memoria.out) (memoria.out)
 \@outlinefile=\write3
 \openout3 = `memoria.out'.
@@ -623,17 +693,17 @@ LaTeX Info: Redefining \nameref on input line 30.
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mki
 i"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count102
-\scratchdimen=\dimen110
-\scratchbox=\box27
-\nofMPsegments=\count103
-\nofMParguments=\count104
-\everyMPshowfont=\toks19
-\MPscratchCnt=\count105
-\MPscratchDim=\dimen111
-\MPnumerator=\count106
-\makeMPintoPDFobject=\count107
-\everyMPtoPDFconversion=\toks20
+\scratchcounter=\count106
+\scratchdimen=\dimen120
+\scratchbox=\box28
+\nofMPsegments=\count107
+\nofMParguments=\count108
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count109
+\MPscratchDim=\dimen121
+\MPnumerator=\count110
+\makeMPintoPDFobject=\count111
+\everyMPtoPDFconversion=\toks22
 )
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-b
 ase.sty"
@@ -650,35 +720,35 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Info: Redefining \. on input line 30.
-LaTeX Info: Redefining \% on input line 30.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 34.
+LaTeX Info: Redefining \. on input line 33.
+LaTeX Info: Redefining \% on input line 33.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 37.
  ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 34.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 37.
 
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 34.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 37.
 
 
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 34.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 37.
 
 
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 34.
+(Font)              <12> on input line 37.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 34.
+(Font)              <8> on input line 37.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 34.
+(Font)              <6> on input line 37.
 
 [1
 
@@ -700,8 +770,8 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 \openout4 = `memoria.toc'.
 
  [5]
-LaTeX Info: Redefining \. on input line 47.
-LaTeX Info: Redefining \% on input line 47.
+LaTeX Info: Redefining \. on input line 50.
+LaTeX Info: Redefining \% on input line 50.
  [6
 
 ] (capitulo_introductorio.tex
@@ -709,66 +779,160 @@ LaTeX Info: Redefining \% on input line 47.
 [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 34--61
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 34--61
-
- []
-
 LaTeX Font Info:    Try loading font information for OMS+lmr on input line 61.
-("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
+ ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 61.
-LaTeX Info: Redefining \. on input line 67.
-LaTeX Info: Redefining \% on input line 67.
+LaTeX Info: Redefining \. on input line 81.
+LaTeX Info: Redefining \% on input line 81.
 
 [2]
-LaTeX Info: Redefining \. on input line 101.
-LaTeX Info: Redefining \% on input line 101.
+LaTeX Info: Redefining \. on input line 129.
+LaTeX Info: Redefining \% on input line 129.
  [3]
-LaTeX Info: Redefining \. on input line 139.
-LaTeX Info: Redefining \% on input line 139.
- [4]
-LaTeX Info: Redefining \. on input line 183.
-LaTeX Info: Redefining \% on input line 183.
- [5]
-LaTeX Info: Redefining \. on input line 232.
-LaTeX Info: Redefining \% on input line 232.
- [6]
-LaTeX Info: Redefining \. on input line 273.
-LaTeX Info: Redefining \% on input line 273.
- [7]) (bibliografÃ­a.tex
+<imagenes/delaunay_mal.png, id=97, 220.825pt x 220.825pt>
+File: imagenes/delaunay_mal.png Graphic file (type png)
+<use imagenes/delaunay_mal.png>
+Package pdftex.def Info: imagenes/delaunay_mal.png  used on input line 153.
+(pdftex.def)             Requested size: 133.38957pt x 133.39568pt.
+<imagenes/delaunay_bien.png, id=99, 220.825pt x 207.77625pt>
+File: imagenes/delaunay_bien.png Graphic file (type png)
+<use imagenes/delaunay_bien.png>
+Package pdftex.def Info: imagenes/delaunay_bien.png  used on input line 157.
+(pdftex.def)             Requested size: 133.38957pt x 125.5132pt.
+<imagenes/delaunay_bien_10pts.png, id=100, 220.825pt x 220.825pt>
+File: imagenes/delaunay_bien_10pts.png Graphic file (type png)
+<use imagenes/delaunay_bien_10pts.png>
+Package pdftex.def Info: imagenes/delaunay_bien_10pts.png  used on input line 1
+61.
+(pdftex.def)             Requested size: 133.38957pt x 133.39568pt.
+LaTeX Info: Redefining \. on input line 177.
+LaTeX Info: Redefining \% on input line 177.
+ [4 <./imagenes/delaunay_mal.png> <./imagenes/delaunay_bien.png> <./imagenes/de
+launay_bien_10pts.png>]
+<imagenes/bunny_simple.png, id=111, 631.60968pt x 367.3725pt>
+File: imagenes/bunny_simple.png Graphic file (type png)
+<use imagenes/bunny_simple.png>
+Package pdftex.def Info: imagenes/bunny_simple.png  used on input line 201.
+(pdftex.def)             Requested size: 133.38957pt x 77.58212pt.
+
+Underfull \hbox (badness 1092) in paragraph at lines 204--204
+\T1/lmr/m/n/10.95 10.6KB. Nú-me-ro to-tal de
+ []
+
+<imagenes/wolf.png, id=112, 632.3625pt x 366.61969pt>
+File: imagenes/wolf.png Graphic file (type png)
+<use imagenes/wolf.png>
+Package pdftex.def Info: imagenes/wolf.png  used on input line 207.
+(pdftex.def)             Requested size: 133.38957pt x 77.33365pt.
+
+Underfull \hbox (badness 2443) in paragraph at lines 210--210
+\T1/lmr/m/n/10.95 Nú-me-ro to-tal de pun-tos:
+ []
+
+<imagenes/bunny.jpg, id=113, 602.25pt x 570.63188pt>
+File: imagenes/bunny.jpg Graphic file (type jpg)
+<use imagenes/bunny.jpg>
+Package pdftex.def Info: imagenes/bunny.jpg  used on input line 230.
+(pdftex.def)             Requested size: 301.12425pt x 285.31525pt.
+<imagenes/bunny_colored.jpg, id=114, 803.0pt x 758.835pt>
+File: imagenes/bunny_colored.jpg Graphic file (type jpg)
+<use imagenes/bunny_colored.jpg>
+Package pdftex.def Info: imagenes/bunny_colored.jpg  used on input line 233.
+(pdftex.def)             Requested size: 321.1943pt x 303.52863pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 227--236
+
+ []
+
+
+Underfull \vbox (badness 1189) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 236.
+LaTeX Info: Redefining \% on input line 236.
+ [5 <./imagenes/bunny_simple.png> <./imagenes/wolf.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 237.
+LaTeX Info: Redefining \% on input line 237.
+ [6 <./imagenes/bunny.jpg> <./imagenes/bunny_colored.jpg>]
+<imagenes/dragon.jpg, id=127, 921.4425pt x 602.25pt>
+File: imagenes/dragon.jpg Graphic file (type jpg)
+<use imagenes/dragon.jpg>
+Package pdftex.def Info: imagenes/dragon.jpg  used on input line 239.
+(pdftex.def)             Requested size: 460.72012pt x 301.12425pt.
+
+Overfull \hbox (43.88724pt too wide) in paragraph at lines 237--243
+[] 
+ []
+
+<imagenes/angel_lucy.jpg, id=128, 599.23875pt x 911.405pt>
+File: imagenes/angel_lucy.jpg Graphic file (type jpg)
+<use imagenes/angel_lucy.jpg>
+Package pdftex.def Info: imagenes/angel_lucy.jpg  used on input line 246.
+(pdftex.def)             Requested size: 299.61864pt x 455.70139pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 249.
+LaTeX Info: Redefining \% on input line 249.
+ [7 <./imagenes/dragon.jpg>]
+<imagenes/wue_city2.png, id=134, 1927.2pt x 1084.05pt>
+File: imagenes/wue_city2.png Graphic file (type png)
+<use imagenes/wue_city2.png>
+Package pdftex.def Info: imagenes/wue_city2.png  used on input line 255.
+(pdftex.def)             Requested size: 385.43318pt x 216.80615pt.
+<imagenes/joinedmodel.jpg, id=135, 1445.4pt x 1156.32pt>
+File: imagenes/joinedmodel.jpg Graphic file (type jpg)
+<use imagenes/joinedmodel.jpg>
+Package pdftex.def Info: imagenes/joinedmodel.jpg  used on input line 259.
+(pdftex.def)             Requested size: 289.07487pt x 231.2599pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 262.
+LaTeX Info: Redefining \% on input line 262.
+ [8 <./imagenes/angel_lucy.jpg>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 280.
+LaTeX Info: Redefining \% on input line 280.
+ [9 <./imagenes/wue_city2.png (PNG copy)> <./imagenes/joinedmodel.jpg>]
+LaTeX Info: Redefining \. on input line 322.
+LaTeX Info: Redefining \% on input line 322.
+ [10])
+(bibliografÃ­a.tex
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [8])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 57.
- [9
+ [11]
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [12
 
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 57.
+])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 60.
+ [13]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 60.
  (memoria.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 57.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 57.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 60.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 60.
 Package rerunfilecheck Info: File `memoria.out' has not changed.
-(rerunfilecheck)             Checksum: 05C6E6191A0B28611D66C71C2CC86698;686.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 57.
+(rerunfilecheck)             Checksum: 27BBB39EACCAEB2B1F87A29BC578EF7B;686.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 60.
  ) 
 Here is how much of TeX's memory you used:
- 6640 strings out of 493305
- 97305 string characters out of 3130237
- 183253 words of memory out of 3000000
- 10062 multiletter control sequences out of 15000+200000
+ 7226 strings out of 493305
+ 106558 string characters out of 3130237
+ 199689 words of memory out of 3000000
+ 10609 multiletter control sequences out of 15000+200000
  68229 words of font info for 45 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,6n,30p,880b,399s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,7n,32p,880b,401s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy
 .enc}{C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.
 enc}<C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmbx
@@ -782,9 +946,9 @@ public/lm/lmr17.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type
 e1/public/lm/lmri10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/
 type1/public/lm/lmro10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fon
 ts/type1/public/lm/lmsy10.pfb>
-Output written on memoria.pdf (15 pages, 261307 bytes).
+Output written on memoria.pdf (19 pages, 5609504 bytes).
 PDF statistics:
- 166 PDF objects out of 1000 (max. 8388607)
- 28 named destinations out of 1000 (max. 500000)
- 73 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 209 PDF objects out of 1000 (max. 8388607)
+ 37 named destinations out of 1000 (max. 500000)
+ 128 words of extra memory for PDF output out of 10000 (max. 10000000)
 

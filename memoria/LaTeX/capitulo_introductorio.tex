@@ -32,9 +32,9 @@ Por ejemplo, ...
 %https://www.fuerzaycontrol.com/la-velocidad-de-reaccion-el-tiempo-de-reaccion-simple-complejo-la-anticipacion/
 
 Teniendo en cuenta una posible definición de tecnología 
-\\
+
 "La aplicación de conocimientos científicos para la resolución de problemas mediante el diseño y creación de bienes y servicios" 
-\\
+
 junto a su etimología, pues se trata de una palabra de origen griego 
 %τεχνολογία 
 formada por 
@@ -51,15 +51,15 @@ Una vez descritas brevemente la potencia, capacidad y posibilidades que aporta l
 \\
 Esta forma de trabajar con información visual es posible debido a la puesta en conjunto de diferentes campos como la geometría, física o estadística y demás herramientas que se explicarán más adelante.
 %https://es.wikipedia.org/wiki/Visi%C3%B3n_artificial#Detecci%C3%B3n_de_objetos
-\\
-\\
+
+
 Bien es cierto que se plantea un problema ya que la forma en que el ojo humano percibe el mundo no es la misma en la que lo hace una máquina pues se pueden establecer sus diferencias como las mismas que hay entre una señal analógica y otra digital, respectivamente.
 \\
 Véase en primer lugar la mencionada diferencia respecto a las señales:
-\\
+
 \begin{list}{•}
 \item Señal analógica
-\\
+
 Se trata de la representación de una magnitud física tal y como se percibe del entorno o se genera con algún instrumento y puede verse como una función matemática continua.
 La mayoría de las señales que se perciben son analógicas como ejemplo la intensidad de corriente eléctrica, la temperatura, el sonido, presión y energía.
 De este modo existen señales analógicas periódicas (caracterizadas por amplitud y frecuencia) no periódicas (toman cualquier valor independientemente del tiempo)
@@ -113,16 +113,15 @@ De este modo hace falta unos pasos intermedios antes de llegar a un resultado fi
 
 \section{Concepto de nube de puntos}
 Una nube de puntos se puede definir como una estructura P que representa un conjunto de puntos multidimensionales p C Rn. En el caso de una nube de puntos en tres dimensiones, cada elemento o punto está representado como mínimo por sus coordenadas geométricas X,Y, Z respecto a un sistema de referencia dado. Pero se puede añadir más datos todavía en forma de color, curvatura o información sobre la normal n a una superficie en un ámbito local de la misma.  
-\textit{añadir imágenes de nubes de puntos, ejemplos visuales}
 
-Por lo tanto una nube de puntos es un conjunto de puntos indivudales sin relación alguna entre ellos, cuya
-posición, color y otro tipo de caracterísitcas tienen definición, edición y representación muy simple por lo
+
+Por lo tanto una nube de puntos es un conjunto de puntos individuales sin relación alguna entre ellos, cuya
+posición, color y otro tipo de características tienen definición, edición y representación muy simple por lo
 que es realmente práctico y sencillo manejar una gran cantidad de ellos sin tener que preocuparse por
 conceptos como escala, rotaciones y demás relaciones entre diferentes puntos de un mismo objeto,
-solamente posición y color importan.
+solamente propiedades como posición y color importan.
 
-La informacion integrable en un anube de puntos es:
-espacial, color, reflectividad, densidad
+
 
 %https://www.3deling.com/whta-is-a-point-cloud/
 %https://www.3deling.com/rgb-point-cloud/
@@ -138,9 +137,35 @@ relación puede haber entre puntos cercanos. De esta forma, una nube de puntos p
 malla de polígonos o triángulos o incluso modelos CAD.
 
 Las técnicas de reconstrucción de superficies son variadas y entre ellas se encuentran la triangulación de
-delaunay, que construye una red de triángulos sobre los vértices de la nube de puntos, y el método de
-marching cubes, que trata de convertir la nube de puntos en un campo de distancias volumétricas para
-poder así reconstruir la superficie.
+delaunay, que construye una red de triángulos sobre los vértices de la nube de puntos.
+
+Sobre la triangulación de delaunay, se debe cumplir la condición que toma el mismo nombre sobre la nube de puntos en la que se quiere reconstruir la superficie y la cual establece que:
+\\
+"la circunferencia circunscrita de un triángulo no debe contener ningún otro vértice de la triangulación en su interior, admitiéndose vértices situados sobre la circunferencia"
+\\
+En este contexto se entiende que por "vértice" se indica un punto de la nube de puntos.
+Por lo tanto una red de triángulos es una triangulación de Delaunay si todos y cada uno de los triángulos que la forman cumplen la condición descrita que puede aplicarse tanto en espacios bidimensionales como tridimensionales.
+
+La apreciación gráfica del mencionado concepto puede verse a continuación:
+
+\begin{figure}[!htb]
+\minipage{0.32\textwidth}
+  \includegraphics[width=\linewidth]{delaunay_mal}
+  \caption{Vértice en el interior de una circunferencia circunscrita. No se cumple la condición de Delaunay}\label{fig:del_mal}
+\endminipage\hfill
+\minipage{0.32\textwidth}
+  \includegraphics[width=\linewidth]{delaunay_bien}
+  \caption{Vértice fuera de una circunferencia circunscrita. Se cumple la condición de Delaunay}\label{fig:del_bien}
+\endminipage\hfill
+\minipage{0.32\textwidth}%
+  \includegraphics[width=\linewidth]{delaunay_bien_10pts}
+  \caption{Triangulación de Delaunay aplicada a 10 puntos. Ninguna  de las circunferencias circunscritas contiene vértices en su interior}\label{fig:del_bien_10pts}
+\endminipage
+\end{figure}
+
+
+
+El origen del nombre de la condición de Delauany se debe al matemático ruso Boris Nikolaevich Delone quien lo ideó en 1934 y tomó la forma francesa de su apellido, "Delaunay" como referencia a sus antecesores franceses.
 
 %https://en.wikipedia.org/wiki/Point_cloud
 
@@ -158,32 +183,90 @@ completamente fiable (ver aliasing)
 
 El concepto de nube de puntos es eminentemente simple así como versátil y de gran utilidad. Esto se puede apreciar con gran multitud de aplicaciones del concepto de nube de puntos en el mundo real y es que este progreso tecnológico es un gran paso adelante para refinar procesos ya existentes, desde producción a nivel industrial hasta establecer las bases de la navegación de cualquier robot o vehículo.
 
+
 Ejemplos
 hacer nube de puntos simple con visor y poner captura
 comparar con cosas como ... (tamaño, numero de puntos, color/no color...)
 
+
+Se muestran a continuación varios ejemplos de nubes de puntos de diferentes características:
+
+En primer lugar se tiene una sencilla nube de puntos que representa un conejo. Se ha tomado una captura desde uno de todos los posibles puntos de vista que ofrece una visión en 360º.
+Un ejemplo algo más elaborado se recoge en la siguiente nube que representa un lobo. 
+Otro ejemplo relativamente simple se puede apreciar en la siguiente imagen en la cual se puede distinguir fácilmente un(a)
+
+
+\begin{figure}[!htb]
+\minipage{0.32\textwidth}
+  \includegraphics[width=\linewidth]{bunny_simple}
+  \caption{Nube de puntos representando un conejo.
+  Peso total de la nube: 10.6KB.
+  Número total de puntos: 397.}\label{fig:bunny}
+\endminipage\hfill
+\minipage{0.32\textwidth}
+  \includegraphics[width=\linewidth]{wolf}
+  \caption{Nube de puntos representando un lobo.
+  Peso total de la nube: 42.6KB.
+  Número total de puntos: 3400.}\label{fig:wolf}
+\endminipage\hfill
+%\minipage{0.32\textwidth}%
+  %\includegraphics[width=\linewidth]{}
+  %\caption{}\label{fig:}
+%\endminipage
+\end{figure}
+
+
+
 %http://www.pointclouds.org/news/2013/01/07/point-cloud-data-sets/
 %http://graphics.stanford.edu/data/3Dscanrep/
 %http://kos.informatik.uni-osnabrueck.de/3Dscans/
+%https://www.cc.gatech.edu/~turk/bunny/bunny.html
 
-Una aplicación de la reconstrucción de superficies es la creación de modelos digitales de elevación dentro
+Una vez vistos ejemplos de nubes de puntos con la información suficiente para reconocer qué objeto representan sin más ayuda que la de los propios ojos, es momento de subir el nivel de complejidad para dar lugar a nubes de puntos como las que se muestran a continuación:
 
-de la disciplina de sistemas de información geográfica.
+Se ha visto anteriormente una sencilla representación de un conejo con solamente X puntos. El nivel de detalle pude incrementarse a niveles del orden de decenas de miles de pintos tal y como es el caso con 35947 puntos exactamente y unos 69451 triángulos ya que se ha llevado a cabo la reconstrucción de la superficie así como se ha añadido información sobre color. 
+Como consecuencia, el peso total del archivo es de unos 22MB (descomprimido) lo cual es una cantidad de información considerable a pesar de que representa un conejo de arcilla de 7,5 pulgadas de alto.
+\\
+\includegraphics[scale=0.5]{bunny}
+\\
+\\
+\includegraphics[scale=0.4]{bunny_colored}
+\\
+Esta nube de puntos proviene del departamento de computación gráfica de la universidad de Stanford e hicieron falta un total de 10 escaneos con el escaner Cyberware 3030 MS para llegar al resultado final. Para hacerse una idea del tipo de sensor utilizado, se tiene como dato relevante su precio de unos 10000 dólares (ebay) teniendo en cuenta además de que se trata de un sensor antiguo pues el escaneo se produjo en 1993.
+
+Se pueden representar objetos más grandes y con mayor nivel de detalle tal y como se aprecia en la imagen x que representa un dragón construido con madera y resina y con un tamaño de aproximadamente 20cm x 8cm x 9cm.
+\\
+\includegraphics[scale=0.5]{dragon}
+\\
+En este caso se han llevado a cabo 18 escaneos con una resolución de 100um o lo que es lo mismo, la separación entre puntos es del orden de 0,1mm. se dispone de un total de 3,609,455 puntos y 7,218,906  triángulos lo que implica un peso de 86 MB para la nube reconstruida y descomprimida.
+La nube de puntos se generó en el mismo laboratorio y con el mismo escaner que se han mencionado en el caso anterior.
+
+otro objeto de elevada complejidad que ha sido escaneado en las mismas condiciones que el dragón y el conejo es el ángel Lucy. Un total de 47 escaneos dan lugar a un resultado final de 14027932 puntos y 28055742 triángulos y para este caso un peso de 508MB tomando la nube de puntos reconstruida y descomprimida.
+\\
+\includegraphics[scale=0.5]{angel_lucy}
+\\
+No solamente se pueden representar objetos mediante nubes de puntos sino entornos abiertos o interiores.
+
+Johannes Schauer y Andreas Nüchter de la universidad de Würzburg, Alemania, tomaron la siguiente nube de puntos del mercado en la ciudad de Würzburg.
+El escaner utilizado en el este caso es el Riegl VZ-400 y con un total de 6 escaneos se han conseguido 86585411 puntos conteniendo cada uno de ellos información sobre la reflectancia de la luz del sensor lo que se representa con puntos de diferente claridad ya que no hay información sobre color. Obviamente, un entorno exterior contiene mucha más información que un simple objeto por lo que esta nube de puntos tiene un peso de 5117MB descomprimida.
+
+Cabe destacar que el sensor utilizado es bastante más potente que el anterior mencionado y tiene un precio de unos 80000 dólares.
+\\
+\includegraphics[scale=0.2]{wue_city2}
+\\
+Por último, Dorit Borrmann obtuvo una nube de puntos que representa el interior del laboratorio de automática en la universidad de Jacobs, Bremen. Se pueden apreciar diferentes tipos de puntos para cada sección de la imagen ya que el sensor láser Riegl VZ-400 se encarga de representar información térmica y de profundidad mientras que las cámaras Optris PI IR y Logitech QuickCam 9000 Pro muestran información relacionada con el color.
+\\
+\includegraphics[scale=0.2]{joinedmodel}
+\\
+Se hicieron un total de 9 escaneos en 40º cada uno lo que permite disponer de una imagen en 360º (la imagen mostrada es uno de los escaneos)
+
+Una aplicación de la reconstrucción de superficies es la creación de modelos digitales de elevación dentro de la disciplina de sistemas de información geográfica.
+
 En el ámbito de la medicina se utilizan las nubes de puntos para representar información volumétrica para
 observar el interior del organismo sin necesidad de radiografiar o intervenir quirúrgicamente...
 ...aplicaciones
 
-\begin{list}{-}
-\item ROS: For robots to work in unstructured environments, they need
-to be able to perceive the world.
-\item medicina %(https://ieeexplore.ieee.org/document/7002771/)
-\item digitalizar terreno (http://www.mdpi.com/1424-8220/8/8/4505/htm)
-\item reconstrucción entornos 3D y reconocimiento de objetos
-\item navegación %http://www.araa.asn.au/acra/acra2010/papers/pap151s1-file1.pdf
-\item industria 4.0
-\end{list}
 
-\textit{explicar brevemente cada uno}
 
 
 
@@ -238,6 +321,7 @@ Aplicaciones/dispositivos:
 Disponer de complejas, fiables y robustas representaciones del mundo real tiene no es tan sencillo como pueda parecer puesto que estos sensores suelen tener un precio prohibitivo para la mayoría de los interesados ya sean particulares o incluso empresas con un poder adquisitivo considerable. Sin embargo, las tornas han cambiado desde que han aparecido en el mercado ciertos sensores 3D como por ejemplo el sensor Kinect de la consola Xbox360 de Microsoft. Este sensor está basado en la tecnología PrimeSense y aunque puede trabajar con nubes de puntos en tiempo real e imágenes en 2D su precio no supera los 150\$. De este modo se ha producido un gran paso adelante en cuanto a los impedimentos relacionados con la adquisición, mantenimiento y delicadeza del hardware que traduce el mundo real a nubes de puntos.
 
 \section{Procesamiento software de información }
+\section{objetivos}
 Una vez estudiado el hardware necesario se precisa ahora de un mecanismo para trabajar con la inmensa cantidad de información que aportan los sensores. 
 
 El software existente para dicha tarea es diverso y no siempre gratuito. Como ejemplos se tienen:
@@ -265,7 +349,7 @@ paper: 3D is here}
 \subsection{Herramientas hardware}
 \subsection{Herramientas software}
 
-\section{objetivos}
+
 Generar un programa capaz de obtener keypoints a partir de una nube de puntos
 Croscompilar usando las herramientas de xilinx 
 Enviar ejecutable a la placa y ejecutar el programa
