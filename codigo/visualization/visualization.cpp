@@ -9,7 +9,7 @@ int user_data;
 void 
 viewerOneOff (pcl::visualization::PCLVisualizer& viewer)
 {
-    viewer.setBackgroundColor (1.0, 1.0, 1.0);
+    viewer.setBackgroundColor (1.0, 0.5, 0.5);
     pcl::PointXYZ o;
     o.x = 0;
     o.y = 0;
@@ -66,7 +66,7 @@ main (int argc, char** argv)
     viewer.runOnVisualizationThreadOnce (viewerOneOff);
     
     //This will get called once per visualization iteration
-    viewer.runOnVisualizationThread (viewerPsycho);
+    //viewer.runOnVisualizationThread (viewerPsycho);
     while (!viewer.wasStopped ())
     {
     //you can also do cool processing here
