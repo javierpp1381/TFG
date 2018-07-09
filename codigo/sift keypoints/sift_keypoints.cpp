@@ -14,7 +14,7 @@
 #include <pcl/features/normal_3d.h>
 #include <pcl/features/impl/normal_3d.hpp>
 
-#include <pcl/console/print.cpp>
+//#include <pcl/console/print.cpp> for cross compiling
 
 #include <pcl/impl/pcl_base.hpp>///////////////
 
@@ -46,7 +46,8 @@ main(int, char** argv)
     return -1;
   }
 
-/* 
+//random generated cloud
+ /* 
 cloud_xyz->width  = 500000;
   cloud_xyz->height = 1;
   cloud_xyz->points.resize (cloud_xyz->width * cloud_xyz->height);
@@ -57,6 +58,8 @@ cloud_xyz->width  = 500000;
     cloud_xyz->points[i].y = 1024 * rand () / (RAND_MAX + 10.0f);
     cloud_xyz->points[i].z = 1024 * rand () / (RAND_MAX + 10.0f);
   }*/
+
+
  std::cout << "points: " << cloud_xyz->points.size () <<std::endl;
   
   // Parameters for sift computation
