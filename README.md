@@ -3,15 +3,15 @@ codigo fuente y memoria del puto TFG
 
 ------------------------------------------------------------------ESTADO---------------------------------------------------------------
 
-memoria: Todo bien mientras siga echándole horitas
-código:
-visualizer: Funciona bien si le meto .pcd, nada fancy con que funcione vale
+memoria: Todo bien mientras siga echándole horitas  
+código:  
+visualizer: Funciona bien si le meto .pcd, nada fancy con que funcione vale  
 sift keypoints: Extracción de keypoints sift basándose en la estiamción de la normal a la superficie, ver que coño esncada parámetro
-sift_keypoints_estimation: sift keypoints a pelo, error de acceso de memoria 
-sift_z_keypoints_estimation: sift keypoints con coordenada z, error de acceso de memoria 
-harris keypoints: harris keypoints, error ni idea
-narf keypoints: narf keypoints, error de creación de range image/far ranges
-points clouds: nubes de puntos en formato .pcd
+sift_keypoints_estimation: sift keypoints a pelo, error de acceso de memoria  
+sift_z_keypoints_estimation: sift keypoints con coordenada z, error de acceso de memoria   
+harris keypoints: harris keypoints, error ni idea  
+narf keypoints: narf keypoints, error de creación de range image/far ranges  
+points clouds: nubes de puntos en formato .pcd  
           
 
 
