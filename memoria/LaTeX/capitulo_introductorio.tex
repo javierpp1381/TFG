@@ -192,8 +192,8 @@ comparar con cosas como ... (tamaño, numero de puntos, color/no color...)
 Se muestran a continuación varios ejemplos de nubes de puntos de diferentes características:
 
 En primer lugar se tiene una sencilla nube de puntos que representa un conejo. Se ha tomado una captura desde uno de todos los posibles puntos de vista que ofrece una visión en 360º.
-Un ejemplo algo más elaborado se recoge en la siguiente nube que representa un lobo. 
-Otro ejemplo relativamente simple se puede apreciar en la siguiente imagen en la cual se puede distinguir fácilmente un(a)
+Un ejemplo algo más elaborado se recoge en la figura 1.5 en la que aparece una nube que representa un lobo. 
+Otro ejemplo de mayor complejidad permite observar en la figura 1.6 un escaneo frontal de tres botes de plástico. En este caso, es obvio que las zonas vacías justo detrás de los botes son aquellos lugares donde los rayos de luz emitidos por el sensor no pueden llegar ya que los propios botes los bloquean lo cual sirve para que su superficie quede capturada. Además, se ha incluido un campo de color para cada punto.
 
 
 \begin{figure}[!htb]
@@ -201,7 +201,7 @@ Otro ejemplo relativamente simple se puede apreciar en la siguiente imagen en la
   \includegraphics[width=\linewidth]{bunny_simple}
   \caption{Nube de puntos representando un conejo.
   Peso total de la nube: 10.6KB.
-  Número total de puntos: 397.}\label{fig:bunny}
+  Número total de puntos: 397.}\label{fig:bunny_simple}
 \endminipage\hfill
 \minipage{0.32\textwidth}
   \includegraphics[width=\linewidth]{wolf}
@@ -209,12 +209,13 @@ Otro ejemplo relativamente simple se puede apreciar en la siguiente imagen en la
   Peso total de la nube: 42.6KB.
   Número total de puntos: 3400.}\label{fig:wolf}
 \endminipage\hfill
-%\minipage{0.32\textwidth}%
-  %\includegraphics[width=\linewidth]{}
-  %\caption{}\label{fig:}
-%\endminipage
+\minipage{0.32\textwidth}%
+  \includegraphics[width=\linewidth]{botes}
+  \caption{Nube de puntos representando tres botes.
+  Peso total de la nube: 2.43MB.
+  Número total de puntos: 307200.}\label{fig:botes}
+\endminipage
 \end{figure}
-
 
 
 %http://www.pointclouds.org/news/2013/01/07/point-cloud-data-sets/
@@ -224,59 +225,74 @@ Otro ejemplo relativamente simple se puede apreciar en la siguiente imagen en la
 
 Una vez vistos ejemplos de nubes de puntos con la información suficiente para reconocer qué objeto representan sin más ayuda que la de los propios ojos, es momento de subir el nivel de complejidad para dar lugar a nubes de puntos como las que se muestran a continuación:
 
-Se ha visto anteriormente una sencilla representación de un conejo con solamente X puntos. El nivel de detalle pude incrementarse a niveles del orden de decenas de miles de pintos tal y como es el caso con 35947 puntos exactamente y unos 69451 triángulos ya que se ha llevado a cabo la reconstrucción de la superficie así como se ha añadido información sobre color. 
-Como consecuencia, el peso total del archivo es de unos 22MB (descomprimido) lo cual es una cantidad de información considerable a pesar de que representa un conejo de arcilla de 7,5 pulgadas de alto.
-\\
-\includegraphics[scale=0.5]{bunny}
-\\
-\\
-\includegraphics[scale=0.4]{bunny_colored}
-\\
+Se ha visto anteriormente una sencilla representación de un conejo con solamente 397 puntos. El nivel de detalle pude incrementarse a niveles del orden de decenas de miles de pintos tal y como es el caso de la figura 1.6 que representa una figura de arcilla de 7.5 pulgadas de alto con unos 69451 triángulos ya que se ha llevado a cabo la reconstrucción de la superficie. Además, en la figura 1.7 se aprecia el resultado si se añade información sobre color en cada punto.
+Como consecuencia de añadir más información (más de 90 veces la cantidad de puntos y el color) se tiene en este caso un peso de 22MB con hasta 35947 puntos.
+\begin{figure}[!htb]
+\minipage{0.45\textwidth}
+  \includegraphics[width=\linewidth]{bunny}
+  \caption{Nube de puntos con reconstrucción de superficie representando un conejo sin información de color.}\label{fig:bunny}
+\endminipage\hfill
+\minipage{0.45\textwidth}
+  \includegraphics[width=\linewidth]{bunny_colored}
+  \caption{Nube de puntos con reconstrucción de superficie representando un conejo con información de color.}\label{fig:bunny_colored}
+\endminipage\hfill
+\end{figure}
 Esta nube de puntos proviene del departamento de computación gráfica de la universidad de Stanford e hicieron falta un total de 10 escaneos con el escaner Cyberware 3030 MS para llegar al resultado final. Para hacerse una idea del tipo de sensor utilizado, se tiene como dato relevante su precio de unos 10000 dólares (ebay) teniendo en cuenta además de que se trata de un sensor antiguo pues el escaneo se produjo en 1993.
 
 Se pueden representar objetos más grandes y con mayor nivel de detalle tal y como se aprecia en la imagen x que representa un dragón construido con madera y resina y con un tamaño de aproximadamente 20cm x 8cm x 9cm.
-\\
-\includegraphics[scale=0.5]{dragon}
-\\
-En este caso se han llevado a cabo 18 escaneos con una resolución de 100um o lo que es lo mismo, la separación entre puntos es del orden de 0,1mm. se dispone de un total de 3,609,455 puntos y 7,218,906  triángulos lo que implica un peso de 86 MB para la nube reconstruida y descomprimida.
-La nube de puntos se generó en el mismo laboratorio y con el mismo escaner que se han mencionado en el caso anterior.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.3]{dragon}
+\caption{Nube de puntos con reconstrucción de superficie representando una figura de un dragón.}\label{fig:dragon}
+\end{figure}
+
+En este caso se han llevado a cabo 18 escaneos con una resolución de 100um o lo que es lo mismo, la separación entre puntos es del orden de 0,1mm. se dispone de un total de 3609455 puntos y 7218906 triángulos lo que implica un peso de 86MB para la nube reconstruida y descomprimida.
+La nube de puntos se generó en el mismo laboratorio y con el mismo escaner que se ha mencionado en el caso anterior.
 
 otro objeto de elevada complejidad que ha sido escaneado en las mismas condiciones que el dragón y el conejo es el ángel Lucy. Un total de 47 escaneos dan lugar a un resultado final de 14027932 puntos y 28055742 triángulos y para este caso un peso de 508MB tomando la nube de puntos reconstruida y descomprimida.
-\\
-\includegraphics[scale=0.5]{angel_lucy}
-\\
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.27]{angel_lucy}
+\caption{Nube de puntos con reconstrucción de superficie representando una figura de un ángel.}\label{fig:angel_lucy}
+\end{figure}
+
 No solamente se pueden representar objetos mediante nubes de puntos sino entornos abiertos o interiores.
 
 Johannes Schauer y Andreas Nüchter de la universidad de Würzburg, Alemania, tomaron la siguiente nube de puntos del mercado en la ciudad de Würzburg.
 El escaner utilizado en el este caso es el Riegl VZ-400 y con un total de 6 escaneos se han conseguido 86585411 puntos conteniendo cada uno de ellos información sobre la reflectancia de la luz del sensor lo que se representa con puntos de diferente claridad ya que no hay información sobre color. Obviamente, un entorno exterior contiene mucha más información que un simple objeto por lo que esta nube de puntos tiene un peso de 5117MB descomprimida.
 
 Cabe destacar que el sensor utilizado es bastante más potente que el anterior mencionado y tiene un precio de unos 80000 dólares.
-\\
-\includegraphics[scale=0.2]{wue_city2}
-\\
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.17]{wue_city2}
+\caption{Nube de puntos con información de reflectancia de la luz que representa un mercado en Würzburg, Alemania.}\label{fig:wue_city}
+\end{figure}
+
 Por último, Dorit Borrmann obtuvo una nube de puntos que representa el interior del laboratorio de automática en la universidad de Jacobs, Bremen. Se pueden apreciar diferentes tipos de puntos para cada sección de la imagen ya que el sensor láser Riegl VZ-400 se encarga de representar información térmica y de profundidad mientras que las cámaras Optris PI IR y Logitech QuickCam 9000 Pro muestran información relacionada con el color.
-\\
-\includegraphics[scale=0.2]{joinedmodel}
-\\
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.17]{joinedmodel}
+\caption{Unión de cuatro nubes de puntos con información térmica, de color y reflectancia de la luz representando un entorno cerrado.}\label{fig:joined_model}
+\end{figure}
+
 Se hicieron un total de 9 escaneos en 40º cada uno lo que permite disponer de una imagen en 360º (la imagen mostrada es uno de los escaneos)
-
-Una aplicación de la reconstrucción de superficies es la creación de modelos digitales de elevación dentro de la disciplina de sistemas de información geográfica.
-
-En el ámbito de la medicina se utilizan las nubes de puntos para representar información volumétrica para
-observar el interior del organismo sin necesidad de radiografiar o intervenir quirúrgicamente...
-...aplicaciones
-
-
-
 
 
 
 
 \section{Adquisición de información: Sensores y evolución}
 
-La adquisición de información se lleva a cabo mediante sensores ópticos que lanzan rayos de luz (visible
-o infrarroja en la mayoría de los casos) que desvelan la información sobre el objeto escaneado al rebotar
+La adquisición de información se lleva a cabo mediante sensores ópticos que disponen de emisores de rayos de luz (visible
+o infrarroja en la mayoría de los casos) que desvelan la información sobre el objeto escaneado al rebotar sobre el mismo y volver al sensor.
 contra el mismo.
+
+%https://upload.wikimedia.org/wikipedia/commons/c/c0/LIDAR-scanned-SICK-LMS-animation.gif
+%https://www.engineering.com/AdvancedManufacturing/ArticleID/12390/Quality-Basics-How-Does-3D-Laser-Scanning-Work.aspx
+%https://en.wikipedia.org/wiki/Laser_scanning
 
 El factor clave es entonces el hecho de que estos rayos de luz puedan llegar a toda la superficie del objeto
 que se quiere analizar, es decir, accesibilidad física del sensor.
