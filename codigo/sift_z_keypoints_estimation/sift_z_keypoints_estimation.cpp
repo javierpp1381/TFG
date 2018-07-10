@@ -71,15 +71,6 @@ namespace pcl
 int
 main(int argc, char** argv)
 {
- /* std::string filename = argv[1];
-  std::cout << "Reading " << filename << std::endl;
-  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_xyz (new pcl::PointCloud<pcl::PointXYZ>);
-  if(pcl::io::loadPCDFile<pcl::PointXYZ> (filename, *cloud_xyz) == -1) // load the file
-  {
-    PCL_ERROR ("Couldn't read file");
-    return -1;
-  }
-*/
 
  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_xyz (new pcl::PointCloud<pcl::PointXYZ>);
      std::vector<int> pcd_filename_indices = pcl::console::parse_file_extension_argument (argc, argv, "pcd"); 
