@@ -14,7 +14,7 @@ narf keypoints: narf keypoints, error de creación de range image/far ranges
 points clouds: nubes de puntos en formato .pcd  
 
 
-cros compilación: error de llamada a metodos virtuales de PCDWrite
+cros compilación: error de llamada a metodos virtuales de PCDWrite  
 compilación directa: todo guay con el swap file de 2GB
           
 
