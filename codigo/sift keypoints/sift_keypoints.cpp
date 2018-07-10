@@ -27,37 +27,33 @@
 
 #include <pcl/kdtree/impl/kdtree_flann.hpp>
 
+#include <pcl/console/parse.h>
 /* This example shows how to estimate the SIFT points based on the
  * Normal gradients i.e. curvature than using the Intensity gradient
  * as usually used for SIFT keypoint estimation.
  */
 
 int
-main(int, char** argv)
-{
-  std::string filename = argv[1];
-  std::cout << "Reading " << filename << std::endl;
-  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_xyz (new pcl::PointCloud<pcl::PointXYZ>);
- 
-
- if(pcl::io::loadPCDFile<pcl::PointXYZ> (filename, *cloud_xyz) == -1) // load the file
+main(int argc, char** argv)
+{ 
+pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_xyz (new pcl::PointCloud<pcl::PointXYZ>);
+     std::vector<int> pcd_filename_indices = pcl::console::parse_file_extension_argument (argc, argv, "pcd"); 
+     std::string filename;
+     
+     if (!pcd_filename_indices.empty ())
   {
-    PCL_ERROR ("Couldn't read file");
-    return -1;
+     filename = argv[pcd_filename_indices[0]];
+    if (pcl::io::loadPCDFile (filename, *cloud_xyz) == -1)
+    {
+      std::cout << "Was not able to open file \""<<filename<<"\".\n";
+      return -1;
+    }
   }
-
-//random generated cloud
- /* 
-cloud_xyz->width  = 500000;
-  cloud_xyz->height = 1;
-  cloud_xyz->points.resize (cloud_xyz->width * cloud_xyz->height);
-
-  for (size_t i = 0; i < cloud_xyz->points.size (); ++i)
+    else
   {
-    cloud_xyz->points[i].x = 1024 * rand () / (RAND_MAX + 10.0f);
-    cloud_xyz->points[i].y = 1024 * rand () / (RAND_MAX + 10.0f);
-    cloud_xyz->points[i].z = 1024 * rand () / (RAND_MAX + 10.0f);
-  }*/
+    std::cout << "\nNo *.pcd file given => closing.\n\n";
+    return -1;
+}
 
 
  std::cout << "points: " << cloud_xyz->points.size () <<std::endl;
