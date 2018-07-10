@@ -48,19 +48,33 @@
 #include <pcl/keypoints/sift_keypoint.h>
 #include <pcl/keypoints/impl/sift_keypoint.hpp>
 #include <pcl/features/normal_3d.h>
+#include <pcl/console/parse.h>
 // #include <pcl/visualization/pcl_visualizer.h>
 	
 int
-main(int, char** argv)
+main(int argc, char** argv)
 {
-  std::string filename = argv[1];
-  std::cout << "Reading " << filename << std::endl;
-  pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZRGB>);
-  if(pcl::io::loadPCDFile<pcl::PointXYZRGB> (filename, *cloud) == -1) // load the file
+pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZRGB>);
+     std::vector<int> pcd_filename_indices = pcl::console::parse_file_extension_argument (argc, argv, "pcd"); 
+     std::string filename;
+     
+     if (!pcd_filename_indices.empty ())
   {
-  PCL_ERROR ("Couldn't read file");
-  return -1;
+     filename = argv[pcd_filename_indices[0]];
+    if (pcl::io::loadPCDFile (filename, *cloud) == -1)
+    {
+      std::cout << "Was not able to open file \""<<filename<<"\".\n";
+      return -1;
+    }
   }
+    else
+  {
+    std::cout << "\nNo *.pcd file given => closing.\n\n";
+    return -1;
+}
+	
+	
+	
   std::cout << "points: " << cloud->points.size () <<std::endl;
   
   // Parameters for sift computation
