@@ -12,6 +12,10 @@ sift_z_keypoints_estimation: sift keypoints con coordenada z, error de acceso de
 harris keypoints: harris keypoints, error ni idea  
 narf keypoints: narf keypoints, error de creación de range image/far ranges  
 points clouds: nubes de puntos en formato .pcd  
+
+
+cros compilación: error de llamada a metodos virtuales de PCDWrite
+compilación directa: todo guay con el swap file de 2GB
           
 
 
