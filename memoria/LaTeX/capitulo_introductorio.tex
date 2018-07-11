@@ -286,26 +286,50 @@ Se hicieron un total de 9 escaneos en 40º cada uno lo que permite disponer de u
 
 \section{Adquisición de información: Sensores y evolución}
 
-La adquisición de información se lleva a cabo mediante sensores ópticos que disponen de emisores de rayos de luz (visible
-o infrarroja en la mayoría de los casos) que desvelan la información sobre el objeto escaneado al rebotar sobre el mismo y volver al sensor.
-contra el mismo.
+En los últimos veinte años, se han hecho grandes progresos en lo que a sensores e refiere ya que actualmente se usan de sofisticadas cámaras y escaneres láser y se han dejado atrás los sensores basados en sonar o infrarrojos los cuales proporcionan a penas unos bytes de información sobre el entorno u objeto que tratan de representar.
+
+
+Centrándose en los sensores láser, la adquisición de información cobra sentido cuando se tienen en cuenta la desviación de rayos de luz ya sea visible o infrarroja, por ejemplo. Para poder llevar a cabo el escaneo de objetos tridimensionales así como entornos, el escaneo laser o también conocido como lidar, combina un control preciso de la dirección de emisión de los rayos de luz con un sensor (rangefinder) capaz de detectarlos. De este modo, el sensor es capaz de medir la distancia que hay desde el punto de emisión de los rayos de luz hasta la superficie en la que rebotan de manera que se pueden detectar rápidamente formas definidas de objetos, edificios o paisajes.
+
+La manera de controlar los rayos de luz es mediante espejos
+
+Sin embargo no se realiza un único escaneo ya que el propio concepto implica que el objeto bloquea los rayos de luz por lo que la cara frontal, de la que sí se obtiene información, impide a la luz llegar a la cara posterior. El factor clave es entonces el hecho de que estos rayos de luz puedan llegar a toda la superficie del objeto que se quiere analizar, es decir, accesibilidad física del sensor.
+De este modo, independientemente del sensor o método que se utilice, es imposible recolectar
+información sobre superficies no visibles o lo que es lo mismo, con un solo escaneo.
+
+
+imagen 
+
+Como consecuencia, es necesario llevar a cabo varios escaneos desde diferentes puntos de vista y
+ponerlos en conjunto conociendo con precisión la posición del sensor en cada escaneo.
+
+
+Pero ¿Cómo se pueden medir distancias utilizando luz? el concepto entorno al que el escaner laser gira es el tiempo de vuelo. Esto quiere decir que se utiliza un dispositivo (range finder) capaz de medir con precisión el tiempo que transcurre desde que se emite un pulso de luz hasta que vuelve otra vez al mismo tras rebotar sobre el objeto que desea detectarse. Considerando entonces que la velocidad de la luz es una constante conocida, c, la distancia del escaner a un punto en concreto donde rebota un determinado pulso de luz puede determinarse como:
+
+ecuacion d= c*t/2
+
+Nótese que c*t es la distancia que hay entre el escaner y el objeto duplicada ya que t es el tiempo total desde la emisión del pulso de luz hasta la recepción. Por tanto, tomando la mitad del tiempo total de vuelo se obtiene la medida deseada que es la distancia del escaner al objeto.
+
+Retomando la idea de que la velocidad de la luz es una constante, la única variable en el cálculo de la distancia es el tiempo de vuelo. Téngase por ejemplo una distancia de 30cm desde el sensor hasta el objeto que desea capturarse.Esto implica que la resolución del reloj integrado en el sensor ha de ser cuanto menos elevada:
+
+0,3m/3*10^8=1ns=0,000000001s, en ese tiempo...
+
+Se ha desvelado de esta forma una desventaja del concepto de tiempo de vuelo, se necesita equipamiento muy preciso y fiable lo que se traduce en complejidad y elevadas inversiones económicas.
+
+Peor dando la vuelta a esta desventaja, es decir, cuando se trata de escanear objetos en la lejanía como puede ser un edificio o paisaje,la resolución requerida por parte del reloj se reduce dando así medidas más fiables. Además, considerando de nuevo la velocidad de la luz como una constante, no importa la distancia a la que se encuentre el objeto salvo por cuestiones de difracción y absorción del pulso de luz en el ambiente, por ejemplo , por la presencia de humedad.
+
+
+
+
 
 %https://upload.wikimedia.org/wikipedia/commons/c/c0/LIDAR-scanned-SICK-LMS-animation.gif
 %https://www.engineering.com/AdvancedManufacturing/ArticleID/12390/Quality-Basics-How-Does-3D-Laser-Scanning-Work.aspx
 %https://en.wikipedia.org/wiki/Laser_scanning
-
-El factor clave es entonces el hecho de que estos rayos de luz puedan llegar a toda la superficie del objeto
-que se quiere analizar, es decir, accesibilidad física del sensor.
-De este modo, independientemente del sensor o método que se utilice, es imposible recolectar
-información sobre superficies no visibles o lo que es lo mismo, con un solo escaneo.
-Como consecuencia, es necesario llevar a cabo varios escaneos desde diferentes puntos de vista y
-ponerlos en conjunto conociendo con precisión la posición del sensor en cada escaneo.
-
-En los últimos veinte años, se han hecho grandes progresos ya que actualmente se usan de sofisticadas cámaras y escaneres láser y se han dejado atrás los sensores basados en sonar o infrarrojos los cuales proporcionan a penas unos bytes de información sobre su entorno.
+%http://www.2grobotics.com/wp-content/uploads/2017/03/sonarvslaser.pdf
 
 Para entender la potencia de estos avanzados sensores se comparan tres tipos de tecnologías: 
 
-\textit{definición-descripcion-aplicaciones/importancia}
+
 
 \begin{list}{-}
 \item Lidar
