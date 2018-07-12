@@ -286,23 +286,41 @@ Se hicieron un total de 9 escaneos en 40º cada uno lo que permite disponer de u
 
 \section{Adquisición de información: Sensores y evolución}
 
+La adquisición y almacenamiento de información es el primer paso para comenzar a trabajar con una nube de puntos. A pesar de tratarse de información relativamente sencilla como coordenadas respecto a un sistema de referencia, color y reflectividad, hay que tomar dicha información para miles o incluso millones de puntos tal y como se ha visto en ejemplos mostrados anteriormente como en el caso del ángel Lucy (figura ). Por lo tanto, el factor limitante del sensor en cuestión radica en cuánta y cuan variada información es capaz de percibir y almacenar.
+
 En los últimos veinte años, se han hecho grandes progresos en lo que a sensores e refiere ya que actualmente se usan de sofisticadas cámaras y escaneres láser y se han dejado atrás los sensores basados en sonar o infrarrojos los cuales proporcionan a penas unos bytes de información sobre el entorno u objeto que tratan de representar.
 
 
-Centrándose en los sensores láser, la adquisición de información cobra sentido cuando se tienen en cuenta la desviación de rayos de luz ya sea visible o infrarroja, por ejemplo. Para poder llevar a cabo el escaneo de objetos tridimensionales así como entornos, el escaneo laser o también conocido como lidar, combina un control preciso de la dirección de emisión de los rayos de luz con un sensor (rangefinder) capaz de detectarlos. De este modo, el sensor es capaz de medir la distancia que hay desde el punto de emisión de los rayos de luz hasta la superficie en la que rebotan de manera que se pueden detectar rápidamente formas definidas de objetos, edificios o paisajes.
-
-La manera de controlar los rayos de luz es mediante espejos
-
-Sin embargo no se realiza un único escaneo ya que el propio concepto implica que el objeto bloquea los rayos de luz por lo que la cara frontal, de la que sí se obtiene información, impide a la luz llegar a la cara posterior. El factor clave es entonces el hecho de que estos rayos de luz puedan llegar a toda la superficie del objeto que se quiere analizar, es decir, accesibilidad física del sensor.
-De este modo, independientemente del sensor o método que se utilice, es imposible recolectar
-información sobre superficies no visibles o lo que es lo mismo, con un solo escaneo.
+Centrándose en los sensores láser, la adquisición de información cobra sentido cuando se tienen en cuenta la desviación de rayos de luz ya sea visible o infrarroja, por ejemplo.
 
 
-imagen 
 
-Como consecuencia, es necesario llevar a cabo varios escaneos desde diferentes puntos de vista y
-ponerlos en conjunto conociendo con precisión la posición del sensor en cada escaneo.
 
+ Para poder llevar a cabo el escaneo de objetos tridimensionales así como entornos, el escaneo laser o también conocido como lidar (light detection and ranging pero originalmente se conocía por la union de light and radar), 
+es un procedimiento que se originó a principios de la década de los sesenta tras la invención del láser y permite medir distancias a un objetivo iluminándolo con pulsos láser y estudiando los tiempos de retorno y longitudes de onda de estos pulsos al rebotar y ser captados por un sensor conocido como rangefinder. 
+
+De este modo, al ser capaz de medir la distancia que hay desde el punto de emisión de los rayos de luz hasta la superficie en la que rebotan, el sensor puede detectar rápidamente formas definidas de objetos, edificios o paisajes considerando en conjunto de puntos detectados.
+
+
+Por lo general, hay dos tipos de lidar:
+método coherente e incoherente o también conocido como detección de energía directa.
+El método incoherente mide cambios en la amplitud de la onda emitida pues al rebotar e interactuar con el ambiente su nivel de energía varía.
+
+imagen cambio amplitud
+
+El método coherente es más apropiado para medir diferencias en la frecuencia de la onda y utiliza (Optical heterodyne detection) lo que le permite operar a potencias mucho más bajas a costa de utilizar un equipamiento mucho más complejo (more complex transceiver requirements)
+
+imagen cambio fase
+
+
+En ambos modelos se pueden usar dos tipos diferentes de pulsos: micropulsos y sistemas de alta energía.
+los micropulsos surgen de la elevada capacidad computacional de las computadoras actuales. Esto deriva en un láser de baja potencia (del orden del microjulio) que es clasificado como seguro al ojo permitiéndose su uso bajo escasas medidas de precaución 
+
+Por otra parte, los sistemas de alta energía, requieren medidas de seguridad más estrictas y se usan principalmente para fines de investigación atmosférica pues permite tomar medidas como la altura, número de capas y densidad de las nubes, propiedades de las partículas en las nubes, temperatura, presión, concentración de gases, o humedad.
+
+
+
+Para cada pulso de luz emitido se detecta un punto en concreto lo que hace pensar que para poder crear nubes con millones de puntos la velocidad de generación de los pulsos ha de ser elevada. En el caso de lidar se pueden emitir hasta 150000 pulsos en un segundo.
 
 Pero ¿Cómo se pueden medir distancias utilizando luz? el concepto entorno al que el escaner laser gira es el tiempo de vuelo. Esto quiere decir que se utiliza un dispositivo (range finder) capaz de medir con precisión el tiempo que transcurre desde que se emite un pulso de luz hasta que vuelve otra vez al mismo tras rebotar sobre el objeto que desea detectarse. Considerando entonces que la velocidad de la luz es una constante conocida, c, la distancia del escaner a un punto en concreto donde rebota un determinado pulso de luz puede determinarse como:
 
@@ -312,12 +330,43 @@ Nótese que c*t es la distancia que hay entre el escaner y el objeto duplicada y
 
 Retomando la idea de que la velocidad de la luz es una constante, la única variable en el cálculo de la distancia es el tiempo de vuelo. Téngase por ejemplo una distancia de 30cm desde el sensor hasta el objeto que desea capturarse.Esto implica que la resolución del reloj integrado en el sensor ha de ser cuanto menos elevada:
 
-0,3m/3*10^8=1ns=0,000000001s, en ese tiempo...
+%0,3m/3*10^8=1ns=0,000000001s, en ese tiempo...
 
 Se ha desvelado de esta forma una desventaja del concepto de tiempo de vuelo, se necesita equipamiento muy preciso y fiable lo que se traduce en complejidad y elevadas inversiones económicas.
 
-Peor dando la vuelta a esta desventaja, es decir, cuando se trata de escanear objetos en la lejanía como puede ser un edificio o paisaje,la resolución requerida por parte del reloj se reduce dando así medidas más fiables. Además, considerando de nuevo la velocidad de la luz como una constante, no importa la distancia a la que se encuentre el objeto salvo por cuestiones de difracción y absorción del pulso de luz en el ambiente, por ejemplo , por la presencia de humedad.
+Pero dando la vuelta a esta desventaja, es decir, cuando se trata de escanear objetos en la lejanía como puede ser un edificio o paisaje,la resolución requerida por parte del reloj se reduce dando así medidas más fiables. Además, considerando de nuevo la velocidad de la luz como una constante, no importa la distancia a la que se encuentre el objeto salvo por cuestiones de difracción y absorción del pulso de luz en el ambiente, por ejemplo , por la presencia de humedad.
 
+Una aplicación muy extendida del lidar es el reconocimiento de terreno. Para ello se integra el sensor en una aeronave y se capturan los puntos correspondientes al terreno sobrevolado. Esta aplicación es útil para generar modelos digitales de elevación.
+
+
+
+ 
+
+Este método combina precisión y versatilidad ya que puede valerse de luz visible, infrarroja o ultravioleta para lanzarla contra objetivos de diversos tipos de materiales como metal, cerámica, aerosoles, terreno (rocas y tierra) e incluso se puede llegar al nivel molecular. 
+ 
+
+
+imagen
+
+Sin embargo no se realiza un único escaneo ya que el propio concepto implica que el objeto bloquea los rayos de luz por lo que la cara frontal, de la que sí se obtiene información, impide a la luz llegar a la cara posterior. El factor clave es entonces el hecho de que estos rayos de luz puedan llegar a toda la superficie del objeto que se quiere analizar, es decir, accesibilidad física del sensor.
+De este modo, independientemente del sensor o método que se utilice, es imposible recolectar
+información sobre superficies no visibles o lo que es lo mismo, con un solo escaneo.
+
+
+imagen 
+
+
+Como consecuencia, es necesario llevar a cabo varios escaneos desde diferentes puntos de vista y
+ponerlos en conjunto conociendo con precisión la posición del sensor en cada escaneo.
+
+
+
+
+En cuanto a los componentes necesarios para cualquier sistema lidar 
+
+Aplicaciones/dispositivos:
+
+\textit{mencionar y describir alguna aplicación relevante ejemplo: Velodyne spinning LIDAR https://en.wikipedia.org/wiki/Lidar}
 
 
 
@@ -326,37 +375,7 @@ Peor dando la vuelta a esta desventaja, es decir, cuando se trata de escanear ob
 %https://www.engineering.com/AdvancedManufacturing/ArticleID/12390/Quality-Basics-How-Does-3D-Laser-Scanning-Work.aspx
 %https://en.wikipedia.org/wiki/Laser_scanning
 %http://www.2grobotics.com/wp-content/uploads/2017/03/sonarvslaser.pdf
-
-Para entender la potencia de estos avanzados sensores se comparan tres tipos de tecnologías: 
-
-
-
-\begin{list}{-}
-\item Lidar
-
-Definicion:
-(light detection and ranging pero originalmente se conocía por la union de light and radar)
-es un procedimiento que se originó a principios de la década de los sesenta tras la invención del láser y permite medir distancias a un objetivo iluminándolo con pulsos láser y estudiando los tiempos de retorno y longitudes de onda de estos pulsos al rebotar y ser captados por un sensor.
-
-Este método combina precisión y versatilidad ya que puede valerse de luz visible, infrarroja o ultravioleta para lanzarla contra objetivos de diversos tipos de materiales como metal, cerámica, aerosoles, terreno (rocas y tierra) e incluso se puede llegar al nivel molecular
-
-Descripción:
-
-Existen dos formas de aplicar el método lidar:
-\begin{list}{•}
-\item incoherente: 
-\item coherente:
-\end{list}
-
-En cuanto a los componentes necesarios para cualquier sistema lidar 
-
-Aplicaciones/dispositivos:
-
-\textit{mencionar y describir alguna aplicación relevante ejemplo: Velodyne spinning LIDAR https://en.wikipedia.org/wiki/Lidar}
-
-\item Sonar
-\item Infrarrojo
-\end{list}
+%http://www.lidar-uk.com/how-lidar-works/
 
 Disponer de complejas, fiables y robustas representaciones del mundo real tiene no es tan sencillo como pueda parecer puesto que estos sensores suelen tener un precio prohibitivo para la mayoría de los interesados ya sean particulares o incluso empresas con un poder adquisitivo considerable. Sin embargo, las tornas han cambiado desde que han aparecido en el mercado ciertos sensores 3D como por ejemplo el sensor Kinect de la consola Xbox360 de Microsoft. Este sensor está basado en la tecnología PrimeSense y aunque puede trabajar con nubes de puntos en tiempo real e imágenes en 2D su precio no supera los 150\$. De este modo se ha producido un gran paso adelante en cuanto a los impedimentos relacionados con la adquisición, mantenimiento y delicadeza del hardware que traduce el mundo real a nubes de puntos.
 
