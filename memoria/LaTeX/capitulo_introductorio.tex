@@ -297,10 +297,46 @@ Centrándose en los sensores láser, la adquisición de información cobra senti
 
 
  Para poder llevar a cabo el escaneo de objetos tridimensionales así como entornos, el escaneo laser o también conocido como lidar (light detection and ranging pero originalmente se conocía por la union de light and radar), 
-es un procedimiento que se originó a principios de la década de los sesenta tras la invención del láser y permite medir distancias a un objetivo iluminándolo con pulsos láser y estudiando los tiempos de retorno y longitudes de onda de estos pulsos al rebotar y ser captados por un sensor conocido como rangefinder. 
+es un procedimiento que se originó a principios de la década de los sesenta tras la invención del láser y permite medir distancias a un objetivo iluminándolo con pulsos láser y estudiando los tiempos de retorno y longitudes de onda de estos pulsos al rebotar y ser captados por un sensor conocido como rangefinder.
 
-De este modo, al ser capaz de medir la distancia que hay desde el punto de emisión de los rayos de luz hasta la superficie en la que rebotan, el sensor puede detectar rápidamente formas definidas de objetos, edificios o paisajes considerando en conjunto de puntos detectados.
+En la mayoría de los escaneres laser, la dirección de emisión del rayo de luz es constante por lo que para poder apuntar el haz hacia la dirección deseada se hace uso de espejos. Esto implica lanzar el láser contra un espejo y controlar éste con diferentes movimientos de rotación; en un eje para un movimiento unidimensional (un grado de libertad) o en dos ejes para un alcance espacial total quedando fija la posición del foco emisor(dos grados de libertad)
 
+\begin{figure}[!htb]
+\minipage{0.32\textwidth}
+  \includegraphics[width=\linewidth]{sensor_laser_espejo}
+  \caption{Láser proyectado contra un espejo con un grado de libertad}\label{fig:sensor laser completo - espejo}
+\endminipage\hfill
+\minipage{0.32\textwidth}
+  \includegraphics[width=\linewidth]{sensor_laser_vista_tope}
+  \caption{Vista superior del sensor y las superficies que obstaculizan el haz de luz: objeto y recinto en el que se encuentra}\label{fig:sensor laser completo - vista tope}
+\endminipage\hfill
+\minipage{0.32\textwidth}
+  \includegraphics[width=\linewidth]{sensor_laser_resultado}
+  \caption{Conjunto de puntos obtenidos tras el esacaneo pertenecientes al objeto en el interior del recinto y las limitaciones espaciales del mismo.}\label{fig:sensor laser completo - resultado}
+\endminipage
+\end{figure}
+
+Una alternativa para controlar el rayo láser en dos dimensiones incumbe el uso de dos espejos montados en ejes ortogonales y entonces hacer movimientos de rotación entorno a un eje para cada uno de los espejos.
+
+\begin{figure}
+\minipage{0.45\textwidth}
+  \includegraphics[width=\linewidth]{sensor_dos_espejos}
+  \caption{Uso de dos espejos con un grado de libertad en cada uno y accionados con galvanómetros}\label{fig:sensor dos espejos}
+\endminipage\hfill
+\minipage{0.45\textwidth}
+  \includegraphics[width=\linewidth]{movimiento_lidar_2D}
+  \caption{Sensor lidar con dos grados de libertad.}\label{fig:movimiento lidar 2D}
+\endminipage\hfill
+
+\end{figure}
+
+
+para sistemas más sofisticados todavía, se requiere el posicionamiento espacial del foco emisor de rayos lo cual se consigue con un sistema de lentes servo controladas conocido como focus shifter o z-shifter
+
+la forma más común de mover los espejos es mediante el uso de un motor eléctrico o un galvanómetro para el más sencillo de los casos. Se pueden utilizar también actuadores piezoeléctricos o magnetorresistivos para una mayor velocidad angular pero a costa de menores ángulos máximos de desplazamiento
+
+
+De este modo, al ser capaz de medir la distancia que hay desde el punto de emisión de los rayos de luz hasta la superficie en la que rebotan, el sensor puede detectar rápidamente formas definidas de objetos, edificios o paisajes considerando en conjunto de puntos detectados tal y como se ha mostrado en ejemplos del apartado anterior concepto de nube de puntos (hipervínculo)
 
 Por lo general, hay dos tipos de lidar:
 método coherente e incoherente o también conocido como detección de energía directa.
@@ -322,6 +358,9 @@ Por otra parte, los sistemas de alta energía, requieren medidas de seguridad m�
 
 Para cada pulso de luz emitido se detecta un punto en concreto lo que hace pensar que para poder crear nubes con millones de puntos la velocidad de generación de los pulsos ha de ser elevada. En el caso de lidar se pueden emitir hasta 150000 pulsos en un segundo.
 
+En cuanto a los componentes necesarios para cualquier sistema lidar 
+...
+
 Pero ¿Cómo se pueden medir distancias utilizando luz? el concepto entorno al que el escaner laser gira es el tiempo de vuelo. Esto quiere decir que se utiliza un dispositivo (range finder) capaz de medir con precisión el tiempo que transcurre desde que se emite un pulso de luz hasta que vuelve otra vez al mismo tras rebotar sobre el objeto que desea detectarse. Considerando entonces que la velocidad de la luz es una constante conocida, c, la distancia del escaner a un punto en concreto donde rebota un determinado pulso de luz puede determinarse como:
 
 ecuacion d= c*t/2
@@ -337,36 +376,38 @@ Se ha desvelado de esta forma una desventaja del concepto de tiempo de vuelo, se
 Pero dando la vuelta a esta desventaja, es decir, cuando se trata de escanear objetos en la lejanía como puede ser un edificio o paisaje,la resolución requerida por parte del reloj se reduce dando así medidas más fiables. Además, considerando de nuevo la velocidad de la luz como una constante, no importa la distancia a la que se encuentre el objeto salvo por cuestiones de difracción y absorción del pulso de luz en el ambiente, por ejemplo , por la presencia de humedad.
 
 Una aplicación muy extendida del lidar es el reconocimiento de terreno. Para ello se integra el sensor en una aeronave y se capturan los puntos correspondientes al terreno sobrevolado. Esta aplicación es útil para generar modelos digitales de elevación.
-
-
+Como contrapartida, hay que tener en cuenta que el sensor tiene una posición variable respecto al terreno ya que va embarcado en una aeronave. Para considerar esto en el resultado final de la nube de puntos generada, se ha de disponer de un sistema de navegación, para el posicionamiento del sensor con GPS por ejemplo, así como de una unidad de medidas inerciales, para obtener información sobre la posición angular del sensor según los tres ejes espaciales, es decir, medir los movimientos yaw, pitch y roll.
 
  
+\begin{figure}
+\minipage{0.45\textwidth}
+  \includegraphics[width=\linewidth]{airborne_lidar}
+  \caption{Esquema de utilización del método lidar en una aeroanve}\label{fig:airborne_lidar}
+\endminipage\hfill
+\minipage{0.45\textwidth}
+  \includegraphics[width=\linewidth]{airborne_city}
+  \caption{Entorno urbano recreado con el método lidar}\label{fig:airborne_city}
+\endminipage\hfill
+
+\end{figure}
 
 Este método combina precisión y versatilidad ya que puede valerse de luz visible, infrarroja o ultravioleta para lanzarla contra objetivos de diversos tipos de materiales como metal, cerámica, aerosoles, terreno (rocas y tierra) e incluso se puede llegar al nivel molecular. 
  
 
 
-imagen
 
 Sin embargo no se realiza un único escaneo ya que el propio concepto implica que el objeto bloquea los rayos de luz por lo que la cara frontal, de la que sí se obtiene información, impide a la luz llegar a la cara posterior. El factor clave es entonces el hecho de que estos rayos de luz puedan llegar a toda la superficie del objeto que se quiere analizar, es decir, accesibilidad física del sensor.
 De este modo, independientemente del sensor o método que se utilice, es imposible recolectar
 información sobre superficies no visibles o lo que es lo mismo, con un solo escaneo.
 
 
-imagen 
+imagen botes por ejemplo
 
 
 Como consecuencia, es necesario llevar a cabo varios escaneos desde diferentes puntos de vista y
-ponerlos en conjunto conociendo con precisión la posición del sensor en cada escaneo.
+ponerlos en conjunto conociendo con precisión la posición del sensor en cada escaneo para poder llevar a cabo lo que se conoce como alineamiento de nubes de puntos, concepto que se explicará con más detalle posteriormente.
 
 
-
-
-En cuanto a los componentes necesarios para cualquier sistema lidar 
-
-Aplicaciones/dispositivos:
-
-\textit{mencionar y describir alguna aplicación relevante ejemplo: Velodyne spinning LIDAR https://en.wikipedia.org/wiki/Lidar}
 
 
 
@@ -376,6 +417,8 @@ Aplicaciones/dispositivos:
 %https://en.wikipedia.org/wiki/Laser_scanning
 %http://www.2grobotics.com/wp-content/uploads/2017/03/sonarvslaser.pdf
 %http://www.lidar-uk.com/how-lidar-works/
+%http://elm-chan.org/works/vlp/report_e.html
+%http://www.ionix.fi/en/technologies/laser-processing/laser-marking/
 
 Disponer de complejas, fiables y robustas representaciones del mundo real tiene no es tan sencillo como pueda parecer puesto que estos sensores suelen tener un precio prohibitivo para la mayoría de los interesados ya sean particulares o incluso empresas con un poder adquisitivo considerable. Sin embargo, las tornas han cambiado desde que han aparecido en el mercado ciertos sensores 3D como por ejemplo el sensor Kinect de la consola Xbox360 de Microsoft. Este sensor está basado en la tecnología PrimeSense y aunque puede trabajar con nubes de puntos en tiempo real e imágenes en 2D su precio no supera los 150\$. De este modo se ha producido un gran paso adelante en cuanto a los impedimentos relacionados con la adquisición, mantenimiento y delicadeza del hardware que traduce el mundo real a nubes de puntos.
 
