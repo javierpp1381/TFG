@@ -1,3 +1,11 @@
+/* This example shows how to estimate the SIFT points based on the
+ * Normal gradients i.e. curvature than using the Intensity gradient
+ * as usually used for SIFT keypoint estimation.
+ */
+
+
+//------------------------------------------------LIBRARIRES--------------------------------------
+
 // STL
 #include <iostream>
 
@@ -34,20 +42,88 @@
 #include <pcl/features/normal_3d_omp.h>
 
 #include <pcl/console/parse.h>
-/* This example shows how to estimate the SIFT points based on the
- * Normal gradients i.e. curvature than using the Intensity gradient
- * as usually used for SIFT keypoint estimation.
- */
 
-int
-main(int argc, char** argv)
+
+
+
+//-------------------------------------------GLOBAL VARIABLES-------------------------------------------------
+
+
+int normal_estimation_object = 0;
+float radius_search = 0.02f;
+clock_t begin,end;
+double elapsed_sec;
+// Parameters for sift computation
+float min_scale = 0.01f;
+int n_octaves = 3;
+int n_scales_per_octave = 4;
+float min_contrast = 0.001f;
+ 
+
+//-------------------------------------------METHODS-------------------------------------------------------
+
+void 
+printUsage (const char* progName)
+{
+  std::cout << "\n\nUsage: "<<progName<<" [options] <scene.pcd>\n\n"
+            << "Options:\n"
+            << "-------------------------------------------\n"
+            << "-o <integer>	0 for regular normal estimation (default), 1 for enhanced normal estimation\n"
+            << "-r <float>	Radius search for normal estimation (default "<< radius_search<<")\n"
+            << "-ms <float>	Minimum scale (default " << min_scale << ")\n"
+            << "-no <int>	Number of octaves (default " << n_octaves << ")\n"
+            << "-ns <int>	Number of scales per octave (default " << n_scales_per_octave << ")\n"
+	    << "-mc <float>	Minimum contrast (default " << min_contrast << ")\n"
+	    << "-h		Show help\n"
+            << "\n\n";
+}
+
+
+//-------------------------------------------MAIN-------------------------------------------
+	
+int main(int argc, char** argv)
 {
 
-//time measurement variables
-  clock_t begin,end;
-  double elapsed_sec;
+
+//parse arguments
+
+  if(argc == 1 || (pcl::console::find_argument (argc,argv,"-h") >= 0) ){
+	printUsage (argv[0]);
+	return 0;
+  }	
+
+  std::cout << std::endl << "---Normal estimation parameters---" << std::endl;
+
+  pcl::NormalEstimation<pcl::PointXYZ, pcl::PointNormal> ne;
+  pcl::console::parse (argc, argv, "-o", normal_estimation_object);
+  if(normal_estimation_object >0){
+	std::cout << "Using enhanced normal estimation object" << std::endl;
+	pcl::NormalEstimationOMP<pcl::PointXYZ, pcl::PointNormal> ne;
+  }
+  else{
+	std::cout << "Using regular normal estimation object" << std::endl;
+  }
+  pcl::console::parse (argc,argv, "-r", radius_search);
+  std::cout << "Setting radius search for normal estimation to: " << radius_search << std::endl;
+
+  
+  std::cout << std::endl << "---Sift points parameters---" << std::endl;
   
   
+  pcl::console::parse (argc,argv, "-ms", min_scale);
+  std::cout << "Setting minimum scale to: " << min_scale << std::endl;
+
+  pcl::console::parse (argc,argv, "-no", n_octaves);
+  std::cout << "Setting number of octaves to: " << n_octaves << std::endl;
+
+  pcl::console::parse (argc,argv, "-ns", n_scales_per_octave);
+  std::cout << "Setting number of scales per octave to: " << n_scales_per_octave << std::endl;
+
+  pcl::console::parse (argc,argv, "-mc", min_contrast);
+  std::cout << "Setting minimum contrast to: " << min_contrast << std::endl;
+
+  std::cout << std::endl << std::endl;
+
 //read input .pcd file  
   begin = clock();
 
@@ -67,6 +143,8 @@ main(int argc, char** argv)
   std::vector<int> pcd_filename_indices = pcl::console::parse_file_extension_argument (argc, argv, "pcd"); 
   std::string filename;
      
+  std::cout << "Reading file..." << std::endl;
+
   if (!pcd_filename_indices.empty ())
   {
   	filename = argv[pcd_filename_indices[0]];
@@ -84,26 +162,30 @@ main(int argc, char** argv)
   
   end = clock();
   elapsed_sec = double(end-begin)/CLOCKS_PER_SEC;
-  std::cout << "Time needed for " << filename << " to load: " << elapsed_sec << " seconds"<< std::endl; 
   std::cout << "Number of points in "<< filename << ": "<< cloud_xyz->points.size () <<std::endl; 
+  std::cout << "Time needed for " << filename << " to load: " << elapsed_sec << " seconds"<< std::endl << std::endl; 
  
-// Estimate the normals of the cloud_xyz
-  pcl::NormalEstimationOMP<pcl::PointXYZ, pcl::PointNormal> ne;
+//Estimate the normals of the cloud_xyz
   pcl::PointCloud<pcl::PointNormal>::Ptr cloud_normals (new pcl::PointCloud<pcl::PointNormal>);
   pcl::search::KdTree<pcl::PointXYZ>::Ptr tree_n(new pcl::search::KdTree<pcl::PointXYZ>());
 
   ne.setInputCloud(cloud_xyz);
   ne.setSearchMethod(tree_n);
-  ne.setRadiusSearch(0.02);
+  ne.setRadiusSearch(radius_search);
  
+  std::cout << "Estimating normals in " << filename << " surface..." <<std::endl;
+
   begin = clock();
   ne.compute(*cloud_normals);
   end = clock();
  
   elapsed_sec = double(end-begin)/CLOCKS_PER_SEC;
-  std::cout << "Time needed for normal estimation in " << filename << ": " << elapsed_sec << std::endl;
+  std::cout << "Time needed for normal estimation in " << filename << ": " << elapsed_sec << " seconds" << std::endl << std::endl;
  
-// Copy the xyz info from cloud_xyz and add it to cloud_normals as the xyz field in PointNormals estimation is zero
+//Copy the xyz info from cloud_xyz and add it to cloud_normals as the xyz field in PointNormals estimation is zero
+  
+  std::cout << "Copying xyz information from" << filename << " to cloud with normals information..." << std::endl;
+
   begin = clock();
 
   for(size_t i = 0; i<cloud_normals->points.size(); ++i)
@@ -115,14 +197,9 @@ main(int argc, char** argv)
 
   end = clock();
   elapsed_sec = double(end-begin)/CLOCKS_PER_SEC;
-  std::cout << "time needed for copying the pointcloud: " << elapsed_sec << std::endl;
+  std::cout << "Time needed for copying the pointcloud: " << elapsed_sec <<" seconds" << std::endl << std::endl;
 
-// Parameters for sift computation
-  const float min_scale = 0.01f;//0.01f
-  const int n_octaves = 3;//3
-  const int n_scales_per_octave = 4;//4
-  const float min_contrast = 0.001f;//0.001f
- 
+
 // Estimate the sift interest points using normals values from xyz as the Intensity variants
   pcl::SIFTKeypoint<pcl::PointNormal, pcl::PointWithScale> sift;
   pcl::PointCloud<pcl::PointWithScale>::Ptr result(new pcl::PointCloud<pcl::PointWithScale>);
@@ -132,18 +209,20 @@ main(int argc, char** argv)
   sift.setMinimumContrast(min_contrast);
   sift.setInputCloud(cloud_normals);
  
-  //pcl:PointCloud<int> keypoint_indices;
+  //pcl::PointCloud<int> keypoint_indices;
   //sift.compute(keypoint_indices);
 
     //for (size_t i=0; i<keypoint_indices.points.size (); ++i){
       //std::cout << " " << keypoint_indices.points[i] << " ";
     //}
 
+  std::cout << "Estimating sift points in " << filename << "..." << std::endl;
+
   begin = clock();
   sift.compute(*result);
   end = clock();
   elapsed_sec = double(end-begin)/CLOCKS_PER_SEC;
-  std::cout << "Time needed for sift point extraction: " << elapsed_sec << "\n";
+  std::cout << "Time needed for sift point extraction: " << elapsed_sec << " seconds" << std::endl << std::endl;
 
 
 //save .pcd file with keypoints colored in green
