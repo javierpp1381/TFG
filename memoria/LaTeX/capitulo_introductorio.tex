@@ -288,16 +288,13 @@ Se hicieron un total de 9 escaneos en 40º cada uno lo que permite disponer de u
 
 La adquisición y almacenamiento de información es el primer paso para comenzar a trabajar con una nube de puntos. A pesar de tratarse de información relativamente sencilla como coordenadas respecto a un sistema de referencia, color y reflectividad, hay que tomar dicha información para miles o incluso millones de puntos tal y como se ha visto en ejemplos mostrados anteriormente como en el caso del ángel Lucy (figura ). Por lo tanto, el factor limitante del sensor en cuestión radica en cuánta y cuan variada información es capaz de percibir y almacenar.
 
-En los últimos veinte años, se han hecho grandes progresos en lo que a sensores e refiere ya que actualmente se usan de sofisticadas cámaras y escaneres láser y se han dejado atrás los sensores basados en sonar o infrarrojos los cuales proporcionan a penas unos bytes de información sobre el entorno u objeto que tratan de representar.
+En los últimos veinte años, se han hecho grandes progresos en lo que a sensores se refiere ya que actualmente se usan de sofisticadas cámaras y escaneres láser y se han dejado atrás los sensores basados en sonar o infrarrojos los cuales proporcionan a penas unos bytes de información sobre el entorno u objeto que tratan de representar.
 
+Centrándose en los sensores láser, la adquisición de información cobra sentido cuando se tienen en cuenta la desviación de rayos de luz ya sea visible o infrarroja, por ejemplo. Para poder llevar a cabo el escaneo de objetos tridimensionales así como entornos, se usa el escaneo laser o también conocido como lidar (light detection and ranging pero originalmente se conocía por la union de light and radar), 
+procedimiento que se originó a principios de la década de los sesenta tras la invención del láser y permite medir distancias a un objetivo iluminándolo con pulsos láser y estudiando los tiempos de retorno y longitudes de onda de estos pulsos al rebotar y ser captados por un sensor conocido como rangefinder.
 
-Centrándose en los sensores láser, la adquisición de información cobra sentido cuando se tienen en cuenta la desviación de rayos de luz ya sea visible o infrarroja, por ejemplo.
-
-
-
-
- Para poder llevar a cabo el escaneo de objetos tridimensionales así como entornos, el escaneo laser o también conocido como lidar (light detection and ranging pero originalmente se conocía por la union de light and radar), 
-es un procedimiento que se originó a principios de la década de los sesenta tras la invención del láser y permite medir distancias a un objetivo iluminándolo con pulsos láser y estudiando los tiempos de retorno y longitudes de onda de estos pulsos al rebotar y ser captados por un sensor conocido como rangefinder.
+El componente esencial en un sistema lidar es el rayo de luz que permite hacer las mediciones. Los láseres con que tienen entre 600 y 1000 nm de longitud de onda no suelen usarse para fines científicos y debido a que pueden ser fácilmente absorbidos por el ojo deben tener potencia limitada para que su uso sea seguro.
+Por otra parte, los láseres con 1550 nm de longitud de onda son una buena alternativa a los anteriores ya que no son focalizados por el ojo lo que los hace seguros con potencias mucho más elevadas. Este tipo de longitudes de onda se utiliza para aplicaciones a largo alcance que no requieren elevada precisión. 
 
 En la mayoría de los escaneres laser, la dirección de emisión del rayo de luz es constante por lo que para poder apuntar el haz hacia la dirección deseada se hace uso de espejos. Esto implica lanzar el láser contra un espejo y controlar éste con diferentes movimientos de rotación; en un eje para un movimiento unidimensional (un grado de libertad) o en dos ejes para un alcance espacial total quedando fija la posición del foco emisor(dos grados de libertad)
 
@@ -335,8 +332,32 @@ para sistemas más sofisticados todavía, se requiere el posicionamiento espacia
 
 la forma más común de mover los espejos es mediante el uso de un motor eléctrico o un galvanómetro para el más sencillo de los casos. Se pueden utilizar también actuadores piezoeléctricos o magnetorresistivos para una mayor velocidad angular pero a costa de menores ángulos máximos de desplazamiento
 
-
 De este modo, al ser capaz de medir la distancia que hay desde el punto de emisión de los rayos de luz hasta la superficie en la que rebotan, el sensor puede detectar rápidamente formas definidas de objetos, edificios o paisajes considerando en conjunto de puntos detectados tal y como se ha mostrado en ejemplos del apartado anterior concepto de nube de puntos (hipervínculo)
+
+Pero ¿Cómo se pueden medir distancias utilizando luz? el concepto entorno al que el escaner laser gira es el tiempo de vuelo. Esto quiere decir que se utiliza un dispositivo (range finder) capaz de medir con precisión el tiempo que transcurre desde que se emite un pulso de luz hasta que vuelve otra vez al mismo tras rebotar sobre el objeto que desea detectarse. Considerando entonces que la velocidad de la luz es una constante conocida, c, la distancia del escaner a un punto en concreto donde rebota un determinado pulso de luz puede determinarse como:
+
+ecuacion d= c*t/2
+
+Nótese que c*t es la distancia que hay entre el escaner y el objeto duplicada ya que t es el tiempo total desde la emisión del pulso de luz hasta la recepción. Por tanto, tomando la mitad del tiempo total de vuelo se obtiene la medida deseada que es la distancia del escaner al objeto.
+
+\begin{figure}
+\centering
+\minipage{0.6\textwidth}
+  \includegraphics[width=\linewidth]{lidar_explanation}
+  \caption{Ejemplo ilustrativo de medición de distancia de un sensor lidar a un edificio}\label{fig:lidar explanation}
+\endminipage\hfill
+
+\end{figure}
+
+
+Retomando la idea de que la velocidad de la luz es una constante, la única variable en el cálculo de la distancia es el tiempo de vuelo. Téngase por ejemplo una distancia de 30cm desde el sensor hasta el objeto que desea capturarse.Esto implica que la resolución del reloj integrado en el sensor ha de ser cuanto menos elevada:
+
+%0,3m/3*10^8=1ns=0,000000001s, en ese tiempo...
+
+Se ha desvelado de esta forma una desventaja del concepto de tiempo de vuelo, se necesita equipamiento muy preciso y fiable lo que se traduce en complejidad y elevadas inversiones económicas.
+
+Pero dando la vuelta a esta desventaja, es decir, cuando se trata de escanear objetos en la lejanía como puede ser un edificio o paisaje,la resolución requerida por parte del reloj se reduce dando así medidas más fiables. Además, considerando de nuevo la velocidad de la luz como una constante, no importa la distancia a la que se encuentre el objeto salvo por cuestiones de difracción y absorción del pulso de luz en el ambiente, por ejemplo , por la presencia de humedad.
+
 
 Por lo general, hay dos tipos de lidar:
 método coherente e incoherente o también conocido como detección de energía directa.
@@ -348,35 +369,18 @@ El método coherente es más apropiado para medir diferencias en la frecuencia d
 
 imagen cambio fase
 
-
 En ambos modelos se pueden usar dos tipos diferentes de pulsos: micropulsos y sistemas de alta energía.
 los micropulsos surgen de la elevada capacidad computacional de las computadoras actuales. Esto deriva en un láser de baja potencia (del orden del microjulio) que es clasificado como seguro al ojo permitiéndose su uso bajo escasas medidas de precaución 
 
 Por otra parte, los sistemas de alta energía, requieren medidas de seguridad más estrictas y se usan principalmente para fines de investigación atmosférica pues permite tomar medidas como la altura, número de capas y densidad de las nubes, propiedades de las partículas en las nubes, temperatura, presión, concentración de gases, o humedad.
 
-
-
 Para cada pulso de luz emitido se detecta un punto en concreto lo que hace pensar que para poder crear nubes con millones de puntos la velocidad de generación de los pulsos ha de ser elevada. En el caso de lidar se pueden emitir hasta 150000 pulsos en un segundo.
 
-En cuanto a los componentes necesarios para cualquier sistema lidar 
-...
 
-Pero ¿Cómo se pueden medir distancias utilizando luz? el concepto entorno al que el escaner laser gira es el tiempo de vuelo. Esto quiere decir que se utiliza un dispositivo (range finder) capaz de medir con precisión el tiempo que transcurre desde que se emite un pulso de luz hasta que vuelve otra vez al mismo tras rebotar sobre el objeto que desea detectarse. Considerando entonces que la velocidad de la luz es una constante conocida, c, la distancia del escaner a un punto en concreto donde rebota un determinado pulso de luz puede determinarse como:
-
-ecuacion d= c*t/2
-
-Nótese que c*t es la distancia que hay entre el escaner y el objeto duplicada ya que t es el tiempo total desde la emisión del pulso de luz hasta la recepción. Por tanto, tomando la mitad del tiempo total de vuelo se obtiene la medida deseada que es la distancia del escaner al objeto.
-
-Retomando la idea de que la velocidad de la luz es una constante, la única variable en el cálculo de la distancia es el tiempo de vuelo. Téngase por ejemplo una distancia de 30cm desde el sensor hasta el objeto que desea capturarse.Esto implica que la resolución del reloj integrado en el sensor ha de ser cuanto menos elevada:
-
-%0,3m/3*10^8=1ns=0,000000001s, en ese tiempo...
-
-Se ha desvelado de esta forma una desventaja del concepto de tiempo de vuelo, se necesita equipamiento muy preciso y fiable lo que se traduce en complejidad y elevadas inversiones económicas.
-
-Pero dando la vuelta a esta desventaja, es decir, cuando se trata de escanear objetos en la lejanía como puede ser un edificio o paisaje,la resolución requerida por parte del reloj se reduce dando así medidas más fiables. Además, considerando de nuevo la velocidad de la luz como una constante, no importa la distancia a la que se encuentre el objeto salvo por cuestiones de difracción y absorción del pulso de luz en el ambiente, por ejemplo , por la presencia de humedad.
 
 Una aplicación muy extendida del lidar es el reconocimiento de terreno. Para ello se integra el sensor en una aeronave y se capturan los puntos correspondientes al terreno sobrevolado. Esta aplicación es útil para generar modelos digitales de elevación.
-Como contrapartida, hay que tener en cuenta que el sensor tiene una posición variable respecto al terreno ya que va embarcado en una aeronave. Para considerar esto en el resultado final de la nube de puntos generada, se ha de disponer de un sistema de navegación, para el posicionamiento del sensor con GPS por ejemplo, así como de una unidad de medidas inerciales, para obtener información sobre la posición angular del sensor según los tres ejes espaciales, es decir, medir los movimientos yaw, pitch y roll.
+
+Como contrapartida, hay que tener en cuenta que el sensor tiene una posición variable respecto al terreno ya que va embarcado en una aeronave. Para considerar esto en el resultado final de la nube de puntos generada, se ha de disponer de un sistema de navegación, para el posicionamiento del sensor con GPS por ejemplo, así como de una unidad de medidas inerciales (IMU inertial maesurement unit), para obtener información sobre la orientación absoluta del sensor.
 
  
 \begin{figure}
@@ -393,23 +397,14 @@ Como contrapartida, hay que tener en cuenta que el sensor tiene una posición va
 
 Este método combina precisión y versatilidad ya que puede valerse de luz visible, infrarroja o ultravioleta para lanzarla contra objetivos de diversos tipos de materiales como metal, cerámica, aerosoles, terreno (rocas y tierra) e incluso se puede llegar al nivel molecular. 
  
-
-
-
 Sin embargo no se realiza un único escaneo ya que el propio concepto implica que el objeto bloquea los rayos de luz por lo que la cara frontal, de la que sí se obtiene información, impide a la luz llegar a la cara posterior. El factor clave es entonces el hecho de que estos rayos de luz puedan llegar a toda la superficie del objeto que se quiere analizar, es decir, accesibilidad física del sensor.
 De este modo, independientemente del sensor o método que se utilice, es imposible recolectar
 información sobre superficies no visibles o lo que es lo mismo, con un solo escaneo.
 
-
-imagen botes por ejemplo
-
+Este efecto puede apreciarse en la figura 1.6 donde falta información en el seno de la nube de puntos en forma de tres áreas en las que no hay ningún punto pues son la "sombra" de los botes ante los rayos de luz del escaner.
 
 Como consecuencia, es necesario llevar a cabo varios escaneos desde diferentes puntos de vista y
 ponerlos en conjunto conociendo con precisión la posición del sensor en cada escaneo para poder llevar a cabo lo que se conoce como alineamiento de nubes de puntos, concepto que se explicará con más detalle posteriormente.
-
-
-
-
 
 
 %https://upload.wikimedia.org/wikipedia/commons/c/c0/LIDAR-scanned-SICK-LMS-animation.gif
@@ -419,32 +414,143 @@ ponerlos en conjunto conociendo con precisión la posición del sensor en cada e
 %http://www.lidar-uk.com/how-lidar-works/
 %http://elm-chan.org/works/vlp/report_e.html
 %http://www.ionix.fi/en/technologies/laser-processing/laser-marking/
+%https://blog.cometlabs.io/engineer-explains-lidar-748f9ba0c404
 
 Disponer de complejas, fiables y robustas representaciones del mundo real tiene no es tan sencillo como pueda parecer puesto que estos sensores suelen tener un precio prohibitivo para la mayoría de los interesados ya sean particulares o incluso empresas con un poder adquisitivo considerable. Sin embargo, las tornas han cambiado desde que han aparecido en el mercado ciertos sensores 3D como por ejemplo el sensor Kinect de la consola Xbox360 de Microsoft. Este sensor está basado en la tecnología PrimeSense y aunque puede trabajar con nubes de puntos en tiempo real e imágenes en 2D su precio no supera los 150\$. De este modo se ha producido un gran paso adelante en cuanto a los impedimentos relacionados con la adquisición, mantenimiento y delicadeza del hardware que traduce el mundo real a nubes de puntos.
 
 \section{Procesamiento software de información }
-\section{objetivos}
-Una vez estudiado el hardware necesario se precisa ahora de un mecanismo para trabajar con la inmensa cantidad de información que aportan los sensores. 
 
-El software existente para dicha tarea es diverso y no siempre gratuito. Como ejemplos se tienen:
-\begin{list}{-}
-\item 3DF Zephyr
-\item RealityCapture
-\item Agisoft Photoscan
-\item Point cloud tool
+Una vez registradas y almacenadas las nubes de puntos, se precisa ahora de un mecanismo para trabajar con la inmensa cantidad de información que aportan los sensores. El software existente para dicha tarea es diverso y no siempre gratuito. Como ejemplos se tienen:
 
-\textit{describir brevemente y mencionar impedimentos de precio, limitaciones etc
-}
+ RealityCapture
+
+RealityCapture (also known as RC) is photogrammetry software which creates 3D models out of unordered photographs (terrestrial and/or aerial) or laser scans without seams. The most common fields of its current use are cultural heritage (art and architecture), full body scanning, gaming, surveying, mapping, visual effects (VFX) and virtual reality (VR) in general.
+
+It features include image registration (alignment), automatic calibration, calculating a polygon mesh, colouring, texturing, parallel projections, georeferencing, DSM, coordinate system conversion, simplification, scaling, filtration[disambiguation needed], smoothing, measurement, inspection[disambiguation needed], and various exports and imports.[1] The program can be run under the command line. There is also a software developer kit available.[2] RealityCapture is able to mix camera images and laser scans. It is designed to make low demands on hardware. It works linearly, which means if its inputs are doubled, the processing time will be doubled as well. The software is currently available only in English language.
+
+RealityCapture runs on 64-bit machines with at least 8GB of RAM, 64bit Microsoft Windows 7 / 8 / 8.1 / 10, using a graphics card with an nVidia CUDA 2.0+ GPU and at least 1 GB of RAM. Users can run the application and register images without the nVidia card but will not be able to create a textured mesh. Users must install the Media Feature Pack for Windows, and on Windows Server users must install Media Foundation features.
+
+Each RC software license is limited to 32 CPU cores and 3 GPU cards. For higher configurations, more licenses must be purchased equivalently. A computer with 4 CPU cores, 16 GB RAM and 386 CUDA cores is recommended.
+
+Meshing, coloring and texturing are completely out-of-core in RC, which is intended to avoid RAM performance loss during these processes.
+
+
+ Agisoft Photoscan
+Point cloud tool
+
+
+
+Entre todos ellos destaca PCL, siglas que en inglés se refieren a Point Cloud Library, es decir, librería de nubes de puntos. Es una librería única, de gran escala y un proyecto abierto a la comunidad para procesamiento de imágenes y nubes de puntos tanto en 2D como en 3D. Es más, PCL se somete a os términos de la licencia BSD (Berkelay Software Distribution) lo que implica que es de uso libre tanto para fines comerciales como de investigación. 
+
+\begin{figure}
+\centering
+\minipage{0.45\textwidth}
+  \includegraphics[width=\linewidth]{pcl_logo}
+  \caption{Logo de PCL}\label{fig:pcl logo}
+\endminipage\hfill
+
+
+\end{figure}
+
+PCL dispone de multitud de herramientas para el procesamiento de nubes de puntos y dado que es una librería sometida a constante crecimiento y modificaciones, tener las herramientas debidamente organizadas y estructuradas es de vital importancia. Es por esto por lo que PCL tiene una organización en forma de librerías modulares, es decir, el conjunto de herramientas se clasifica según su utilidad.
+
+Uno de los módulos más importantes es el que se encarga de la lectura y escritura de nubes de puntos, es decir, el módulo IO del inglés input/output que se traduce como entrada/salida. Es por tanto esta librería capaz de interpretar la información otorgada por diferentes tipos de sensores así como de generar archivos que contienen nubes de puntos manipuladas por el resto de módulos.
+Existen varios tipos de formatos bajo los que almacenar una nube puntos.
+
+PCL ha creado el formato PCD, del inglés Point Cloud Data, es decir datos de nube de puntos. No se trata de un formato revolucionario sino más bien de una forma de complementar a los ya existentes que debido a los propósitos para los que se han creado u otras razones, no soportan algunas de las características relacionas con al procesamiento de nubes de puntos de n dimensiones. Además sufren de deficiencias en ciertos campos de computación debido a que fueron creados para fines diferentes, en diferentes épocas y en ocasiones mucho antes de la invención de los sensores y algoritmos hoy presentes.
+
+Por lo tanto, el formato PCD no es único ni trata de reemplazar a los que ya están presentes creados por comunidades de computación gráfica y geométrica que en concreto sirven para describir polígonos arbitrarios y nubes de puntos obtenidas con escáneres láser. Por ejemplo se tienen formatos como los siguientes:
+
+
+PLY - Formato de ficheros para polígonos creado por Turk et al de la universidad de Stanford
+STL - Un formato nativo para software CAD de estereolitografía creado por 3D systems 
+OBJ - Un software de definición geométrica creado por Wavefront Technologies 
+X3D - Un formato basado en la norma ISO de XML para la representación de gráficos en 3d para computadoras 
+
+Puesto que a partir de ahora se va a utilizar el formato PCD, se va a explicar con mayor profundidad cada una de sus partes.
+
+Un fichero PCD dispone de dos partes diferenciadas, encabezamiento y los puntos como tal.
+
+El encabezamiento se encarga de identificar y declarar las propiedades de la nube de puntos almacenados en el fichero y debe estar codificado en ASCII lo que implica que cada entrada en este formato está delimitada de las demás usando saltos de línea.
+
+Las características especificadas en el encabezamiento son las siguientes:
+
+\begin{list}{•}
+\item VERSION:
+Este campo especifica la versión del formato PCD
+
+\item FIELDS
+Traducido como "campos" indica el nombre de cada dimensión o campo existente en la nube de puntos como por ejemplo color, coordenadas XYZ o normales a la superficie.
+
+\item SIZE 
+Este campo indica el tamaño en bytes y en el mismo orden de cada campo declarado por FIELDS 
+
+\item TYPE
+Representa el tipo de dato de cada campo con un carácter. 
+I: Tipos con signo como int8 que equivale a un char, int16 que equivale a un short y int32 que equivale a un int
+U: Tipos sin signo como uint8, uint16 y uint32, los tipos análogos al caso anterior pero sin signo
+F: Representa todos los tipos flotantes
+
+\item COUNT 
+Indica cuántos elementos tiene cada campo previamente declarado en FIELDS. Por defecto toma el valor de 1.
+
+\item WIDTH
+Representa el ancho de la nube de puntos teniendo este concepto dos significados para lo cual hay que entender cómo se puede interpretar una nube de puntos. Por una parte, las nubes de puntos desorganizadas pueden verse como un vector de n elementos donde n es el ancho de la nube de puntos, es decir, se trata de una matriz de una fila y n columnas donde n es el ancho. Por otra parte, se puede definir de manera matricial con m filas y n columnas siendo ahora m el número de puntos presentes en cada columna y lo que define una nube de puntos organizada.
+
+\item HEIGHT
+No es nada más que el número de filas de la nube de puntos en su representación matricial explicada en el apartado anterior o bien el numero total de puntos de una nube representada como una matriz de m filas y una columna siendo en este caso m el campo tratado en este apartado.
+
+\item VIEWPOINT
+Especifica la posición del punto de vista desde el que el sensor adquirió la nube de puntos. Se indica como una traslación tx, ty, tz así como con un cuaternio qw, qx, qy, qz con un valor por defecto de 0 0 0 1 0 0 0 respectivamente.
+
+\item POINTS
+Indica el número total de puntos en la nube. Puesto que se trata de información redundante dados los campos previamente descritos, se espera que éste sea eliminado en un futuro.
+
+\item DATA
+Es el tipo de dato con el que se ha generado el fichero PCD siendo dos formatos los soportados, ascii y binary. El formato ascii obliga a que cada punto se escriba en una nueva línea, mientras que en el formato binary, la información presente en el fichero es una copia en memoria de la nube de puntos como vector de forma que se incrementa la velocidad de lectura y escritura
 \end{list}
 
+Queda el encabezamiento entonces con la siguiente estructura:
+
+VERSION
+FIELDS
+SIZE
+TYPE
+COUNT
+WIDTH
+HEIGHT
+VIEWPOINT
+POINTS
+DATA
+
+Como se ha mencionado previamente, cada punto se introduce después del encabezado en una línea nueva indicando, separados por espacios, el valor de cada campo. Como ejemplo de nube de puntos en formato PCD se tiene lo siguiente:
+
+VERSION .7\\
+FIELDS x y z rgb\\
+SIZE 4 4 4 4\\
+TYPE F F F F\\
+COUNT 1 1 1 1\\
+WIDTH 213\\
+HEIGHT 1\\
+VIEWPOINT 0 0 0 1 0 0 0\\
+POINTS 5\\
+DATA ascii\\
+0.93773 0.33763 0 4.2108e+06\\
+0.90805 0.35641 0 4.2108e+06\\
+0.81915 0.32 0 4.2108e+06\\
+0.97192 0.278 0 4.2108e+06\\
+0.944 0.29474 0 4.2108e+06\\
 
 
+Explicar modulos filter, viewer y keypoints
 
-Es aquí donde entra en juego una librería de código abierto llamada PCL (insertar imagen-web) siglas que en inglés representan Point Cloud Library, traducible como librería de nubes de puntos.
+\section{objetivos}
+Generar un programa capaz de obtener keypoints a partir de una nube de puntos
+Croscompilar usando las herramientas de xilinx 
+Enviar ejecutable a la placa y ejecutar el programa
+(optimización)
 
-\textit{Definir qué es pcl, historia, extensión
-http://pointclouds.org/
-paper: 3D is here}
+%http://pointclouds.org/
 
 
 \section{Descripción de herramientas}
@@ -452,8 +558,5 @@ paper: 3D is here}
 \subsection{Herramientas software}
 
 
-Generar un programa capaz de obtener keypoints a partir de una nube de puntos
-Croscompilar usando las herramientas de xilinx 
-Enviar ejecutable a la placa y ejecutar el programa
-(optimización)
+
 
