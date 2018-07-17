@@ -69,11 +69,11 @@ printUsage (const char* progName)
             << "Options:\n"
             << "-------------------------------------------\n"
             << "-o <integer>	0 for regular normal estimation (default), 1 for enhanced normal estimation\n"
-            << "-r <float>	Radius search for normal estimation (default "<< radius_search<<")\n"
-            << "-ms <float>	Minimum scale (default " << min_scale << ")\n"
-            << "-no <int>	Number of octaves (default " << n_octaves << ")\n"
-            << "-ns <int>	Number of scales per octave (default " << n_scales_per_octave << ")\n"
-	    << "-mc <float>	Minimum contrast (default " << min_contrast << ")\n"
+            << "-r <float> >0	Radius search for normal estimation (default "<< radius_search<<")\n"
+            << "-ms <float> >0	Minimum scale (default " << min_scale << ")\n"
+            << "-no <int> >=1	Number of octaves (default " << n_octaves << ")\n"
+            << "-ns <int> >=1	Number of scales per octave (default " << n_scales_per_octave << ")\n"
+	    << "-mc <float> >=0	Minimum contrast (default " << min_contrast << ")\n"
 	    << "-h		Show help\n"
             << "\n\n";
 }
