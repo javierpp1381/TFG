@@ -3,10 +3,16 @@ codigo fuente y memoria del puto TFG
 
 ------------------------------------------------------------------ESTADO ACTUAL--------------------------------------------------------  
 memoria: Todo bien mientras siga echándole horitas  
+
 código:  
-visualizer: Funciona bien si le meto .pcd, nada fancy con que funcione vale  
-sift keypoints: Extracción de keypoints sift basándose en la estiamción de la normal a la superficie, medir tiempos con diferentes nubes y hacer gráficos o algo  
+visualizer: Funciona bien si le meto .pcd, nada fancy con que funcione vale   
 points clouds: nubes de puntos en formato .pcd  
+
+sift keypoints: Extracción de keypoints sift basándose en la estiamción de la normal a la superficie, medir tiempos con diferentes nubes y hacer gráficos o algo  
+  
+hls: intentar meter codigo de clase NormalEstimation y preguntar a andrés sobre hls  
+registration:  buscar info, ver ejemplo, intentar hacerlo  
+ 
 compilación directa: todo guay con el swap file de 2GB  
 
 ------------------------------------------------------------------DEPRECATED-----------------------------------------------------------
