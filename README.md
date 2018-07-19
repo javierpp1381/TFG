@@ -1,24 +1,23 @@
 # TFG
 codigo fuente y memoria del puto TFG
 
-------------------------------------------------------------------ESTADO---------------------------------------------------------------
-
+------------------------------------------------------------------ESTADO ACTUAL--------------------------------------------------------
 memoria: Todo bien mientras siga echándole horitas  
 código:  
 visualizer: Funciona bien si le meto .pcd, nada fancy con que funcione vale  
-sift keypoints: Extracción de keypoints sift basándose en la estiamción de la normal a la superficie, ver que coño esncada parámetro
+sift keypoints: Extracción de keypoints sift basándose en la estiamción de la normal a la superficie, medir tiempos con diferentes nubes y hacer gráficos o algo  
+points clouds: nubes de puntos en formato .pcd  
+compilación directa: todo guay con el swap file de 2GB  
+
+------------------------------------------------------------------DEPRECATED-----------------------------------------------------------
 sift_keypoints_estimation: sift keypoints a pelo, error de acceso de memoria  
 sift_z_keypoints_estimation: sift keypoints con coordenada z, error de acceso de memoria   
 harris keypoints: harris keypoints, error ni idea  
 narf keypoints: narf keypoints, error de creación de range image/far ranges  
-points clouds: nubes de puntos en formato .pcd  
-
-
+ 
 cros compilación: error de llamada a metodos virtuales de PCDWrite  
-compilación directa: todo guay con el swap file de 2GB
+compilación directa: todo guay con el swap file de 2GB  
           
-
-
 ------------------------------------------------------------------OBJETIVOS------------------------------------------------------------
 
 1.- Implementar en software (en PC) un sistema básico de visión 3D para registrar nubes de puntos. Como verás en [1], el registro de una nube de puntos consiste en combinar varias capturas de una cámara en una única nube, viendo cómo alinearlas correctamente. 
