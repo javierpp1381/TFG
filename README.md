@@ -1,7 +1,7 @@
 # TFG
 codigo fuente y memoria del puto TFG
 
-------------------------------------------------------------------ESTADO ACTUAL--------------------------------------------------------
+------------------------------------------------------------------ESTADO ACTUAL--------------------------------------------------------  
 memoria: Todo bien mientras siga echándole horitas  
 código:  
 visualizer: Funciona bien si le meto .pcd, nada fancy con que funcione vale  
