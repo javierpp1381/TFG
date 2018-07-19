@@ -1,0 +1,42 @@
+./sift_keypoints ../../../point_clouds/milk.pcd 
+
+
+./sift_keypoints ../../../point_clouds/milk.pcd -r 0.002
+./sift_keypoints ../../../point_clouds/milk.pcd -r 0.004
+./sift_keypoints ../../../point_clouds/milk.pcd -r 0.01
+
+./sift_keypoints ../../../point_clouds/milk.pcd -r 0.04
+./sift_keypoints ../../../point_clouds/milk.pcd -r 0.1
+./sift_keypoints ../../../point_clouds/milk.pcd -r 0.2
+ 
+
+./sift_keypoints ../../../point_clouds/milk.pcd -ms 0.001
+./sift_keypoints ../../../point_clouds/milk.pcd -ms 0.002
+./sift_keypoints ../../../point_clouds/milk.pcd -ms 0.005
+
+./sift_keypoints ../../../point_clouds/milk.pcd -ms 0.02
+./sift_keypoints ../../../point_clouds/milk.pcd -ms 0.05
+./sift_keypoints ../../../point_clouds/milk.pcd -ms 0.1
+
+./sift_keypoints ../../../point_clouds/milk.pcd -no 1 
+./sift_keypoints ../../../point_clouds/milk.pcd -no 2
+
+./sift_keypoints ../../../point_clouds/milk.pcd -no 5
+./sift_keypoints ../../../point_clouds/milk.pcd -no 10
+./sift_keypoints ../../../point_clouds/milk.pcd -no 20
+
+
+./sift_keypoints ../../../point_clouds/milk.pcd -ns 1
+./sift_keypoints ../../../point_clouds/milk.pcd -ns 2
+
+./sift_keypoints ../../../point_clouds/milk.pcd -ns 5
+./sift_keypoints ../../../point_clouds/milk.pcd -ns 10
+./sift_keypoints ../../../point_clouds/milk.pcd -ns 15
+./sift_keypoints ../../../point_clouds/milk.pcd -ns 20
+
+
+
+
+
+
+
