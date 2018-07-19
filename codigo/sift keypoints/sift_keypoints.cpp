@@ -43,8 +43,7 @@
 
 #include <pcl/console/parse.h>
 
-
-
+#include <fstream>
 
 //-------------------------------------------GLOBAL VARIABLES-------------------------------------------------
 
@@ -53,12 +52,14 @@ int normal_estimation_object = 0;
 float radius_search = 0.02f;
 clock_t begin,end;
 double elapsed_sec;
+float normal_estimation_time = 0.0f;
+float sift_estimation_time = 0.0f;
 // Parameters for sift computation
 float min_scale = 0.01f;
 int n_octaves = 3;
 int n_scales_per_octave = 4;
 float min_contrast = 0.001f;
- 
+int sift_points=0; 
 
 //-------------------------------------------METHODS-------------------------------------------------------
 
@@ -69,11 +70,11 @@ printUsage (const char* progName)
             << "Options:\n"
             << "-------------------------------------------\n"
             << "-o <integer>	0 for regular normal estimation (default), 1 for enhanced normal estimation\n"
-            << "-r <float> >0	Radius search for normal estimation (default "<< radius_search<<")\n"
-            << "-ms <float> >0	Minimum scale (default " << min_scale << ")\n"
-            << "-no <int> >=1	Number of octaves (default " << n_octaves << ")\n"
-            << "-ns <int> >=1	Number of scales per octave (default " << n_scales_per_octave << ")\n"
-	    << "-mc <float> >=0	Minimum contrast (default " << min_contrast << ")\n"
+            << "-r <float>	Radius search for normal estimation (default "<< radius_search<<")\n"
+            << "-ms <float>	Minimum scale (default " << min_scale << ")\n"
+            << "-no <int>	Number of octaves (default " << n_octaves << ")\n"
+            << "-ns <int>	Number of scales per octave (default " << n_scales_per_octave << ")\n"
+	    << "-mc <float>	Minimum contrast (default " << min_contrast << ")\n"
 	    << "-h		Show help\n"
             << "\n\n";
 }
@@ -179,8 +180,8 @@ int main(int argc, char** argv)
   ne.compute(*cloud_normals);
   end = clock();
  
-  elapsed_sec = double(end-begin)/CLOCKS_PER_SEC;
-  std::cout << "Time needed for normal estimation in " << filename << ": " << elapsed_sec << " seconds" << std::endl << std::endl;
+  normal_estimation_time = double(end-begin)/CLOCKS_PER_SEC;
+  std::cout << "Time needed for normal estimation in " << filename << ": " << normal_estimation_time << " seconds" << std::endl << std::endl;
  
 //Copy the xyz info from cloud_xyz and add it to cloud_normals as the xyz field in PointNormals estimation is zero
   
@@ -221,14 +222,16 @@ int main(int argc, char** argv)
   begin = clock();
   sift.compute(*result);
   end = clock();
-  elapsed_sec = double(end-begin)/CLOCKS_PER_SEC;
-  std::cout << "Time needed for sift point extraction: " << elapsed_sec << " seconds" << std::endl << std::endl;
+  sift_estimation_time = double(end-begin)/CLOCKS_PER_SEC;
+  std::cout << "Time needed for sift point extraction: " << sift_estimation_time << " seconds" << std::endl << std::endl;
 
 
 //save .pcd file with keypoints colored in green
   if(result->points.size()>0){
   
   	std::cout << "Number of SIFT points in " << filename << ": " << result->points.size () << std::endl;
+
+	sift_points = result->points.size();
 
 	pcl::PointCloud<pcl::PointXYZRGBA>::Ptr keypoints(new pcl::PointCloud<pcl::PointXYZRGBA>);
   
@@ -251,8 +254,26 @@ int main(int argc, char** argv)
   }
   else {
   	std::cout << "No sift points found" << std::endl;
+	sift_points = 0;
   }
+ 
+  std::fstream fs;
+  fs.open("tests.txt", std::fstream::app);
   
+  fs << "filename: " << filename << std::endl;
+  
+  fs << std::endl <<  "Normal estimation radius search: " << radius_search << std::endl; 
+  fs << "Minimum scale: " << min_scale << std::endl;
+  fs << "Number of octaves: " << n_octaves << std::endl;
+  fs << "Number of scales per octave: " << n_scales_per_octave << std::endl;
+  fs << "Minimum contrast: " << min_contrast << std::endl;
+
+  fs << std::endl << "Normal estimation time (s): " << normal_estimation_time << std::endl;
+  fs << "SIFT points estimation time (s): " << sift_estimation_time << std::endl;
+  fs << "Number of SIFT points found: " << sift_points << std::endl;
+
+  fs << "---------------------\n----------------------\n";
+  fs.close();
   return 0;
   
 }
