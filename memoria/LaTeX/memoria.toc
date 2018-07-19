@@ -1,10 +1,12 @@
 \babel@toc {spanish}{}
 \contentsline {chapter}{\numberline {1} Cap\IeC {\'\i }tulo introductorio}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}La visi\IeC {\'o}n como herramienta}{1}{section.1.1}
-\contentsline {section}{\numberline {1.2}Concepto de nube de puntos}{3}{section.1.2}
-\contentsline {section}{\numberline {1.3}Adquisici\IeC {\'o}n de informaci\IeC {\'o}n: Sensores y evoluci\IeC {\'o}n}{8}{section.1.3}
-\contentsline {section}{\numberline {1.4}Procesamiento software de informaci\IeC {\'o}n }{13}{section.1.4}
-\contentsline {section}{\numberline {1.5}objetivos}{16}{section.1.5}
-\contentsline {section}{\numberline {1.6}Descripci\IeC {\'o}n de herramientas}{16}{section.1.6}
-\contentsline {subsection}{\numberline {1.6.1}Herramientas hardware}{16}{subsection.1.6.1}
-\contentsline {subsection}{\numberline {1.6.2}Herramientas software}{16}{subsection.1.6.2}
+\contentsline {subsection}{\numberline {1.1.1}La visi\IeC {\'o}n en el ser humano}{1}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Exportando la capacidad de visi\IeC {\'o}n}{3}{subsection.1.1.2}
+\contentsline {section}{\numberline {1.2}Concepto de nube de puntos}{6}{section.1.2}
+\contentsline {section}{\numberline {1.3}Adquisici\IeC {\'o}n de informaci\IeC {\'o}n: Sensores y evoluci\IeC {\'o}n}{9}{section.1.3}
+\contentsline {section}{\numberline {1.4}Procesamiento software de informaci\IeC {\'o}n }{15}{section.1.4}
+\contentsline {section}{\numberline {1.5}objetivos}{19}{section.1.5}
+\contentsline {section}{\numberline {1.6}Descripci\IeC {\'o}n de herramientas}{19}{section.1.6}
+\contentsline {subsection}{\numberline {1.6.1}Herramientas hardware}{19}{subsection.1.6.1}
+\contentsline {subsection}{\numberline {1.6.2}Herramientas software}{19}{subsection.1.6.2}
