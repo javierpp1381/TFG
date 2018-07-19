@@ -15,14 +15,13 @@ registration:  buscar info, ver ejemplo, intentar hacerlo
  
 compilación directa: todo guay con el swap file de 2GB  
 
-------------------------------------------------------------------DEPRECATED-----------------------------------------------------------
+------------------------------------------------------------------DEPRECATED-----------------------------------------------------------  
 sift_keypoints_estimation: sift keypoints a pelo, error de acceso de memoria  
 sift_z_keypoints_estimation: sift keypoints con coordenada z, error de acceso de memoria   
 harris keypoints: harris keypoints, error ni idea  
 narf keypoints: narf keypoints, error de creación de range image/far ranges  
  
 cros compilación: error de llamada a metodos virtuales de PCDWrite  
-compilación directa: todo guay con el swap file de 2GB  
           
 ------------------------------------------------------------------OBJETIVOS------------------------------------------------------------
 
