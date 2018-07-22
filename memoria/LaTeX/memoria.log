@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.27)  19 JUL 2018 19:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.27)  22 JUL 2018 19:57
 entering extended mode
 **./memoria.tex
 (memoria.tex
@@ -776,7 +776,7 @@ LaTeX Info: Redefining \% on input line 50.
 
 ] (capitulo_introductorio.tex
  1.
-<imagenes/focal_length.jpg, id=91, 649.42625pt x 361.35pt>
+<imagenes/focal_length.jpg, id=97, 649.42625pt x 361.35pt>
 File: imagenes/focal_length.jpg Graphic file (type jpg)
 <use imagenes/focal_length.jpg>
 Package pdftex.def Info: imagenes/focal_length.jpg  used on input line 28.
@@ -784,286 +784,307 @@ Package pdftex.def Info: imagenes/focal_length.jpg  used on input line 28.
 [1
 
 ]
-<imagenes/history_technology.jpg, id=99, 1082.0425pt x 447.6725pt>
+LaTeX Info: Redefining \. on input line 61.
+LaTeX Info: Redefining \% on input line 61.
+ [2 <./imagenes/focal_length.jpg>]
+
+LaTeX Warning: Command \o invalid in math mode on input line 75.
+
+<imagenes/history_technology.jpg, id=111, 1082.0425pt x 447.6725pt>
 File: imagenes/history_technology.jpg Graphic file (type jpg)
 <use imagenes/history_technology.jpg>
-Package pdftex.def Info: imagenes/history_technology.jpg  used on input line 69
+Package pdftex.def Info: imagenes/history_technology.jpg  used on input line 85
 .
 (pdftex.def)             Requested size: 291.78174pt x 120.71608pt.
-<imagenes/technology_population.png, id=100, 536.0025pt x 397.485pt>
+<imagenes/technology_population.png, id=113, 536.0025pt x 397.485pt>
 File: imagenes/technology_population.png Graphic file (type png)
 <use imagenes/technology_population.png>
 Package pdftex.def Info: imagenes/technology_population.png  used on input line
- 80.
+ 96.
 (pdftex.def)             Requested size: 270.93883pt x 200.91939pt.
-LaTeX Info: Redefining \. on input line 83.
-LaTeX Info: Redefining \% on input line 83.
- [2 <./imagenes/focal_length.jpg>]
-LaTeX Info: Redefining \. on input line 97.
-LaTeX Info: Redefining \% on input line 97.
- [3 <./imagenes/history_technology.jpg> <./imagenes/technology_population.png>]
-<imagenes/analog_signal.png, id=114, 401.5pt x 301.125pt>
+LaTeX Info: Redefining \. on input line 109.
+LaTeX Info: Redefining \% on input line 109.
+[3 <./imagenes/history_technology.jpg>]
+<imagenes/analog_signal.png, id=124, 401.5pt x 301.125pt>
 File: imagenes/analog_signal.png Graphic file (type png)
 <use imagenes/analog_signal.png>
-Package pdftex.def Info: imagenes/analog_signal.png  used on input line 108.
+Package pdftex.def Info: imagenes/analog_signal.png  used on input line 124.
 (pdftex.def)             Requested size: 270.93883pt x 203.21843pt.
-<imagenes/analogica_digitalizada.png, id=115, 607.26875pt x 253.94875pt>
+<imagenes/analogica_digitalizada.png, id=126, 607.26875pt x 253.94875pt>
 File: imagenes/analogica_digitalizada.png Graphic file (type png)
 <use imagenes/analogica_digitalizada.png>
 Package pdftex.def Info: imagenes/analogica_digitalizada.png  used on input lin
-e 121.
+e 137.
 (pdftex.def)             Requested size: 270.93883pt x 113.30327pt.
-<imagenes/adc.png, id=116, 895.345pt x 257.96375pt>
+<imagenes/adc.png, id=128, 895.345pt x 257.96375pt>
 File: imagenes/adc.png Graphic file (type png)
 <use imagenes/adc.png>
-Package pdftex.def Info: imagenes/adc.png  used on input line 134.
+Package pdftex.def Info: imagenes/adc.png  used on input line 150.
 (pdftex.def)             Requested size: 270.93883pt x 78.0628pt.
-<imagenes/digital_signal.png, id=117, 501.875pt x 276.03125pt>
+LaTeX Info: Redefining \. on input line 157.
+LaTeX Info: Redefining \% on input line 157.
+ [4 <./imagenes/technology_population.png>]
+<imagenes/digital_signal.png, id=137, 501.875pt x 276.03125pt>
 File: imagenes/digital_signal.png Graphic file (type png)
 <use imagenes/digital_signal.png>
-Package pdftex.def Info: imagenes/digital_signal.png  used on input line 145.
+Package pdftex.def Info: imagenes/digital_signal.png  used on input line 161.
 (pdftex.def)             Requested size: 270.93883pt x 149.02516pt.
-LaTeX Info: Redefining \. on input line 155.
-LaTeX Info: Redefining \% on input line 155.
- [4 <./imagenes/analog_signal.png>]
-LaTeX Info: Redefining \. on input line 163.
-LaTeX Info: Redefining \% on input line 163.
-
-[5 <./imagenes/analogica_digitalizada.png> <./imagenes/adc.png> <./imagenes/dig
-ital_signal.png>]
-LaTeX Info: Redefining \. on input line 211.
-LaTeX Info: Redefining \% on input line 211.
- [6]
-<imagenes/delaunay_mal.png, id=137, 220.825pt x 220.825pt>
+LaTeX Info: Redefining \. on input line 164.
+LaTeX Info: Redefining \% on input line 164.
+ [5 <./imagenes/analog_signal.png> <./imagenes/analogica_digitalizada.png> <./i
+magenes/adc.png>]
+<imagenes/human_vision.png, id=146, 431.6125pt x 310.15875pt>
+File: imagenes/human_vision.png Graphic file (type png)
+<use imagenes/human_vision.png>
+Package pdftex.def Info: imagenes/human_vision.png  used on input line 186.
+(pdftex.def)             Requested size: 208.41644pt x 149.76897pt.
+LaTeX Info: Redefining \. on input line 206.
+LaTeX Info: Redefining \% on input line 206.
+ [6 <./imagenes/digital_signal.png>]
+<imagenes/delaunay_mal.png, id=154, 220.825pt x 220.825pt>
 File: imagenes/delaunay_mal.png Graphic file (type png)
 <use imagenes/delaunay_mal.png>
-Package pdftex.def Info: imagenes/delaunay_mal.png  used on input line 215.
+Package pdftex.def Info: imagenes/delaunay_mal.png  used on input line 239.
 (pdftex.def)             Requested size: 133.38957pt x 133.39568pt.
-<imagenes/delaunay_bien.png, id=138, 220.825pt x 207.77625pt>
+<imagenes/delaunay_bien.png, id=155, 220.825pt x 207.77625pt>
 File: imagenes/delaunay_bien.png Graphic file (type png)
 <use imagenes/delaunay_bien.png>
-Package pdftex.def Info: imagenes/delaunay_bien.png  used on input line 219.
+Package pdftex.def Info: imagenes/delaunay_bien.png  used on input line 243.
 (pdftex.def)             Requested size: 133.38957pt x 125.5132pt.
-<imagenes/delaunay_bien_10pts.png, id=139, 220.825pt x 220.825pt>
+<imagenes/delaunay_bien_10pts.png, id=156, 220.825pt x 220.825pt>
 File: imagenes/delaunay_bien_10pts.png Graphic file (type png)
 <use imagenes/delaunay_bien_10pts.png>
 Package pdftex.def Info: imagenes/delaunay_bien_10pts.png  used on input line 2
-23.
+47.
 (pdftex.def)             Requested size: 133.38957pt x 133.39568pt.
 
-Underfull \hbox (badness 6141) in paragraph at lines 224--224
+Underfull \hbox (badness 6141) in paragraph at lines 248--248
 \T1/lmr/m/n/10.95 de De-lau-nay apli-ca-da a
  []
 
-LaTeX Info: Redefining \. on input line 251.
-LaTeX Info: Redefining \% on input line 251.
-[7 <./imagenes/delaunay_mal.png> <./imagenes/delaunay_bien.png> <./imagenes/del
-aunay_bien_10pts.png>]
-<imagenes/bunny_simple.png, id=151, 631.60968pt x 367.3725pt>
+LaTeX Info: Redefining \. on input line 252.
+LaTeX Info: Redefining \% on input line 252.
+[7 <./imagenes/human_vision.png>]
+<imagenes/bunny_simple.png, id=167, 631.60968pt x 367.3725pt>
 File: imagenes/bunny_simple.png Graphic file (type png)
 <use imagenes/bunny_simple.png>
-Package pdftex.def Info: imagenes/bunny_simple.png  used on input line 255.
+Package pdftex.def Info: imagenes/bunny_simple.png  used on input line 278.
 (pdftex.def)             Requested size: 133.38957pt x 77.58212pt.
 
-Underfull \hbox (badness 1092) in paragraph at lines 258--258
+Underfull \hbox (badness 1092) in paragraph at lines 281--281
 \T1/lmr/m/n/10.95 10.6KB. Nú-me-ro to-tal de
  []
 
-<imagenes/wolf.png, id=152, 632.3625pt x 366.61969pt>
+<imagenes/wolf.png, id=168, 632.3625pt x 366.61969pt>
 File: imagenes/wolf.png Graphic file (type png)
 <use imagenes/wolf.png>
-Package pdftex.def Info: imagenes/wolf.png  used on input line 261.
+Package pdftex.def Info: imagenes/wolf.png  used on input line 284.
 (pdftex.def)             Requested size: 133.38957pt x 77.33365pt.
 
-Underfull \hbox (badness 2443) in paragraph at lines 264--264
+Underfull \hbox (badness 2443) in paragraph at lines 287--287
 \T1/lmr/m/n/10.95 Nú-me-ro to-tal de pun-tos:
  []
 
-<imagenes/botes.png, id=153, 510.40688pt x 270.25969pt>
+<imagenes/botes.png, id=169, 510.40688pt x 270.25969pt>
 File: imagenes/botes.png Graphic file (type png)
 <use imagenes/botes.png>
-Package pdftex.def Info: imagenes/botes.png  used on input line 267.
+Package pdftex.def Info: imagenes/botes.png  used on input line 290.
 (pdftex.def)             Requested size: 133.38957pt x 70.62875pt.
-<imagenes/bunny.jpg, id=154, 602.25pt x 570.63188pt>
+LaTeX Info: Redefining \. on input line 304.
+LaTeX Info: Redefining \% on input line 304.
+[8 <./imagenes/delaunay_mal.png> <./imagenes/delaunay_bien.png> <./imagenes/del
+aunay_bien_10pts.png>]
+<imagenes/bunny.jpg, id=185, 602.25pt x 570.63188pt>
 File: imagenes/bunny.jpg Graphic file (type jpg)
 <use imagenes/bunny.jpg>
-Package pdftex.def Info: imagenes/bunny.jpg  used on input line 286.
+Package pdftex.def Info: imagenes/bunny.jpg  used on input line 309.
 (pdftex.def)             Requested size: 187.57352pt x 177.72993pt.
-<imagenes/bunny_colored.jpg, id=155, 803.0pt x 758.835pt>
+<imagenes/bunny_colored.jpg, id=186, 803.0pt x 758.835pt>
 File: imagenes/bunny_colored.jpg Graphic file (type jpg)
 <use imagenes/bunny_colored.jpg>
-Package pdftex.def Info: imagenes/bunny_colored.jpg  used on input line 290.
+Package pdftex.def Info: imagenes/bunny_colored.jpg  used on input line 313.
 (pdftex.def)             Requested size: 187.57352pt x 177.24942pt.
-<imagenes/dragon.jpg, id=156, 921.4425pt x 602.25pt>
+LaTeX Info: Redefining \. on input line 322.
+LaTeX Info: Redefining \% on input line 322.
+ [9 <./imagenes/bunny_simple.png> <./imagenes/wolf.png> <./imagenes/botes.png> 
+<./imagenes/bunny.jpg> <./imagenes/bunny_colored.jpg>]
+<imagenes/dragon.jpg, id=197, 921.4425pt x 602.25pt>
 File: imagenes/dragon.jpg Graphic file (type jpg)
 <use imagenes/dragon.jpg>
-Package pdftex.def Info: imagenes/dragon.jpg  used on input line 300.
+Package pdftex.def Info: imagenes/dragon.jpg  used on input line 325.
 (pdftex.def)             Requested size: 276.43488pt x 180.67639pt.
-<imagenes/angel_lucy.jpg, id=157, 599.23875pt x 911.405pt>
+<imagenes/angel_lucy.jpg, id=198, 599.23875pt x 911.405pt>
 File: imagenes/angel_lucy.jpg Graphic file (type jpg)
 <use imagenes/angel_lucy.jpg>
-Package pdftex.def Info: imagenes/angel_lucy.jpg  used on input line 311.
+Package pdftex.def Info: imagenes/angel_lucy.jpg  used on input line 336.
 (pdftex.def)             Requested size: 161.79662pt x 246.08264pt.
-LaTeX Info: Redefining \. on input line 316.
-LaTeX Info: Redefining \% on input line 316.
-[8 <./imagenes/bunny_simple.png> <./imagenes/wolf.png> <./imagenes/botes.png>]
-<imagenes/wue_city2.png, id=168, 1927.2pt x 1084.05pt>
+<imagenes/wue_city2.png, id=200, 1927.2pt x 1084.05pt>
 File: imagenes/wue_city2.png Graphic file (type png)
 <use imagenes/wue_city2.png>
-Package pdftex.def Info: imagenes/wue_city2.png  used on input line 324.
+Package pdftex.def Info: imagenes/wue_city2.png  used on input line 350.
 (pdftex.def)             Requested size: 327.61967pt x 184.28606pt.
-<imagenes/joinedmodel.jpg, id=169, 1445.4pt x 1156.32pt>
+<imagenes/joinedmodel.jpg, id=201, 1445.4pt x 1156.32pt>
 File: imagenes/joinedmodel.jpg Graphic file (type jpg)
 <use imagenes/joinedmodel.jpg>
-Package pdftex.def Info: imagenes/joinedmodel.jpg  used on input line 332.
+Package pdftex.def Info: imagenes/joinedmodel.jpg  used on input line 358.
 (pdftex.def)             Requested size: 245.71475pt x 196.5718pt.
-LaTeX Info: Redefining \. on input line 343.
-LaTeX Info: Redefining \% on input line 343.
+LaTeX Info: Redefining \. on input line 365.
+LaTeX Info: Redefining \% on input line 365.
 
-[9 <./imagenes/bunny.jpg> <./imagenes/bunny_colored.jpg>]
-LaTeX Info: Redefining \. on input line 343.
-LaTeX Info: Redefining \% on input line 343.
- [10 <./imagenes/dragon.jpg> <./imagenes/angel_lucy.jpg>]
-LaTeX Info: Redefining \. on input line 343.
-LaTeX Info: Redefining \% on input line 343.
- [11 <./imagenes/wue_city2.png (PNG copy)> <./imagenes/joinedmodel.jpg>]
-<imagenes/sensor_laser_espejo.png, id=188, 322.20375pt x 243.15843pt>
+[10 <./imagenes/dragon.jpg>]
+LaTeX Info: Redefining \. on input line 365.
+LaTeX Info: Redefining \% on input line 365.
+ [11 <./imagenes/angel_lucy.jpg> <./imagenes/wue_city2.png (PNG copy)>]
+LaTeX Info: Redefining \. on input line 377.
+LaTeX Info: Redefining \% on input line 377.
+ [12 <./imagenes/joinedmodel.jpg>]
+<imagenes/lidar_explanation.png, id=218, 526.96875pt x 183.68625pt>
+File: imagenes/lidar_explanation.png Graphic file (type png)
+<use imagenes/lidar_explanation.png>
+Package pdftex.def Info: imagenes/lidar_explanation.png  used on input line 388
+.
+(pdftex.def)             Requested size: 250.10226pt x 87.17899pt.
+LaTeX Info: Redefining \. on input line 410.
+LaTeX Info: Redefining \% on input line 410.
+ [13 <./imagenes/lidar_explanation.png (PNG copy)>]
+<imagenes/sensor_laser_espejo.png, id=228, 322.20375pt x 243.15843pt>
 File: imagenes/sensor_laser_espejo.png Graphic file (type png)
 <use imagenes/sensor_laser_espejo.png>
-Package pdftex.def Info: imagenes/sensor_laser_espejo.png  used on input line 3
-54.
+Package pdftex.def Info: imagenes/sensor_laser_espejo.png  used on input line 4
+17.
 (pdftex.def)             Requested size: 133.38957pt x 100.6677pt.
-<imagenes/sensor_laser_vista_tope.png, id=189, 322.20375pt x 232.61906pt>
+<imagenes/sensor_laser_vista_tope.png, id=229, 322.20375pt x 232.61906pt>
 File: imagenes/sensor_laser_vista_tope.png Graphic file (type png)
 <use imagenes/sensor_laser_vista_tope.png>
 Package pdftex.def Info: imagenes/sensor_laser_vista_tope.png  used on input li
-ne 358.
+ne 421.
 (pdftex.def)             Requested size: 133.38957pt x 96.30438pt.
-<imagenes/sensor_laser_resultado.png, id=190, 322.20375pt x 220.57407pt>
+<imagenes/sensor_laser_resultado.png, id=230, 322.20375pt x 220.57407pt>
 File: imagenes/sensor_laser_resultado.png Graphic file (type png)
 <use imagenes/sensor_laser_resultado.png>
 Package pdftex.def Info: imagenes/sensor_laser_resultado.png  used on input lin
-e 362.
+e 425.
 (pdftex.def)             Requested size: 133.38957pt x 91.31775pt.
 
-Underfull \hbox (badness 1354) in paragraph at lines 363--363
-[]\T1/lmr/m/n/10.95 Figura 1.22: []Conjunto de
+Underfull \hbox (badness 1354) in paragraph at lines 426--426
+[]\T1/lmr/m/n/10.95 Figura 1.24: []Conjunto de
  []
 
-<imagenes/sensor_dos_espejos.png, id=191, 269.005pt x 192.72pt>
+<imagenes/sensor_dos_espejos.png, id=231, 269.005pt x 192.72pt>
 File: imagenes/sensor_dos_espejos.png Graphic file (type png)
 <use imagenes/sensor_dos_espejos.png>
-Package pdftex.def Info: imagenes/sensor_dos_espejos.png  used on input line 37
-1.
+Package pdftex.def Info: imagenes/sensor_dos_espejos.png  used on input line 43
+4.
 (pdftex.def)             Requested size: 187.57352pt x 134.38257pt.
-<imagenes/movimiento_lidar_2D.png, id=192, 478.78876pt x 369.38pt>
+<imagenes/movimiento_lidar_2D.png, id=232, 478.78876pt x 369.38pt>
 File: imagenes/movimiento_lidar_2D.png Graphic file (type png)
 <use imagenes/movimiento_lidar_2D.png>
-Package pdftex.def Info: imagenes/movimiento_lidar_2D.png  used on input line 3
-75.
+Package pdftex.def Info: imagenes/movimiento_lidar_2D.png  used on input line 4
+38.
 (pdftex.def)             Requested size: 187.57352pt x 144.71143pt.
-LaTeX Info: Redefining \. on input line 385.
-LaTeX Info: Redefining \% on input line 385.
-[12 <./imagenes/sensor_laser_espejo.png> <./imagenes/sensor_laser_vista_tope.pn
-g> <./imagenes/sensor_laser_resultado.png>]
-<imagenes/lidar_explanation.png, id=203, 526.96875pt x 183.68625pt>
-File: imagenes/lidar_explanation.png Graphic file (type png)
-<use imagenes/lidar_explanation.png>
-Package pdftex.def Info: imagenes/lidar_explanation.png  used on input line 397
-.
-(pdftex.def)             Requested size: 250.10226pt x 87.17899pt.
-LaTeX Info: Redefining \. on input line 409.
-LaTeX Info: Redefining \% on input line 409.
- [13 <./imagenes/sensor_dos_espejos.png> <./imagenes/movimiento_lidar_2D.png (P
-NG copy)> <./imagenes/lidar_explanation.png (PNG copy)>]
-<imagenes/airborne_lidar.png, id=213, 202.50656pt x 191.21437pt>
+LaTeX Info: Redefining \. on input line 447.
+LaTeX Info: Redefining \% on input line 447.
+[14 <./imagenes/sensor_laser_espejo.png> <./imagenes/sensor_laser_vista_tope.pn
+g> <./imagenes/sensor_laser_resultado.png> <./imagenes/sensor_dos_espejos.png> 
+<./imagenes/movimiento_lidar_2D.png (PNG copy)>]
+LaTeX Info: Redefining \. on input line 478.
+LaTeX Info: Redefining \% on input line 478.
+ [15]
+<imagenes/airborne_lidar.png, id=254, 202.50656pt x 191.21437pt>
 File: imagenes/airborne_lidar.png Graphic file (type png)
 <use imagenes/airborne_lidar.png>
-Package pdftex.def Info: imagenes/airborne_lidar.png  used on input line 437.
+Package pdftex.def Info: imagenes/airborne_lidar.png  used on input line 482.
 (pdftex.def)             Requested size: 187.57352pt x 177.11852pt.
-<imagenes/airborne_city.png, id=214, 298.11375pt x 198.7425pt>
+<imagenes/airborne_city.png, id=255, 298.11375pt x 198.7425pt>
 File: imagenes/airborne_city.png Graphic file (type png)
 <use imagenes/airborne_city.png>
-Package pdftex.def Info: imagenes/airborne_city.png  used on input line 441.
+Package pdftex.def Info: imagenes/airborne_city.png  used on input line 486.
 (pdftex.def)             Requested size: 187.57352pt x 125.0477pt.
-LaTeX Info: Redefining \. on input line 452.
-LaTeX Info: Redefining \% on input line 452.
- [14]
-LaTeX Info: Redefining \. on input line 476.
-LaTeX Info: Redefining \% on input line 476.
- [15 <./imagenes/airborne_lidar.png> <./imagenes/airborne_city.png>]
-<imagenes/pcl_logo.png, id=227, 803.0pt x 302.12875pt>
+LaTeX Info: Redefining \. on input line 519.
+LaTeX Info: Redefining \% on input line 519.
+ [16 <./imagenes/airborne_lidar.png> <./imagenes/airborne_city.png>]
+<imagenes/pcl_logo.png, id=266, 803.0pt x 302.12875pt>
 File: imagenes/pcl_logo.png Graphic file (type png)
 <use imagenes/pcl_logo.png>
-Package pdftex.def Info: imagenes/pcl_logo.png  used on input line 492.
+Package pdftex.def Info: imagenes/pcl_logo.png  used on input line 535.
 (pdftex.def)             Requested size: 187.57352pt x 70.57152pt.
-LaTeX Info: Redefining \. on input line 505.
-LaTeX Info: Redefining \% on input line 505.
- [16 <./imagenes/pcl_logo.png>]
-LaTeX Info: Redefining \. on input line 550.
-LaTeX Info: Redefining \% on input line 550.
- [17]
-Underfull \hbox (badness 10000) in paragraph at lines 557--567
+LaTeX Info: Redefining \. on input line 547.
+LaTeX Info: Redefining \% on input line 547.
+ [17 <./imagenes/pcl_logo.png>]
+LaTeX Info: Redefining \. on input line 591.
+LaTeX Info: Redefining \% on input line 591.
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 600--610
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 570--585
+Underfull \hbox (badness 10000) in paragraph at lines 613--628
 
  []
 
-<imagenes/pcl_filter.png, id=238, 642.4pt x 232.87pt>
+<imagenes/pcl_filter.png, id=277, 642.4pt x 232.87pt>
 File: imagenes/pcl_filter.png Graphic file (type png)
 <use imagenes/pcl_filter.png>
-Package pdftex.def Info: imagenes/pcl_filter.png  used on input line 592.
+Package pdftex.def Info: imagenes/pcl_filter.png  used on input line 635.
 (pdftex.def)             Requested size: 312.62466pt x 113.32912pt.
-LaTeX Info: Redefining \. on input line 596.
-LaTeX Info: Redefining \% on input line 596.
-[18]) (bibliografÃ­a.tex
+LaTeX Info: Redefining \. on input line 639.
+LaTeX Info: Redefining \% on input line 639.
+[19]) (bibliografÃ­a.tex
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [19 <./imagenes/pcl_filter.png>]
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [20
-
-])
+ [20 <./imagenes/pcl_filter.png>])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 60.
- [21]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 60.
+ [21
 
-(memoria.aux
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 60.
+ (memoria.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 )
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 60.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 60.
-Package rerunfilecheck Info: File `memoria.out' has not changed.
-(rerunfilecheck)             Checksum: 33E6FE68AB84BEA1DFCFC5FDA1F0235A;861.
+
+
+Package rerunfilecheck Warning: File `memoria.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `memoria.out':
+(rerunfilecheck)             Before: 4740FF97F1982650935BE4F59F855BE2;933
+(rerunfilecheck)             After:  21F293401D4AF4496C8E77034FA0DB25;1008.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 60.
  ) 
 Here is how much of TeX's memory you used:
- 7360 strings out of 493305
- 109835 string characters out of 3130237
- 203469 words of memory out of 3000000
- 10694 multiletter control sequences out of 15000+200000
+ 7380 strings out of 493305
+ 110181 string characters out of 3130237
+ 203738 words of memory out of 3000000
+ 10705 multiletter control sequences out of 15000+200000
  68229 words of font info for 45 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,8n,32p,880b,403s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc
-}<C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.
-pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmbx
-12.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/l
-mcsc10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
-lm/lmr10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
-c/lm/lmr12.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
-lic/lm/lmr17.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
-ublic/lm/lmr8.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
-public/lm/lmri10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
-e1/public/lm/lmro10.pfb>
-Output written on memoria.pdf (27 pages, 6700440 bytes).
+ 28i,8n,32p,736b,431s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit
+.enc}{C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mat
+hsy.enc}{C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-
+rm.enc}{C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-e
+c.enc}<C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lm
+bx10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm
+/lmbx12.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
+/lm/lmcsc10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
+blic/lm/lmmi10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
+/public/lm/lmmi8.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/lm/lmr10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/t
+ype1/public/lm/lmr12.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts
+/type1/public/lm/lmr17.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fon
+ts/type1/public/lm/lmr8.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/lm/lmri10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9
+/fonts/type1/public/lm/lmro10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 
+2.9/fonts/type1/public/lm/lmsy10.pfb>
+Output written on memoria.pdf (27 pages, 6750962 bytes).
 PDF statistics:
- 307 PDF objects out of 1000 (max. 8388607)
- 71 named destinations out of 1000 (max. 500000)
- 234 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 359 PDF objects out of 1000 (max. 8388607)
+ 79 named destinations out of 1000 (max. 500000)
+ 247 words of extra memory for PDF output out of 10000 (max. 10000000)
 
