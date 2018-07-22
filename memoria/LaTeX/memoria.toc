@@ -4,9 +4,14 @@
 \contentsline {subsection}{\numberline {1.1.1}La visi\IeC {\'o}n en el ser humano}{1}{subsection.1.1.1}
 \contentsline {subsection}{\numberline {1.1.2}Exportando la capacidad de visi\IeC {\'o}n}{3}{subsection.1.1.2}
 \contentsline {section}{\numberline {1.2}Concepto de nube de puntos}{6}{section.1.2}
-\contentsline {section}{\numberline {1.3}Adquisici\IeC {\'o}n de informaci\IeC {\'o}n: Sensores y evoluci\IeC {\'o}n}{9}{section.1.3}
-\contentsline {section}{\numberline {1.4}Procesamiento software de informaci\IeC {\'o}n }{15}{section.1.4}
-\contentsline {section}{\numberline {1.5}objetivos}{19}{section.1.5}
-\contentsline {section}{\numberline {1.6}Descripci\IeC {\'o}n de herramientas}{19}{section.1.6}
-\contentsline {subsection}{\numberline {1.6.1}Herramientas hardware}{19}{subsection.1.6.1}
-\contentsline {subsection}{\numberline {1.6.2}Herramientas software}{19}{subsection.1.6.2}
+\contentsline {section}{\numberline {1.3}Adquisici\IeC {\'o}n de informaci\IeC {\'o}n: Sensores y evoluci\IeC {\'o}n}{12}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Sensores l\IeC {\'a}ser}{12}{subsection.1.3.1}
+\contentsline {subsubsection}{Caracter\IeC {\'\i }sticas y control de la luz utilizada por el sensor}{13}{section*.2}
+\contentsline {subsubsection}{Ventajas y desventajas de lidar}{15}{section*.3}
+\contentsline {subsubsection}{Aplicaciones de lidar}{15}{section*.4}
+\contentsline {subsection}{\numberline {1.3.2}Alternativas a lidar}{16}{subsection.1.3.2}
+\contentsline {section}{\numberline {1.4}Procesamiento software de informaci\IeC {\'o}n }{16}{section.1.4}
+\contentsline {section}{\numberline {1.5}objetivos}{20}{section.1.5}
+\contentsline {section}{\numberline {1.6}Descripci\IeC {\'o}n de herramientas}{20}{section.1.6}
+\contentsline {subsection}{\numberline {1.6.1}Herramientas hardware}{20}{subsection.1.6.1}
+\contentsline {subsection}{\numberline {1.6.2}Herramientas software}{20}{subsection.1.6.2}
