@@ -1,0 +1,273 @@
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 1132.95
+SIFT points estimation time (s): 56.8455
+Number of SIFT points found: 404
+---------------------
+----------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.002
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 53.2232
+SIFT points estimation time (s): 56.5525
+Number of SIFT points found: 1
+---------------------
+----------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.004
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 94.9102
+SIFT points estimation time (s): 56.6762
+Number of SIFT points found: 71
+---------------------
+----------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.01
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 320.091
+SIFT points estimation time (s): 56.7374
+Number of SIFT points found: 316
+---------------------
+----------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.04
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 143.301
+SIFT points estimation time (s): 56.8468
+Number of SIFT points found: 169
+---------------------
+----------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.002
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 1133.67
+SIFT points estimation time (s): 327.095
+Number of SIFT points found: 1839
+---------------------
+----------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.005
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 1133.57
+SIFT points estimation time (s): 133.022
+Number of SIFT points found: 1011
+---------------------
+----------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.02
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 1134.23
+SIFT points estimation time (s): 23.401
+Number of SIFT points found: 99
+---------------------
+----------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.05
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 1133.55
+SIFT points estimation time (s): 11.3278
+Number of SIFT points found: 14
+---------------------
+----------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.1
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 1133.61
+SIFT points estimation time (s): 9.30209
+Number of SIFT points found: 9
+---------------------
+----------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 1
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 1133.62
+SIFT points estimation time (s): 42.0242
+Number of SIFT points found: 321
+---------------------
+----------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 2
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 1134
+SIFT points estimation time (s): 53.5413
+Number of SIFT points found: 387
+---------------------
+----------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 5
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 1133.84
+SIFT points estimation time (s): 57.8154
+Number of SIFT points found: 418
+---------------------
+----------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 10
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 1133.7
+SIFT points estimation time (s): 57.8485
+Number of SIFT points found: 421
+---------------------
+----------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 20
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 1133.72
+SIFT points estimation time (s): 57.8857
+Number of SIFT points found: 421
+---------------------
+----------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 1
+Minimum contrast: 0.001
+
+Normal estimation time (s): 1133.57
+SIFT points estimation time (s): 95.1829
+Number of SIFT points found: 392
+---------------------
+----------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 2
+Minimum contrast: 0.001
+
+Normal estimation time (s): 1133.66
+SIFT points estimation time (s): 62.4176
+Number of SIFT points found: 499
+---------------------
+----------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 5
+Minimum contrast: 0.001
+
+Normal estimation time (s): 1133.98
+SIFT points estimation time (s): 57.3656
+Number of SIFT points found: 436
+---------------------
+----------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 10
+Minimum contrast: 0.001
+
+Normal estimation time (s): 1133.9
+SIFT points estimation time (s): 66.0997
+Number of SIFT points found: 602
+---------------------
+----------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 15
+Minimum contrast: 0.001
+
+Normal estimation time (s): 1133.59
+SIFT points estimation time (s): 76.8558
+Number of SIFT points found: 683
+---------------------
+----------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 20
+Minimum contrast: 0.001
+
+Normal estimation time (s): 1133.93
+SIFT points estimation time (s): 88.0751
+Number of SIFT points found: 676
+---------------------
+----------------------
