@@ -179,11 +179,11 @@ int main(int argc, char** argv)
   begin = clock();
   ne.compute(*cloud_normals);
   end = clock();
- 
+
   normal_estimation_time = double(end-begin)/CLOCKS_PER_SEC;
   std::cout << "Time needed for normal estimation in " << filename << ": " << normal_estimation_time << " seconds" << std::endl << std::endl;
- 
-//Copy the xyz info from cloud_xyz and add it to cloud_normals as the xyz field in PointNormals estimation is zero
+
+  //Copy the xyz info from cloud_xyz and add it to cloud_normals as the xyz field in PointNormals estimation is zero
   
   std::cout << "Copying xyz information from" << filename << " to cloud with normals information..." << std::endl;
 
@@ -199,6 +199,10 @@ int main(int argc, char** argv)
   end = clock();
   elapsed_sec = double(end-begin)/CLOCKS_PER_SEC;
   std::cout << "Time needed for copying the pointcloud: " << elapsed_sec <<" seconds" << std::endl << std::endl;
+  if(cloud_normals->points.size()!=0){
+  	pcl::io::savePCDFileASCII ("cloud_normals.pcd", *cloud_normals);
+  }
+
 
 
 // Estimate the sift interest points using normals values from xyz as the Intensity variants
