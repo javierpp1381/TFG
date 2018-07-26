@@ -1,0 +1,198 @@
+filename: cloud_normals.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+SIFT points estimation time (s): 109.313
+Number of SIFT points found: 0
+---------------------
+----------------------
+filename: cloud_normals.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.001
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+SIFT points estimation time (s): 322.094
+Number of SIFT points found: 4498
+---------------------
+----------------------
+filename: cloud_normals.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.002
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+SIFT points estimation time (s): 363.197
+Number of SIFT points found: 4498
+---------------------
+----------------------
+filename: cloud_normals.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.005
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+SIFT points estimation time (s): 303.68
+Number of SIFT points found: 5
+---------------------
+----------------------
+filename: cloud_normals.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.02
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+SIFT points estimation time (s): 35.3325
+Number of SIFT points found: 0
+---------------------
+----------------------
+filename: cloud_normals.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.05
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+SIFT points estimation time (s): 10.7271
+Number of SIFT points found: 0
+---------------------
+----------------------
+filename: cloud_normals.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.1
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+SIFT points estimation time (s): 6.94541
+Number of SIFT points found: 0
+---------------------
+----------------------
+filename: cloud_normals.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 1
+Number of scales per octave: 4
+Minimum contrast: 0.001
+SIFT points estimation time (s): 79.6122
+Number of SIFT points found: 0
+---------------------
+----------------------
+filename: cloud_normals.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 2
+Number of scales per octave: 4
+Minimum contrast: 0.001
+SIFT points estimation time (s): 103.108
+Number of SIFT points found: 0
+---------------------
+----------------------
+filename: cloud_normals.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 5
+Number of scales per octave: 4
+Minimum contrast: 0.001
+SIFT points estimation time (s): 111.232
+Number of SIFT points found: 0
+---------------------
+----------------------
+filename: cloud_normals.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 10
+Number of scales per octave: 4
+Minimum contrast: 0.001
+SIFT points estimation time (s): 111.383
+Number of SIFT points found: 0
+---------------------
+----------------------
+filename: cloud_normals.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 20
+Number of scales per octave: 4
+Minimum contrast: 0.001
+SIFT points estimation time (s): 111.263
+Number of SIFT points found: 0
+---------------------
+----------------------
+filename: cloud_normals.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 1
+Minimum contrast: 0.001
+SIFT points estimation time (s): 203.257
+Number of SIFT points found: 5
+---------------------
+----------------------
+filename: cloud_normals.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 2
+Minimum contrast: 0.001
+SIFT points estimation time (s): 123.814
+Number of SIFT points found: 0
+---------------------
+----------------------
+filename: cloud_normals.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 5
+Minimum contrast: 0.001
+SIFT points estimation time (s): 110.251
+Number of SIFT points found: 0
+---------------------
+----------------------
+filename: cloud_normals.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 10
+Minimum contrast: 0.001
+SIFT points estimation time (s): 128.221
+Number of SIFT points found: 0
+---------------------
+----------------------
+filename: cloud_normals.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 15
+Minimum contrast: 0.001
+SIFT points estimation time (s): 149.836
+Number of SIFT points found: 0
+---------------------
+----------------------
+filename: cloud_normals.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 20
+Minimum contrast: 0.001
+SIFT points estimation time (s): 173.277
+Number of SIFT points found: 0
+---------------------
+----------------------

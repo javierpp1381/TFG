@@ -1,0 +1,65 @@
+filename: cturtle.pcd
+
+Normal estimation radius search: 0.002
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 13.2386
+SIFT points estimation time (s): 108.316
+Number of SIFT points found: 0
+---------------------
+----------------------
+filename: cturtle.pcd
+
+Normal estimation radius search: 0.004
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 13.2324
+SIFT points estimation time (s): 108.368
+Number of SIFT points found: 0
+---------------------
+----------------------
+filename: cturtle.pcd
+
+Normal estimation radius search: 0.01
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 52.3746
+SIFT points estimation time (s): 108.711
+Number of SIFT points found: 0
+---------------------
+----------------------
+filename: cturtle.pcd
+
+Normal estimation radius search: 0.04
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 324.605
+SIFT points estimation time (s): 108.672
+Number of SIFT points found: 0
+---------------------
+----------------------
+filename: cturtle.pcd
+
+Normal estimation radius search: 0.1
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 1968.51
+SIFT points estimation time (s): 108.775
+Number of SIFT points found: 0
+---------------------
+----------------------
