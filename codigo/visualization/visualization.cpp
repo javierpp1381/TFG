@@ -1,3 +1,7 @@
+
+//-----------------------------------------------
+//-------------------LIBRARIES-------------------
+//-----------------------------------------------
 #include <pcl/visualization/cloud_viewer.h>
 #include <iostream>
 #include <pcl/io/io.h>
@@ -6,6 +10,9 @@
     
 int user_data;
     
+//-----------------------------------------------
+//-------------------METHODS---------------------
+//-----------------------------------------------
 void 
 viewerOneOff (pcl::visualization::PCLVisualizer& viewer)
 {
@@ -29,50 +36,55 @@ viewerPsycho (pcl::visualization::PCLVisualizer& viewer)
     
     user_data++;
 }
+
+
+//-----------------------------------------------
+//-------------------MAIN------------------------
+//-----------------------------------------------
     
 int 
 main (int argc, char** argv)
 {   
 
-    
+    //------------------------------read input cloud---------------------------------
     pcl::PointCloud<pcl::PointXYZRGBA>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZRGBA>);
-     std::vector<int> pcd_filename_indices = pcl::console::parse_file_extension_argument (argc, argv, "pcd"); 
-     std::string filename;
+    std::vector<int> pcd_filename_indices = pcl::console::parse_file_extension_argument (argc, argv, "pcd"); 
+    std::string filename;
      
-     if (!pcd_filename_indices.empty ())
-  {
-     filename = argv[pcd_filename_indices[0]];
-    if (pcl::io::loadPCDFile (filename, *cloud) == -1)
+    if (!pcd_filename_indices.empty ())
     {
-      cerr << "Was not able to open file \""<<filename<<"\".\n";
-      return -1;
+    	filename = argv[pcd_filename_indices[0]];
+    	if (pcl::io::loadPCDFile (filename, *cloud) == -1)
+    	{
+      		cerr << "Was not able to open file \""<<filename<<"\".\n";
+      		return -1;
+    	}
     }
-  }
     else
-  {
-    cout << "\nNo *.pcd file given => closing.\n\n";
-    return -1;
-  }
+    {
+    	cout << "\nNo *.pcd file given => closing.\n\n";
+    	return -1;
+    }
+    
     cout << "\nNumber of points in "<< filename << ": " << cloud->points.size() << "\n";
+    
+    //--------------------visualize pointcloud----------------------------------------
+    
     pcl::visualization::CloudViewer viewer("Cloud Viewer");
     
-    //blocks until the cloud is actually rendered
     viewer.showCloud(cloud);
     
-    //use the following functions to get access to the underlying more advanced/powerful
-    //PCLVisualizer
     
     //This will only get called once
     viewer.runOnVisualizationThreadOnce (viewerOneOff);
     
     //This will get called once per visualization iteration
     //viewer.runOnVisualizationThread (viewerPsycho);
+    
+    
     while (!viewer.wasStopped ())
     {
-    //you can also do cool processing here
-    //FIXME: Note that this is running in a separate thread from viewerPsycho
-    //and you should guard against race conditions yourself...
-    user_data++;
+    
     }
     return 0;
 }
