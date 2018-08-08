@@ -4,20 +4,14 @@ codigo fuente y memoria del puto TFG
 ------------------------------------------------------------------ESTADO ACTUAL--------------------------------------------------------  
 memoria: Todo bien mientras siga echándole horitas   
   
-hls: hacer ejemplo o intentar integrar ya algo de sacar normales  
-  
-medir tiempos: modificar .h y .hpp para medir tiempos bien (copiar esos headers a la placa)  
-  
-diagramas: hacer diagramas de extracción de normales, extracción sift, básico, setinputcloud y esos rollos
-  
 código:  
 visualizer: Funciona bien si le meto .pcd, nada fancy con que funcione vale   
 points clouds: nubes de puntos en formato .pcd  
   
-sift keypoints: Extracción de keypoints sift basándose en la estimación de la normal a la superficie, medir tiempos con diferentes nubes y hacer gráficos o algo  
+sift keypoints: Extracción de keypoints sift basándose en la estimación de la normal a la superficie  
 only sift keypoints: solamente calcula sift points porque la nube con las normales es una entrada  
 
-registration: Ewjemplo hecho  
+registration: Ejemplo hecho  
   
 otros:  
 compilación directa: todo guay con el swap file de 2GB  
