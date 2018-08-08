@@ -3,8 +3,9 @@
  * as usually used for SIFT keypoint estimation.
  */
 
-
-//------------------------------------------------LIBRARIRES--------------------------------------
+//------------------------------------------------------------------------------------------
+//------------------------------------------------LIBRARIES---------------------------------
+//------------------------------------------------------------------------------------------
 
 // STL
 #include <iostream>
@@ -21,8 +22,6 @@
 #include <pcl/keypoints/narf_keypoint.h>
 #include <pcl/features/normal_3d.h>
 #include <pcl/features/impl/normal_3d.hpp>
-
-//#include <pcl/console/print.cpp> //for cross compiling
 
 #include <pcl/impl/pcl_base.hpp>///////////////
 
@@ -45,23 +44,31 @@
 
 #include <fstream>
 
-//-------------------------------------------GLOBAL VARIABLES-------------------------------------------------
+//------------------------------------------------------------------------------------------
+//-------------------------------------------GLOBAL VARIABLES-------------------------------
+//------------------------------------------------------------------------------------------
 
-
+//program parameters
+////normal estimation parameters
 int normal_estimation_object = 0;
 float radius_search = 0.02f;
-clock_t begin,end;
-double elapsed_sec;
 float normal_estimation_time = 0.0f;
 float sift_estimation_time = 0.0f;
-// Parameters for sift computation
+
+////SIFT comptation parameters
 float min_scale = 0.01f;
 int n_octaves = 3;
 int n_scales_per_octave = 4;
 float min_contrast = 0.001f;
 int sift_points=0; 
 
-//-------------------------------------------METHODS-------------------------------------------------------
+//time emasurement parameters
+clock_t begin,end;
+double elapsed_sec;
+
+//------------------------------------------------------------------------------------------
+//-------------------------------------------METHODS----------------------------------------
+//------------------------------------------------------------------------------------------
 
 void 
 printUsage (const char* progName)
@@ -79,16 +86,17 @@ printUsage (const char* progName)
             << "\n\n";
 }
 
-
+//------------------------------------------------------------------------------------------
 //-------------------------------------------MAIN-------------------------------------------
-	
+//------------------------------------------------------------------------------------------
 int main(int argc, char** argv)
 {
 
 
-//parse arguments
+//--------------------------------------parse arguments----------------------------------
 
-  if(argc == 1 || (pcl::console::find_argument (argc,argv,"-h") >= 0) ){
+  if(argc == 1 || (pcl::console::find_argument (argc,argv,"-h") >= 0) )
+  {
 	printUsage (argv[0]);
 	return 0;
   }	
@@ -97,13 +105,16 @@ int main(int argc, char** argv)
 
   pcl::NormalEstimation<pcl::PointXYZ, pcl::PointNormal> ne;
   pcl::console::parse (argc, argv, "-o", normal_estimation_object);
-  if(normal_estimation_object >0){
+  if(normal_estimation_object >0)
+  {
 	std::cout << "Using enhanced normal estimation object" << std::endl;
 	pcl::NormalEstimationOMP<pcl::PointXYZ, pcl::PointNormal> ne;
   }
-  else{
+  else
+  {
 	std::cout << "Using regular normal estimation object" << std::endl;
   }
+  
   pcl::console::parse (argc,argv, "-r", radius_search);
   std::cout << "Setting radius search for normal estimation to: " << radius_search << std::endl;
 
@@ -124,10 +135,8 @@ int main(int argc, char** argv)
   std::cout << "Setting minimum contrast to: " << min_contrast << std::endl;
 
   std::cout << std::endl << std::endl;
-
-//read input .pcd file  
+//--------------------------------------read input .pcd file--------------------------------------
   begin = clock();
-
 /*
   std::string filename = argv[1];
   std::cout << "Reading " << filename << std::endl;
@@ -166,7 +175,8 @@ int main(int argc, char** argv)
   std::cout << "Number of points in "<< filename << ": "<< cloud_xyz->points.size () <<std::endl; 
   std::cout << "Time needed for " << filename << " to load: " << elapsed_sec << " seconds"<< std::endl << std::endl; 
  
-//Estimate the normals of the cloud_xyz
+//---------------------------------------Estimate the normals of the cloud_xyz---------------------------------------  
+  
   pcl::PointCloud<pcl::PointNormal>::Ptr cloud_normals (new pcl::PointCloud<pcl::PointNormal>);
   pcl::search::KdTree<pcl::PointXYZ>::Ptr tree_n(new pcl::search::KdTree<pcl::PointXYZ>());
 
@@ -181,9 +191,9 @@ int main(int argc, char** argv)
   end = clock();
 
   normal_estimation_time = double(end-begin)/CLOCKS_PER_SEC;
-  std::cout << "Time needed for normal estimation in " << filename << ": " << normal_estimation_time << " seconds" << std::endl << std::endl;
+  std::cout << "Time needed for normal estimation (compute) in " << filename << ": " << normal_estimation_time << " seconds" << std::endl << std::endl;
 
-  //Copy the xyz info from cloud_xyz and add it to cloud_normals as the xyz field in PointNormals estimation is zero
+//----Copy the xyz info from cloud_xyz and add it to cloud_normals as the xyz field in PointNormals estimation is zero---
   
   std::cout << "Copying xyz information from" << filename << " to cloud with normals information..." << std::endl;
 
@@ -205,7 +215,7 @@ int main(int argc, char** argv)
 
 
 
-// Estimate the sift interest points using normals values from xyz as the Intensity variants
+//----------------Estimate the sift interest points using normals values from xyz as the Intensity variants--------------
   pcl::SIFTKeypoint<pcl::PointNormal, pcl::PointWithScale> sift;
   pcl::PointCloud<pcl::PointWithScale>::Ptr result(new pcl::PointCloud<pcl::PointWithScale>);
   pcl::search::KdTree<pcl::PointNormal>::Ptr tree(new pcl::search::KdTree<pcl::PointNormal> ());
@@ -214,13 +224,6 @@ int main(int argc, char** argv)
   sift.setMinimumContrast(min_contrast);
   sift.setInputCloud(cloud_normals);
  
-  //pcl::PointCloud<int> keypoint_indices;
-  //sift.compute(keypoint_indices);
-
-    //for (size_t i=0; i<keypoint_indices.points.size (); ++i){
-      //std::cout << " " << keypoint_indices.points[i] << " ";
-    //}
-
   std::cout << "Estimating sift points in " << filename << "..." << std::endl;
 
   begin = clock();
@@ -230,7 +233,7 @@ int main(int argc, char** argv)
   std::cout << "Time needed for sift point extraction: " << sift_estimation_time << " seconds" << std::endl << std::endl;
 
 
-//save .pcd file with keypoints colored in green
+//-----------------------save .pcd file with keypoints colored in green---------------------------
   if(result->points.size()>0){
   
   	std::cout << "Number of SIFT points in " << filename << ": " << result->points.size () << std::endl;
@@ -261,6 +264,8 @@ int main(int argc, char** argv)
 	sift_points = 0;
   }
  
+
+//-----------------------------------------open file to store data-------------------------------------
   std::fstream fs;
   fs.open("tests.txt", std::fstream::app);
   
