@@ -3,9 +3,9 @@
  * as usually used for SIFT keypoint estimation.
  */
 
-
-//------------------------------------------------LIBRARIRES--------------------------------------
-
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------LIBRARIES--------------------------------------
+//------------------------------------------------------------------------------------------------
 // STL
 #include <iostream>
 
@@ -22,7 +22,6 @@
 #include <pcl/features/normal_3d.h>
 #include <pcl/features/impl/normal_3d.hpp>
 
-//#include <pcl/console/print.cpp> //for cross compiling
 
 #include <pcl/impl/pcl_base.hpp>///////////////
 
@@ -45,8 +44,9 @@
 
 #include <fstream>
 
-//-------------------------------------------GLOBAL VARIABLES-------------------------------------------------
-
+//------------------------------------------------------------------------------------------------
+//-------------------------------------------GLOBAL VARIABLES-------------------------------------
+//------------------------------------------------------------------------------------------------
 
 clock_t begin,end;
 double elapsed_sec;
@@ -59,8 +59,9 @@ int n_scales_per_octave = 4;
 float min_contrast = 0.001f;
 int sift_points=0; 
 
-//-------------------------------------------METHODS-------------------------------------------------------
-
+//------------------------------------------------------------------------------------------------
+//-------------------------------------------METHODS----------------------------------------------
+//------------------------------------------------------------------------------------------------
 void 
 printUsage (const char* progName)
 {
@@ -76,13 +77,14 @@ printUsage (const char* progName)
 }
 
 
-//-------------------------------------------MAIN-------------------------------------------
-	
+//------------------------------------------------------------------------------------------
+//-------------------------------------------MAIN-------------------------------------------	
+//------------------------------------------------------------------------------------------
 int main(int argc, char** argv)
 {
 
 
-//parse arguments
+//---------------------------------------parse arguments----------------------------------
 
   if(argc == 1 || (pcl::console::find_argument (argc,argv,"-h") >= 0) ){
 	printUsage (argv[0]);
@@ -104,7 +106,7 @@ int main(int argc, char** argv)
 
   std::cout << std::endl << std::endl;
 
-//read input .pcd file  
+//----------------------------------read input .pcd file-------------------------------------  
   begin = clock();
 
 /*
@@ -145,7 +147,7 @@ int main(int argc, char** argv)
   std::cout << "Number of points in "<< filename << ": "<< cloud_normals->points.size () <<std::endl; 
   std::cout << "Time needed for " << filename << " to load: " << elapsed_sec << " seconds"<< std::endl << std::endl; 
 
-// Estimate the sift interest points using normals values from xyz as the Intensity variants
+//------------------------Estimate the sift interest points using normals values from xyz as the Intensity variants------------
   pcl::SIFTKeypoint<pcl::PointNormal, pcl::PointWithScale> sift;
   pcl::PointCloud<pcl::PointWithScale>::Ptr result(new pcl::PointCloud<pcl::PointWithScale>);
   pcl::search::KdTree<pcl::PointNormal>::Ptr tree(new pcl::search::KdTree<pcl::PointNormal> ());
@@ -154,13 +156,6 @@ int main(int argc, char** argv)
   sift.setMinimumContrast(min_contrast);
   sift.setInputCloud(cloud_normals);
  
-  //pcl::PointCloud<int> keypoint_indices;
-  //sift.compute(keypoint_indices);
-
-    //for (size_t i=0; i<keypoint_indices.points.size (); ++i){
-      //std::cout << " " << keypoint_indices.points[i] << " ";
-    //}
-
   std::cout << "Estimating sift points in " << filename << "..." << std::endl;
 
   begin = clock();
@@ -170,7 +165,7 @@ int main(int argc, char** argv)
   std::cout << "Time needed for sift point extraction: " << sift_estimation_time << " seconds" << std::endl << std::endl;
 
 
-//save .pcd file with keypoints colored in green
+//----------------------------save .pcd file with keypoints colored in green-----------------------------
   if(result->points.size()>0){
   
   	std::cout << "Number of SIFT points in " << filename << ": " << result->points.size () << std::endl;
@@ -196,11 +191,13 @@ int main(int argc, char** argv)
   	}
   	pcl::io::savePCDFileASCII ("sift_keypoints.pcd", *keypoints);
   }
-  else {
+  else 
+  {
   	std::cout << "No sift points found" << std::endl;
 	sift_points = 0;
   }
  
+  //-------------------------------store data in txt file----------------------------------
   std::fstream fs;
   fs.open("tests.txt", std::fstream::app);
   
