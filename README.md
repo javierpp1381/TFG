@@ -5,7 +5,8 @@ codigo fuente y memoria del puto TFG
 memoria: Todo bien mientras siga echándole horitas   
   
 código:  
-visualizer: Funciona bien si le meto .pcd, nada fancy con que funcione vale   
+visualization: Funciona bien si le meto .pcd, nada fancy con que funcione vale   
+visualization_sift: requiere dos nubes de entrada, la original y la que tiene los puntos SIFT para visualizar todo junto  
 points clouds: nubes de puntos en formato .pcd  
   
 sift keypoints: Extracción de keypoints sift basándose en la estimación de la normal a la superficie  
