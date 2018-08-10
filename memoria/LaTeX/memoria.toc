@@ -11,7 +11,11 @@
 \contentsline {subsubsection}{Aplicaciones de lidar}{15}{section*.4}
 \contentsline {subsection}{\numberline {1.3.2}Alternativas a lidar}{16}{subsection.1.3.2}
 \contentsline {section}{\numberline {1.4}Procesamiento software de informaci\IeC {\'o}n }{16}{section.1.4}
-\contentsline {section}{\numberline {1.5}objetivos}{20}{section.1.5}
-\contentsline {section}{\numberline {1.6}Descripci\IeC {\'o}n de herramientas}{20}{section.1.6}
-\contentsline {subsection}{\numberline {1.6.1}Herramientas hardware}{20}{subsection.1.6.1}
-\contentsline {subsection}{\numberline {1.6.2}Herramientas software}{20}{subsection.1.6.2}
+\contentsline {chapter}{\numberline {2}Capacidades de PCL: Objetivos y herramientas}{21}{chapter.2}
+\contentsline {section}{\numberline {2.1}Capacidades de PCL}{21}{section.2.1}
+\contentsline {subsubsection}{M\IeC {\'o}dulo io}{21}{section*.5}
+\contentsline {subsubsection}{M\IeC {\'o}dulo registration}{23}{section*.6}
+\contentsline {section}{\numberline {2.2}Objetivos del TFG}{26}{section.2.2}
+\contentsline {section}{\numberline {2.3}Herramientas necesarias para desarrollar el trabajo}{26}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Herramientas hardware}{26}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Herramientas software}{26}{subsection.2.3.2}

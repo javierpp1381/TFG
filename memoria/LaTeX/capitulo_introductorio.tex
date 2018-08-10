@@ -525,7 +525,7 @@ Cada licencia está limitada a 32 núcleos de procesador y 3 tarjetas gráficas.
 
 
 
-Existe más software semejante al descrito y la inmensa mayoría tiene limitaciones de licencias o de hardware demasiado potente, y por lo tanto de un valor económico elevado, para un usuario particular. Pero entre todos ellos destaca PCL, siglas que en inglés se refieren a Point Cloud Library, es decir, librería de nubes de puntos. Es una librería única, de gran escala y un proyecto abierto a la comunidad para procesamiento de imágenes y nubes de puntos tanto en 2D como en 3D. Es más, PCL se somete a os términos de la licencia BSD (Berkelay Software Distribution) lo que implica que es de uso libre tanto para fines comerciales como de investigación. 
+Existe más software semejante al descrito y la inmensa mayoría tiene limitaciones de licencias o de hardware demasiado potente, y por lo tanto de un valor económico elevado, para un usuario particular. Pero entre todos ellos destaca PCL, siglas que en inglés se refieren a Point Cloud Library, es decir, librería de nubes de puntos escrita en lenguaje C++. Es una librería única, de gran escala y un proyecto abierto a la comunidad para procesamiento de imágenes y nubes de puntos tanto en 2D como en 3D. Es más, PCL se somete a os términos de la licencia BSD (Berkelay Software Distribution) lo que implica que es de uso libre tanto para fines comerciales como de investigación. 
 
 \begin{figure}
 \centering
@@ -537,118 +537,54 @@ Existe más software semejante al descrito y la inmensa mayoría tiene limitacio
 
 PCL dispone de multitud de herramientas para el procesamiento de nubes de puntos y dado que es una librería sometida a constante crecimiento y modificaciones, tener las herramientas debidamente organizadas y estructuradas es de vital importancia. Es por esto por lo que PCL tiene una organización en forma de librerías modulares, es decir, el conjunto de herramientas se clasifica según su utilidad.
 
-Uno de los módulos más importantes es el que se encarga de la lectura y escritura de nubes de puntos, es decir, el módulo IO del inglés input/output que se traduce como entrada/salida. Es por tanto esta librería capaz de interpretar la información otorgada por diferentes tipos de sensores así como de generar archivos que contienen nubes de puntos manipuladas por el resto de módulos.
-Existen varios tipos de formatos bajo los que almacenar una nube puntos.
+Dichas librerías se mencionan a continuación con una breve descripción de su utilidad:
 
-PCL ha creado el formato PCD, del inglés Point Cloud Data, es decir datos de nube de puntos. No se trata de un formato revolucionario sino más bien de una forma de complementar a los ya existentes que debido a los propósitos para los que se han creado u otras razones, no soportan algunas de las características relacionas con al procesamiento de nubes de puntos de n dimensiones. Además sufren de deficiencias en ciertos campos de computación debido a que fueron creados para fines diferentes, en diferentes épocas y en ocasiones mucho antes de la invención de los sensores y algoritmos hoy presentes.
+\begin{table}
+\begin{tabular}{|L|c|L|}\hline
+ \textbf{Nombre} & \textbf{Definición} \\\hline 
+ 
+filters &  \multicolumn{1}{m{10cm}|}{Contiene mecanismos de eliminación de ruido y filtrado de puntos con determinadas características}\\\hline
 
-Por lo tanto, el formato PCD no es único ni trata de reemplazar a los que ya están presentes creados por comunidades de computación gráfica y geométrica que en concreto sirven para describir polígonos arbitrarios y nubes de puntos obtenidas con escáneres láser. Por ejemplo se tienen formatos como los siguientes:
+  features  & \multicolumn{1}{m{10cm}|}{Contiene estructuras de datos y mecanismos para estimación de características en 3D. Permiten detectar patrones geométricos haciendo uso de la información local que representa el entorno de un punto dentro de una nube}\\\hline
+  
+  keypoints  & \multicolumn{1}{m{10cm}|}{Contiene las implementaciones de dos algoritmos de detección de keypoints o puntos clave los cuales se explicarán detalladamente más adelante}\\\hline
+  
+  registration  & \multicolumn{1}{m{10cm}|}{Permite unificar diferentes conjuntos de datos (nubes de puntos) en un modelo global y consistente. Se vale de los keypoints de cada uno de los conjuntos iniciales para poder desarrollar el modelo final unificado}\\\hline
+  
+  kdtree  & \multicolumn{1}{m{10cm}|}{Proporciona estructuras de datos que particionan el espacio de trabajo para almacenar puntos en una estructura de árbol y así mejorar la eficiencia de las operaciones realizadas sobre la nube de puntos}\\\hline
+  
+  octree  & \multicolumn{1}{m{10cm}|}{Porporciona métodos para crear estructuras de datos jerárquicas en forma de árbol para particionar el espacio de trabajo y agilizar futuras operaciones sobre la nube}\\\hline
+  
+  segmentation  & \multicolumn{1}{m{10cm}|}{Contiene algoritmos para segmentar o dividir una nube en diferentes regiones. Su utilidad se revela al trabajar con nubes que constan de grupos aislados de puntos}\\\hline
+  
+sample consensus  & \multicolumn{1}{m{10cm}|}{Contiene modelos de figuras geométricas predefinidas como líneas, planos o cilindros para detectar similitudes respecto a los mismos en una nube de puntos dada. Estos modelos se pueden combinar para dar lugar a una gran variedad de figuras geométricas}\\\hline
 
+  surface  & \multicolumn{1}{m{10cm}|}{Permite la reconstrucción de superficies sobre escaneos en 3D}\\\hline
+  
+  recognition  & \multicolumn{1}{m{10cm}|}{Contiene algoritmos para el reconocimiento de diferentes tipos de objetos}\\\hline
+  
+  io  & \multicolumn{1}{m{10cm}|}{Contiene clases y métodos para leer y escribir nubes de puntos en formato PCD que se explicará más adelante}\\\hline
+  
+   visualization  & \multicolumn{1}{m{10cm}|}{Sirve para visualizar nubes de puntos y así apreciar los resultados de las operaciones realizadas sobre las mismas}\\\hline
+ 
+\end{tabular}
+\end{table}
 
-PLY - Formato de ficheros para polígonos creado por Turk et al de la universidad de Stanford
-STL - Un formato nativo para software CAD de estereolitografía creado por 3D systems 
-OBJ - Un software de definición geométrica creado por Wavefront Technologies 
-X3D - Un formato basado en la norma ISO de XML para la representación de gráficos en 3d para computadoras 
+Abordar en profundidad todos y cada uno de estos módulos conllevaría un trabajo arduo y tedioso de modo que únicamente se entrará en detalle en aquellos que sean de utilidad para el propósito del presente trabajo y a lo cual se procede en el siguiente capítulo.
 
-Puesto que a partir de ahora se va a utilizar el formato PCD, se va a explicar con mayor profundidad cada una de sus partes.
-
-Un fichero PCD dispone de dos partes diferenciadas, encabezamiento y los puntos como tal.
-
-El encabezamiento se encarga de identificar y declarar las propiedades de la nube de puntos almacenados en el fichero y debe estar codificado en ASCII lo que implica que cada entrada en este formato está delimitada de las demás usando saltos de línea.
-
-Las características especificadas en el encabezamiento son las siguientes:
+A parte de los módulos o agrupaciones dentro de la librería de PCL, son necesarias otras herramientas que vienen implementadas de forma independiente en librerías externas:
 
 \begin{itemize}
-\item VERSION:
-Este campo especifica la versión del formato PCD
-
-\item FIELDS
-Traducido como "campos" indica el nombre de cada dimensión o campo existente en la nube de puntos como por ejemplo color, coordenadas XYZ o normales a la superficie.
-
-\item SIZE 
-Este campo indica el tamaño en bytes y en el mismo orden de cada campo declarado por FIELDS 
-
-\item TYPE
-Representa el tipo de dato de cada campo con un carácter. 
-I: Tipos con signo como int8 que equivale a un char, int16 que equivale a un short y int32 que equivale a un int
-U: Tipos sin signo como uint8, uint16 y uint32, los tipos análogos al caso anterior pero sin signo
-F: Representa todos los tipos flotantes
-
-\item COUNT 
-Indica cuántos elementos tiene cada campo previamente declarado en FIELDS. Por defecto toma el valor de 1.
-
-\item WIDTH
-Representa el ancho de la nube de puntos teniendo este concepto dos significados para lo cual hay que entender cómo se puede interpretar una nube de puntos. Por una parte, las nubes de puntos desorganizadas pueden verse como un vector de n elementos donde n es el ancho de la nube de puntos, es decir, se trata de una matriz de una fila y n columnas donde n es el ancho. Por otra parte, se puede definir de manera matricial con m filas y n columnas siendo ahora m el número de puntos presentes en cada columna y lo que define una nube de puntos organizada.
-
-\item HEIGHT
-No es nada más que el número de filas de la nube de puntos en su representación matricial explicada en el apartado anterior o bien el numero total de puntos de una nube representada como una matriz de m filas y una columna siendo en este caso m el campo tratado en este apartado.
-
-\item VIEWPOINT
-Especifica la posición del punto de vista desde el que el sensor adquirió la nube de puntos. Se indica como una traslación tx, ty, tz así como con un cuaternio qw, qx, qy, qz con un valor por defecto de 0 0 0 1 0 0 0 respectivamente.
-
-\item POINTS
-Indica el número total de puntos en la nube. Puesto que se trata de información redundante dados los campos previamente descritos, se espera que éste sea eliminado en un futuro.
-
-\item DATA
-Es el tipo de dato con el que se ha generado el fichero PCD siendo dos formatos los soportados, ascii y binary. El formato ascii obliga a que cada punto se escriba en una nueva línea, mientras que en el formato binary, la información presente en el fichero es una copia en memoria de la nube de puntos como vector de forma que se incrementa la velocidad de lectura y escritura
+\item[•]Eigen: Es una librería escrita en C++ para operaciones de álgebra lineal como operaciones con vectores, matrices o métodos numéricos.
+\item[•]FLANN: Son la siglas de Fast Library for Approximate Nearest Neighbors que se traduce como librería de aproximación rápida de vecinos más cercanos.Está escrita en C++ y sirve para realizar búsquedas rápidas de puntos vecinos cercanos a uno en concreto en espacios de diferentes dimensiones.
+\item[•]boost: Se trata de un conjunto de bibliotecas para extender las capacidades del lenguaje de programación C++ 
+\item[•]VTK: Son las siglas de Visualization Toolkit o kit de visualización. Está escrita en C++ y permite procesamiento y visualización de imágenes así como aporta soporte para multitud de algoritmos de visualización como es el escalar, vectorial, y métodos más avanzados como la triangulación de Delaunay
 \end{itemize}
 
-Queda el encabezamiento entonces con la siguiente estructura:
-
-VERSION\\
-FIELDS\\
-SIZE\\
-TYPE\\
-COUNT\\
-WIDTH\\
-HEIGHT\\
-VIEWPOINT\\
-POINTS\\
-DATA\\
-
-Como se ha mencionado previamente, cada punto se introduce después del encabezado en una línea nueva indicando, separados por espacios, el valor de cada campo. Como ejemplo de nube de puntos en formato PCD se tiene lo siguiente:
-
-VERSION .7\\
-FIELDS x y z rgb\\
-SIZE 4 4 4 4\\
-TYPE F F F F\\
-COUNT 1 1 1 1\\
-WIDTH 213\\
-HEIGHT 1\\
-VIEWPOINT 0 0 0 1 0 0 0\\
-POINTS 5\\
-DATA ascii\\
-0.93773 0.33763 0 4.2108e+06\\
-0.90805 0.35641 0 4.2108e+06\\
-0.81915 0.32 0 4.2108e+06\\
-0.97192 0.278 0 4.2108e+06\\
-0.944 0.29474 0 4.2108e+06\\
-
-A parte del módulo básico de lectura y escritura, PCL dispone de herramientas de filtrado por ejemplo. Esto se refiere a la criba o eliminación de puntos no deseados y los cuales representan ruido, por ejemplo.
-
-Se muestra un ejemplo en la siguiente figura en la que se aprecia que, debido a errores de medida, ciertas nubes de puntos presentan un elevado número de puntos que representan sombras. Esto complica las operaciones de estimación de propiedades locales. Algunos de estos puntos pueden eliminarse llevando a cabo un análisis en la vecindad de cada punto y eliminar aquellos vecinos que no cumplen ciertos requisitos. Por ejemplo, se puede tomar como criterio la distancia de cada vecino al punto estudiado, es decir, se toma la media de las distancias de todos los vecinos al punto estudiado y si la desviación a esa media de un vecino supera cierto valor entonces es eliminado.
-\begin{figure}
-\centering
-\minipage{0.75\textwidth}
-  \includegraphics[width=\linewidth]{pcl_filter}
-  \caption{Filtrado de ruido mediante el módulo filter de PCL}\label{fig:pcl_filter}
-\endminipage\hfill
-\end{figure}
-
-Explicar modulos filter, viewer y keypoints
-
-\section{objetivos}
-Generar un programa capaz de obtener keypoints a partir de una nube de puntos
-Croscompilar usando las herramientas de xilinx 
-Enviar ejecutable a la placa y ejecutar el programa
-(optimización)
-
-%http://pointclouds.org/
 
 
-\section{Descripción de herramientas}
-\subsection{Herramientas hardware}
-\subsection{Herramientas software}
+
+
 
 
 
