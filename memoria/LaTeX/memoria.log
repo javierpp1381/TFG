@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.27)  10 AUG 2018 20:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.27)  12 AUG 2018 19:44
 entering extended mode
 **./memoria.tex
 (memoria.tex
@@ -617,27 +617,85 @@ Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 \NC@list=\toks21
 \extratabsurround=\skip44
 \backup@length=\skip45
+)
+("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.s
+ty"
+\lst@mode=\count105
+\lst@gtempboxa=\box27
+\lst@token=\toks22
+\lst@length=\count106
+\lst@currlwidth=\dimen122
+\lst@column=\count107
+\lst@pos=\count108
+\lst@lostspace=\dimen123
+\lst@width=\dimen124
+\lst@newlines=\count109
+\lst@lineno=\count110
+\lst@maxwidth=\dimen125
+
+("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstmisc.st
+y"
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count111
+\lst@skipnumbers=\count112
+\lst@framebox=\box28
+)
+("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.c
+fg"
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\color.
+cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstlang1.s
+ty"
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstlang1.s
+ty"
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstmisc.st
+y"
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 ) (funciones.tex) (memoria.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 )
 \openout1 = `memoria.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 52.
 
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -676,8 +734,8 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box27
-Package hyperref Info: Link coloring OFF on input line 35.
+\AtBeginShipoutBox=\box29
+Package hyperref Info: Link coloring OFF on input line 52.
 
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.st
 y"
@@ -687,11 +745,11 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 string.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count105
+\c@section@level=\count113
 )
-LaTeX Info: Redefining \ref on input line 35.
-LaTeX Info: Redefining \pageref on input line 35.
-LaTeX Info: Redefining \nameref on input line 35.
+LaTeX Info: Redefining \ref on input line 52.
+LaTeX Info: Redefining \pageref on input line 52.
+LaTeX Info: Redefining \nameref on input line 52.
  (memoria.out) (memoria.out)
 \@outlinefile=\write3
 \openout3 = `memoria.out'.
@@ -700,17 +758,17 @@ LaTeX Info: Redefining \nameref on input line 35.
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mki
 i"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count106
-\scratchdimen=\dimen122
-\scratchbox=\box28
-\nofMPsegments=\count107
-\nofMParguments=\count108
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count109
-\MPscratchDim=\dimen123
-\MPnumerator=\count110
-\makeMPintoPDFobject=\count111
-\everyMPtoPDFconversion=\toks23
+\scratchcounter=\count114
+\scratchdimen=\dimen126
+\scratchbox=\box30
+\nofMPsegments=\count115
+\nofMParguments=\count116
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count117
+\MPscratchDim=\dimen127
+\MPnumerator=\count118
+\makeMPintoPDFobject=\count119
+\everyMPtoPDFconversion=\toks24
 )
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-b
 ase.sty"
@@ -727,35 +785,36 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Info: Redefining \. on input line 35.
-LaTeX Info: Redefining \% on input line 35.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 39.
+LaTeX Info: Redefining \. on input line 52.
+LaTeX Info: Redefining \% on input line 52.
+\c@lstlisting=\count120
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 56.
  ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 39.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 56.
 
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 39.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 56.
 
 
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 39.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 56.
 
 
 ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 39.
+(Font)              <12> on input line 56.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 39.
+(Font)              <8> on input line 56.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 39.
+(Font)              <6> on input line 56.
 
 [1
 
@@ -777,13 +836,13 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 \openout4 = `memoria.toc'.
 
  [5]
-LaTeX Info: Redefining \. on input line 52.
-LaTeX Info: Redefining \% on input line 52.
+LaTeX Info: Redefining \. on input line 69.
+LaTeX Info: Redefining \% on input line 69.
  [6
 
 ] (capitulo_introductorio.tex
  1.
-<imagenes/focal_length.jpg, id=114, 649.42625pt x 361.35pt>
+<imagenes/focal_length.jpg, id=127, 649.42625pt x 361.35pt>
 File: imagenes/focal_length.jpg Graphic file (type jpg)
 <use imagenes/focal_length.jpg>
 Package pdftex.def Info: imagenes/focal_length.jpg  used on input line 28.
@@ -794,13 +853,13 @@ Package pdftex.def Info: imagenes/focal_length.jpg  used on input line 28.
 LaTeX Info: Redefining \. on input line 60.
 LaTeX Info: Redefining \% on input line 60.
  [2 <./imagenes/focal_length.jpg>]
-<imagenes/history_technology.jpg, id=135, 1082.0425pt x 447.6725pt>
+<imagenes/history_technology.jpg, id=148, 1082.0425pt x 447.6725pt>
 File: imagenes/history_technology.jpg Graphic file (type jpg)
 <use imagenes/history_technology.jpg>
 Package pdftex.def Info: imagenes/history_technology.jpg  used on input line 83
 .
 (pdftex.def)             Requested size: 291.78174pt x 120.71608pt.
-<imagenes/technology_population.png, id=137, 536.0025pt x 397.485pt>
+<imagenes/technology_population.png, id=150, 536.0025pt x 397.485pt>
 File: imagenes/technology_population.png Graphic file (type png)
 <use imagenes/technology_population.png>
 Package pdftex.def Info: imagenes/technology_population.png  used on input line
@@ -809,18 +868,18 @@ Package pdftex.def Info: imagenes/technology_population.png  used on input line
 LaTeX Info: Redefining \. on input line 107.
 LaTeX Info: Redefining \% on input line 107.
  [3 <./imagenes/history_technology.jpg>]
-<imagenes/analog_signal.png, id=150, 401.5pt x 301.125pt>
+<imagenes/analog_signal.png, id=163, 401.5pt x 301.125pt>
 File: imagenes/analog_signal.png Graphic file (type png)
 <use imagenes/analog_signal.png>
 Package pdftex.def Info: imagenes/analog_signal.png  used on input line 122.
 (pdftex.def)             Requested size: 270.93883pt x 203.21843pt.
-<imagenes/analogica_digitalizada.png, id=152, 607.26875pt x 253.94875pt>
+<imagenes/analogica_digitalizada.png, id=165, 607.26875pt x 253.94875pt>
 File: imagenes/analogica_digitalizada.png Graphic file (type png)
 <use imagenes/analogica_digitalizada.png>
 Package pdftex.def Info: imagenes/analogica_digitalizada.png  used on input lin
 e 135.
 (pdftex.def)             Requested size: 270.93883pt x 113.30327pt.
-<imagenes/adc.png, id=154, 895.345pt x 257.96375pt>
+<imagenes/adc.png, id=167, 895.345pt x 257.96375pt>
 File: imagenes/adc.png Graphic file (type png)
 <use imagenes/adc.png>
 Package pdftex.def Info: imagenes/adc.png  used on input line 148.
@@ -829,7 +888,7 @@ LaTeX Info: Redefining \. on input line 155.
 LaTeX Info: Redefining \% on input line 155.
 
 [4 <./imagenes/technology_population.png>]
-<imagenes/digital_signal.png, id=164, 501.875pt x 276.03125pt>
+<imagenes/digital_signal.png, id=177, 501.875pt x 276.03125pt>
 File: imagenes/digital_signal.png Graphic file (type png)
 <use imagenes/digital_signal.png>
 Package pdftex.def Info: imagenes/digital_signal.png  used on input line 159.
@@ -838,7 +897,7 @@ LaTeX Info: Redefining \. on input line 162.
 LaTeX Info: Redefining \% on input line 162.
  [5 <./imagenes/analog_signal.png> <./imagenes/analogica_digitalizada.png> <./i
 magenes/adc.png>]
-<imagenes/human_vision.png, id=174, 431.6125pt x 310.15875pt>
+<imagenes/human_vision.png, id=187, 431.6125pt x 310.15875pt>
 File: imagenes/human_vision.png Graphic file (type png)
 <use imagenes/human_vision.png>
 Package pdftex.def Info: imagenes/human_vision.png  used on input line 184.
@@ -846,17 +905,17 @@ Package pdftex.def Info: imagenes/human_vision.png  used on input line 184.
 LaTeX Info: Redefining \. on input line 204.
 LaTeX Info: Redefining \% on input line 204.
  [6 <./imagenes/digital_signal.png>]
-<imagenes/delaunay_mal.png, id=183, 220.825pt x 220.825pt>
+<imagenes/delaunay_mal.png, id=196, 220.825pt x 220.825pt>
 File: imagenes/delaunay_mal.png Graphic file (type png)
 <use imagenes/delaunay_mal.png>
 Package pdftex.def Info: imagenes/delaunay_mal.png  used on input line 237.
 (pdftex.def)             Requested size: 133.38957pt x 133.39568pt.
-<imagenes/delaunay_bien.png, id=184, 220.825pt x 207.77625pt>
+<imagenes/delaunay_bien.png, id=197, 220.825pt x 207.77625pt>
 File: imagenes/delaunay_bien.png Graphic file (type png)
 <use imagenes/delaunay_bien.png>
 Package pdftex.def Info: imagenes/delaunay_bien.png  used on input line 241.
 (pdftex.def)             Requested size: 133.38957pt x 125.5132pt.
-<imagenes/delaunay_bien_10pts.png, id=185, 220.825pt x 220.825pt>
+<imagenes/delaunay_bien_10pts.png, id=198, 220.825pt x 220.825pt>
 File: imagenes/delaunay_bien_10pts.png Graphic file (type png)
 <use imagenes/delaunay_bien_10pts.png>
 Package pdftex.def Info: imagenes/delaunay_bien_10pts.png  used on input line 2
@@ -870,7 +929,7 @@ Underfull \hbox (badness 6141) in paragraph at lines 246--246
 LaTeX Info: Redefining \. on input line 250.
 LaTeX Info: Redefining \% on input line 250.
 [7 <./imagenes/human_vision.png>]
-<imagenes/bunny_simple.png, id=196, 631.60968pt x 367.3725pt>
+<imagenes/bunny_simple.png, id=209, 631.60968pt x 367.3725pt>
 File: imagenes/bunny_simple.png Graphic file (type png)
 <use imagenes/bunny_simple.png>
 Package pdftex.def Info: imagenes/bunny_simple.png  used on input line 276.
@@ -880,7 +939,7 @@ Underfull \hbox (badness 1092) in paragraph at lines 279--279
 \T1/lmr/m/n/10.95 10.6KB. Nú-me-ro to-tal de
  []
 
-<imagenes/wolf.png, id=197, 632.3625pt x 366.61969pt>
+<imagenes/wolf.png, id=210, 632.3625pt x 366.61969pt>
 File: imagenes/wolf.png Graphic file (type png)
 <use imagenes/wolf.png>
 Package pdftex.def Info: imagenes/wolf.png  used on input line 282.
@@ -890,7 +949,7 @@ Underfull \hbox (badness 2443) in paragraph at lines 285--285
 \T1/lmr/m/n/10.95 Nú-me-ro to-tal de pun-tos:
  []
 
-<imagenes/botes.png, id=198, 510.40688pt x 270.25969pt>
+<imagenes/botes.png, id=211, 510.40688pt x 270.25969pt>
 File: imagenes/botes.png Graphic file (type png)
 <use imagenes/botes.png>
 Package pdftex.def Info: imagenes/botes.png  used on input line 288.
@@ -899,12 +958,12 @@ LaTeX Info: Redefining \. on input line 302.
 LaTeX Info: Redefining \% on input line 302.
 [8 <./imagenes/delaunay_mal.png> <./imagenes/delaunay_bien.png> <./imagenes/del
 aunay_bien_10pts.png>]
-<imagenes/bunny.jpg, id=214, 602.25pt x 570.63188pt>
+<imagenes/bunny.jpg, id=227, 602.25pt x 570.63188pt>
 File: imagenes/bunny.jpg Graphic file (type jpg)
 <use imagenes/bunny.jpg>
 Package pdftex.def Info: imagenes/bunny.jpg  used on input line 307.
 (pdftex.def)             Requested size: 187.57352pt x 177.72993pt.
-<imagenes/bunny_colored.jpg, id=215, 803.0pt x 758.835pt>
+<imagenes/bunny_colored.jpg, id=228, 803.0pt x 758.835pt>
 File: imagenes/bunny_colored.jpg Graphic file (type jpg)
 <use imagenes/bunny_colored.jpg>
 Package pdftex.def Info: imagenes/bunny_colored.jpg  used on input line 311.
@@ -913,22 +972,22 @@ LaTeX Info: Redefining \. on input line 320.
 LaTeX Info: Redefining \% on input line 320.
  [9 <./imagenes/bunny_simple.png> <./imagenes/wolf.png> <./imagenes/botes.png> 
 <./imagenes/bunny.jpg> <./imagenes/bunny_colored.jpg>]
-<imagenes/dragon.jpg, id=226, 921.4425pt x 602.25pt>
+<imagenes/dragon.jpg, id=239, 921.4425pt x 602.25pt>
 File: imagenes/dragon.jpg Graphic file (type jpg)
 <use imagenes/dragon.jpg>
 Package pdftex.def Info: imagenes/dragon.jpg  used on input line 323.
 (pdftex.def)             Requested size: 276.43488pt x 180.67639pt.
-<imagenes/angel_lucy.jpg, id=227, 599.23875pt x 911.405pt>
+<imagenes/angel_lucy.jpg, id=240, 599.23875pt x 911.405pt>
 File: imagenes/angel_lucy.jpg Graphic file (type jpg)
 <use imagenes/angel_lucy.jpg>
 Package pdftex.def Info: imagenes/angel_lucy.jpg  used on input line 334.
 (pdftex.def)             Requested size: 161.79662pt x 246.08264pt.
-<imagenes/wue_city2.png, id=229, 1927.2pt x 1084.05pt>
+<imagenes/wue_city2.png, id=242, 1927.2pt x 1084.05pt>
 File: imagenes/wue_city2.png Graphic file (type png)
 <use imagenes/wue_city2.png>
 Package pdftex.def Info: imagenes/wue_city2.png  used on input line 348.
 (pdftex.def)             Requested size: 327.61967pt x 184.28606pt.
-<imagenes/joinedmodel.jpg, id=230, 1445.4pt x 1156.32pt>
+<imagenes/joinedmodel.jpg, id=243, 1445.4pt x 1156.32pt>
 File: imagenes/joinedmodel.jpg Graphic file (type jpg)
 <use imagenes/joinedmodel.jpg>
 Package pdftex.def Info: imagenes/joinedmodel.jpg  used on input line 356.
@@ -943,7 +1002,7 @@ LaTeX Info: Redefining \% on input line 363.
 LaTeX Info: Redefining \. on input line 375.
 LaTeX Info: Redefining \% on input line 375.
  [12 <./imagenes/joinedmodel.jpg>]
-<imagenes/lidar_explanation.png, id=247, 526.96875pt x 183.68625pt>
+<imagenes/lidar_explanation.png, id=260, 526.96875pt x 183.68625pt>
 File: imagenes/lidar_explanation.png Graphic file (type png)
 <use imagenes/lidar_explanation.png>
 Package pdftex.def Info: imagenes/lidar_explanation.png  used on input line 386
@@ -952,19 +1011,19 @@ Package pdftex.def Info: imagenes/lidar_explanation.png  used on input line 386
 LaTeX Info: Redefining \. on input line 408.
 LaTeX Info: Redefining \% on input line 408.
  [13 <./imagenes/lidar_explanation.png (PNG copy)>]
-<imagenes/sensor_laser_espejo.png, id=257, 322.20375pt x 243.15843pt>
+<imagenes/sensor_laser_espejo.png, id=270, 322.20375pt x 243.15843pt>
 File: imagenes/sensor_laser_espejo.png Graphic file (type png)
 <use imagenes/sensor_laser_espejo.png>
 Package pdftex.def Info: imagenes/sensor_laser_espejo.png  used on input line 4
 15.
 (pdftex.def)             Requested size: 133.38957pt x 100.6677pt.
-<imagenes/sensor_laser_vista_tope.png, id=258, 322.20375pt x 232.61906pt>
+<imagenes/sensor_laser_vista_tope.png, id=271, 322.20375pt x 232.61906pt>
 File: imagenes/sensor_laser_vista_tope.png Graphic file (type png)
 <use imagenes/sensor_laser_vista_tope.png>
 Package pdftex.def Info: imagenes/sensor_laser_vista_tope.png  used on input li
 ne 419.
 (pdftex.def)             Requested size: 133.38957pt x 96.30438pt.
-<imagenes/sensor_laser_resultado.png, id=259, 322.20375pt x 220.57407pt>
+<imagenes/sensor_laser_resultado.png, id=272, 322.20375pt x 220.57407pt>
 File: imagenes/sensor_laser_resultado.png Graphic file (type png)
 <use imagenes/sensor_laser_resultado.png>
 Package pdftex.def Info: imagenes/sensor_laser_resultado.png  used on input lin
@@ -975,13 +1034,13 @@ Underfull \hbox (badness 1354) in paragraph at lines 424--424
 []\T1/lmr/m/n/10.95 Figura 1.24: []Conjunto de
  []
 
-<imagenes/sensor_dos_espejos.png, id=260, 269.005pt x 192.72pt>
+<imagenes/sensor_dos_espejos.png, id=273, 269.005pt x 192.72pt>
 File: imagenes/sensor_dos_espejos.png Graphic file (type png)
 <use imagenes/sensor_dos_espejos.png>
 Package pdftex.def Info: imagenes/sensor_dos_espejos.png  used on input line 43
 2.
 (pdftex.def)             Requested size: 187.57352pt x 134.38257pt.
-<imagenes/movimiento_lidar_2D.png, id=261, 478.78876pt x 369.38pt>
+<imagenes/movimiento_lidar_2D.png, id=274, 478.78876pt x 369.38pt>
 File: imagenes/movimiento_lidar_2D.png Graphic file (type png)
 <use imagenes/movimiento_lidar_2D.png>
 Package pdftex.def Info: imagenes/movimiento_lidar_2D.png  used on input line 4
@@ -995,12 +1054,12 @@ g> <./imagenes/sensor_laser_resultado.png> <./imagenes/sensor_dos_espejos.png>
 LaTeX Info: Redefining \. on input line 476.
 LaTeX Info: Redefining \% on input line 476.
  [15]
-<imagenes/airborne_lidar.png, id=283, 202.50656pt x 191.21437pt>
+<imagenes/airborne_lidar.png, id=296, 202.50656pt x 191.21437pt>
 File: imagenes/airborne_lidar.png Graphic file (type png)
 <use imagenes/airborne_lidar.png>
 Package pdftex.def Info: imagenes/airborne_lidar.png  used on input line 480.
 (pdftex.def)             Requested size: 187.57352pt x 177.11852pt.
-<imagenes/airborne_city.png, id=284, 298.11375pt x 198.7425pt>
+<imagenes/airborne_city.png, id=297, 298.11375pt x 198.7425pt>
 File: imagenes/airborne_city.png Graphic file (type png)
 <use imagenes/airborne_city.png>
 Package pdftex.def Info: imagenes/airborne_city.png  used on input line 484.
@@ -1008,7 +1067,7 @@ Package pdftex.def Info: imagenes/airborne_city.png  used on input line 484.
 LaTeX Info: Redefining \. on input line 517.
 LaTeX Info: Redefining \% on input line 517.
  [16 <./imagenes/airborne_lidar.png> <./imagenes/airborne_city.png>]
-<imagenes/pcl_logo.png, id=294, 803.0pt x 302.12875pt>
+<imagenes/pcl_logo.png, id=307, 803.0pt x 302.12875pt>
 File: imagenes/pcl_logo.png Graphic file (type png)
 <use imagenes/pcl_logo.png>
 Package pdftex.def Info: imagenes/pcl_logo.png  used on input line 533.
@@ -1039,60 +1098,201 @@ LaTeX Info: Redefining \% on input line 1.
 ]
  2.
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 62--72
-
- []
-
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 61.
+ ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
 LaTeX Info: Redefining \. on input line 72.
 LaTeX Info: Redefining \% on input line 72.
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 75--90
 
+Overfull \hbox (125.0263pt too wide) has occurred while \output is active
+\T1/lmr/m/n/10.95 22  \T1/lmr/m/sl/10.95 2.  CAPACIDADES DE PCL: OBJETIVOS DEL 
+PRESENTE TRABAJO Y HERRAMIENTAS NECESARIAS
  []
 
-LaTeX Info: Redefining \. on input line 105.
-LaTeX Info: Redefining \% on input line 105.
-[23]
-<imagenes/registration_bunny.png, id=329, 2569.6pt x 835.12pt>
+[22]
+LaTeX Info: Redefining \. on input line 108.
+LaTeX Info: Redefining \% on input line 108.
+ [23]
+<imagenes/registration_bunny.png, id=343, 2569.6pt x 835.12pt>
 File: imagenes/registration_bunny.png Graphic file (type png)
 <use imagenes/registration_bunny.png>
 Package pdftex.def Info: imagenes/registration_bunny.png  used on input line 11
-1.
+6.
 (pdftex.def)             Requested size: 385.42337pt x 125.26259pt.
-<imagenes/registration_flow.jpg, id=331, 903.375pt x 769.87625pt>
+<imagenes/registration_flow.jpg, id=345, 903.375pt x 769.87625pt>
 File: imagenes/registration_flow.jpg Graphic file (type jpg)
 <use imagenes/registration_flow.jpg>
-Package pdftex.def Info: imagenes/registration_flow.jpg  used on input line 120
+Package pdftex.def Info: imagenes/registration_flow.jpg  used on input line 124
 .
 (pdftex.def)             Requested size: 451.6864pt x 384.93718pt.
 
-Overfull \hbox (34.85352pt too wide) in paragraph at lines 120--121
+Overfull \hbox (34.85352pt too wide) in paragraph at lines 124--125
  [][] 
  []
 
-<imagenes/corner_detection.png, id=333, 447.92343pt x 389.20406pt>
+<imagenes/corner_detection.png, id=347, 447.92343pt x 389.20406pt>
 File: imagenes/corner_detection.png Graphic file (type png)
 <use imagenes/corner_detection.png>
-Package pdftex.def Info: imagenes/corner_detection.png  used on input line 141.
+Package pdftex.def Info: imagenes/corner_detection.png  used on input line 148.
 
 (pdftex.def)             Requested size: 223.96117pt x 194.60155pt.
-LaTeX Info: Redefining \. on input line 150.
-LaTeX Info: Redefining \% on input line 150.
+LaTeX Info: Redefining \. on input line 154.
+LaTeX Info: Redefining \% on input line 154.
+
+Overfull \hbox (125.0263pt too wide) has occurred while \output is active
+\T1/lmr/m/n/10.95 24  \T1/lmr/m/sl/10.95 2.  CAPACIDADES DE PCL: OBJETIVOS DEL 
+PRESENTE TRABAJO Y HERRAMIENTAS NECESARIAS
+ []
+
 [24 <./imagenes/registration_bunny.png>]
-LaTeX Info: Redefining \. on input line 150.
-LaTeX Info: Redefining \% on input line 150.
- [25 <./imagenes/registration_flow.jpg> <./imagenes/corner_detection.png>])
-(capitulo3_visualizacion-extraccionSIFT.tex) (capitulo4_extraccionNormales.tex)
-(capitulo5_extraccionSIFT.tex) (capitulo6_optimizacion.tex)
-(capitulo7_resultados.tex) (bibliografÃ­a.tex
+LaTeX Info: Redefining \. on input line 154.
+LaTeX Info: Redefining \% on input line 154.
+ [25 <./imagenes/registration_flow.jpg> <./imagenes/corner_detection.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 161--162
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
+
+ []
+
+LaTeX Info: Redefining \. on input line 187.
+LaTeX Info: Redefining \% on input line 187.
+
+Overfull \hbox (125.0263pt too wide) has occurred while \output is active
+\T1/lmr/m/n/10.95 26  \T1/lmr/m/sl/10.95 2.  CAPACIDADES DE PCL: OBJETIVOS DEL 
+PRESENTE TRABAJO Y HERRAMIENTAS NECESARIAS
+ []
+
+[26]
+LaTeX Info: Redefining \. on input line 214.
+LaTeX Info: Redefining \% on input line 214.
+ [27]
+LaTeX Info: Redefining \. on input line 246.
+LaTeX Info: Redefining \% on input line 246.
+
+Overfull \hbox (125.0263pt too wide) has occurred while \output is active
+\T1/lmr/m/n/10.95 28  \T1/lmr/m/sl/10.95 2.  CAPACIDADES DE PCL: OBJETIVOS DEL 
+PRESENTE TRABAJO Y HERRAMIENTAS NECESARIAS
+ []
+
+[28]
+<imagenes/instalacion_xilinx_web.png, id=377, 710.655pt x 630.85687pt>
+File: imagenes/instalacion_xilinx_web.png Graphic file (type png)
+<use imagenes/instalacion_xilinx_web.png>
+Package pdftex.def Info: imagenes/instalacion_xilinx_web.png  used on input lin
+e 252.
+(pdftex.def)             Requested size: 333.46758pt x 296.0311pt.
+) (capitulo3_visualizacion-extraccionSIFT.tex
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [26]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 2.
 
-("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
+Overfull \hbox (162.43753pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10.95 2.3.  DESCRIPCIÓN E INSTALACIÓN DE HERRAMIENTAS NECESARIAS P
+ARA DESARROLLAR EL TRABAJO \T1/lmr/m/n/10.95 29
+ []
+
+[29 <./imagenes/instalacion_xilinx_web.png>]
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+
+Overfull \hbox (125.0263pt too wide) has occurred while \output is active
+\T1/lmr/m/n/10.95 30  \T1/lmr/m/sl/10.95 2.  CAPACIDADES DE PCL: OBJETIVOS DEL 
+PRESENTE TRABAJO Y HERRAMIENTAS NECESARIAS
+ []
+
+[30
+
+]
+ 3.
+<imagenes/visualization_diagram.png, id=390, 583.17876pt x 985.6825pt>
+File: imagenes/visualization_diagram.png Graphic file (type png)
+<use imagenes/visualization_diagram.png>
+Package pdftex.def Info: imagenes/visualization_diagram.png  used on input line
+ 15.
+(pdftex.def)             Requested size: 291.58867pt x 492.84004pt.
+[31]
+LaTeX Info: Redefining \. on input line 26.
+LaTeX Info: Redefining \% on input line 26.
+
+Overfull \hbox (171.18202pt too wide) has occurred while \output is active
+\T1/lmr/m/n/10.95 32  \T1/lmr/m/sl/10.95 3.  REPRODUCCIÓN DE ALGORITMOS DE PCL:
+ VISUALIZACIÓN DE NUBES Y EXTRACCIÓN DE KEYPOINTS
+ []
+
+[32 <./imagenes/visualization_diagram.png>]
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <9> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 41.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 51.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 51.
+LaTeX Info: Redefining \. on input line 83.
+LaTeX Info: Redefining \% on input line 83.
+ [33]
+LaTeX Info: Redefining \. on input line 128.
+LaTeX Info: Redefining \% on input line 128.
+
+Overfull \hbox (171.18202pt too wide) has occurred while \output is active
+\T1/lmr/m/n/10.95 34  \T1/lmr/m/sl/10.95 3.  REPRODUCCIÓN DE ALGORITMOS DE PCL:
+ VISUALIZACIÓN DE NUBES Y EXTRACCIÓN DE KEYPOINTS
+ []
+
+[34]
+Overfull \hbox (45.62204pt too wide) in paragraph at lines 137--139
+\T1/lmr/m/n/10.95 mos-trar la nu-be con la lla-ma-da a $\OML/lmm/m/it/10.95 sho
+wcloud$ \T1/lmr/m/n/10.95 y asig-nar el mé-to-do $\OML/lmm/m/it/10.95 runOnVisu
+alizationThreadOnce$
+ []
+
+LaTeX Info: Redefining \. on input line 189.
+LaTeX Info: Redefining \% on input line 189.
+[35]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 242.
+LaTeX Info: Redefining \% on input line 242.
+
+Overfull \hbox (171.18202pt too wide) has occurred while \output is active
+\T1/lmr/m/n/10.95 36  \T1/lmr/m/sl/10.95 3.  REPRODUCCIÓN DE ALGORITMOS DE PCL:
+ VISUALIZACIÓN DE NUBES Y EXTRACCIÓN DE KEYPOINTS
+ []
+
+[36]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 298.
+LaTeX Info: Redefining \% on input line 298.
+ [37]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 344.
+LaTeX Info: Redefining \% on input line 344.
+
+Overfull \hbox (171.18202pt too wide) has occurred while \output is active
+\T1/lmr/m/n/10.95 38  \T1/lmr/m/sl/10.95 3.  REPRODUCCIÓN DE ALGORITMOS DE PCL:
+ VISUALIZACIÓN DE NUBES Y EXTRACCIÓN DE KEYPOINTS
+ []
+
+[38]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 397.
+LaTeX Info: Redefining \% on input line 397.
+ [39])
+(capitulo4_extraccionNormales.tex) (capitulo5_extraccionSIFT.tex)
+(capitulo6_optimizacion.tex) (capitulo7_resultados.tex) (bibliografÃ­a.tex
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+
+Overfull \hbox (171.18202pt too wide) has occurred while \output is active
+\T1/lmr/m/n/10.95 40  \T1/lmr/m/sl/10.95 3.  REPRODUCCIÓN DE ALGORITMOS DE PCL:
+ VISUALIZACIÓN DE NUBES Y EXTRACCIÓN DE KEYPOINTS
+ []
+
+[40]
 Underfull \hbox (badness 10000) in paragraph at lines 7--8
 []\T1/lmr/m/n/10.95 Fuerza y con-trol. 2006. La ve-lo-ci-dad de reac-ción: El t
 iem-
@@ -1141,39 +1341,35 @@ s . org / science / advanced-[]topics /
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 67.
- [27
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 84.
+ [41
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 67.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 84.
  (memoria.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 67.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 67.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 84.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 84.
 Package rerunfilecheck Info: File `memoria.out' has not changed.
-(rerunfilecheck)             Checksum: 930256378FB94E6E31134CC46BE7FA9C;1184.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 67.
+(rerunfilecheck)             Checksum: 63E22A9942B3DC7648A39F1B700DB957;1463.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 84.
  ) 
 Here is how much of TeX's memory you used:
- 7541 strings out of 493305
- 113658 string characters out of 3130237
- 208920 words of memory out of 3000000
- 10817 multiletter control sequences out of 15000+200000
- 68548 words of font info for 46 fonts, out of 3000000 for 9000
+ 10386 strings out of 493305
+ 151610 string characters out of 3130237
+ 422302 words of memory out of 3000000
+ 13257 multiletter control sequences out of 15000+200000
+ 78732 words of font info for 53 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,10n,32p,746b,435s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,11n,58p,1078b,1994s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{cite.se\361al_analogica} has been referenced but 
 does not exist, replaced by a fixed one
 
-{C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{
-C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.en
-c}{C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy
+{C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.e
+nc}{C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.en
+c}{C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit
 .enc}{C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.
 enc}<C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmbx
 10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/l
@@ -1185,13 +1381,15 @@ ublic/lm/lmmi8.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
 e1/public/lm/lmr12.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts/t
 ype1/public/lm/lmr17.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fonts
 /type1/public/lm/lmr8.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/font
-s/type1/public/lm/lmri10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/f
-onts/type1/public/lm/lmro10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.
-9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX
- 2.9/fonts/type1/public/lm/lmtt10.pfb>
-Output written on memoria.pdf (33 pages, 6857566 bytes).
+s/type1/public/lm/lmr9.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/fon
+ts/type1/public/lm/lmri10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2.9/
+fonts/type1/public/lm/lmro10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTeX 2
+.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Javi/AppData/Local/Programs/MiKTe
+X 2.9/fonts/type1/public/lm/lmsy9.pfb><C:/Users/Javi/AppData/Local/Programs/MiK
+TeX 2.9/fonts/type1/public/lm/lmtt10.pfb>
+Output written on memoria.pdf (47 pages, 7113936 bytes).
 PDF statistics:
- 443 PDF objects out of 1000 (max. 8388607)
- 99 named destinations out of 1000 (max. 500000)
- 281 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 960 PDF objects out of 1000 (max. 8388607)
+ 469 named destinations out of 1000 (max. 500000)
+ 307 words of extra memory for PDF output out of 10000 (max. 10000000)
 

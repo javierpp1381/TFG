@@ -1,6 +1,6 @@
-\chapter{Capacidades de PCL: Objetivos y herramientas}
+\chapter{Capacidades de PCL: Objetivos del presente trabajo y herramientas necesarias}
 \section{Capacidades de PCL}
-\subsubsection{Módulo io}
+\subsubsection{Módulo IO}
 Uno de los módulos más importantes es el que se encarga de la lectura y escritura de nubes de puntos, es decir, el módulo IO del inglés input/output que se traduce como entrada/salida. Es por tanto esta librería capaz de interpretar la información otorgada por diferentes tipos de sensores así como de generar archivos que contienen nubes de puntos manipuladas por el resto de módulos.
 Existen varios tipos de formatos bajo los que almacenar una nube puntos.
 
@@ -58,50 +58,55 @@ Es el tipo de dato con el que se ha generado el fichero PCD siendo dos formatos 
 \end{itemize}
 
 Queda el encabezamiento entonces con la siguiente estructura:
-
-VERSION\\
-FIELDS\\
-SIZE\\
-TYPE\\
-COUNT\\
-WIDTH\\
-HEIGHT\\
-VIEWPOINT\\
-POINTS\\
-DATA\\
+\begin{verbatim}
+VERSION
+FIELDS
+SIZE
+TYPE
+COUNT
+WIDTH
+HEIGHT
+VIEWPOINT
+POINTS
+DATA
+\end{verbatim}
 
 Como se ha mencionado previamente, cada punto se introduce después del encabezado en una línea nueva indicando, separados por espacios, el valor de cada campo. Como ejemplo de nube de puntos en formato PCD se tiene lo siguiente:
 
-VERSION .7\\
-FIELDS x y z rgb\\
-SIZE 4 4 4 4\\
-TYPE F F F F\\
-COUNT 1 1 1 1\\
-WIDTH 213\\
-HEIGHT 1\\
-VIEWPOINT 0 0 0 1 0 0 0\\
-POINTS 5\\
-DATA ascii\\
-0.93773 0.33763 0 4.2108e+06\\
-0.90805 0.35641 0 4.2108e+06\\
-0.81915 0.32 0 4.2108e+06\\
-0.97192 0.278 0 4.2108e+06\\
-0.944 0.29474 0 4.2108e+06\\
+\begin{verbatim}
+VERSION .7
+FIELDS x y z rgb
+SIZE 4 4 4 4
+TYPE F F F F
+COUNT 1 1 1 1
+WIDTH 213
+HEIGHT 1
+VIEWPOINT 0 0 0 1 0 0 0
+POINTS 5
+DATA ascii
+0.93773 0.33763 0 4.2108e+06
+0.90805 0.35641 0 4.2108e+06
+0.81915 0.32 0 4.2108e+06
+0.97192 0.278 0 4.2108e+06
+0.944 0.29474 0 4.2108e+06
+\end{verbatim}
+
 
 \subsubsection{Módulo registration}
 A parte del módulo básico de lectura y escritura, PCL dispone de un importante módulo llamado registration que se encarga del alineamiento de nubes de puntos independientes para ser fusionadas en una sola de forma coherente y así poder proceder con futuras operaciones sobre la nube resultante como reconocimiento de objetos o reconstrucción de superficie.
 
 Normalmente, las nubes de puntos son adquiridas desde diferentes puntos de vista o incluso con varios sensores por lo que es fundamental encontrar las posiciones y orientaciones relativas de cada nube respecto a un sistema de coordenadas global de manera que las partes que son idénticas se solapen perfectamente.
 
-La manera de alinear las nubes de puntos se basa en encontrar correspondencias entre las mismas, es decir, puntos semejantes, y entonces estimar transformaciones que trasladan y rotan las nubes de entrada para que queden alineadas en una sola.
+El alineamiento de nubes de puntos se basa en encontrar correspondencias entre las mismas, es decir, puntos semejantes, y entonces estimar transformaciones que trasladan y rotan las nubes de entrada para que queden alineadas en una sola.
 
-Se suele tomar un modelo o nube de entrada como modelo o referencia de forma que sean las demás nubes a las que se les aplica la transformación adecuada para que se parezcan al modelo. 
+Se suele tomar una nube de entrada como modelo o referencia de forma que sean las demás nubes a las que se les aplica la transformación adecuada para que se parezcan al modelo y que se pueden denominar como nubes fuente. Dicha transformación puede definirse de la siguiente manera:
 
-De esta forma, dadas dos ...
 
-Se trata de una fácil tarea si se conocen de antemano las correspondencias entre las nubes de entrada. Esto implica que un conjunto de puntos pertenecientes a una nube A ha de coincidir con su conjunto de puntos equivalente de una nube B. Además, si las correspondencias y por tanto el alineamiento, son perfectos entonces se tiene una solución cerrada
+Sean dos nubes de puntos $n-dimensionales$ siendo
 
-PCL contiene algoritmos que permiten detectar diferentes tipos de correspondencias entre nubes así como métodos para desechar las que no resultan útiles y estimar transformaciones robustas.
+con $w_{ij}$ como el peso que determina la dureza de la transformación pues permite que haya transformación si $w_{ij}=1$ o la anula en el caso $w_{ij}=0$
+
+Se trata de una fácil tarea si se conocen de antemano las correspondencias entre las nubes de entrada. Esto implica que un conjunto de puntos pertenecientes a una nube A ha de coincidir con su conjunto de puntos equivalente de una nube B. Además, si las correspondencias y por tanto el alineamiento, son perfectos entonces se tiene una solución cerrada.
 
 Un sencillo ejemplo visual de lo que puede hacer este módulo se muestra en la figura \ref{fig:registration_bunny} donde se tienen dos nubes de puntos muy parecidas que se fusionan en una sola. 
 
@@ -113,7 +118,6 @@ Un sencillo ejemplo visual de lo que puede hacer este módulo se muestra en la f
 \end{figure}
 
 
-
 Para conocer en mayor detalle el proceso de alineamiento, se muestra en la figura \ref{fig:registration_flow} el conjunto de pasos que se siguen desde que se indican las nubes de entrada hasta que se obtiene la fusión de las mismas.
 \begin{figure}
 \centering
@@ -122,7 +126,7 @@ Para conocer en mayor detalle el proceso de alineamiento, se muestra en la figur
 \end{figure}
 
 
-Dadas dos o más nubes de puntos como entrada, el primer paso implica extraer keypoints o puntos clave de cada una de ellas. Por keypoint, punto clave o punto de interés se entiende como un punto de la nube que representa características especiales de la misma tal como esquinas o bordes. Por tanto, las principales características de un keypoint pueden resumirse en los siguientes puntos:
+Dadas dos o más nubes de puntos como entrada, el primer paso implica extraer keypoints o puntos clave de cada una de ellas. Por keypoint, punto clave o punto de interés se entiende como un punto de la nube que representa características especiales de la misma tal y como son esquinas o bordes. Por tanto, las principales características de un keypoint pueden resumirse en los siguientes puntos:
 
 %https://en.wikipedia.org/wiki/Interest_point_detection
 
@@ -133,6 +137,9 @@ Dadas dos o más nubes de puntos como entrada, el primer paso implica extraer ke
 \item[•] Es estable ante perturbaciones locales y globales tal y como cambios de iluminación y brillo de modo que las operaciones aplicadas sobre estos puntos tengan elevada repetibilidad
 \item[•] De forma opcional, el keypoint puede incluir un atributo de escala para poder aplicar operaciones sobre keypoints obtenidos de imágenes reales así como poder tolerar cambios de escala
 \end{itemize}
+
+%COMPLETAR CON http://www.pointclouds.org/assets/uploads/cglibs13_features.pdf
+
 
 Por ejemplo, las esquinas detectadas en una nube de puntos o imagen pueden considerarse puntos clave pues muestran información característica sobre las delimitaciones del objeto detectado tal y como se aprecia en la figura \ref{fig:corner_detection}
 
@@ -146,34 +153,119 @@ Obtener correctamente los keypoints es de vital importancia ya que intentar alin
 
 A continuación se procede a la estimación de los feature descriptors, es decir, los vectores donde se almacenan las características de la nube entorno a cada keypoint para poder compararlos entre sí. Por ejemplo se puede tener un vector que contiene normales a la superficie en cada keypoint o bien información sobre el brillo o luminosidad.
 
-
 Una vez que se dispone de dos o más vectores de características, cada uno de una nube de puntos diferente, hay que encontrar la información equivalente entre vectores, es decir, las características de las nubes que pueden solaparse ya que son muy parecidas o idénticas. Dependiendo del tipo de característica que se quiera alinear o unificar existen diferentes métodos para encontrar correspondencias:
 
-
 Para hacer coincidir puntos utilizando solamente sus coordenadas XYZ existen métodos tanto para nubes organizadas como desorganizadas:
-
-brute force matching,
-kd-tree nearest neighbor search (FLANN),
-searching in the image space of organized data, and
-searching in the index space of organized data.
+\begin{itemize}
+\item[•]Emparejamiento por fuerza bruta
+\item[•]Búsqueda del vecino más cercano mediante la librería FLANN\\
+\end{itemize}
+en sus modalidades de:
+\begin{itemize}
+\item[•]Búsqueda directa de puntos en una nube organizada
+\item[•]Búsqueda en los índices de los puntos de una nube organizada
+\end{itemize}
 
 Para la coincidencia de características diferentes a la posición de los puntos se tienen los siguientes métodos: 
+\begin{itemize}
+\item[•]Emparejamiento por fuerza bruta
+\item[•]Búsqueda del vecino más cercano mediante la librería FLANN\\
+\end{itemize}
+en sus modalidades de:
+\begin{itemize}
+\item[•]Método de correspondencia directa (por defecto) Busca correspondencias en la nube modelo para todos y cada uno de los puntos de la nube fuente.
+\item[•]Método de correspondencia recíproca con el que se buscan similitudes a la nube modelo en la nube fuente y viceversa quedándose solamente con la intersección
+\end{itemize}
+
+No todas las correspondencias establecidas son correctas o de utilidad y es por esto por lo que hay que hacer una criba ya que las correspondencias inadecuadas pueden afectar negativamente a la transformación final. Para ello simplemente se puede utilizar una fracción del número total de correspondencias encontradas. Un caso típico en el que aplicar una criba es el de las correspondencias múltiples, esto es, varios puntos de la nube de entrada se corresponden con un único punto de la nube modelo. Para paliar esta situación, se suele escoger el punto de la nube de entrada más cercano al punto correspondiente en el modelo.
+
+En el último paso, se lleva a cabo la transformación de la nube fuente siguiendo estos pasos:
+
+\begin{itemize}
+\item[•]Evaluar el error existente entre los puntos de la nube fuente y sus equivalentes en la nube modelo (por ejemplo, la distancia que los separa cuando ambas nubes se representan en el mismo espacio)
+\item[•]Estimar una transformación rígida de la nube fuente (es decir, conservando distancias y ángulos dentro de la misma nube) para minimizar el error evaluado anteriormente.
+\item[•]Realizar la transformación de forma iterativa hasta converger a una solución aceptable
+\item[•]Optimizar la estructura de puntos resultante eliminando información redundante, por ejemplo.
+\end{itemize}
 
 
-brute force matching and
-kd-tree nearest neighbor search (FLANN).
-Direct correspondence estimation (default) searches for correspondences in cloud B for every point in cloud A .
-“Reciprocal” correspondence estimation searches for correspondences from cloud A to cloud B, and from B to A and only use the intersection.
-
-
+explicar métodos de convergencia y puntos SIFT 
 
 \section{Objetivos del TFG}
-Generar un programa capaz de obtener keypoints a partir de una nube de puntos
-Croscompilar usando las herramientas de xilinx 
-Enviar ejecutable a la placa y ejecutar el programa
-(optimización)
+Una vez establecido el fundamento teórico relativo a las nubes de puntos en general y a la librería PCL se procede a continuación a exponer el motivo de este trabajo fin de grado.
+
+Se tiene un doble objetivo que involucra por una parte la reproducción de algoritmos ya existentes y por otra la optimización de parte de los mismos.
+
+La parte de reproducción de algoritmos existentes se refiere a desarrollar un programa escrito en C++ que sea capaz de extraer keypoints de una nube de puntos cualquiera siempre y cuando su formato sea PCD. Para ello se hace uso de la documentación ofrecida por la web oficial de PCL y los conocimientos propios de programación en C++. 
+
+Habiendo desarrollado dicho programa, se procede a estudiar en detalle las partes de la librería PCL que utiliza, comprender cómo funcionan y medir tiempos de ejecución de los diferentes métodos nativos de PCL involucrados en todo el proceso de extracción de keypoints. De este modo, se detecta el algoritmo de mayor tiempo de ejecución y por lo tanto el de mayor carga computacional. Finalmente, se estudia la mencionada parte del código y se plantea cómo crear hardware digital para su optimización. Puesto que no todo tipo de software es sintetizable en hardware, deberán hacerse simplificaciones o incluso cambios sustanciales al código original para posibilitar su síntesis. Para llevar a cabo este proceso se utilizarán conocimientos de HLS o High Level Synthesis que se traduce como síntesis de alto nivel y puede definirse como un proceso automatizado que interpreta una descripción algorítmica de un deseado comportamiento y crea hardware digital que implementa dicho comportamiento.
+
+La plataforma sobre la que se comprobará la compleción de dichos objetivos es una FPGA cuyas características se exponen en el apartado \ref{herraminetas_hardware}
+
+Como objetivo o punto adicional, se desarrolla también código en C++ para mostrar nubes de nubes de puntos por pantalla y así poder representar de una manera visual e intuitiva diferentes conjuntos de puntos y las operaciones efectuadas sobre los mismos. Es importante destacar que esta funcionalidad no funciona en la FPGA ya que no tiene soporte gráfico.
+
 
 %http://pointclouds.org/
-\section{Herramientas necesarias para desarrollar el trabajo}
-\subsection{Herramientas hardware}
+\section{Descripción e instalación de herramientas necesarias para desarrollar el trabajo}
+
+Para realizar el presente trabajo se requieren herramientas que pueden clasificarse en dos tipos; software y hardware.
+\subsection{Herramientas hardware} \label{herraminetas_hardware}
+La principal herramienta hardware de la que se dispone y sobre la cual se comprobarán los resultados de la aplicación de los objetivos del presente trabajo es una FPGA 
 \subsection{Herramientas software}
+\subsubsection{Máquina virtual}
+La principal herramienta software utilizada para el desarrollo del TFG se trata de una máquina virtual. Esto se debe a que las computadoras con las que se realiza el trabajo, ya sean las disponibles en el laboratorio del CEI o el computador personal del autor, corren con un sistema operativo windows. Por cuestiones de comodidad y sobre todo facilidad de instalación y desinstalación de software se opta por trabajar en un sistema operativo basado en linux, en concreto, las distribuciones ubuntu 18.04.1 64 bits para la computadora del autor y xubuntu 64 bits para las computadoras del laboratorio. Por lo tanto, a partir de este punto, salvo que se mencione lo contrario, el sistema de archivos e instrucciones ejecutadas por línea de comandos así como demás características propias de diferentes sistemas operativos se refieren a un sistema operativo basado en linux.
+
+La máquina virtual se crea haciendo uso del software VirtualBox el cual facilita la creación y personalización de máquinas virtuales no solamente basadas en linux sino en cualquier otro sistema operativo.
+
+%https://www.virtualbox.org/
+
+\subsubsection{PCL}
+Dicho lo cual, disponiendo ya de una máquina virtual, es necesario instalar las librerías de PCL. Para ello se visita la web oficial de PCL pues ésta ofrece las instrucciones adecuadas. Para poder instalar PCL en linux se deben ejecutar los siguientes comandos:
+
+%http://pointclouds.org/downloads/
+
+\begin{verbatim}
+sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl
+sudo apt-get update
+sudo apt-get install libpcl-all
+\end{verbatim}
+
+La primera instrucción añade al sistema el repositorio en el que se encuentra la librería, el segundo busca actualizaciones disponibles y por último se procede a la instalación de todos los archivos actualizados.
+
+Cuando la instalación está completa, se generan una serie de carpetas en el directorio /usr/include:
+
+\begin{itemize}
+\item[•]pcl-1.8: Es la versión 1.8 de la librería de PCL. Contiene en su interior la carpeta pcl que con todos los módulos de PCL estructurados correctamente.
+\item[•]eigen3: Librería eigen que se encuentra bajo la carpeta Eigen dentro de este directorio.
+\item[•]FLANN: Librería FLANN que se encuentra bajo la carpeta flann dentro de este directorio.
+\item[•]vtk-x: versión x de la librería vtk 
+\end{itemize}
+
+\subsubsection{Vivado HLS}
+Ya está instalado PCL en el sistema, ahora falta adquirir una herramienta adecuada para síntesis de software en hardware digital. Para ello se elige la herramienta vivado HLS de Xilinx. Accediendo a la web oficial de descargas (referencia) se puede descargar la versión deseada de este software ya sea como un archivo comprimido TAR o un instalador web para mayor comodidad.
+
+https://www.xilinx.com/support/download.html
+
+\begin{figure}[!htb]
+\centering
+\minipage{0.8\textwidth}
+  \includegraphics[width=\linewidth]{instalacion_xilinx_web}
+  \caption{Selección de la versión 2018.2 para la instalación de Vivado}\label{fig:instalacion_xilinx_web}
+\endminipage\hfill
+\end{figure}
+
+Durante el proceso de instalación...
+
+
+Tras el proceso de instalación y habiendo otorgado los correspondientes permisos de licencia, se creará la carpeta Xilinx bajo el directorio /opt de forma que en /opt/Xilinx se pueden encontrar todas las herramientas que aporta este software.
+
+Para poder utilizar la herramienta de Vivado HLS en linux se deben ejecutar los siguientes comandos:
+
+\begin{verbatim}
+source /opt/Xilinx/
+vivado_hls
+\end{verbatim}
+El primero carga el archivo de configuración x en la sesión actual de la consola de comandos (hay que repetir este paso si se cierra la consola y se desea abrir de nuevo vivado hls)
+El segundo permite abrir el programa Vivado HLS para trabajar en la síntesis de hardware digital.
+
+

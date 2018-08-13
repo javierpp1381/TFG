@@ -20,6 +20,23 @@
 \usepackage{wrapfig}
 \usepackage{array}
 \newcolumntype{L}{>{\centering\arraybackslash}m{3cm}}
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{commentgreen}{RGB}{2,112,10}
+\definecolor{stringgreen}{RGB}{2,150,100}
+
+\lstset { %
+    language=C++,
+    backgroundcolor=\color{black!5}, % set backgroundcolor
+    basicstyle=\footnotesize,% basic font setting
+    frame=tb, % draw a frame at the top and bottom of the code block
+    tabsize=4, % tab space width
+    showstringspaces=false, % don't mark spaces in strings
+    numbers=left, % display line numbers on the left
+    commentstyle=\color{commentgreen}, % comment color
+    keywordstyle=\color{blue}, % keyword color
+    stringstyle=\color{stringgreen} % string color
+}
 
 \input{funciones}
 
