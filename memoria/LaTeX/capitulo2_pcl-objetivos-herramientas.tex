@@ -99,12 +99,7 @@ Normalmente, las nubes de puntos son adquiridas desde diferentes puntos de vista
 
 El alineamiento de nubes de puntos se basa en encontrar correspondencias entre las mismas, es decir, puntos semejantes, y entonces estimar transformaciones que trasladan y rotan las nubes de entrada para que queden alineadas en una sola.
 
-Se suele tomar una nube de entrada como modelo o referencia de forma que sean las demás nubes a las que se les aplica la transformación adecuada para que se parezcan al modelo y que se pueden denominar como nubes fuente. Dicha transformación puede definirse de la siguiente manera:
-
-
-Sean dos nubes de puntos $n-dimensionales$ siendo
-
-con $w_{ij}$ como el peso que determina la dureza de la transformación pues permite que haya transformación si $w_{ij}=1$ o la anula en el caso $w_{ij}=0$
+Se suele tomar una nube de entrada como modelo o referencia de forma que sean las demás nubes a las que se les aplica la transformación adecuada para que se parezcan al modelo y que se pueden denominar como nubes fuente. 
 
 Se trata de una fácil tarea si se conocen de antemano las correspondencias entre las nubes de entrada. Esto implica que un conjunto de puntos pertenecientes a una nube A ha de coincidir con su conjunto de puntos equivalente de una nube B. Además, si las correspondencias y por tanto el alineamiento, son perfectos entonces se tiene una solución cerrada.
 
@@ -140,7 +135,6 @@ Dadas dos o más nubes de puntos como entrada, el primer paso implica extraer ke
 
 %COMPLETAR CON http://www.pointclouds.org/assets/uploads/cglibs13_features.pdf
 
-
 Por ejemplo, las esquinas detectadas en una nube de puntos o imagen pueden considerarse puntos clave pues muestran información característica sobre las delimitaciones del objeto detectado tal y como se aprecia en la figura \ref{fig:corner_detection}
 
 \begin{figure}
@@ -148,6 +142,24 @@ Por ejemplo, las esquinas detectadas en una nube de puntos o imagen pueden consi
 \includegraphics[scale=0.5]{corner_detection}
 \caption{Ejemplo de detección de puntos clave en forma de esquinas.}\label{fig:corner_detection}
 \end{figure}
+
+Hasta el momento se ha hablado de puntos clave o keypoints de forma genérica sin embargo cabe destacar que existen diferentes tipos y es necesario especificar y definir cuál de ellos se va a utilizar de ahora en adelante.
+
+Se puede considerar el harris keypoint o punto clave harris el cual ya se ha mencionado de forma indirecta en la figura \ref{fig:corner_detection} pues en realidad, "harris" hace referencia al método de extracción de esquinas y otras características utilizado en algoritmos de visión por computador. Fue introducido por Chris Harris y Mike Stephens en 1988.
+
+Entrando ligeramente en detalle, una esquina puede definirse como un punto cuyo entorno toma dos direcciones dominantes y diferentes entre sí, es decir, una esquina es la intersección de dos bordes siendo un borde un cambio brusco del brillo en la imagen o en el caso, la nube de puntos. Por lo tanto, las esquinas son consideradas puntos de interés invariantes a la traslación, rotación y cambios de iluminación. 
+Aunque las esquinas suponen una pequeña fracción de la nube, contienen la información más importante sobre la misma la cual se puede utilizar para labores de restauración de la nube o minimizar el tamaño o número de puntos de la misma.
+
+No se darán detalles técnicos sobre los puntos de interés harris ya que en su lugar se va a trabajar con los puntos SIFT. 
+
+SIFT, o Scale Invariant Feature Transform, es un algoritmo utilizado en visión por computador para la extracción de características (features) locales en una imagen o nube de puntos. Las aplicaciones de este algoritmo son varias como reconocimiento de objetos, navegación, modelado 3D, reconocimiento de gestos o identificación de individuos.
+
+Este algoritmo es de alta robustez y consistencia porque puede identificar objetos y características incluso en ambientes borrosos, confusos o sometidos a oclusión parcial porque se trata de un algoritmo invariante a cambios de escala, orientación, cambios de iluminación y parcialmente invariante a la distorsión afín, es decir, puede trabajar con partes de una nube de puntos cuya única diferencia es su orientación mientras que el resto de atributos permanecen idénticos.
+
+
+...
+
+
 
 Obtener correctamente los keypoints es de vital importancia ya que intentar alinear dos nubes considerando todos y cada uno de sus puntos puede suponer una carga computacional inconcebible para el caso de nubes de cientos de miles o incluso millones de puntos. 
 
@@ -158,7 +170,7 @@ Una vez que se dispone de dos o más vectores de características, cada uno de u
 Para hacer coincidir puntos utilizando solamente sus coordenadas XYZ existen métodos tanto para nubes organizadas como desorganizadas:
 \begin{itemize}
 \item[•]Emparejamiento por fuerza bruta
-\item[•]Búsqueda del vecino más cercano mediante la librería FLANN\\
+\item[•]Búsqueda del vecino más cercano mediante la librería FLANN
 \end{itemize}
 en sus modalidades de:
 \begin{itemize}
@@ -169,7 +181,7 @@ en sus modalidades de:
 Para la coincidencia de características diferentes a la posición de los puntos se tienen los siguientes métodos: 
 \begin{itemize}
 \item[•]Emparejamiento por fuerza bruta
-\item[•]Búsqueda del vecino más cercano mediante la librería FLANN\\
+\item[•]Búsqueda del vecino más cercano mediante la librería FLANN
 \end{itemize}
 en sus modalidades de:
 \begin{itemize}
@@ -177,7 +189,30 @@ en sus modalidades de:
 \item[•]Método de correspondencia recíproca con el que se buscan similitudes a la nube modelo en la nube fuente y viceversa quedándose solamente con la intersección
 \end{itemize}
 
-No todas las correspondencias establecidas son correctas o de utilidad y es por esto por lo que hay que hacer una criba ya que las correspondencias inadecuadas pueden afectar negativamente a la transformación final. Para ello simplemente se puede utilizar una fracción del número total de correspondencias encontradas. Un caso típico en el que aplicar una criba es el de las correspondencias múltiples, esto es, varios puntos de la nube de entrada se corresponden con un único punto de la nube modelo. Para paliar esta situación, se suele escoger el punto de la nube de entrada más cercano al punto correspondiente en el modelo.
+No todas las correspondencias establecidas son correctas o de utilidad y es por esto por lo que hay que hacer una criba ya que las correspondencias inadecuadas pueden afectar negativamente a la transformación final. Para ello simplemente se puede utilizar una fracción del número total de correspondencias encontradas.
+
+
+
+Algunos criterios de rechazo de correspondencias se explican a continuación:
+
+\begin{itemize}
+\item[•]Rechazo basado en la distancia:
+Se filtran correspondencias de la nube fuente si están a una distancia mayor que un valor determinado de su punto equivalente en la nube objetivo.
+\item[•]Rechazo basado en compatibilidad de normales:
+Utilizando la información sobre las normales en cada punto, se rechazan correspondencias con vectores normales inconsistentes, es decir, si el ángulo entre la normal en el punto de la nube fuente y la normal en su punto equivalente en la nube objetivo supera cierto valor.
+\item[•]Rechazo basado en correspondencias múltiples: 
+Varios puntos de la nube de entrada se corresponden con un único punto de la nube modelo. Para paliar esta situación, se suele escoger el punto de la nube de entrada más cercano al punto correspondiente en el modelo.
+\item[•]Rechazo basado en solapamiento:
+La nube fuente y la nube objetivo tienen un solapamiento parcial, aparecen correspondencias en puntos límite o frontera de dicho solapamiento dando lugar a errores posteriores. Una vez detectadas, estas correspondencias son eliminadas. 
+\end{itemize}
+
+Estos criterios de criba de correspondencias pueden apreciarse visualmente en la figura \ref{fig:metodos_criba}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{metodos_criba}
+\caption{Ejemplo de criba de correspondencias. Los puntos de la nube objetivo se representan como $q_j$ y los de la nube fuente como $p_i$. Se representan las técnicas de rechazo basado en la distancia (a), compatibilidad de normales (b), correspondencias múltiples (c) y solapamiento (d)}\label{fig:metodos_criba}
+\end{figure}
 
 En el último paso, se lleva a cabo la transformación de la nube fuente siguiendo estos pasos:
 
@@ -188,8 +223,69 @@ En el último paso, se lleva a cabo la transformación de la nube fuente siguien
 \item[•]Optimizar la estructura de puntos resultante eliminando información redundante, por ejemplo.
 \end{itemize}
 
+Existen tres principales tipos de errores entre un punto de la nube fuente y su equivalente en la nube objetivo:
 
-explicar métodos de convergencia y puntos SIFT 
+\begin{itemize}
+\item[•]Error de distancia punto a punto:
+Se trata de la distancia geométrica entre el punto de la nube fuente y su equivalente en la nube objetivo.
+ECUACION
+\item[•]Error de distancia punto a plano:
+Es la distancia entre el punto de la nube fuente y el plano descrito por su punto equivalente junto a su vector normal en la nube objetivo.
+ECUACION
+\item[•]Error generalizado:
+Es una generalización de los dos tipos de errores anteriores. Utiliza las matrices de covarianzas de los entornos locales del punto de la nube fuente y su equivalente de la nube objetivo para alinear superficies en vez de puntos.
+ECUACION
+\end{itemize}
+
+Se pueden visualizar este tipo de errores en la figura \ref{fig:tipos_errores} 
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{tipos_errores}
+\caption{Tipos de errores entre punto fuente y punto objetivo. Error de distancia punto a punto (a), error de distnacia punto a plano (b) y error generalizado (c)}\label{fig:tipos_errores}
+\end{figure}
+
+Se han mencionado los términos "iterativa" y "converger" y es que la transformación de la nube fuente hasta llegar a parecerse la máximo posible a la nube modelo no es única, se lleva a cabo un proceso iterativo. 
+
+
+Dicha transformación puede definirse de la siguiente manera:
+
+
+Sean dos nubes de puntos $n-dimensionales$ siendo
+
+con $w_{ij}$ como el peso que determina la dureza de la transformación pues permite que haya transformación si $w_{ij}=1$ o la anula en el caso $w_{ij}=0$
+
+ECUACIONES
+
+
+Esta operación se repite una y otra vez hasta que se converge a una solución y para lo cual hay que establecer criterios como los siguientes:
+
+\begin{itemize}
+\item[•]Máximo número de iteraciones:
+Se ajusta un valor de máximo número de iteraciones dependiendo de la complejidad de la nube. Si se supera dicho valor, significa que la operación de alineamiento diverge.
+\item[•]Límite absoluto de transformación: 
+La iteraciones se detienen cuando se alcanza un valor de transformación lo suficientemente diferente a la transformación inicial
+\item[•]Límite relativo de transformación:
+Indica la máxima diferencia entre una operación de transformación y la anterior. Si se supera dicho límite se detiene el proceso de transformación.
+\item[•]Límite de iteraciones similares: 
+Se establece un límite de iteraciones para las cuales la transformación realizada es muy similar, es decir, las operaciones de trasformación a penas efectúan cambios en la nube.
+\item[•]Error de mínimos cuadrados relativo:
+Este criterio es similar al de límite relativo de transformación pero utilizando el valor del error de mínimos cuadrados en vez de el de transformación.
+\item[•]Error de mínimos cuadrados absoluto:
+Este criterio es similar al de límite absoluto de transformación pero utilizando el valor del error de mínimos cuadrados en vez de el de transformación.
+\end{itemize}
+
+Se pueden visualizar estos criterios de convergencia en la figura \ref{fig:metodos_convergencia}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{metodos_convergencia}
+\caption{Criterios de convergencia para la transformación iterativa. Máximo número de iteraciones (a), límite absoluto de tranformación (b), límite relativo de tranformación (c), límite de iteraciones similares (d), error de mínimos cuadrados relativo (e) y error de mínimos cuadrados absoluto (f). MSE significa Minimum Square Error, es decir, erro de mínimos cuadrados. }\label{fig:metodos_convergencia}
+\end{figure}
+
+%https://en.wikipedia.org/wiki/Harris_Corner_Detector
+%https://en.wikipedia.org/wiki/Scale-invariant_feature_transform
+
 
 \section{Objetivos del TFG}
 Una vez establecido el fundamento teórico relativo a las nubes de puntos en general y a la librería PCL se procede a continuación a exponer el motivo de este trabajo fin de grado.
@@ -198,7 +294,7 @@ Se tiene un doble objetivo que involucra por una parte la reproducción de algor
 
 La parte de reproducción de algoritmos existentes se refiere a desarrollar un programa escrito en C++ que sea capaz de extraer keypoints de una nube de puntos cualquiera siempre y cuando su formato sea PCD. Para ello se hace uso de la documentación ofrecida por la web oficial de PCL y los conocimientos propios de programación en C++. 
 
-Habiendo desarrollado dicho programa, se procede a estudiar en detalle las partes de la librería PCL que utiliza, comprender cómo funcionan y medir tiempos de ejecución de los diferentes métodos nativos de PCL involucrados en todo el proceso de extracción de keypoints. De este modo, se detecta el algoritmo de mayor tiempo de ejecución y por lo tanto el de mayor carga computacional. Finalmente, se estudia la mencionada parte del código y se plantea cómo crear hardware digital para su optimización. Puesto que no todo tipo de software es sintetizable en hardware, deberán hacerse simplificaciones o incluso cambios sustanciales al código original para posibilitar su síntesis. Para llevar a cabo este proceso se utilizarán conocimientos de HLS o High Level Synthesis que se traduce como síntesis de alto nivel y puede definirse como un proceso automatizado que interpreta una descripción algorítmica de un deseado comportamiento y crea hardware digital que implementa dicho comportamiento.
+Habiendo desarrollado dicho programa, se procede a estudiar en detalle las partes de la librería PCL que utiliza, comprender cómo funcionan y medir tiempos de ejecución de los diferentes métodos nativos de PCL involucrados en todo el proceso de extracción de keypoints. De este modo, se detecta el algoritmo de mayor tiempo de ejecución y por lo tanto el de mayor carga computacional. Finalmente, se estudia la mencionada parte del código y se plantea cómo crear hardware digital exclusivamente para la optimización de la parte del código de PCL y no de las librerías adicionales en las que se apoya. Puesto que no todo tipo de software es sintetizable en hardware, deberán hacerse simplificaciones o incluso cambios sustanciales al código original para posibilitar su síntesis. Para llevar a cabo este proceso se utilizarán conocimientos de HLS o High Level Synthesis que se traduce como síntesis de alto nivel y puede definirse como un proceso automatizado que interpreta una descripción algorítmica de un deseado comportamiento y crea hardware digital que implementa dicho comportamiento.
 
 La plataforma sobre la que se comprobará la compleción de dichos objetivos es una FPGA cuyas características se exponen en el apartado \ref{herraminetas_hardware}
 

@@ -14,4 +14,7 @@
 \BOOKMARK [2][-]{subsection.2.3.1}{Herramientas hardware}{section.2.3}% 14
 \BOOKMARK [2][-]{subsection.2.3.2}{Herramientas software}{section.2.3}% 15
 \BOOKMARK [0][-]{chapter.3}{Reproducci\363n de algoritmos de PCL: Visualizaci\363n de nubes y extracci\363n de keypoints}{}% 16
-\BOOKMARK [1][-]{section.3.1}{Visualizaci\363n de nubes de puntos}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.1}{Notas introductorias}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.2}{Visualizaci\363n de nubes de puntos}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.3}{Programa principal: Extracci\363n de puntos SIFT}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.4}{Ejemplos de visualizaci\363n y extracci\363n de puntos SIFT}{chapter.3}% 20
