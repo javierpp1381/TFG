@@ -58,38 +58,38 @@ Es el tipo de dato con el que se ha generado el fichero PCD siendo dos formatos 
 \end{itemize}
 
 Queda el encabezamiento entonces con la siguiente estructura:
-\begin{verbatim}
-VERSION
-FIELDS
-SIZE
-TYPE
-COUNT
-WIDTH
-HEIGHT
-VIEWPOINT
-POINTS
-DATA
-\end{verbatim}
+\begin{lstlisting}
+	VERSION
+	FIELDS
+	SIZE
+	TYPE
+	COUNT
+	WIDTH
+	HEIGHT
+	VIEWPOINT
+	POINTS
+	DATA
+\end{lstlisting}
 
 Como se ha mencionado previamente, cada punto se introduce después del encabezado en una línea nueva indicando, separados por espacios, el valor de cada campo. Como ejemplo de nube de puntos en formato PCD se tiene lo siguiente:
 
-\begin{verbatim}
-VERSION .7
-FIELDS x y z rgb
-SIZE 4 4 4 4
-TYPE F F F F
-COUNT 1 1 1 1
-WIDTH 213
-HEIGHT 1
-VIEWPOINT 0 0 0 1 0 0 0
-POINTS 5
-DATA ascii
-0.93773 0.33763 0 4.2108e+06
-0.90805 0.35641 0 4.2108e+06
-0.81915 0.32 0 4.2108e+06
-0.97192 0.278 0 4.2108e+06
-0.944 0.29474 0 4.2108e+06
-\end{verbatim}
+\begin{lstlisting}
+	VERSION .7
+	FIELDS x y z rgb
+	SIZE 4 4 4 4
+	TYPE F F F F
+	COUNT 1 1 1 1
+	WIDTH 213
+	HEIGHT 1
+	VIEWPOINT 0 0 0 1 0 0 0
+	POINTS 5
+	DATA ascii
+	0.93773 0.33763 0 4.2108e+06
+	0.90805 0.35641 0 4.2108e+06
+	0.81915 0.32 0 4.2108e+06
+	0.97192 0.278 0 4.2108e+06
+	0.944 0.29474 0 4.2108e+06
+\end{lstlisting}
 
 
 \subsubsection{Módulo registration}

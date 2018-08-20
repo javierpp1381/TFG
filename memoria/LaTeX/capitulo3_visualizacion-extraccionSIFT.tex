@@ -81,8 +81,8 @@ $$./visualization \;\; nube1.pcd \;\; nube1\_keypoints.pcd$$
 
 Véase a continuación el código que hace posible la funcionalidad ya explicada.\\
 
-En primer lugar, se cargan las librerías de $iostream$ para las funcionalidades básicas de C++ y determinados módulos de la librería PCL; $IO$ para la lectura de nubes, $cloud_viewer$ del módulo $visualization$ para la visualización de nubes y $parse$ del módulo $console$ para poder evaluar los argumentos introducidos por la consola de comandos.
-Además, se crea la instancia $sift\_ncloud$ de la clase $PointCloud$, es decir, una nube de puntos donde almacenar y modificar (resaltar puntos) la nube que contiene keypoints.
+En primer lugar, se cargan las librerías de $iostream$ para las funcionalidades básicas de C++ y determinados módulos de la librería PCL; $IO$ para la lectura de nubes, $cloud\_viewer$ del módulo $visualization$ para la visualización de nubes y $parse$ del módulo $console$ para poder evaluar los argumentos introducidos por la consola de comandos.
+Además, se crea la instancia $sift\_cloud$ de la clase $PointCloud$, es decir, una nube de puntos donde almacenar y modificar (resaltar puntos) la nube que contiene keypoints.
 
 \begin{lstlisting}[language=C++,breaklines]
 #include <iostream>
@@ -105,8 +105,8 @@ printUsage (const char* progName)
 
 En el siguiente fragmento de código se implementan las funciones que se ejecutan de forma excluyente una sola vez cuando se abre la ventana que visualiza la nube de puntos. 
 Si se introduce una sola nube de puntos como entrada del programa, se ejecuta $viewerOneOff$ para añadir una esfera en el origen de coordenadas y así localizarlo fácilmente.
-Por otra parte, si se introducen dos nubes de puntos, la original y la que contiene sus puntos SIFT, se ejecuta $viewerOneOffSIFT$ que hace lo mismo que la función anterior con el añadido de modificar la nube $sift\_ncloud$ para añadir esferas en cada uno de sus puntos y distinguirlos de los de la nube original.
-Además, se configura el color de fondo del visualizador aportando pesos a los valores máximos de color rojo, verde y azul que se pueden tener; 1.0 para el color rojo y 0.5 para los colores verde y azul. 
+Por otra parte, si se introducen dos nubes de puntos, la original y la que contiene sus puntos SIFT, se ejecuta $viewerOneOffSIFT$ que hace lo mismo que la función anterior con el añadido de modificar la nube $sift\_cloud$ para añadir esferas en cada uno de sus puntos y distinguirlos de los de la nube original.
+Además, se configura el color de fondo del visualizador aportando pesos a los valores máximos de color rojo, verde y azul que se pueden soportar; 1.0 para el color rojo y 0.5 para los colores verde y azul. 
 El método $addSphere$ permite añadir al visualizador una esfera en el punto indicado.
 
 \begin{lstlisting}[language=C++,breaklines]
@@ -150,7 +150,7 @@ main (int argc, char** argv)
     } 
 \end{lstlisting}
 
-Ahora se crea la instancia $cloud$ de la clase $PointCloud$ donde guardar la nube original, se muestra por pantalla el número de puntos contenidos en la misma y se crea la instancia del visualizador llamada $viewer$
+Ahora se crea la instancia $cloud$ de la clase $PointCloud$ y se guarda en ella la nube original, se muestra por pantalla el número de puntos contenidos en la misma y se crea la instancia del visualizador llamada $viewer$
 
 \begin{lstlisting}[language=C++,breaklines]
 pcl::PointCloud<pcl::PointXYZRGBA>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZRGBA>); 
@@ -170,7 +170,7 @@ if (argc == 2)
     }
 \end{lstlisting}
 
-Si se introducen dos nubes se carga la segunda en unanube llamada $sift\_cloud$ asigna la función $viewerOneOffSIFT$ al visualizador y se muestran las dos nubes en el mismo.
+Si se introducen dos nubes se carga la segunda en la instancia $sift\_cloud$, se asigna la función $viewerOneOffSIFT$ al visualizador y se muestran las dos nubes en el mismo.
 
 \begin{lstlisting}[language=C++,breaklines]
 else 
@@ -178,7 +178,7 @@ else
 	pcl::io::loadPCDFile(argv[2],*sift_cloud);
         cout << "\nNumber of points in SIFT cloud: " << sift_cloud->points.size() << "\n";
 
-	viewer.runOnVisualizationThreadOnce (viewerOneOffSIFT);
+viewer.runOnVisualizationThreadOnce (viewerOneOffSIFT);
     	viewer.showCloud(cloud,"cloud");
    	viewer.showCloud(sift_cloud,"sift_cloud");
  
@@ -206,17 +206,16 @@ Se muestra en la figura \ref{fig:main_HL_diagram} el flujograma que representa e
 
 \subsubsection{Explicación en bajo nivel}
 Antes de entrar en detalle en el código que compone este programa, se indica la forma de hacer uso del mismo. 
-El nombre del ejecutable para este programa es $sift\_keypoints$ al cual se llama con dos tipos de argumentos; parámetros y nube de puntos. Los primeros son opcionales ya que tienen valores por defecto pero el segundo es obligatorio.\\
-El esquema de llamada al ejecutable es el siguiente:
+El nombre del ejecutable para este programa es $sift\_keypoints$ al cual se llama con dos tipos de argumentos; parámetros y nube de puntos. Los primeros son opcionales ya que tienen valores por defecto pero el segundo es obligatorio. El esquema de llamada al ejecutable es el siguiente:
 
 $$sudo \;\; ./sift\_keypoints \;\; -parametro1 \;\; valor1 \;\; -parametro2 \;\; valor2 \;\; ... \;\; -parametroN \;\; valorN \;\; nube.pcd$$
 
 Se requieren permisos de super usuario debido a operaciones de escritura tal y como son modificar y guardar un fichero de texto o guardar nubes de puntos en formato PCD.
 
+
 Estudiando el código de este programa, en primer lugar se incluyen la librería iostream y los módulos necesarios de la librería de PCL. No se muestra esta parte del código ya que es trivial y muy semejante al ya mostrado en el programa de visualización.
 
-
-A continuación se crean e inicializan el conjunto de variables globales necesarias cuyo significado se explicará según se requiera su uso a lo largo del programa. Como excepción se tienen las variables $begin$, $end$ y $elapsed\_sec$ que sirven para medir tiempos de ejecución por lo que entrarán en juego en el siguiente capítulo.
+A continuación se crean e inicializan el conjunto de variables globales necesarias cuyo significado se explicará según se requiera su uso a lo largo del programa. Como excepción se tienen las variables $begin$, $end$, $elapsed\_sec$, $normal\_estimation\_time$ y $sift\_estimation\_time$ que sirven para medir tiempos de ejecución por lo que entrarán en juego en el siguiente capítulo.
 
 \begin{lstlisting}[language=C++,breaklines]
 int normal_estimation_object = 0;
@@ -344,7 +343,7 @@ La siguiente parte del código se encarga de la extracción de normales en la su
 Retomando la instancia "ne" de la clase $NormalEstimation$, se llama al método $setInputCloud$ para asignar a esta instancia la nube de puntos con la que va a trabajar, es decir, $cloud\_xyz$, para que extraiga de ella los vectores normales.
 Además, entran en juego un par de parámetros que se asignan con los métodos $setSearchMethod$ y $setRadiusSearch$ y sirven para establecer respectivamente el método de búsqueda de normales y el radio de la esfera (en centímetros) dentro de la que buscar normales, siendo el centro de la misma cada punto de la nube en cada iteración.
 El método de búsqueda de normales se establece usando la instancia $tree\_n$ de la clase $KdTree$ y hace referencia a la partición o clasificación jerárquica del espacio en forma de árbol para agilizar las operaciones sobre la nube $cloud\_xyz$.
-Una vez que todos los parámetros están asignados, se llama al método compute indicando que es la nube $cloud\_normals$ en la que hay que almacenar la información de los vectores normales extraídos de $cloud\_xyz$
+Una vez que todos los parámetros están asignados, se llama al método compute indicando que es la nube $cloud\_normals$ en la que hay que almacenar la información de los vectores normales extraídos de $cloud\_xyz$.
 
 \begin{lstlisting}[language=C++,breaklines]
   pcl::PointCloud<pcl::PointNormal>::Ptr cloud_normals (new 		pcl::PointCloud<pcl::PointNormal>);
@@ -406,7 +405,7 @@ El método $setScales$ se encarga de asignar a $sift$ los parámetros $min\_scal
 
 Para comprender estos parámetros, hay que tener en cuenta que el algoritmo de extracción de puntos SIFT crea un espacio escalado a partir de la nube con la que trabaja. Esto se debe a que trata de reproducir la naturaleza "multiescala" de los objetos, es decir, los detalles que se aprecian de un árbol, por ejemplo, varían según la distancia a la que se encuentra el observador; A cincuenta metros de distancia se precia la forma, tamaño y colores principales del árbol mientras que a un metro de distancia se pueden ver otros detalles como la rugosidad del tronco o forma de las hojas. Además, dependiendo del observador, el nivel de los detalles detectados en el árbol varían.
 
-Considerando una nube de puntos en dos dimensiones como una imagen, para construir un espacio escalado en primer lugar se toma la nube de puntos original con la función que la describe: 
+Considerando una nube de puntos en dos dimensiones como una imagen plana, para construir un espacio escalado en primer lugar se toma la nube de puntos original con la función que la describe: 
 $$f(x,y)$$ 
 
 junto a la función Gaussiana:
@@ -421,7 +420,7 @@ Cuando se alcanza el número máximo de iteraciones, se toma la nube a la que se
 
 El proceso de reducción del tamaño de la nube para aplicar la convolución con la función Gaussiana se repite un número de veces indicado por el parámetro $n\_octaves$, es decir, número de octavas, ya que el tamaño de la nube se reduce a la mitad.
 
-El proceso de creación del espacio escalado se puede visualizar en el ejemplo de la figura \ref{fig:filtro_gauss}  
+El proceso de creación del espacio escalado se puede visualizar en el ejemplo de la figura \ref{fig:filtro_gauss}. El propósito de este conjunto de operaciones es el de simular diferentes escalas de observación (movimiento vertical en la figura \ref{fig:filtro_gauss}) así como la apreciación de diferentes niveles de detalle en cada escala (movimiento horizontal en la figura \ref{fig:filtro_gauss})  
 
 \begin{figure}
 \centering
@@ -429,7 +428,7 @@ El proceso de creación del espacio escalado se puede visualizar en el ejemplo d
 \caption{Ejemplo de creación de un espacio escalado. La flecha naranja indica el primer desenfoque aplicado a la imagen original. La flecha verde indica la convolución de la imagen con la función Gaussiana para desviaciones típicas crecientes. La flecha azul indica la creación de una nueva octava.}\label{fig:filtro_gauss}
 \end{figure}
 
-El propósito de este conjunto de operaciones es el de simular diferentes escalas de observación (movimiento vertical en la figura \ref{fig:filtro_gauss}) así como la apreciación de diferentes niveles de detalle en cada escala (movimiento horizontal en la figura \ref{fig:filtro_gauss})
+
 
 %https://en.wikipedia.org/wiki/Scale_space
 %http://aishack.in/tutorials/sift-scale-invariant-feature-transform-scale-space/
@@ -523,35 +522,158 @@ Esta nube de puntos junto a la nube de la que procede y de la cual se han extra�
 \section{Ejemplos de visualización y extracción de puntos SIFT}
 Los siguientes ejemplos se han llevado a cabo en una computadora que dispone de máquina virtual con sistema operativo basado en linux. Todos ellos son reproducibles en la FPGA salvo los de visualización como ya se ha indicado previamente.
 
-Se va a tomar como ejemplo una nibe de puntos llamada $five\_people.pcd$ y que representa cinco personas en un entorno cerrado.
+Se van a tomar como ejemplos tres nubes de puntos:
+\begin{itemize}
+\item[•]$bunny.pcd$: 
+Con un total de 397 puntos representa un conejo. El encabezamiento del archivo es el siguiente:\\
+\begin{lstlisting}
+#bunny.pcd
+#.PCD v.5 - Point Cloud Data file format
+VERSION .5
+FIELDS x y z
+SIZE 4 4 4
+TYPE F F F
+COUNT 1 1 1
+WIDTH 397
+HEIGHT 1
+POINTS 397
+DATA ascii
+\end{lstlisting}
 
-Para visualizar esta nube se ejecuta el siguiente comando pudiendo ver el resultado en la figura \ref{fig:ejemplo_five_people}
-$$./visualization\;\;five\_people.pcd$$
+\item[•]$cturtle.pcd$:
+Contiene 167198 puntos que representan el caparazón de una tortuga. El encabezamiento del archivo se muestra a continuación:\\
+\begin{lstlisting}
+#cturtle.pcd
+#.PCD v0.7 - Point Cloud Data file format
+VERSION 0.7
+FIELDS x y z intensity
+SIZE 4 4 4 4
+TYPE F F F F
+COUNT 1 1 1 1
+WIDTH 167198
+HEIGHT 1
+VIEWPOINT 0 0 0 1 0 0 0
+POINTS 167198
+DATA binary_compressed
+\end{lstlisting}
 
+
+\item[•]$milk\_cartoon\_all\_small\_clorox.pcd$:
+Representa tres botes sobre una superficie mediante 307200 puntos. Su encabezamiento indica que es una nube ordenada, es decir, tiene una estructura matricial tal y como se indicó en la explicación del formato PCD.\\
+\begin{lstlisting}
+#milk_cartoon_all_small_clorox.pcd
+#.PCD v0.7 - Point Cloud Data file format
+VERSION 0.7
+FIELDS x y z rgba
+SIZE 4 4 4 4
+TYPE F F F U
+COUNT 1 1 1 1
+WIDTH 640
+HEIGHT 480
+VIEWPOINT 0 0 0 1 0 0 0
+POINTS 307200
+DATA binary_compressed
+\end{lstlisting}
+
+\end{itemize}
+
+Se puede apreciar en los encabezamientos de las nubes que el tipo de datos en $bunny.pcd$ es $ascii$ mientras que en las otras dos nubes es $binary\_compressed$. Esto se debe a la gran cantidad de puntos que contienen por lo que el formato $ascii$ se comprime en $binary\_compressed$ para que el archivo ocupe menos espacio.
+
+\subsection{Visualización}
+Para visualizar estas nubes se ejecutan los siguientes comandos pudiendo ver los resultados en las figuras \ref{fig:bunny_ejemplo}, \ref{fig:cturtle_ejemplo} y \ref{fig:botes} 
+$$./visualization\;\;bunny.pcd$$
+$$./visualization\;\;cturtle.pcd$$
+$$./visualization\;\;milk\_cartoon\_all\_small\_clorox.pcd$$
+
+\begin{figure}[!htb]
+\minipage{0.32\textwidth}
+  \includegraphics[width=\linewidth]{bunny_ejemplo}
+  \caption{Visualización de la nube $bunny.pcd$}\label{fig:bunny_ejemplo}
+\endminipage\hfill
+\minipage{0.32\textwidth}
+  \includegraphics[width=\linewidth]{cturtle_ejemplo}
+  \caption{Visualización de la nube $cturtle.pcd$}\label{fig:cturtle_ejemplo}
+\endminipage\hfill
+\minipage{0.33\textwidth}
+  \includegraphics[width=\linewidth]{botes}
+  \caption{Visualización de la nube $milk\_cartoon\_all\_small\_clorox.pcd$}\label{fig:botes}
+\endminipage\hfill
+\end{figure}
+
+\subsection{Extracción de puntos SIFT}
+Ahora se quieren extraer los puntos SIFT de estas nubes por lo que se ejecutan los siguientes comandos.
+$$./sift\_keypoints\;\;bunny.pcd$$
+$$./sift\_keypoints\;\;cturtle.pcd\;\;-mc\;\;0$$
+$$./sift\_keypoints\;\;milk\_cartoon\_all\_small\_clorox.pcd$$
+
+Se han utilizado el valor de los parámetros por defecto en $bunny.pcd$ y 
+$milk\_cartoon\_all\_small\_clorox.pcd$ pero no ha sido así en $cturtle.pcd$ ya que el parámetro $minimum\_contrast$ tiene un valor de $0$ en vez de $0,001$. Esto se debe a que ninguno de los puntos SIFT detectados supera el filtro de contraste, lo cual parece razonable porque estudiando la superficie que representa $cturtle.pcd$ se ve una curvatura muy suave y a penas tiene bordes y esquinas marcados.
+
+De este modo, el fichero de texto $tests.txt$ generado tras ejecutar estos tres comandos tiene el siguiente contenido:
+
+\begin{lstlisting}
+filename: bunny.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 0.034731
+SIFT points estimation time (s): 0.040729
+Number of SIFT points found: 13
+------------------------------
+------------------------------
+filename: milk_cartoon_all_small_clorox.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0.001
+
+Normal estimation time (s): 122.083
+SIFT points estimation time (s): 5.09761
+Number of SIFT points found: 404
+------------------------------
+------------------------------
+filename: cturtle.pcd
+
+Normal estimation radius search: 0.02
+Minimum scale: 0.01
+Number of octaves: 3
+Number of scales per octave: 4
+Minimum contrast: 0
+
+Normal estimation time (s): 14.1584
+SIFT points estimation time (s): 9.5875
+Number of SIFT points found: 952
+\end{lstlisting}
+
+Además, cada vez que se extraen los puntos SIFT de una nube, se genera una nube de puntos llamada $sift\_keypoints$ la cual contiene los puntos SIFT de la nube de entrada a este programa. Esto es importante de cara a la siguiente sección de visualización de puntos SIFT.
+
+
+\subsection{Visualización de puntos SIFT}
+Por último, se visualizan en conjunto la nube original y sus puntos SIFT utilizando de nuevo el visualizador el cual se alimenta de dos nubes de puntos: la nube original y la nube $sift\_keypoints$ que contiene sus puntos SIFT y ha sido generada por el programa de extracción de keypoints. En las figuras \ref{fig:botes_ejemplo_sift}, \ref{fig:bunny_ejemplo_sift} y \ref{fig:cturtle_ejemplo_sift} se aprecian los resultados de ejecutar los siguientes comandos:
+
+$$./visualization\;\;bunny.pcd\;\;sift\_keypoints.pcd$$
+$$./visualization\;\;milk\_cartoon\_all\_small\_clorox.pcd\;\;sift\_keypoints.pcd$$
+$$./visualization\;\;cturtle.pcd\;\;sift\_keypoints.pcd$$
 
 
 \begin{figure}[!htb]
-\minipage{0.48\textwidth}
-  \includegraphics[width=\linewidth]{ejemplo_five_people}
-  \caption{Visualización de la nube $five\_people.pcd$}\label{fig:ejemplo_five_people}
+\minipage{0.32\textwidth}
+  \includegraphics[width=\linewidth]{bunny_ejemplo_sift}
+  \caption{Visualización de la nube $bunny.pcd$ junto a sus puntos SIFT como esferas blancas.}\label{fig:bunny_ejemplo_sift}
 \endminipage\hfill
-\minipage{0.48\textwidth}
-  \includegraphics[width=\linewidth]{ejemplo_five_people_sift}
-  \caption{Visualización de la nube $five\_people.pcd$ junto a sus puntos SIFT representados por esferas blancas}\label{fig:ejemplo_five_people_sift}
+\minipage{0.32\textwidth}
+  \includegraphics[width=\linewidth]{cturtle_ejemplo_sift}
+  \caption{Visualización de la nube $cturtle.pcd$ junto a sus puntos SIFT como esferas blancas.}\label{fig:cturtle_ejemplo_sift}
 \endminipage\hfill
-
+\minipage{0.33\textwidth}
+  \includegraphics[width=\linewidth]{botes_ejemplo_sift}
+  \caption{Visualización de la nube $milk\_cartoon\_all\_small\_clorox.pcd$ junto a sus puntos SIFT como esferas blancas.}\label{fig:botes_ejemplo_sift}
+\endminipage\hfill
 \end{figure}
 
-
-
-
-ahora se quieren extraer los puntos SIFT de esta nube por lo que se ejecuta lo siguiente:
-$$./sift\_keypoints\;\;five\_people.pcd$$
-
-Los parámetros quedan por defecto y el resultado de la operación se muestra por pantalla tal y como se ve en la figura :
-
-
-
-Por último, se visualizan en conjunto la nube original y sus puntos SIFT:
-$$./visualization\;\;five\_people.pcd\;\;sift\_keypoints.pcd$$
-El resultado final puede verse en la figura \ref{fig:ejemplo_five_people_sift}

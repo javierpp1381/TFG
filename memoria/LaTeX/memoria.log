@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.27)  17 AUG 2018 18:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.5.27)  20 AUG 2018 18:59
 entering extended mode
 **./memoria.tex
 (memoria.tex
@@ -678,6 +678,10 @@ File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 ) (funciones.tex) (memoria.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
+
+
+LaTeX Warning: Label `fig:botes' multiply defined.
+
 )
 \openout1 = `memoria.aux'.
 
@@ -696,8 +700,7 @@ LaTeX Font Info:    ... okay on input line 52.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
 LaTeX Font Info:    ... okay on input line 52.
 LaTeX Font Info:    Try loading font information for T1+lmr on input line 52.
-
-("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
+ ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 *geometry* driver: auto-detecting
@@ -842,7 +845,7 @@ LaTeX Info: Redefining \% on input line 69.
 
 ] (capitulo_introductorio.tex
  1.
-<imagenes/focal_length.jpg, id=141, 649.42625pt x 361.35pt>
+<imagenes/focal_length.jpg, id=171, 649.42625pt x 361.35pt>
 File: imagenes/focal_length.jpg Graphic file (type jpg)
 <use imagenes/focal_length.jpg>
 Package pdftex.def Info: imagenes/focal_length.jpg  used on input line 28.
@@ -853,13 +856,13 @@ Package pdftex.def Info: imagenes/focal_length.jpg  used on input line 28.
 LaTeX Info: Redefining \. on input line 71.
 LaTeX Info: Redefining \% on input line 71.
  [2 <./imagenes/focal_length.jpg>]
-<imagenes/history_technology.jpg, id=162, 1082.0425pt x 447.6725pt>
+<imagenes/history_technology.jpg, id=192, 1082.0425pt x 447.6725pt>
 File: imagenes/history_technology.jpg Graphic file (type jpg)
 <use imagenes/history_technology.jpg>
 Package pdftex.def Info: imagenes/history_technology.jpg  used on input line 83
 .
 (pdftex.def)             Requested size: 317.07614pt x 131.18105pt.
-<imagenes/technology_population.png, id=164, 536.0025pt x 397.485pt>
+<imagenes/technology_population.png, id=194, 536.0025pt x 397.485pt>
 File: imagenes/technology_population.png Graphic file (type png)
 <use imagenes/technology_population.png>
 Package pdftex.def Info: imagenes/technology_population.png  used on input line
@@ -868,12 +871,12 @@ Package pdftex.def Info: imagenes/technology_population.png  used on input line
 LaTeX Info: Redefining \. on input line 107.
 LaTeX Info: Redefining \% on input line 107.
  [3 <./imagenes/history_technology.jpg> <./imagenes/technology_population.png>]
-<imagenes/analog_signal.png, id=177, 401.5pt x 301.125pt>
+<imagenes/analog_signal.png, id=207, 401.5pt x 301.125pt>
 File: imagenes/analog_signal.png Graphic file (type png)
 <use imagenes/analog_signal.png>
 Package pdftex.def Info: imagenes/analog_signal.png  used on input line 122.
 (pdftex.def)             Requested size: 294.42636pt x 220.83485pt.
-<imagenes/analogica_digitalizada.png, id=179, 607.26875pt x 253.94875pt>
+<imagenes/analogica_digitalizada.png, id=209, 607.26875pt x 253.94875pt>
 File: imagenes/analogica_digitalizada.png Graphic file (type png)
 <use imagenes/analogica_digitalizada.png>
 Package pdftex.def Info: imagenes/analogica_digitalizada.png  used on input lin
@@ -882,12 +885,12 @@ e 135.
 LaTeX Info: Redefining \. on input line 143.
 LaTeX Info: Redefining \% on input line 143.
  [4 <./imagenes/analog_signal.png>]
-<imagenes/adc.png, id=190, 895.345pt x 257.96375pt>
+<imagenes/adc.png, id=220, 895.345pt x 257.96375pt>
 File: imagenes/adc.png Graphic file (type png)
 <use imagenes/adc.png>
 Package pdftex.def Info: imagenes/adc.png  used on input line 148.
 (pdftex.def)             Requested size: 294.42636pt x 84.82913pt.
-<imagenes/digital_signal.png, id=191, 501.875pt x 276.03125pt>
+<imagenes/digital_signal.png, id=221, 501.875pt x 276.03125pt>
 File: imagenes/digital_signal.png Graphic file (type png)
 <use imagenes/digital_signal.png>
 Package pdftex.def Info: imagenes/digital_signal.png  used on input line 159.
@@ -897,7 +900,7 @@ LaTeX Info: Redefining \% on input line 171.
 
 [5 <./imagenes/analogica_digitalizada.png> <./imagenes/adc.png> <./imagenes/dig
 ital_signal.png>]
-<imagenes/human_vision.png, id=202, 431.6125pt x 310.15875pt>
+<imagenes/human_vision.png, id=232, 431.6125pt x 310.15875pt>
 File: imagenes/human_vision.png Graphic file (type png)
 <use imagenes/human_vision.png>
 Package pdftex.def Info: imagenes/human_vision.png  used on input line 184.
@@ -905,17 +908,17 @@ Package pdftex.def Info: imagenes/human_vision.png  used on input line 184.
 LaTeX Info: Redefining \. on input line 210.
 LaTeX Info: Redefining \% on input line 210.
  [6 <./imagenes/human_vision.png>]
-<imagenes/delaunay_mal.png, id=212, 220.825pt x 220.825pt>
+<imagenes/delaunay_mal.png, id=242, 220.825pt x 220.825pt>
 File: imagenes/delaunay_mal.png Graphic file (type png)
 <use imagenes/delaunay_mal.png>
 Package pdftex.def Info: imagenes/delaunay_mal.png  used on input line 237.
 (pdftex.def)             Requested size: 144.95303pt x 144.95984pt.
-<imagenes/delaunay_bien.png, id=213, 220.825pt x 207.77625pt>
+<imagenes/delaunay_bien.png, id=243, 220.825pt x 207.77625pt>
 File: imagenes/delaunay_bien.png Graphic file (type png)
 <use imagenes/delaunay_bien.png>
 Package pdftex.def Info: imagenes/delaunay_bien.png  used on input line 241.
 (pdftex.def)             Requested size: 144.95303pt x 136.39403pt.
-<imagenes/delaunay_bien_10pts.png, id=214, 220.825pt x 220.825pt>
+<imagenes/delaunay_bien_10pts.png, id=244, 220.825pt x 220.825pt>
 File: imagenes/delaunay_bien_10pts.png Graphic file (type png)
 <use imagenes/delaunay_bien_10pts.png>
 Package pdftex.def Info: imagenes/delaunay_bien_10pts.png  used on input line 2
@@ -925,27 +928,27 @@ LaTeX Info: Redefining \. on input line 257.
 LaTeX Info: Redefining \% on input line 257.
  [7 <./imagenes/delaunay_mal.png> <./imagenes/delaunay_bien.png> <./imagenes/de
 launay_bien_10pts.png>]
-<imagenes/bunny_simple.png, id=229, 631.60968pt x 367.3725pt>
+<imagenes/bunny_simple.png, id=259, 631.60968pt x 367.3725pt>
 File: imagenes/bunny_simple.png Graphic file (type png)
 <use imagenes/bunny_simple.png>
 Package pdftex.def Info: imagenes/bunny_simple.png  used on input line 276.
 (pdftex.def)             Requested size: 144.95303pt x 84.3089pt.
-<imagenes/wolf.png, id=230, 632.3625pt x 366.61969pt>
+<imagenes/wolf.png, id=260, 632.3625pt x 366.61969pt>
 File: imagenes/wolf.png Graphic file (type png)
 <use imagenes/wolf.png>
 Package pdftex.def Info: imagenes/wolf.png  used on input line 282.
 (pdftex.def)             Requested size: 144.95303pt x 84.03545pt.
-<imagenes/botes.png, id=231, 510.40688pt x 270.25969pt>
+<imagenes/botes.png, id=261, 510.40688pt x 270.25969pt>
 File: imagenes/botes.png Graphic file (type png)
 <use imagenes/botes.png>
 Package pdftex.def Info: imagenes/botes.png  used on input line 288.
 (pdftex.def)             Requested size: 144.95303pt x 76.75262pt.
-<imagenes/bunny.jpg, id=234, 602.25pt x 570.63188pt>
+<imagenes/bunny.jpg, id=264, 602.25pt x 570.63188pt>
 File: imagenes/bunny.jpg Graphic file (type jpg)
 <use imagenes/bunny.jpg>
 Package pdftex.def Info: imagenes/bunny.jpg  used on input line 307.
 (pdftex.def)             Requested size: 203.83417pt x 193.13284pt.
-<imagenes/bunny_colored.jpg, id=235, 803.0pt x 758.835pt>
+<imagenes/bunny_colored.jpg, id=265, 803.0pt x 758.835pt>
 File: imagenes/bunny_colored.jpg Graphic file (type jpg)
 <use imagenes/bunny_colored.jpg>
 Package pdftex.def Info: imagenes/bunny_colored.jpg  used on input line 311.
@@ -954,12 +957,12 @@ LaTeX Info: Redefining \. on input line 320.
 LaTeX Info: Redefining \% on input line 320.
 
 [8 <./imagenes/bunny_simple.png> <./imagenes/wolf.png> <./imagenes/botes.png>]
-<imagenes/dragon.jpg, id=249, 921.4425pt x 602.25pt>
+<imagenes/dragon.jpg, id=280, 921.4425pt x 602.25pt>
 File: imagenes/dragon.jpg Graphic file (type jpg)
 <use imagenes/dragon.jpg>
 Package pdftex.def Info: imagenes/dragon.jpg  used on input line 323.
 (pdftex.def)             Requested size: 276.43488pt x 180.67639pt.
-<imagenes/angel_lucy.jpg, id=250, 599.23875pt x 911.405pt>
+<imagenes/angel_lucy.jpg, id=281, 599.23875pt x 911.405pt>
 File: imagenes/angel_lucy.jpg Graphic file (type jpg)
 <use imagenes/angel_lucy.jpg>
 Package pdftex.def Info: imagenes/angel_lucy.jpg  used on input line 334.
@@ -969,12 +972,12 @@ LaTeX Info: Redefining \% on input line 340.
 
 [9 <./imagenes/bunny.jpg> <./imagenes/bunny_colored.jpg> <./imagenes/dragon.jpg
 >]
-<imagenes/wue_city2.png, id=258, 1927.2pt x 1084.05pt>
+<imagenes/wue_city2.png, id=289, 1927.2pt x 1084.05pt>
 File: imagenes/wue_city2.png Graphic file (type png)
 <use imagenes/wue_city2.png>
 Package pdftex.def Info: imagenes/wue_city2.png  used on input line 348.
 (pdftex.def)             Requested size: 327.61967pt x 184.28606pt.
-<imagenes/joinedmodel.jpg, id=259, 1445.4pt x 1156.32pt>
+<imagenes/joinedmodel.jpg, id=290, 1445.4pt x 1156.32pt>
 File: imagenes/joinedmodel.jpg Graphic file (type jpg)
 <use imagenes/joinedmodel.jpg>
 Package pdftex.def Info: imagenes/joinedmodel.jpg  used on input line 356.
@@ -985,7 +988,7 @@ LaTeX Info: Redefining \% on input line 369.
 LaTeX Info: Redefining \. on input line 369.
 LaTeX Info: Redefining \% on input line 369.
  [11 <./imagenes/wue_city2.png (PNG copy)> <./imagenes/joinedmodel.jpg>]
-<imagenes/lidar_explanation.png, id=270, 526.96875pt x 183.68625pt>
+<imagenes/lidar_explanation.png, id=301, 526.96875pt x 183.68625pt>
 File: imagenes/lidar_explanation.png Graphic file (type png)
 <use imagenes/lidar_explanation.png>
 Package pdftex.def Info: imagenes/lidar_explanation.png  used on input line 386
@@ -994,13 +997,13 @@ Package pdftex.def Info: imagenes/lidar_explanation.png  used on input line 386
 LaTeX Info: Redefining \. on input line 404.
 LaTeX Info: Redefining \% on input line 404.
  [12 <./imagenes/lidar_explanation.png (PNG copy)>]
-<imagenes/sensor_laser_espejo.png, id=279, 322.20375pt x 243.15843pt>
+<imagenes/sensor_laser_espejo.png, id=310, 322.20375pt x 243.15843pt>
 File: imagenes/sensor_laser_espejo.png Graphic file (type png)
 <use imagenes/sensor_laser_espejo.png>
 Package pdftex.def Info: imagenes/sensor_laser_espejo.png  used on input line 4
 15.
 (pdftex.def)             Requested size: 144.95303pt x 109.3943pt.
-<imagenes/sensor_laser_vista_tope.png, id=280, 322.20375pt x 232.61906pt>
+<imagenes/sensor_laser_vista_tope.png, id=311, 322.20375pt x 232.61906pt>
 File: imagenes/sensor_laser_vista_tope.png Graphic file (type png)
 <use imagenes/sensor_laser_vista_tope.png>
 Package pdftex.def Info: imagenes/sensor_laser_vista_tope.png  used on input li
@@ -1011,19 +1014,19 @@ Underfull \hbox (badness 1158) in paragraph at lines 420--420
 \T1/lmr/m/n/10.95 sen-sor y las su-per-fi-cies que
  []
 
-<imagenes/sensor_laser_resultado.png, id=281, 322.20375pt x 220.57407pt>
+<imagenes/sensor_laser_resultado.png, id=312, 322.20375pt x 220.57407pt>
 File: imagenes/sensor_laser_resultado.png Graphic file (type png)
 <use imagenes/sensor_laser_resultado.png>
 Package pdftex.def Info: imagenes/sensor_laser_resultado.png  used on input lin
 e 423.
 (pdftex.def)             Requested size: 144.95303pt x 99.23384pt.
-<imagenes/sensor_dos_espejos.png, id=282, 269.005pt x 192.72pt>
+<imagenes/sensor_dos_espejos.png, id=313, 269.005pt x 192.72pt>
 File: imagenes/sensor_dos_espejos.png Graphic file (type png)
 <use imagenes/sensor_dos_espejos.png>
 Package pdftex.def Info: imagenes/sensor_dos_espejos.png  used on input line 43
 2.
 (pdftex.def)             Requested size: 203.83417pt x 146.03055pt.
-<imagenes/movimiento_lidar_2D.png, id=283, 478.78876pt x 369.38pt>
+<imagenes/movimiento_lidar_2D.png, id=314, 478.78876pt x 369.38pt>
 File: imagenes/movimiento_lidar_2D.png Graphic file (type png)
 <use imagenes/movimiento_lidar_2D.png>
 Package pdftex.def Info: imagenes/movimiento_lidar_2D.png  used on input line 4
@@ -1037,12 +1040,12 @@ LaTeX Info: Redefining \. on input line 476.
 LaTeX Info: Redefining \% on input line 476.
  [14 <./imagenes/sensor_dos_espejos.png> <./imagenes/movimiento_lidar_2D.png (P
 NG copy)>]
-<imagenes/airborne_lidar.png, id=306, 202.50656pt x 191.21437pt>
+<imagenes/airborne_lidar.png, id=337, 202.50656pt x 191.21437pt>
 File: imagenes/airborne_lidar.png Graphic file (type png)
 <use imagenes/airborne_lidar.png>
 Package pdftex.def Info: imagenes/airborne_lidar.png  used on input line 480.
 (pdftex.def)             Requested size: 203.83417pt x 192.47142pt.
-<imagenes/airborne_city.png, id=307, 298.11375pt x 198.7425pt>
+<imagenes/airborne_city.png, id=338, 298.11375pt x 198.7425pt>
 File: imagenes/airborne_city.png Graphic file (type png)
 <use imagenes/airborne_city.png>
 Package pdftex.def Info: imagenes/airborne_city.png  used on input line 484.
@@ -1050,7 +1053,7 @@ Package pdftex.def Info: imagenes/airborne_city.png  used on input line 484.
 LaTeX Info: Redefining \. on input line 521.
 LaTeX Info: Redefining \% on input line 521.
  [15 <./imagenes/airborne_lidar.png> <./imagenes/airborne_city.png>]
-<imagenes/pcl_logo.png, id=317, 803.0pt x 302.12875pt>
+<imagenes/pcl_logo.png, id=348, 803.0pt x 302.12875pt>
 File: imagenes/pcl_logo.png Graphic file (type png)
 <use imagenes/pcl_logo.png>
 Package pdftex.def Info: imagenes/pcl_logo.png  used on input line 533.
@@ -1079,12 +1082,8 @@ LaTeX Info: Redefining \% on input line 1.
 ]
  2.
 [19]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 61.
- ("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Info: Redefining \. on input line 92.
-LaTeX Info: Redefining \% on input line 92.
+LaTeX Info: Redefining \. on input line 80.
+LaTeX Info: Redefining \% on input line 80.
 
 Overfull \hbox (88.8913pt too wide) has occurred while \output is active
 \T1/lmr/m/n/10.95 20  \T1/lmr/m/sl/10.95 2.  CAPACIDADES DE PCL: OBJETIVOS DEL 
@@ -1092,42 +1091,41 @@ PRESENTE TRABAJO Y HERRAMIENTAS NECESARIAS
  []
 
 [20]
-<imagenes/registration_bunny.png, id=344, 2569.6pt x 835.12pt>
+<imagenes/registration_bunny.png, id=386, 2569.6pt x 835.12pt>
 File: imagenes/registration_bunny.png Graphic file (type png)
 <use imagenes/registration_bunny.png>
 Package pdftex.def Info: imagenes/registration_bunny.png  used on input line 11
 1.
 (pdftex.def)             Requested size: 385.42337pt x 125.26259pt.
-<imagenes/registration_flow.jpg, id=346, 903.375pt x 769.87625pt>
+<imagenes/registration_flow.jpg, id=388, 903.375pt x 769.87625pt>
 File: imagenes/registration_flow.jpg Graphic file (type jpg)
 <use imagenes/registration_flow.jpg>
 Package pdftex.def Info: imagenes/registration_flow.jpg  used on input line 119
 .
 (pdftex.def)             Requested size: 451.6864pt x 384.93718pt.
-LaTeX Info: Redefining \. on input line 131.
-LaTeX Info: Redefining \% on input line 131.
- [21]
-LaTeX Info: Redefining \. on input line 131.
-LaTeX Info: Redefining \% on input line 131.
+LaTeX Info: Redefining \. on input line 125.
+LaTeX Info: Redefining \% on input line 125.
+ [21 <./imagenes/registration_bunny.png>]
+LaTeX Info: Redefining \. on input line 125.
+LaTeX Info: Redefining \% on input line 125.
 
 Overfull \hbox (88.8913pt too wide) has occurred while \output is active
 \T1/lmr/m/n/10.95 22  \T1/lmr/m/sl/10.95 2.  CAPACIDADES DE PCL: OBJETIVOS DEL 
 PRESENTE TRABAJO Y HERRAMIENTAS NECESARIAS
  []
 
-[22 <./imagenes/registration_bunny.png> <./imagenes/registration_flow.jpg>]
-<imagenes/corner_detection.png, id=360, 447.92343pt x 389.20406pt>
+[22 <./imagenes/registration_flow.jpg>]
+<imagenes/corner_detection.png, id=418, 447.92343pt x 389.20406pt>
 File: imagenes/corner_detection.png Graphic file (type png)
 <use imagenes/corner_detection.png>
 Package pdftex.def Info: imagenes/corner_detection.png  used on input line 142.
 
 (pdftex.def)             Requested size: 223.96117pt x 194.60155pt.
-LaTeX Info: Redefining \. on input line 158.
-LaTeX Info: Redefining \% on input line 158.
-
-[23 <./imagenes/corner_detection.png>]
-LaTeX Info: Redefining \. on input line 205.
-LaTeX Info: Redefining \% on input line 205.
+LaTeX Info: Redefining \. on input line 154.
+LaTeX Info: Redefining \% on input line 154.
+ [23 <./imagenes/corner_detection.png>]
+LaTeX Info: Redefining \. on input line 201.
+LaTeX Info: Redefining \% on input line 201.
 
 Overfull \hbox (88.8913pt too wide) has occurred while \output is active
 \T1/lmr/m/n/10.95 24  \T1/lmr/m/sl/10.95 2.  CAPACIDADES DE PCL: OBJETIVOS DEL 
@@ -1135,27 +1133,21 @@ PRESENTE TRABAJO Y HERRAMIENTAS NECESARIAS
  []
 
 [24]
-<imagenes/metodos_criba.png, id=373, 487.8225pt x 414.79968pt>
+<imagenes/metodos_criba.png, id=431, 487.8225pt x 414.79968pt>
 File: imagenes/metodos_criba.png Graphic file (type png)
 <use imagenes/metodos_criba.png>
 Package pdftex.def Info: imagenes/metodos_criba.png  used on input line 213.
 (pdftex.def)             Requested size: 243.91064pt x 207.39934pt.
-LaTeX Info: Redefining \. on input line 235.
-LaTeX Info: Redefining \% on input line 235.
+LaTeX Info: Redefining \. on input line 224.
+LaTeX Info: Redefining \% on input line 224.
  [25 <./imagenes/metodos_criba.png>]
-<imagenes/tipos_errores.png, id=382, 478.78876pt x 172.39406pt>
+<imagenes/tipos_errores.png, id=440, 478.78876pt x 172.39406pt>
 File: imagenes/tipos_errores.png Graphic file (type png)
 <use imagenes/tipos_errores.png>
 Package pdftex.def Info: imagenes/tipos_errores.png  used on input line 244.
 (pdftex.def)             Requested size: 239.39378pt x 86.19681pt.
-<imagenes/metodos_convergencia.png, id=384, 487.06969pt x 461.47406pt>
-File: imagenes/metodos_convergencia.png Graphic file (type png)
-<use imagenes/metodos_convergencia.png>
-Package pdftex.def Info: imagenes/metodos_convergencia.png  used on input line 
-282.
-(pdftex.def)             Requested size: 243.53424pt x 230.73645pt.
-LaTeX Info: Redefining \. on input line 284.
-LaTeX Info: Redefining \% on input line 284.
+LaTeX Info: Redefining \. on input line 274.
+LaTeX Info: Redefining \% on input line 274.
 
 Overfull \hbox (88.8913pt too wide) has occurred while \output is active
 \T1/lmr/m/n/10.95 26  \T1/lmr/m/sl/10.95 2.  CAPACIDADES DE PCL: OBJETIVOS DEL 
@@ -1163,11 +1155,23 @@ PRESENTE TRABAJO Y HERRAMIENTAS NECESARIAS
  []
 
 [26 <./imagenes/tipos_errores.png>]
-LaTeX Info: Redefining \. on input line 302.
-LaTeX Info: Redefining \% on input line 302.
+<imagenes/metodos_convergencia.png, id=448, 487.06969pt x 461.47406pt>
+File: imagenes/metodos_convergencia.png Graphic file (type png)
+<use imagenes/metodos_convergencia.png>
+Package pdftex.def Info: imagenes/metodos_convergencia.png  used on input line 
+282.
+(pdftex.def)             Requested size: 243.53424pt x 230.73645pt.
+LaTeX Info: Redefining \. on input line 298.
+LaTeX Info: Redefining \% on input line 298.
  [27 <./imagenes/metodos_convergencia.png>]
-LaTeX Info: Redefining \. on input line 338.
-LaTeX Info: Redefining \% on input line 338.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 323.
+
+
+("C:\Users\Javi\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Info: Redefining \. on input line 332.
+LaTeX Info: Redefining \% on input line 332.
 
 Overfull \hbox (88.8913pt too wide) has occurred while \output is active
 \T1/lmr/m/n/10.95 28  \T1/lmr/m/sl/10.95 2.  CAPACIDADES DE PCL: OBJETIVOS DEL 
@@ -1175,22 +1179,22 @@ PRESENTE TRABAJO Y HERRAMIENTAS NECESARIAS
  []
 
 [28]
-<imagenes/instalacion_xilinx_web.png, id=404, 710.655pt x 630.85687pt>
+<imagenes/instalacion_xilinx_web.png, id=463, 710.655pt x 630.85687pt>
 File: imagenes/instalacion_xilinx_web.png Graphic file (type png)
 <use imagenes/instalacion_xilinx_web.png>
 Package pdftex.def Info: imagenes/instalacion_xilinx_web.png  used on input lin
 e 348.
 (pdftex.def)             Requested size: 362.37569pt x 321.69424pt.
-) (capitulo3_visualizacion-extraccionSIFT.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
+LaTeX Info: Redefining \. on input line 363.
+LaTeX Info: Redefining \% on input line 363.
 
 Overfull \hbox (126.30252pt too wide) has occurred while \output is active
 \T1/lmr/m/sl/10.95 2.3.  DESCRIPCIÓN E INSTALACIÓN DE HERRAMIENTAS NECESARIAS P
 ARA DESARROLLAR EL TRABAJO \T1/lmr/m/n/10.95 29
  []
 
-[29 <./imagenes/instalacion_xilinx_web.png>]
+[29 <./imagenes/instalacion_xilinx_web.png>])
+(capitulo3_visualizacion-extraccionSIFT.tex
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 
@@ -1199,17 +1203,17 @@ Overfull \hbox (88.8913pt too wide) has occurred while \output is active
 PRESENTE TRABAJO Y HERRAMIENTAS NECESARIAS
  []
 
-[30
-
-]
+[30]
  3.
 
 Overfull \hbox (40.60614pt too wide) in paragraph at lines 18--19
 [][][][][][][][][][][][][][][][][][] 
  []
 
-[31]
-<imagenes/visualization_all_diagram.png, id=432, 683.55376pt x 1106.1325pt>
+[31
+
+]
+<imagenes/visualization_all_diagram.png, id=490, 683.55376pt x 1106.1325pt>
 File: imagenes/visualization_all_diagram.png Graphic file (type png)
 <use imagenes/visualization_all_diagram.png>
 Package pdftex.def Info: imagenes/visualization_all_diagram.png  used on input 
@@ -1255,7 +1259,7 @@ ig-na al vi-sua-li-za-dor la fun-ción $\OML/lmm/m/it/10.95 viewerOneOff$
 LaTeX Info: Redefining \. on input line 193.
 LaTeX Info: Redefining \% on input line 193.
 [35]
-<imagenes/main_HL_diagram.png, id=526, 850.17625pt x 1558.82375pt>
+<imagenes/main_HL_diagram.png, id=584, 850.17625pt x 1558.82375pt>
 File: imagenes/main_HL_diagram.png Graphic file (type png)
 <use imagenes/main_HL_diagram.png>
 Package pdftex.def Info: imagenes/main_HL_diagram.png  used on input line 203.
@@ -1265,7 +1269,7 @@ Package pdftex.def Info: imagenes/main_HL_diagram.png  used on input line 203.
 LaTeX Warning: Float too large for page by 26.6865pt on input line 205.
 
 
-Overfull \hbox (56.87497pt too wide) detected at line 212
+Overfull \hbox (56.87497pt too wide) detected at line 211
 \OML/lmm/m/it/10.95 sudo  :=sift[]keypoints   \OMS/lmsy/m/n/10.95   \OML/lmm/m/
 it/10.95 parametro\OT1/lmr/m/n/10.95 1  \OML/lmm/m/it/10.95 valor\OT1/lmr/m/n/1
 0.95 1   \OMS/lmsy/m/n/10.95   \OML/lmm/m/it/10.95 parametro\OT1/lmr/m/n/10.95 
@@ -1273,8 +1277,8 @@ it/10.95 parametro\OT1/lmr/m/n/10.95 1  \OML/lmm/m/it/10.95 valor\OT1/lmr/m/n/1
 S/lmsy/m/n/10.95   \OML/lmm/m/it/10.95 parametroN  valorN  nube:pcd
  []
 
-LaTeX Info: Redefining \. on input line 246.
-LaTeX Info: Redefining \% on input line 246.
+LaTeX Info: Redefining \. on input line 245.
+LaTeX Info: Redefining \% on input line 245.
 
 Overfull \hbox (135.04701pt too wide) has occurred while \output is active
 \T1/lmr/m/n/10.95 36  \T1/lmr/m/sl/10.95 3.  REPRODUCCIÓN DE ALGORITMOS DE PCL:
@@ -1282,11 +1286,11 @@ Overfull \hbox (135.04701pt too wide) has occurred while \output is active
  []
 
 [36]
-LaTeX Info: Redefining \. on input line 246.
-LaTeX Info: Redefining \% on input line 246.
+LaTeX Info: Redefining \. on input line 245.
+LaTeX Info: Redefining \% on input line 245.
  [37 <./imagenes/main_HL_diagram.png>]
-LaTeX Info: Redefining \. on input line 298.
-LaTeX Info: Redefining \% on input line 298.
+LaTeX Info: Redefining \. on input line 297.
+LaTeX Info: Redefining \% on input line 297.
 
 Overfull \hbox (135.04701pt too wide) has occurred while \output is active
 \T1/lmr/m/n/10.95 38  \T1/lmr/m/sl/10.95 3.  REPRODUCCIÓN DE ALGORITMOS DE PCL:
@@ -1294,17 +1298,17 @@ Overfull \hbox (135.04701pt too wide) has occurred while \output is active
  []
 
 [38]
-LaTeX Info: Redefining \. on input line 348.
-LaTeX Info: Redefining \% on input line 348.
+LaTeX Info: Redefining \. on input line 347.
+LaTeX Info: Redefining \% on input line 347.
  [39]
-Overfull \hbox (45.9225pt too wide) in paragraph at lines 386--387
+Overfull \hbox (45.9225pt too wide) in paragraph at lines 385--386
 []\T1/lmr/m/n/10.95 Si la nu-be $\OML/lmm/m/it/10.95 cloud[]normals$ \T1/lmr/m/
 n/10.95 no es-tá va-cía, se guar-da en for-ma-to PCD ba-jo el nom-bre $\OML/lmm
 /m/it/10.95 cloud[]normals:pcd$ 
  []
 
-LaTeX Info: Redefining \. on input line 403.
-LaTeX Info: Redefining \% on input line 403.
+LaTeX Info: Redefining \. on input line 402.
+LaTeX Info: Redefining \% on input line 402.
 
 Overfull \hbox (135.04701pt too wide) has occurred while \output is active
 \T1/lmr/m/n/10.95 40  \T1/lmr/m/sl/10.95 3.  REPRODUCCIÓN DE ALGORITMOS DE PCL:
@@ -1312,21 +1316,21 @@ Overfull \hbox (135.04701pt too wide) has occurred while \output is active
  []
 
 [40]
-<imagenes/filtro_gauss.png, id=695, 1199.98312pt x 613.54219pt>
+<imagenes/filtro_gauss.png, id=755, 1199.98312pt x 613.54219pt>
 File: imagenes/filtro_gauss.png Graphic file (type png)
 <use imagenes/filtro_gauss.png>
-Package pdftex.def Info: imagenes/filtro_gauss.png  used on input line 428.
+Package pdftex.def Info: imagenes/filtro_gauss.png  used on input line 427.
 (pdftex.def)             Requested size: 503.98949pt x 257.68596pt.
 
-Overfull \hbox (51.02159pt too wide) in paragraph at lines 428--429
+Overfull \hbox (51.02159pt too wide) in paragraph at lines 427--428
  [][] 
  []
 
-LaTeX Info: Redefining \. on input line 447.
-LaTeX Info: Redefining \% on input line 447.
+LaTeX Info: Redefining \. on input line 446.
+LaTeX Info: Redefining \% on input line 446.
 [41]
-LaTeX Info: Redefining \. on input line 473.
-LaTeX Info: Redefining \% on input line 473.
+LaTeX Info: Redefining \. on input line 472.
+LaTeX Info: Redefining \% on input line 472.
 
 Overfull \hbox (135.04701pt too wide) has occurred while \output is active
 \T1/lmr/m/n/10.95 42  \T1/lmr/m/sl/10.95 3.  REPRODUCCIÓN DE ALGORITMOS DE PCL:
@@ -1334,43 +1338,189 @@ Overfull \hbox (135.04701pt too wide) has occurred while \output is active
  []
 
 [42 <./imagenes/filtro_gauss.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 527--529
+
+ []
+
 LaTeX Info: Redefining \. on input line 529.
 LaTeX Info: Redefining \% on input line 529.
- [43]
-<imagenes/ejemplo_five_people.png, id=783, 630.10406pt x 370.38374pt>
-File: imagenes/ejemplo_five_people.png Graphic file (type png)
-<use imagenes/ejemplo_five_people.png>
-Package pdftex.def Info: imagenes/ejemplo_five_people.png  used on input line 5
-35.
-(pdftex.def)             Requested size: 217.42265pt x 127.80513pt.
+[43]
+Underfull \hbox (badness 10000) in paragraph at lines 543--545
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
-[]\T1/lmr/m/n/10.95 Figura 3.4: []Visualización de la nu-be
  []
 
-<imagenes/ejemplo_five_people_sift.png, id=784, 633.86812pt x 370.38374pt>
-File: imagenes/ejemplo_five_people_sift.png Graphic file (type png)
-<use imagenes/ejemplo_five_people_sift.png>
-Package pdftex.def Info: imagenes/ejemplo_five_people_sift.png  used on input l
-ine 539.
-(pdftex.def)             Requested size: 217.42265pt x 127.04216pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 540--540
-[]\T1/lmr/m/n/10.95 Figura 3.5: []Visualización de la nu-be
+Underfull \hbox (badness 10000) in paragraph at lines 561--563
+
  []
 
-) (capitulo4_extraccionNormales.tex) (capitulo5_extraccionSIFT.tex)
-(capitulo6_optimizacion.tex) (capitulo7_resultados.tex) (bibliografÃ­a.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
+LaTeX Info: Redefining \. on input line 584.
+LaTeX Info: Redefining \% on input line 584.
 
 Overfull \hbox (135.04701pt too wide) has occurred while \output is active
 \T1/lmr/m/n/10.95 44  \T1/lmr/m/sl/10.95 3.  REPRODUCCIÓN DE ALGORITMOS DE PCL:
  VISUALIZACIÓN DE NUBES Y EXTRACCIÓN DE KEYPOINTS
  []
 
-[44 <./imagenes/ejemplo_five_people.png> <./imagenes/ejemplo_five_people_sift.p
-ng>]
+[44]
+<imagenes/bunny_ejemplo.png, id=885, 632.3625pt x 369.63094pt>
+File: imagenes/bunny_ejemplo.png Graphic file (type png)
+<use imagenes/bunny_ejemplo.png>
+Package pdftex.def Info: imagenes/bunny_ejemplo.png  used on input line 590.
+(pdftex.def)             Requested size: 144.95303pt x 84.72568pt.
+<imagenes/cturtle_ejemplo.png, id=886, 631.60968pt x 368.1253pt>
+File: imagenes/cturtle_ejemplo.png Graphic file (type png)
+<use imagenes/cturtle_ejemplo.png>
+Package pdftex.def Info: imagenes/cturtle_ejemplo.png  used on input line 594.
+(pdftex.def)             Requested size: 144.95303pt x 84.48167pt.
+File: imagenes/botes.png Graphic file (type png)
+<use imagenes/botes.png>
+Package pdftex.def Info: imagenes/botes.png  used on input line 598.
+(pdftex.def)             Requested size: 149.48022pt x 79.14857pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 599--599
+[]\T1/lmr/m/n/10.95 Figura 3.6: []Visualización
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 599--599
+\T1/lmr/m/n/10.95 de la nu-be
+ []
+
+
+Overfull \hbox (32.78006pt too wide) in paragraph at lines 599--599
+\OML/lmm/m/it/10.95 milk[]cartoon[]all[]small[]clorox:pcd$ 
+ []
+
+
+Overfull \hbox (72.1906pt too wide) in paragraph at lines 609--611
+[]\T1/lmr/m/n/10.95 Se han uti-li-za-do el va-lor de los pa-rá-me-tros por de-f
+ec-to en $\OML/lmm/m/it/10.95 bunny:pcd$ \T1/lmr/m/n/10.95 y $\OML/lmm/m/it/10.
+95 milk[]cartoon[]all[]small[]clorox:pcd$
+ []
+
+LaTeX Info: Redefining \. on input line 637.
+LaTeX Info: Redefining \% on input line 637.
+[45 <./imagenes/bunny_ejemplo.png> <./imagenes/cturtle_ejemplo.png>]
+<imagenes/bunny_ejemplo_sift.png, id=918, 632.3625pt x 369.63094pt>
+File: imagenes/bunny_ejemplo_sift.png Graphic file (type png)
+<use imagenes/bunny_ejemplo_sift.png>
+Package pdftex.def Info: imagenes/bunny_ejemplo_sift.png  used on input line 66
+7.
+(pdftex.def)             Requested size: 144.95303pt x 84.72568pt.
+
+Underfull \hbox (badness 1881) in paragraph at lines 668--668
+\T1/lmr/m/n/10.95 la nu-be $\OML/lmm/m/it/10.95 bunny:pcd$ \T1/lmr/m/n/10.95 ju
+n-to a
+ []
+
+<imagenes/cturtle_ejemplo_sift.png, id=919, 630.85687pt x 370.38374pt>
+File: imagenes/cturtle_ejemplo_sift.png Graphic file (type png)
+<use imagenes/cturtle_ejemplo_sift.png>
+Package pdftex.def Info: imagenes/cturtle_ejemplo_sift.png  used on input line 
+671.
+(pdftex.def)             Requested size: 144.95303pt x 85.10168pt.
+
+Underfull \hbox (badness 1168) in paragraph at lines 672--672
+\T1/lmr/m/n/10.95 la nu-be $\OML/lmm/m/it/10.95 cturtle:pcd$ \T1/lmr/m/n/10.95 
+jun-to a
+ []
+
+<imagenes/botes_ejemplo_sift.png, id=920, 632.3625pt x 370.38374pt>
+File: imagenes/botes_ejemplo_sift.png Graphic file (type png)
+<use imagenes/botes_ejemplo_sift.png>
+Package pdftex.def Info: imagenes/botes_ejemplo_sift.png  used on input line 67
+5.
+(pdftex.def)             Requested size: 149.48022pt x 87.54883pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 676--676
+[]\T1/lmr/m/n/10.95 Figura 3.9: []Visualización
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 676--676
+\T1/lmr/m/n/10.95 de la nu-be
+ []
+
+
+Overfull \hbox (32.78006pt too wide) in paragraph at lines 676--676
+\OML/lmm/m/it/10.95 milk[]cartoon[]all[]small[]clorox:pcd$
+ []
+
+) (capitulo4_medicion_tiempos.tex
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+
+Overfull \hbox (135.04701pt too wide) has occurred while \output is active
+\T1/lmr/m/n/10.95 46  \T1/lmr/m/sl/10.95 3.  REPRODUCCIÓN DE ALGORITMOS DE PCL:
+ VISUALIZACIÓN DE NUBES Y EXTRACCIÓN DE KEYPOINTS
+ []
+
+[46 <./imagenes/bunny_ejemplo_sift.png> <./imagenes/cturtle_ejemplo_sift.png> <
+./imagenes/botes_ejemplo_sift.png>]
+ 4.
+
+Overfull \hbox (28.06964pt too wide) in paragraph at lines 33--36
+[]\T1/lmr/m/n/10.95 Una vez vis-to có-mo se mi-de el tiem-po de eje-cu-ción de 
+cual-quier par-te del pro-gra-ma $\OML/lmm/m/it/10.95 sift[]keypoints$\T1/lmr/m
+/n/10.95 ,
+ []
+
+[47
+
+]
+LaTeX Info: Redefining \. on input line 80.
+LaTeX Info: Redefining \% on input line 80.
+ [48]
+<imagenes/grafico_radius_bunny.png, id=1000, 426.84468pt x 249.18094pt>
+File: imagenes/grafico_radius_bunny.png Graphic file (type png)
+<use imagenes/grafico_radius_bunny.png>
+Package pdftex.def Info: imagenes/grafico_radius_bunny.png  used on input line 
+86.
+(pdftex.def)             Requested size: 144.95303pt x 84.62154pt.
+<imagenes/grafico_radius_cturtle.png, id=1001, 426.84468pt x 248.42813pt>
+File: imagenes/grafico_radius_cturtle.png Graphic file (type png)
+<use imagenes/grafico_radius_cturtle.png>
+Package pdftex.def Info: imagenes/grafico_radius_cturtle.png  used on input lin
+e 90.
+(pdftex.def)             Requested size: 144.95303pt x 84.36588pt.
+<imagenes/grafico_radius_milk.png, id=1002, 420.06938pt x 248.42813pt>
+File: imagenes/grafico_radius_milk.png Graphic file (type png)
+<use imagenes/grafico_radius_milk.png>
+Package pdftex.def Info: imagenes/grafico_radius_milk.png  used on input line 9
+4.
+(pdftex.def)             Requested size: 149.48022pt x 88.40298pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--95
+[]\T1/lmr/m/n/10.95 Figura 4.3: []Tiempos de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--95
+\T1/lmr/m/n/10.95 es-ti-ma-ción de nor-ma-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--95
+\T1/lmr/m/n/10.95 les y pun-tos SIFT en
+ []
+
+
+Overfull \hbox (32.78006pt too wide) in paragraph at lines 95--95
+\OML/lmm/m/it/10.95 milk[]cartoon[]all[]small[]clorox:pcd$
+ []
+
+) (capitulo5_extraccionNormales.tex) (capitulo6_optimizacion.tex)
+(capitulo7_resultados.tex) (bibliografÃ­a.tex
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [49 <./imagenes/grafico_radius_bunny.png> <./imagenes/grafico_radius_cturtle.p
+ng> <./imagenes/grafico_radius_milk.png>]
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [50
+
+]
 Overfull \hbox (32.23196pt too wide) in paragraph at lines 7--8
 \T1/lmtt/m/n/10.95 la-[]velocidad-[]de-[]reaccion-[]el-[]tiempo-[]de-[]reaccion
 -[]simple-[]complejo-[]la-[]anticipacion/$[]\T1/lmr/m/n/10.95 .
@@ -1378,9 +1528,7 @@ Overfull \hbox (32.23196pt too wide) in paragraph at lines 7--8
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 84.
- [45
-
-]
+ [51]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 84.
  (memoria.aux
 LaTeX Info: Redefining \. on input line 23.
@@ -1389,14 +1537,18 @@ LaTeX Info: Redefining \% on input line 23.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 84.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 84.
 Package rerunfilecheck Info: File `memoria.out' has not changed.
-(rerunfilecheck)             Checksum: B7C6BB96FBEC3E60FABD3E2E96A9DC82;1734.
+(rerunfilecheck)             Checksum: E831603D6340F022887EE4692C43359B;2177.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 84.
  ) 
 Here is how much of TeX's memory you used:
- 10408 strings out of 493305
- 152649 string characters out of 3130237
+ 10710 strings out of 493305
+ 157290 string characters out of 3130237
  411305 words of memory out of 3000000
- 13315 multiletter control sequences out of 15000+200000
+ 13446 multiletter control sequences out of 15000+200000
  78732 words of font info for 53 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,11n,58p,1179b,1901s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1426,9 +1578,9 @@ X 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Javi/AppData/Local/Programs/Mi
 KTeX 2.9/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Javi/AppData/Local/Programs/
 MiKTeX 2.9/fonts/type1/public/lm/lmsy9.pfb><C:/Users/Javi/AppData/Local/Program
 s/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb>
-Output written on memoria.pdf (51 pages, 8198503 bytes).
+Output written on memoria.pdf (57 pages, 8168066 bytes).
 PDF statistics:
- 966 PDF objects out of 1000 (max. 8388607)
- 426 named destinations out of 1000 (max. 500000)
- 366 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1224 PDF objects out of 1440 (max. 8388607)
+ 591 named destinations out of 1000 (max. 500000)
+ 444 words of extra memory for PDF output out of 10000 (max. 10000000)
 

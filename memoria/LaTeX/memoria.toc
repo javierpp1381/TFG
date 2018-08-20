@@ -31,3 +31,9 @@
 \contentsline {subsubsection}{Explicaci\IeC {\'o}n en alto nivel}{36}{section*.12}
 \contentsline {subsubsection}{Explicaci\IeC {\'o}n en bajo nivel}{36}{section*.13}
 \contentsline {section}{\numberline {3.4}Ejemplos de visualizaci\IeC {\'o}n y extracci\IeC {\'o}n de puntos SIFT}{43}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Visualizaci\IeC {\'o}n}{45}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Extracci\IeC {\'o}n de puntos SIFT}{45}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}Visualizaci\IeC {\'o}n de puntos SIFT}{46}{subsection.3.4.3}
+\contentsline {chapter}{\numberline {4}Medici\IeC {\'o}n de tiempos de ejecuci\IeC {\'o}n}{47}{chapter.4}
+\contentsline {section}{\numberline {4.1}Proceso de medici\IeC {\'o}n}{47}{section.4.1}
+\contentsline {section}{\numberline {4.2}Resultados}{49}{section.4.2}

@@ -18,3 +18,9 @@
 \BOOKMARK [1][-]{section.3.2}{Visualizaci\363n de nubes de puntos}{chapter.3}% 18
 \BOOKMARK [1][-]{section.3.3}{Programa principal: Extracci\363n de puntos SIFT}{chapter.3}% 19
 \BOOKMARK [1][-]{section.3.4}{Ejemplos de visualizaci\363n y extracci\363n de puntos SIFT}{chapter.3}% 20
+\BOOKMARK [2][-]{subsection.3.4.1}{Visualizaci\363n}{section.3.4}% 21
+\BOOKMARK [2][-]{subsection.3.4.2}{Extracci\363n de puntos SIFT}{section.3.4}% 22
+\BOOKMARK [2][-]{subsection.3.4.3}{Visualizaci\363n de puntos SIFT}{section.3.4}% 23
+\BOOKMARK [0][-]{chapter.4}{Medici\363n de tiempos de ejecuci\363n}{}% 24
+\BOOKMARK [1][-]{section.4.1}{Proceso de medici\363n}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.2}{Resultados}{chapter.4}% 26
