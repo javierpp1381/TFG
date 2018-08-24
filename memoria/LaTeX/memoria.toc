@@ -23,7 +23,7 @@
 \contentsline {subsubsection}{PCL}{28}{section*.8}
 \contentsline {subsubsection}{Vivado HLS}{29}{section*.9}
 \contentsline {chapter}{\numberline {3}Reproducci\IeC {\'o}n de algoritmos de PCL: Visualizaci\IeC {\'o}n de nubes y extracci\IeC {\'o}n de keypoints}{31}{chapter.3}
-\contentsline {section}{\numberline {3.1}Notas introductorias}{31}{section.3.1}
+\contentsline {section}{\numberline {3.1}Introducci\IeC {\'o}n}{31}{section.3.1}
 \contentsline {section}{\numberline {3.2}Visualizaci\IeC {\'o}n de nubes de puntos}{32}{section.3.2}
 \contentsline {subsubsection}{Explicaci\IeC {\'o}n en alto nivel}{32}{section*.10}
 \contentsline {subsubsection}{Explicaci\IeC {\'o}n en bajo nivel}{32}{section*.11}
@@ -35,5 +35,13 @@
 \contentsline {subsection}{\numberline {3.4.2}Extracci\IeC {\'o}n de puntos SIFT}{45}{subsection.3.4.2}
 \contentsline {subsection}{\numberline {3.4.3}Visualizaci\IeC {\'o}n de puntos SIFT}{46}{subsection.3.4.3}
 \contentsline {chapter}{\numberline {4}Medici\IeC {\'o}n de tiempos de ejecuci\IeC {\'o}n}{47}{chapter.4}
-\contentsline {section}{\numberline {4.1}Proceso de medici\IeC {\'o}n}{47}{section.4.1}
-\contentsline {section}{\numberline {4.2}Resultados}{49}{section.4.2}
+\contentsline {section}{\numberline {4.1}Introducci\IeC {\'o}n}{47}{section.4.1}
+\contentsline {section}{\numberline {4.2}M\IeC {\'e}todo de medici\IeC {\'o}n}{47}{section.4.2}
+\contentsline {section}{\numberline {4.3}Resultados de medici\IeC {\'o}n sobre la FPGA}{48}{section.4.3}
+\contentsline {section}{\numberline {4.4}Resultados gr\IeC {\'a}ficos}{50}{section.4.4}
+\contentsline {section}{\numberline {4.5}Conclusiones}{51}{section.4.5}
+\contentsline {chapter}{\numberline {5}Extracci\IeC {\'o}n de normales a la superficie de una nube usando PCL}{57}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introducci\IeC {\'o}n}{57}{section.5.1}
+\contentsline {section}{\numberline {5.2}Estimaci\IeC {\'o}n de normales a la superficie de una nube: alto nivel}{57}{section.5.2}
+\contentsline {section}{\numberline {5.3}Estimaci\IeC {\'o}n de normales a la superficie de una nube: bajo nivel}{57}{section.5.3}
+\contentsline {section}{\numberline {5.4}Conclusiones}{57}{section.5.4}

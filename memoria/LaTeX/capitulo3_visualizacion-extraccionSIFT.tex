@@ -1,5 +1,11 @@
 \chapter{Reproducción de algoritmos de PCL: Visualización de nubes y extracción de keypoints}
-\section{Notas introductorias}
+
+\section{Introducción}
+Dejando asentado el fundamento teórico ofrecido por capítulos anteriores, se plantea a continuación la creación de dos programas de modo que, dada una nube de puntos, uno de ellos pueda visualizarla y otro extraiga keypoints.
+
+Se cambia entonces la tonalidad del trabajo a partir del presente capítulo puesto que se trata de trabajo elaborado por el propio autor en vez de la constancia de investigación y explicaciones teóricas ya creadas y desarrolladas por terceros.
+
+\section{Generación de programas a partir de código en C++}
 La reproducción de los algoritmos de PCL está escrita en el mismo lenguaje que la propia librería, C++, a partir del cual hay que crear un ejecutable. Se parte de un directorio de trabajo llamado, por ejemplo, "prueba" en el que se encuentran:
 
 \begin{itemize}
@@ -677,3 +683,8 @@ $$./visualization\;\;cturtle.pcd\;\;sift\_keypoints.pcd$$
 \endminipage\hfill
 \end{figure}
 
+
+\section{Conclusiones}
+Se ha visto en este capítulo cómo funcionan dos programas generados a partir de la documentación de PCL para visualizar nubes de puntos y obtener puntos SIFT. Además se ha mostrado su uso en tres nubes de puntos de diferentes características.
+
+En el siguiente capítulo se procederá a medir los tiempos de ejecución de los algoritmos de estimación de vectores normales y puntos SIFT para determinar cuál es el de mayor carga computacional.

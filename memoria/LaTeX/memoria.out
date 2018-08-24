@@ -14,7 +14,7 @@
 \BOOKMARK [2][-]{subsection.2.3.1}{Herramientas hardware}{section.2.3}% 14
 \BOOKMARK [2][-]{subsection.2.3.2}{Herramientas software}{section.2.3}% 15
 \BOOKMARK [0][-]{chapter.3}{Reproducci\363n de algoritmos de PCL: Visualizaci\363n de nubes y extracci\363n de keypoints}{}% 16
-\BOOKMARK [1][-]{section.3.1}{Notas introductorias}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.1}{Introducci\363n}{chapter.3}% 17
 \BOOKMARK [1][-]{section.3.2}{Visualizaci\363n de nubes de puntos}{chapter.3}% 18
 \BOOKMARK [1][-]{section.3.3}{Programa principal: Extracci\363n de puntos SIFT}{chapter.3}% 19
 \BOOKMARK [1][-]{section.3.4}{Ejemplos de visualizaci\363n y extracci\363n de puntos SIFT}{chapter.3}% 20
@@ -22,5 +22,13 @@
 \BOOKMARK [2][-]{subsection.3.4.2}{Extracci\363n de puntos SIFT}{section.3.4}% 22
 \BOOKMARK [2][-]{subsection.3.4.3}{Visualizaci\363n de puntos SIFT}{section.3.4}% 23
 \BOOKMARK [0][-]{chapter.4}{Medici\363n de tiempos de ejecuci\363n}{}% 24
-\BOOKMARK [1][-]{section.4.1}{Proceso de medici\363n}{chapter.4}% 25
-\BOOKMARK [1][-]{section.4.2}{Resultados}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.1}{Introducci\363n}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.2}{M\351todo de medici\363n}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.3}{Resultados de medici\363n sobre la FPGA}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.4}{Resultados gr\341ficos}{chapter.4}% 28
+\BOOKMARK [1][-]{section.4.5}{Conclusiones}{chapter.4}% 29
+\BOOKMARK [0][-]{chapter.5}{Extracci\363n de normales a la superficie de una nube usando PCL}{}% 30
+\BOOKMARK [1][-]{section.5.1}{Introducci\363n}{chapter.5}% 31
+\BOOKMARK [1][-]{section.5.2}{Estimaci\363n de normales a la superficie de una nube: alto nivel}{chapter.5}% 32
+\BOOKMARK [1][-]{section.5.3}{Estimaci\363n de normales a la superficie de una nube: bajo nivel}{chapter.5}% 33
+\BOOKMARK [1][-]{section.5.4}{Conclusiones}{chapter.5}% 34
