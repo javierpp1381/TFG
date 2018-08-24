@@ -254,15 +254,17 @@ Se pueden visualizar este tipo de errores en la figura \ref{fig:tipos_errores}
 Se han mencionado los términos "iterativa" y "converger" y es que la transformación de la nube fuente hasta llegar a parecerse la máximo posible a la nube modelo no es única, se lleva a cabo un proceso iterativo. 
 
 
+Sean dos nubes de puntos $n-dimensionales$:
+
+$$M=\left\lbrace m_{i} | m_{i} \in R^n,\;\;i=1,2,...,N_{m} \right\rbrace$$
+$$F=\left\lbrace f_{j} | f_{j} \in R^n,\;\;i=1,2,...,N_{f} \right\rbrace$$
+
 Dicha transformación puede definirse de la siguiente manera:
 
+$$E(R,\Delta T)=\sum_{i=1}^{N_m} \sum_{j=1}^{N_f} w_{ij} \| m_{i}-(Rf_{j}+\Delta t)  \|^2$$
 
-Sean dos nubes de puntos $n-dimensionales$ siendo
 
 con $w_{ij}$ como el peso que determina la dureza de la transformación pues permite que haya transformación si $w_{ij}=1$ o la anula en el caso $w_{ij}=0$
-
-ECUACIONES
-
 
 Esta operación se repite una y otra vez hasta que se converge a una solución y para lo cual hay que establecer criterios como los siguientes:
 
