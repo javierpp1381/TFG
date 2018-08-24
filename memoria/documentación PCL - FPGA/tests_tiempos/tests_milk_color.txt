@@ -1,3 +1,5 @@
+DEFAULT
+
 filename: milk_cartoon_all_small_clorox.pcd
 
 Normal estimation radius search: 0.02
@@ -11,6 +13,11 @@ SIFT points estimation time (s): 56.8455
 Number of SIFT points found: 404
 ---------------------
 ----------------------
+
+
+RADIUS SEARCH
+
+
 filename: milk_cartoon_all_small_clorox.pcd
 
 Normal estimation radius search: 0.002
@@ -61,6 +68,10 @@ Minimum contrast: 0.001
 Normal estimation time (s): 143.301
 SIFT points estimation time (s): 56.8468
 Number of SIFT points found: 169
+
+
+MINIMUM SCALE
+
 ---------------------
 ----------------------
 filename: milk_cartoon_all_small_clorox.pcd
@@ -126,6 +137,12 @@ Minimum contrast: 0.001
 Normal estimation time (s): 1133.61
 SIFT points estimation time (s): 9.30209
 Number of SIFT points found: 9
+
+
+
+
+NUMBER OF OCTAVES
+
 ---------------------
 ----------------------
 filename: milk_cartoon_all_small_clorox.pcd
@@ -191,6 +208,10 @@ Minimum contrast: 0.001
 Normal estimation time (s): 1133.72
 SIFT points estimation time (s): 57.8857
 Number of SIFT points found: 421
+
+
+SCALES PER OCTAVE
+
 ---------------------
 ----------------------
 filename: milk_cartoon_all_small_clorox.pcd

@@ -1,3 +1,6 @@
+DEFAULT
+
+
 filename: cloud_normals.pcd
 
 Normal estimation radius search: 0.02
@@ -7,6 +10,10 @@ Number of scales per octave: 4
 Minimum contrast: 0.001
 SIFT points estimation time (s): 109.313
 Number of SIFT points found: 0
+
+
+MINIMUM SCALE
+
 ---------------------
 ----------------------
 filename: cloud_normals.pcd
@@ -73,6 +80,10 @@ Number of scales per octave: 4
 Minimum contrast: 0.001
 SIFT points estimation time (s): 6.94541
 Number of SIFT points found: 0
+
+
+NUMBER OF OCTAVES
+
 ---------------------
 ----------------------
 filename: cloud_normals.pcd
@@ -128,6 +139,10 @@ Number of scales per octave: 4
 Minimum contrast: 0.001
 SIFT points estimation time (s): 111.263
 Number of SIFT points found: 0
+
+
+SCALES PER OCTAVE
+
 ---------------------
 ----------------------
 filename: cloud_normals.pcd
