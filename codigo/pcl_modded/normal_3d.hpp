@@ -73,10 +73,12 @@ pcl::NormalEstimation<PointInT, PointOutT>::computeFeature (PointCloudOut &outpu
   //save point cloud in txt
   file_name = "/home/ubuntu/pcl/sift_keypoints_bueno/build/neighbors/cloud.txt";
   file=fopen(file_name,"w");
-  
-  for(size_t i=0; i<surface_->points.size();i++){
+  size_t i=0; 
+  for(i=0; i<surface_->points.size()-1;i++){
   	fprintf(file,"%f %f %f \n",surface_->points[i].x,surface_->points[i].y,surface_->points[i].z);
   }
+  fprintf(file,"%f %f %f ",surface_->points[i].x,surface_->points[i].y,surface_->points[i].z);
+
   fclose(file);
   file=NULL;
   
@@ -96,7 +98,7 @@ pcl::NormalEstimation<PointInT, PointOutT>::computeFeature (PointCloudOut &outpu
       }
 
 
-      //save neighbors indices in a txt
+      //save last neighbors indices in a txt
 	/*neighbors.width = nn_indices.size();
 	neighbors.is_dense=false;
 	neighbors.resize(neighbors.height*neighbors.width);
@@ -112,7 +114,7 @@ pcl::NormalEstimation<PointInT, PointOutT>::computeFeature (PointCloudOut &outpu
 		//neighbors.points[i].y = surface_->points[nn_indices[i]].y;
 		//neighbors.points[i].z = surface_->points[nn_indices[i]].z;
 		//fprintf(file, "%f %f %f \n",surface_->points[nn_indices[i]].x,surface_->points[nn_indices[i]].y,surface_->points[nn_indices[i]].z);	
-		fprintf(file, "%d ",nn_indices[i]);	
+		fprintf(file, "%d\n",nn_indices[i]);	
 
 		
 		//std::cerr << "    " << surface_->points[i].x << " " << surface_->points[i].y << " " << surface_->points[i].z << std::endl;
@@ -128,6 +130,19 @@ pcl::NormalEstimation<PointInT, PointOutT>::computeFeature (PointCloudOut &outpu
         //id_neighbors_int=std::stoi(id_neighbors_str);
 	//id_neighbors_int++;
 	//id_neighbors_str=std::to_string(id_neighbors_int);
+
+
+	//save last neighbors covariance matrix in a txt
+	file_name ="/home/ubuntu/pcl/sift_keypoints_bueno/build/neighbors/covariance_matrix.txt";
+
+	file=fopen(file_name,"w");
+	
+	fprintf(file,"%f %f %f\n",covariance_matrix_(0,0),covariance_matrix_(0,1),covariance_matrix_(0,2));
+	fprintf(file,"%f %f %f\n",covariance_matrix_(1,0),covariance_matrix_(1,1),covariance_matrix_(1,2));
+	fprintf(file,"%f %f %f",covariance_matrix_(2,0),covariance_matrix_(2,1),covariance_matrix_(2,2));
+
+	fclose(file);
+	file = NULL;
 
 	flipNormalTowardsViewpoint (input_->points[(*indices_)[idx]], vpx_, vpy_, vpz_,
                                   output.points[idx].normal[0], output.points[idx].normal[1], output.points[idx].normal[2]);
