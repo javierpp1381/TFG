@@ -20,7 +20,7 @@
     "ClockPeriod": "10",
     "IsCombLogic": "0",
     "II": "x",
-    "Latency": "263",
+    "Latency": "3969",
     "Uncertainty": "1.25"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
@@ -482,10 +482,10 @@
     "Hierarchy": {"ModuleName": "compute"},
     "Metrics": {"compute": {
         "Latency": {
-          "LatencyBest": "263",
-          "LatencyAvg": "263",
-          "LatencyWorst": "263",
-          "PipelineII": "264",
+          "LatencyBest": "3969",
+          "LatencyAvg": "3969",
+          "LatencyWorst": "3969",
+          "PipelineII": "3970",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -504,8 +504,8 @@
           },
           {
             "Name": "Loop 2",
-            "TripCount": "5",
-            "Latency": "85",
+            "TripCount": "223",
+            "Latency": "3791",
             "PipelineII": "",
             "PipelineDepth": "17"
           },
@@ -520,8 +520,8 @@
         "Area": {
           "BRAM_18K": "2",
           "DSP48E": "12",
-          "FF": "2857",
-          "LUT": "4142"
+          "FF": "2867",
+          "LUT": "4147"
         }
       }}
   },
@@ -532,7 +532,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2018-09-26 11:50:14 CEST",
+    "Time": "2018-09-30 13:56:00 CEST",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.2.1"
   }
