@@ -28,7 +28,7 @@ int main(){
 	while (i<POINTS){
 		fscanf(file,"%f %f %f",&cloud[i][0], &cloud[i][1], &cloud[i][2]);
 
-		printf("%f %f %f\n",cloud[i][0], cloud[i][1], cloud[i][2]);
+		//printf("%f %f %f\n",cloud[i][0], cloud[i][1], cloud[i][2]);
 		i++;
 	}
 
