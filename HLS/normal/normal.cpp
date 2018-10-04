@@ -1,6 +1,6 @@
 #include "normal.h"
 
-int compute (volatile float covariance_matrix[3][3],volatile float centroid[4],volatile float cloud[10][3],volatile int indices[5]){
+int compute (volatile float covariance_matrix[3][3],volatile float centroid[4],volatile float cloud[MAXPOINTS][3],volatile int indices[MAXINDICES], int num_points, int num_indices){
 
 	/*#pragma HLS INTERFACE axis port=covariance_matrix
 	#pragma HLS INTERFACE axis port=centroid
@@ -11,7 +11,7 @@ int compute (volatile float covariance_matrix[3][3],volatile float centroid[4],v
 
 	float accu[9]={0};
 
-	for(int i = 0;i<INDICES;i++){
+	for(int i = 0;i<num_indices;i++){
 		accu[0] += cloud[indices[i]][0] * cloud[indices[i]][0];
 		accu[1] += cloud[indices[i]][0] * cloud[indices[i]][1];
 		accu[2] += cloud[indices[i]][0] * cloud[indices[i]][2];
@@ -24,7 +24,7 @@ int compute (volatile float covariance_matrix[3][3],volatile float centroid[4],v
 	}
 
 	for(int i = 0;i<9;i++){
-		accu[i]/=INDICES;
+		accu[i]/=num_indices;
 	}
 	centroid[0] = accu[6];
 	centroid[1] = accu[7];
