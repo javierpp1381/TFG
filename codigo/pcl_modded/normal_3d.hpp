@@ -43,9 +43,6 @@
 
 #include <pcl/features/normal_3d.h>
 #include <iostream>
-#include <pcl/io/pcd_io.h>
-#include <pcl/point_types.h>
-#include <string>
 #include <stdio.h>
 #include <stdlib.h>
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -57,86 +54,59 @@ pcl::NormalEstimation<PointInT, PointOutT>::computeFeature (PointCloudOut &outpu
   std::vector<int> nn_indices (k_);
   std::vector<float> nn_dists (k_);
 
-  pcl::PointCloud<pcl::PointXYZ> neighbors;
-  neighbors.height=1;
-
   output.is_dense = true;
-
-  //std::string id_neighbors_str("0");
-  //int id_neighbors_int=0;
-
 
   const char *file_name;
 
   FILE *file;
  
   //save point cloud in txt
-  file_name = "/home/ubuntu/pcl/sift_keypoints_bueno/build/neighbors/cloud.txt";
+  file_name = "/home/embedded/pcl/sift_keypoints/build/results/cloud.txt";
   file=fopen(file_name,"w");
-  size_t i=0; 
-  for(i=0; i<surface_->points.size()-1;i++){
+	
+  fprintf(file,"%d\n",surface_->points.size()); 
+ 
+  for(size_t i=0; i<surface_->points.size();i++){
   	fprintf(file,"%f %f %f \n",surface_->points[i].x,surface_->points[i].y,surface_->points[i].z);
   }
-  fprintf(file,"%f %f %f ",surface_->points[i].x,surface_->points[i].y,surface_->points[i].z);
-
   fclose(file);
   file=NULL;
-  
+
+
   // Save a few cycles by not checking every point for NaN/Inf values if the cloud is set to dense
   if (input_->is_dense)
   {
     // Iterating over the entire index vector
     for (size_t idx = 0; idx < indices_->size (); ++idx)
     {
-      if (this->searchForNeighbors ((*indices_)[idx], search_parameter_, nn_indices, nn_dists) == 0 ||
-          !computePointNormal (*surface_, nn_indices, output.points[idx].normal[0], output.points[idx].normal[1], output.points[idx].normal[2], output.points[idx].curvature))
+      if (this->searchForNeighbors ((*indices_)[idx], search_parameter_, nn_indices, nn_dists) == 0)
       {
         output.points[idx].normal[0] = output.points[idx].normal[1] = output.points[idx].normal[2] = output.points[idx].curvature = std::numeric_limits<float>::quiet_NaN ();
 
         output.is_dense = false;
         continue;
       }
-
-
-      //save last neighbors indices in a txt
-	/*neighbors.width = nn_indices.size();
-	neighbors.is_dense=false;
-	neighbors.resize(neighbors.height*neighbors.width);
-	*/
-	
-//	file_name = ("/home/ubuntu/pcl/sift_keypoints_bueno/build/neighbors/fichero_prueba"+id_neighbors_str+".txt").c_str();
-	file_name ="/home/ubuntu/pcl/sift_keypoints_bueno/build/neighbors/indices.txt";
+	file_name ="/home/embedded/pcl/sift_keypoints/build/results/indices.txt";
 
 	file = fopen(file_name,"w");
+	
+	fprintf(file,"%d\n",nn_indices.size());
 
 	for(size_t i=0; i<nn_indices.size();i++){
-		//neighbors.points[i].x = surface_->points[nn_indices[i]].x;
-		//neighbors.points[i].y = surface_->points[nn_indices[i]].y;
-		//neighbors.points[i].z = surface_->points[nn_indices[i]].z;
-		//fprintf(file, "%f %f %f \n",surface_->points[nn_indices[i]].x,surface_->points[nn_indices[i]].y,surface_->points[nn_indices[i]].z);	
-		fprintf(file, "%d\n",nn_indices[i]);	
-
-		
-		//std::cerr << "    " << surface_->points[i].x << " " << surface_->points[i].y << " " << surface_->points[i].z << std::endl;
+		fprintf(file, "%d ",nn_indices[i]);	
 	}
-
-	//fprintf(file,"\n*\n");
 
   	fclose(file);
 	
 	file = NULL;
-	
-	//pcl::io::savePCDFileASCII ("/home/ubuntu/pcl/sift_keypoints_bueno/build/neighbors/neighbors_cloud_number_"+id_neighbors_str+".pcd", neighbors);
-        //id_neighbors_int=std::stoi(id_neighbors_str);
-	//id_neighbors_int++;
-	//id_neighbors_str=std::to_string(id_neighbors_int);
+      
+	computePointNormal (*surface_, nn_indices,
+                          output.points[idx].normal[0], output.points[idx].normal[1], output.points[idx].normal[2], output.points[idx].curvature);
 
 
-	//save last neighbors covariance matrix in a txt
-	file_name ="/home/ubuntu/pcl/sift_keypoints_bueno/build/neighbors/covariance_matrix.txt";
+        file_name = "/home/embedded/pcl/sift_keypoints/build/results/covariance_matrix_PCL.txt";
 
-	file=fopen(file_name,"w");
-	
+	file = fopen(file_name,"w");
 	fprintf(file,"%f %f %f\n",covariance_matrix_(0,0),covariance_matrix_(0,1),covariance_matrix_(0,2));
 	fprintf(file,"%f %f %f\n",covariance_matrix_(1,0),covariance_matrix_(1,1),covariance_matrix_(1,2));
 	fprintf(file,"%f %f %f",covariance_matrix_(2,0),covariance_matrix_(2,1),covariance_matrix_(2,2));
@@ -144,10 +114,20 @@ pcl::NormalEstimation<PointInT, PointOutT>::computeFeature (PointCloudOut &outpu
 	fclose(file);
 	file = NULL;
 
+	file_name="/home/embedded/pcl/sift_keypoints/build/results/centroid_PCL.txt";
+
+	file=fopen(file_name,"w");
+
+	fprintf(file,"%f %f %f %f",xyz_centroid_(0),xyz_centroid_(1),xyz_centroid_(2),xyz_centroid_(3));
+	fclose(file);
+	file =NULL;
+
 	flipNormalTowardsViewpoint (input_->points[(*indices_)[idx]], vpx_, vpy_, vpz_,
                                   output.points[idx].normal[0], output.points[idx].normal[1], output.points[idx].normal[2]);
 
     }
+
+	std::cout<<covariance_matrix_<<std::endl;
   }
   else
   {
@@ -155,14 +135,16 @@ pcl::NormalEstimation<PointInT, PointOutT>::computeFeature (PointCloudOut &outpu
     for (size_t idx = 0; idx < indices_->size (); ++idx)
     {
       if (!isFinite ((*input_)[(*indices_)[idx]]) ||
-          this->searchForNeighbors ((*indices_)[idx], search_parameter_, nn_indices, nn_dists) == 0 ||
-          !computePointNormal (*surface_, nn_indices, output.points[idx].normal[0], output.points[idx].normal[1], output.points[idx].normal[2], output.points[idx].curvature))
+          this->searchForNeighbors ((*indices_)[idx], search_parameter_, nn_indices, nn_dists) == 0)
       {
         output.points[idx].normal[0] = output.points[idx].normal[1] = output.points[idx].normal[2] = output.points[idx].curvature = std::numeric_limits<float>::quiet_NaN ();
 
         output.is_dense = false;
         continue;
       }
+
+      computePointNormal (*surface_, nn_indices,
+                          output.points[idx].normal[0], output.points[idx].normal[1], output.points[idx].normal[2], output.points[idx].curvature);
 
       flipNormalTowardsViewpoint (input_->points[(*indices_)[idx]], vpx_, vpy_, vpz_,
                                   output.points[idx].normal[0], output.points[idx].normal[1], output.points[idx].normal[2]);
