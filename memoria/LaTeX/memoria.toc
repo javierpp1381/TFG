@@ -2,51 +2,58 @@
 \contentsline {chapter}{\numberline {1} Cap\IeC {\'\i }tulo introductorio}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}La visi\IeC {\'o}n como herramienta}{1}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}La visi\IeC {\'o}n en el ser humano}{1}{subsection.1.1.1}
-\contentsline {subsection}{\numberline {1.1.2}Exportando la capacidad de visi\IeC {\'o}n}{3}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.2}Exportando la capacidad de visi\IeC {\'o}n}{4}{subsection.1.1.2}
 \contentsline {section}{\numberline {1.2}Concepto de nube de puntos}{6}{section.1.2}
-\contentsline {section}{\numberline {1.3}Adquisici\IeC {\'o}n de informaci\IeC {\'o}n: Sensores y evoluci\IeC {\'o}n}{10}{section.1.3}
+\contentsline {section}{\numberline {1.3}Adquisici\IeC {\'o}n de informaci\IeC {\'o}n: sensores}{12}{section.1.3}
 \contentsline {subsection}{\numberline {1.3.1}Sensores l\IeC {\'a}ser}{12}{subsection.1.3.1}
-\contentsline {subsubsection}{Caracter\IeC {\'\i }sticas y control de la luz utilizada por el sensor}{12}{section*.2}
-\contentsline {subsubsection}{Ventajas y desventajas de lidar}{13}{section*.3}
-\contentsline {subsubsection}{Aplicaciones de lidar}{14}{section*.4}
+\contentsline {subsubsection}{Caracter\IeC {\'\i }sticas y control de la luz utilizada por el sensor}{13}{section*.20}
+\contentsline {subsubsection}{Ventajas y desventajas de lidar}{14}{section*.23}
+\contentsline {subsubsection}{Aplicaciones de lidar}{15}{section*.24}
 \contentsline {subsection}{\numberline {1.3.2}Alternativas a lidar}{15}{subsection.1.3.2}
-\contentsline {section}{\numberline {1.4}Procesamiento software de informaci\IeC {\'o}n }{15}{section.1.4}
-\contentsline {chapter}{\numberline {2}Capacidades de PCL: Objetivos del presente trabajo y herramientas necesarias}{19}{chapter.2}
+\contentsline {section}{\numberline {1.4}Procesamiento software de informaci\IeC {\'o}n}{16}{section.1.4}
+\contentsline {section}{\numberline {1.5}Conclusiones}{18}{section.1.5}
+\contentsline {chapter}{\numberline {2}Capacidades de PCL: Objetivos del trabajo y herramientas necesarias}{19}{chapter.2}
 \contentsline {section}{\numberline {2.1}Introducci\IeC {\'o}n}{19}{section.2.1}
 \contentsline {section}{\numberline {2.2}Capacidades de PCL}{19}{section.2.2}
-\contentsline {subsubsection}{M\IeC {\'o}dulo IO}{19}{section*.5}
-\contentsline {subsubsection}{M\IeC {\'o}dulo registration}{21}{section*.6}
-\contentsline {section}{\numberline {2.3}Objetivos del TFG}{27}{section.2.3}
-\contentsline {section}{\numberline {2.4}Descripci\IeC {\'o}n e instalaci\IeC {\'o}n de herramientas necesarias para desarrollar el trabajo}{28}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Herramientas hardware}{28}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Herramientas software}{28}{subsection.2.4.2}
-\contentsline {subsubsection}{M\IeC {\'a}quina virtual}{28}{section*.7}
-\contentsline {subsubsection}{PCL}{28}{section*.8}
-\contentsline {subsubsection}{Vivado HLS}{29}{section*.9}
+\contentsline {subsubsection}{M\IeC {\'o}dulo IO}{19}{section*.28}
+\contentsline {subsubsection}{M\IeC {\'o}dulo registration}{21}{section*.29}
+\contentsline {section}{\numberline {2.3}Objetivos del TFG}{28}{section.2.3}
+\contentsline {section}{\numberline {2.4}Descripci\IeC {\'o}n e instalaci\IeC {\'o}n de herramientas necesarias para desarrollar el trabajo}{29}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Herramientas hardware}{29}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Herramientas software}{29}{subsection.2.4.2}
+\contentsline {subsubsection}{M\IeC {\'a}quina virtual}{29}{section*.36}
+\contentsline {subsubsection}{PCL}{30}{section*.37}
+\contentsline {subsubsection}{Vivado HLS}{30}{section*.38}
 \contentsline {section}{\numberline {2.5}Conclusiones}{30}{section.2.5}
-\contentsline {chapter}{\numberline {3}Reproducci\IeC {\'o}n de algoritmos de PCL: Visualizaci\IeC {\'o}n de nubes y extracci\IeC {\'o}n de keypoints}{31}{chapter.3}
-\contentsline {section}{\numberline {3.1}Introducci\IeC {\'o}n}{31}{section.3.1}
-\contentsline {section}{\numberline {3.2}Generaci\IeC {\'o}n de programas a partir de c\IeC {\'o}digo en C++}{31}{section.3.2}
-\contentsline {section}{\numberline {3.3}Visualizaci\IeC {\'o}n de nubes de puntos}{32}{section.3.3}
-\contentsline {subsubsection}{Explicaci\IeC {\'o}n en alto nivel}{32}{section*.10}
-\contentsline {subsubsection}{Explicaci\IeC {\'o}n en bajo nivel}{33}{section*.11}
-\contentsline {section}{\numberline {3.4}Programa principal: Extracci\IeC {\'o}n de puntos SIFT}{36}{section.3.4}
-\contentsline {subsubsection}{Explicaci\IeC {\'o}n en alto nivel}{36}{section*.12}
-\contentsline {subsubsection}{Explicaci\IeC {\'o}n en bajo nivel}{36}{section*.13}
-\contentsline {section}{\numberline {3.5}Ejemplos de visualizaci\IeC {\'o}n y extracci\IeC {\'o}n de puntos SIFT}{44}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Visualizaci\IeC {\'o}n}{45}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}Extracci\IeC {\'o}n de puntos SIFT}{45}{subsection.3.5.2}
-\contentsline {subsection}{\numberline {3.5.3}Visualizaci\IeC {\'o}n de puntos SIFT}{46}{subsection.3.5.3}
-\contentsline {section}{\numberline {3.6}Conclusiones}{46}{section.3.6}
-\contentsline {chapter}{\numberline {4}Medici\IeC {\'o}n de tiempos de ejecuci\IeC {\'o}n}{49}{chapter.4}
-\contentsline {section}{\numberline {4.1}Introducci\IeC {\'o}n}{49}{section.4.1}
-\contentsline {section}{\numberline {4.2}M\IeC {\'e}todo de medici\IeC {\'o}n}{49}{section.4.2}
-\contentsline {section}{\numberline {4.3}Resultados de medici\IeC {\'o}n sobre la FPGA}{50}{section.4.3}
-\contentsline {section}{\numberline {4.4}Resultados gr\IeC {\'a}ficos}{52}{section.4.4}
-\contentsline {section}{\numberline {4.5}Conclusiones}{53}{section.4.5}
-\contentsline {chapter}{\numberline {5}Extracci\IeC {\'o}n de normales a la superficie de una nube usando PCL}{59}{chapter.5}
-\contentsline {section}{\numberline {5.1}Introducci\IeC {\'o}n}{59}{section.5.1}
-\contentsline {section}{\numberline {5.2}T\IeC {\'e}cnica de estimaci\IeC {\'o}n de vectores normales}{59}{section.5.2}
-\contentsline {section}{\numberline {5.3}Estimaci\IeC {\'o}n de normales a la superficie de una nube: alto nivel}{60}{section.5.3}
-\contentsline {section}{\numberline {5.4}Estimaci\IeC {\'o}n de normales a la superficie de una nube: bajo nivel}{61}{section.5.4}
-\contentsline {section}{\numberline {5.5}Conclusiones}{61}{section.5.5}
+\contentsline {chapter}{\numberline {3}Reproducci\IeC {\'o}n de algoritmos de PCL: Visualizaci\IeC {\'o}n de nubes y extracci\IeC {\'o}n de keypoints}{33}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introducci\IeC {\'o}n}{33}{section.3.1}
+\contentsline {section}{\numberline {3.2}Generaci\IeC {\'o}n de programas a partir de c\IeC {\'o}digo en C++}{33}{section.3.2}
+\contentsline {section}{\numberline {3.3}Visualizaci\IeC {\'o}n de nubes de puntos}{34}{section.3.3}
+\contentsline {subsubsection}{Explicaci\IeC {\'o}n en alto nivel}{34}{section*.40}
+\contentsline {subsubsection}{Explicaci\IeC {\'o}n en bajo nivel}{35}{section*.42}
+\contentsline {section}{\numberline {3.4}Programa principal: Extracci\IeC {\'o}n de puntos SIFT}{38}{section.3.4}
+\contentsline {subsubsection}{Explicaci\IeC {\'o}n en alto nivel}{38}{section*.43}
+\contentsline {subsubsection}{Explicaci\IeC {\'o}n en bajo nivel}{38}{section*.45}
+\contentsline {section}{\numberline {3.5}Ejemplos de visualizaci\IeC {\'o}n y extracci\IeC {\'o}n de puntos SIFT}{46}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Visualizaci\IeC {\'o}n}{47}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Extracci\IeC {\'o}n de puntos SIFT}{47}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.3}Visualizaci\IeC {\'o}n de puntos SIFT}{48}{subsection.3.5.3}
+\contentsline {section}{\numberline {3.6}Conclusiones}{49}{section.3.6}
+\contentsline {chapter}{\numberline {4}Medici\IeC {\'o}n de tiempos de ejecuci\IeC {\'o}n}{51}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introducci\IeC {\'o}n}{51}{section.4.1}
+\contentsline {section}{\numberline {4.2}M\IeC {\'e}todo de medici\IeC {\'o}n}{51}{section.4.2}
+\contentsline {section}{\numberline {4.3}Resultados de medici\IeC {\'o}n sobre la FPGA}{52}{section.4.3}
+\contentsline {section}{\numberline {4.4}Resultados gr\IeC {\'a}ficos}{54}{section.4.4}
+\contentsline {section}{\numberline {4.5}Conclusiones}{55}{section.4.5}
+\contentsline {chapter}{\numberline {5}Extracci\IeC {\'o}n de normales a la superficie de una nube usando PCL}{61}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introducci\IeC {\'o}n}{61}{section.5.1}
+\contentsline {section}{\numberline {5.2}T\IeC {\'e}cnica de estimaci\IeC {\'o}n de vectores normales}{61}{section.5.2}
+\contentsline {section}{\numberline {5.3}Estimaci\IeC {\'o}n de normales a la superficie de una nube: alto nivel}{62}{section.5.3}
+\contentsline {section}{\numberline {5.4}Estimaci\IeC {\'o}n de normales a la superficie de una nube: bajo nivel}{63}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Consideraciones previas}{64}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Cuerpo principal del algoritmo}{65}{subsection.5.4.2}
+\contentsline {subsubsection}{Flujogramas tipo A: proceso de inicializaci\IeC {\'o}n}{65}{section*.65}
+\contentsline {subsubsection}{Flujogramas tipo B: estimaci\IeC {\'o}n de normales}{65}{section*.67}
+\contentsline {subsubsection}{Flujogramas tipo C: cierre del algoritmo}{67}{section*.73}
+\contentsline {section}{\numberline {5.5}Selecci\IeC {\'o}n del fragmento del algoritmo de extracci\IeC {\'o}n de normales para su optimizaci\IeC {\'o}n}{67}{section.5.5}
+\contentsline {section}{\numberline {5.6}Conclusiones}{67}{section.5.6}
