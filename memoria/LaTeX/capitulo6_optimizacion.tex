@@ -1,0 +1,95 @@
+\chapter{Modificación del código original y optimización mediante hardware digital}
+
+\section{Introducción}
+Se ha expuesto a grandes rasgos en el capítulo anterior cómo es el proceso de obtención de vectores normales a una superficie definida por una nube de puntos. Además, se ha indicado qué parte de dicho proceso será objeto de optimización con hardware digital, la obtención de matrices de covarianzas.
+
+En el presente capítulo se exponen las diferencias entre el código original y el modificado para que sea sintetizable en hardware. Tras esto, se indicarán las optimizaciones realizadas sobre el código modificado y la generación de la IP (Intellectual Property) para el posterior trabajo con ella.
+
+
+\section{Modificaciones en el código original}
+En la librería PCL se pueden encontrar los siguientes fragmentos de código que permiten calcular la matriz de covarianzas asociada a un punto estudiado y sus vecinos dentro de la nube de puntos original sobre la que se desean obtener los vectores normales.
+
+Como se ha explicado previamente, el método \textit{computeMeanAndCovarianceMatrix} recibe como argumentos la nube de puntos original como \textit{cloud} , un vector que contiene los índices de los puntos que forman una vecindad entorno al punto estudiado en la iteración actual como \textit{indices} y \textit{covariance\_matrix} y \textit{centroid} para guardar respectivamente la matriz de covarianzas y el centroide obtenidos.
+
+\begin{lstlisting}[language=C++,breaklines]
+  template <typename PointT, typename Scalar> inline unsigned int
+pcl::computeMeanAndCovarianceMatrix (const pcl::PointCloud<PointT> &cloud,
+                                     const std::vector<int> &indices,
+                                     Eigen::Matrix<Scalar, 3, 3> &covariance_matrix,
+                                     Eigen::Matrix<Scalar, 4, 1> &centroid)
+{
+\end{lstlisting}
+
+Aparece la librería Eigen para crear una matriz llamada \textit{accu} en la que guardar resultados intermedios. Se comprueba si el atributo \textit{is\_dense} de la nube \textit{cloud} es \textit{true} o \textit{false} para llevar a cabo las mencionadas operaciones intermedias de diferentes maneras. En cualquiera de los casos, se recorre todo el vector de índices para obtener los resultados adecuados en \textit{accu} que posteriormente se divide entre el número de elementos del vector \textit{indices}.
+
+
+\begin{lstlisting}[language=C++,breaklines]
+
+  Eigen::Matrix<Scalar, 1, 9, Eigen::RowMajor> accu = Eigen::Matrix<Scalar, 1, 9, Eigen::RowMajor>::Zero ();
+  size_t point_count;
+  if (cloud.is_dense)
+  {
+    point_count = indices.size ();
+    for (size_t i = 0; i <= point_count; ++i)
+    {
+      accu [0] += cloud[indices[i]].x * cloud[indices[i]].x;
+      accu [1] += cloud[indices[i]].x * cloud[indices[i]].y;
+      accu [2] += cloud[indices[i]].x * cloud[indices[i]].z;
+      accu [3] += cloud[indices[i]].y * cloud[indices[i]].y;
+      accu [4] += cloud[indices[i]].y * cloud[indices[i]].z;
+      accu [5] += cloud[indices[i]].z * cloud[indices[i]].z;
+      accu [6] += cloud[indices[i]].x;
+      accu [7] += cloud[indices[i]].y;
+      accu [8] += cloud[indices[i]].z;
+    }
+  }
+  else
+  {
+    point_count = 0;
+    for (size_t i = 0; i <= indices.end(); ++i)
+    {
+      if (!isFinite (cloud[indices[i]]))
+        continue;
+
+      ++point_count;
+      accu [0] += cloud[indices[i]].x * cloud[indices[i]].x;
+      accu [1] += cloud[indices[i]].x * cloud[indices[i]].y;
+      accu [2] += cloud[indices[i]].x * cloud[indices[i]].z;
+      accu [3] += cloud[indices[i]].y * cloud[indices[i]].y;
+      accu [4] += cloud[indices[i]].y * cloud[indices[i]].z;
+      accu [5] += cloud[indices[i]].z * cloud[indices[i]].z;
+      accu [6] += cloud[indices[i]].x;
+      accu [7] += cloud[indices[i]].y;
+      accu [8] += cloud[indices[i]].z;
+    }
+  }
+
+  accu /= static_cast<Scalar> (point_count);
+ \end{lstlisting}
+ 
+Por último, se almacenan en \textit{centroid} y \textit{covariance\_matrix} los resultados finales del algoritmo.
+ 
+ \begin{lstlisting}[language=C++,breaklines]
+  centroid[0] = accu[6]; centroid[1] = accu[7]; centroid[2] = accu[8];
+  centroid[3] = 1;
+  covariance_matrix.coeffRef (0) = accu [0] - accu [6] * accu [6];
+  covariance_matrix.coeffRef (1) = accu [1] - accu [6] * accu [7];
+  covariance_matrix.coeffRef (2) = accu [2] - accu [6] * accu [8];
+  covariance_matrix.coeffRef (4) = accu [3] - accu [7] * accu [7];
+  covariance_matrix.coeffRef (5) = accu [4] - accu [7] * accu [8];
+  covariance_matrix.coeffRef (8) = accu [5] - accu [8] * accu [8];
+  covariance_matrix.coeffRef (3) = covariance_matrix.coeff (1);
+  covariance_matrix.coeffRef (6) = covariance_matrix.coeff (2);
+  covariance_matrix.coeffRef (7) = covariance_matrix.coeff (5);
+
+  return (static_cast<unsigned int> (point_count));
+}
+\end{lstlisting}
+
+Se ha mencionado previamente que el corazón del algoritmo la estimación de vectores normales a la superficie lo conforman el cálculo de matrices de covarianzas y las componentes de cada vector normal.
+
+Se ha decidido seleccionar el cálculo de la matriz de covarianzas explicado en la figura \ref{fig:compute_computeMean} para su optimización puesto que se reduce a operaciones con vectores y matrices que no requieren el uso de librerías específicas a diferencia del cálculo de las componentes del vector normal que necesita utilizar Eigen y complica la optimización.
+
+\section{Conclusiones}
+
+

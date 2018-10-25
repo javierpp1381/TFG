@@ -20,11 +20,11 @@
 \contentsline {section}{\numberline {2.3}Objetivos del TFG}{28}{section.2.3}
 \contentsline {section}{\numberline {2.4}Descripci\IeC {\'o}n e instalaci\IeC {\'o}n de herramientas necesarias para desarrollar el trabajo}{29}{section.2.4}
 \contentsline {subsection}{\numberline {2.4.1}Herramientas hardware}{29}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Herramientas software}{29}{subsection.2.4.2}
-\contentsline {subsubsection}{M\IeC {\'a}quina virtual}{29}{section*.36}
+\contentsline {subsection}{\numberline {2.4.2}Herramientas software}{30}{subsection.2.4.2}
+\contentsline {subsubsection}{M\IeC {\'a}quina virtual}{30}{section*.36}
 \contentsline {subsubsection}{PCL}{30}{section*.37}
 \contentsline {subsubsection}{Vivado HLS}{30}{section*.38}
-\contentsline {section}{\numberline {2.5}Conclusiones}{30}{section.2.5}
+\contentsline {section}{\numberline {2.5}Conclusiones}{31}{section.2.5}
 \contentsline {chapter}{\numberline {3}Reproducci\IeC {\'o}n de algoritmos de PCL: Visualizaci\IeC {\'o}n de nubes y extracci\IeC {\'o}n de keypoints}{33}{chapter.3}
 \contentsline {section}{\numberline {3.1}Introducci\IeC {\'o}n}{33}{section.3.1}
 \contentsline {section}{\numberline {3.2}Generaci\IeC {\'o}n de programas a partir de c\IeC {\'o}digo en C++}{33}{section.3.2}
@@ -53,7 +53,11 @@
 \contentsline {subsection}{\numberline {5.4.1}Consideraciones previas}{64}{subsection.5.4.1}
 \contentsline {subsection}{\numberline {5.4.2}Cuerpo principal del algoritmo}{65}{subsection.5.4.2}
 \contentsline {subsubsection}{Flujogramas tipo A: proceso de inicializaci\IeC {\'o}n}{65}{section*.65}
-\contentsline {subsubsection}{Flujogramas tipo B: estimaci\IeC {\'o}n de normales}{65}{section*.67}
-\contentsline {subsubsection}{Flujogramas tipo C: cierre del algoritmo}{67}{section*.73}
-\contentsline {section}{\numberline {5.5}Selecci\IeC {\'o}n del fragmento del algoritmo de extracci\IeC {\'o}n de normales para su optimizaci\IeC {\'o}n}{67}{section.5.5}
-\contentsline {section}{\numberline {5.6}Conclusiones}{67}{section.5.6}
+\contentsline {subsubsection}{Flujogramas tipo B: estimaci\IeC {\'o}n de normales}{65}{section*.66}
+\contentsline {subsubsection}{Flujogramas tipo C: cierre del algoritmo}{67}{section*.71}
+\contentsline {section}{\numberline {5.5}Selecci\IeC {\'o}n del fragmento del algoritmo de extracci\IeC {\'o}n de normales para su optimizaci\IeC {\'o}n}{68}{section.5.5}
+\contentsline {section}{\numberline {5.6}Conclusiones}{68}{section.5.6}
+\contentsline {chapter}{\numberline {6}Modificaci\IeC {\'o}n del c\IeC {\'o}digo original y optimizaci\IeC {\'o}n mediante hardware digital}{71}{chapter.6}
+\contentsline {section}{\numberline {6.1}Introducci\IeC {\'o}n}{71}{section.6.1}
+\contentsline {section}{\numberline {6.2}Modificaciones en el c\IeC {\'o}digo original}{71}{section.6.2}
+\contentsline {section}{\numberline {6.3}Conclusiones}{73}{section.6.3}

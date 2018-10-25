@@ -108,7 +108,7 @@ Para la explicación en bajo nivel (código en C++) de cómo PCL extrae las norm
 Para llevar a cabo la explicación, se van a mostrar diferentes flujogramas conectados entre sí, cada uno con una funcionalidad y propósito propios, pero que en conjunto permiten reproducir el algoritmo de estimación de normales en una nube de puntos. Estos flujogramas se dividen en tres tipos: A, B y C que dividen la explicación en proceso de inicialización del algoritmo, estimación de normales y proceso de cierre del algoritmo, respectivamente.
 
 \subsection{Consideraciones previas}
-En primer lugar se muestra en la figura\ref{fig:compute_esquema_clases} el esquema de los flujogramas que se usarán para la explicación y qué tipo de bloques cabe esperar de cada uno. Además, se indica las clases de PCL utilizadas y la relación de herencia entre ellas. Cabe destacar que:
+En primer lugar se muestra en la figura \ref{fig:compute_esquema_clases} el esquema de los flujogramas que se usarán para la explicación y qué tipo de bloques cabe esperar de cada uno. Además, se indica las clases de PCL utilizadas y la relación de herencia entre ellas. Cabe destacar que:
 
 \begin{itemize}
 \item[•]\textit{PCLBase} implementa los métodos utilizados por la mayoría de los algoritmos de toda la librería.
@@ -136,11 +136,11 @@ En la figura \ref{fig:compute_main} se puede ver el cuerpo del algoritmo de extr
 En la figura \ref{fig:compute_init} se ven los primeros flujogramas auxiliares A y A.1 y se refieren al proceso de inicialización explicado en la figura \ref{fig:compute_main}. Este proceso está implementado en la librería de PCL pero no se explica ya que no es de interés para su optimización puesto que implementa operaciones triviales y simples tales como asignaciones y comprobaciones que ocupan una pequeña parte del código.
 
 
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.5]{compute_init}
-\caption{Flujogramas que indican el proceso de inicialización del algoritmo de estimación de normales.}\label{fig:compute_init}
-\end{figure}
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale=0.5]{compute_init}
+%\caption{Flujogramas tipo A que indican el proceso de %inicialización del algoritmo de estimación de normales.}\label{fig:compute_init}
+%\end{figure}
 
 
 \subsubsection{Flujogramas tipo B: estimación de normales}
@@ -150,18 +150,18 @@ La figura \ref{fig:compute_compute_feature} muestra el flujograma principal de t
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{compute_compute_feature}
-\caption{Flujograma que agrupa la llamada a los métodos necesarios para la estimación de normales}\label{fig:compute_compute_feature}
+\caption{Flujograma tipo B que agrupa la llamada a los métodos necesarios para la estimación de normales}\label{fig:compute_compute_feature}
 \end{figure}
 
-Las tres extensiones del flujograma B son B.1, B.2 y B.3 y explican, respectivamente, la búsqueda de vecinos entorno al punto estudiado, el cálculo de la normal en el punto estudiado y el proceso de cambiar de sentido la normal, si fuera necesario. En la figura \ref{fig:compute_neighbors_flip} se ven B.1 y B.3 y cuyo contenido es simple puesto que el cálculo de vecinos no es parte de a la librería de PCL y la operación de voltear un vector es bastante escueta. Por otra parte, se tiene el corazón del algoritmo en el flujograma B.2 (figura \ref{fig:compute_computePointNormal}) y es el que explica el cálculo de la matriz de covarianzas y la obtención del vector normal que son las partes en las que se divide para dar lugar a los flujogramas B.2.1 y B.2.2 respectivamente (figuras \ref{fig:compute_computeMean} y \ref{fig:compute_solvePlane})
+Las tres extensiones del flujograma B son B.1, B.2 y B.3 y explican, respectivamente, la búsqueda de vecinos entorno al punto estudiado, el cálculo de la normal en el punto estudiado y el proceso de cambiar de sentido la normal, si fuera necesario. No se muestran en detalle B.1 ni B.3 pues su contenido no está la librería de PCL para el caso del cálculo de vecinos y la operación de voltear un vector es bastante escueta y difícilmente optimizable. Por otra parte, se tiene el corazón del algoritmo en el flujograma B.2 que implementa el método \textit{computePointNormal} (figura \ref{fig:compute_computePointNormal}) y es el que llama a los métodos que explican el cálculo de la matriz de covarianzas (\textit{computeMeanAndCovarianceMatrix}) y la obtención del vector normal (\textit{solvePlaneParameters}) procesos que se explican en los flujogramas B.2.1 y B.2.2 respectivamente (figuras \ref{fig:compute_computeMean} y \ref{fig:compute_solvePlane})
 
 
 
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.5]{compute_neighbors_flip}
-\caption{Flujogramas B.1 y B.3 para la estimación de vecinos y cambiar el sentido al vector normal}\label{fig:compute_neighbors_flip}
-\end{figure}
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale=0.5]{compute_neighbors_flip}
+%\caption{Flujogramas B.1 y B.3 para la estimación de vecinos y cambiar el sentido al vector normal}\label{fig:compute_neighbors_flip}
+%\end{figure}
 
 
 \begin{figure}[h!]
@@ -174,32 +174,35 @@ Las tres extensiones del flujograma B son B.1, B.2 y B.3 y explican, respectivam
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{compute_computeMean}
-\caption{Flujograma B.2.1 que explica el cáclulo de la matriz de covarianzas.}\label{fig:compute_computeMean}
+\caption{Flujograma B.2.1 que explica el cálculo de la matriz de covarianzas.}\label{fig:compute_computeMean}
 \end{figure}
 
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{compute_solvePlane}
-\caption{Flujograma B.2.2 que explica el cáclulo de autovalores y autovectores para obtener el vector normal.}\label{fig:compute_solvePlane}
+\caption{Flujograma B.2.2 que explica el cálculo de autovalores y autovectores para obtener el vector normal.}\label{fig:compute_solvePlane}
 \end{figure}
 
 
 
 \subsubsection{Flujogramas tipo C: cierre del algoritmo}
-Por último, se tiene un proceso de cierre del algoritmo que enlaza con la comprobación de la superficie de la nube sobre la que se van a buscar normales y que es realizada en la parte de inicialización. La figura  muestra el flujograma correspondiente.
+Por último, se tiene un proceso de cierre del algoritmo que enlaza con la comprobación de la superficie de la nube sobre la que se van a buscar normales y que es realizada en la parte de inicialización. No se dan más detalles sobre este proceso ya que es realizado en software y no es objetivo de optimización.
 
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.6]{compute_deinit}
-\caption{Flujograma C que explica la última operación antes del cierre del algoritmo.}\label{fig:compute_deinit}
-\end{figure}
+
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale=0.6]{compute_deinit}
+%\caption{Flujograma C que explica la última operación antes del %cierre del algoritmo.}\label{fig:compute_deinit}
+%\end{figure}
 
 \section{Selección del fragmento del algoritmo de extracción de normales para su optimización}
+Se ha mencionado previamente que el corazón del algoritmo la estimación de vectores normales a la superficie lo conforman el cálculo de matrices de covarianzas y las componentes de cada vector normal.
 
+Se ha decidido seleccionar el cálculo de la matriz de covarianzas explicado en la figura \ref{fig:compute_computeMean} para su optimización puesto que se reduce a operaciones con vectores y matrices que no requieren el uso de librerías específicas a diferencia del cálculo de las componentes del vector normal que necesita utilizar Eigen y da lugar a elementos no sintetizables en hardware. 
 
 \section{Conclusiones}
 
-...
+Se ha explicado en este capítulo tanto a nivel teórico como práctico, es decir, haciendo uso de la librería PCL, la obtención de vectores normales a una superficie definida por una nube de puntos.
 
 En el siguiente capítulo, se mostrarán las modificaciones pertinentes al algoritmo de estimación de normales para que sea sintetizable en hardware y se explicará el proceso de optimización llevado a cabo.
