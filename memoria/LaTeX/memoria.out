@@ -41,7 +41,8 @@
 \BOOKMARK [2][-]{subsection.5.4.2}{Cuerpo principal del algoritmo}{section.5.4}% 41
 \BOOKMARK [1][-]{section.5.5}{Selecci\363n del fragmento del algoritmo de extracci\363n de normales para su optimizaci\363n}{chapter.5}% 42
 \BOOKMARK [1][-]{section.5.6}{Conclusiones}{chapter.5}% 43
-\BOOKMARK [0][-]{chapter.6}{Modificaci\363n del c\363digo original y optimizaci\363n mediante hardware digital}{}% 44
+\BOOKMARK [0][-]{chapter.6}{C\341lculo de matriz de covarianzas: s\355ntesis hardware y optimizaci\363n}{}% 44
 \BOOKMARK [1][-]{section.6.1}{Introducci\363n}{chapter.6}% 45
-\BOOKMARK [1][-]{section.6.2}{Modificaciones en el c\363digo original}{chapter.6}% 46
-\BOOKMARK [1][-]{section.6.3}{Conclusiones}{chapter.6}% 47
+\BOOKMARK [1][-]{section.6.2}{Algoritmo original de estimaci\363n de matrices de covarianzas}{chapter.6}% 46
+\BOOKMARK [1][-]{section.6.3}{Algoritmo modificado e integraci\363n en HLS}{chapter.6}% 47
+\BOOKMARK [1][-]{section.6.4}{Conclusiones}{chapter.6}% 48

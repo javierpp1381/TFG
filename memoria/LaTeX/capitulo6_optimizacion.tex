@@ -1,4 +1,4 @@
-\chapter{Modificación del código original y optimización mediante hardware digital}
+\chapter{Cálculo de matriz de covarianzas: síntesis hardware y optimización}
 
 \section{Introducción}
 Se ha expuesto a grandes rasgos en el capítulo anterior cómo es el proceso de obtención de vectores normales a una superficie definida por una nube de puntos. Además, se ha indicado qué parte de dicho proceso será objeto de optimización con hardware digital, la obtención de matrices de covarianzas.
@@ -6,8 +6,11 @@ Se ha expuesto a grandes rasgos en el capítulo anterior cómo es el proceso de 
 En el presente capítulo se exponen las diferencias entre el código original y el modificado para que sea sintetizable en hardware. Tras esto, se indicarán las optimizaciones realizadas sobre el código modificado y la generación de la IP (Intellectual Property) para el posterior trabajo con ella.
 
 
-\section{Modificaciones en el código original}
-En la librería PCL se pueden encontrar los siguientes fragmentos de código que permiten calcular la matriz de covarianzas asociada a un punto estudiado y sus vecinos dentro de la nube de puntos original sobre la que se desean obtener los vectores normales.
+
+
+\section{Algoritmo original de estimación de matrices de covarianzas}
+
+En la librería PCL se puede encontrar el método que permite calcular la matriz de covarianzas asociada a un punto estudiado y sus vecinos dentro de la nube de puntos original sobre la que se desean obtener los vectores normales. Sobre éste se realizarán las modificaciones pertinentes para que el código resultante sea sintetizable en hardware.
 
 Como se ha explicado previamente, el método \textit{computeMeanAndCovarianceMatrix} recibe como argumentos la nube de puntos original como \textit{cloud} , un vector que contiene los índices de los puntos que forman una vecindad entorno al punto estudiado en la iteración actual como \textit{indices} y \textit{covariance\_matrix} y \textit{centroid} para guardar respectivamente la matriz de covarianzas y el centroide obtenidos.
 
@@ -86,9 +89,143 @@ Por último, se almacenan en \textit{centroid} y \textit{covariance\_matrix} los
 }
 \end{lstlisting}
 
+
+
+\section{Algoritmo modificado e integración en HLS}
 Se ha mencionado previamente que el corazón del algoritmo la estimación de vectores normales a la superficie lo conforman el cálculo de matrices de covarianzas y las componentes de cada vector normal.
 
 Se ha decidido seleccionar el cálculo de la matriz de covarianzas explicado en la figura \ref{fig:compute_computeMean} para su optimización puesto que se reduce a operaciones con vectores y matrices que no requieren el uso de librerías específicas a diferencia del cálculo de las componentes del vector normal que necesita utilizar Eigen y complica la optimización.
+
+No solamente se mostrará a continuación el código modificado sino que se indicará su integración en el software Vivado HLS, del cual se hace uso para la síntesis en hardware y su otimización.
+
+A la hora de integrar en HLS el algoritmo de cálculo de matrices de covarianzas, se hace uso de tres ficheros de texto:
+
+\begin{list}{•}
+\item \textit{normal.cpp}: Es el código de PCL modificado que permite extraer matrices de covarianzas, además de ciertos aspectos añadidos pertenecientes a la optimización y síntesis hardware.
+\item \textit{normal\_tb.cpp}: Se trata de un test bench que comprueba el correcto funcionamiento de normal.cpp pues compara resultados reales con simulados. Cabe destacar aquí que se ha modificado ligeramente la librería PCL para que tras cada cómputo de una matriz de covarianzas y centroide, éstos se guarden en un fichero de texto cada uno para así tener acceso a estos resultados en cualquier momento.
+\item \textit{normal.hpp}: Es el conjunto de herramientas y librerías necesarias para normal.cpp y normal\_tb.cpp
+\end{list}
+
+\subsubsection{normal.cpp}
+
+Las modificaciones realizadas sobre el método \textit{computeMeanAndCovarianceMatrix} son las siguientes:
+
+\begin{list}{•}
+\item Puesto que en la síntesis de hardware digital no se pueden tener variables de tamaño no fijo, es decir, no se pueden manejar herramientas de asignación dinámica de memoria, los argumentos \textit{cloud} y \textit{indices} tienen un tamaño máximo del cual se utiliza el necesario según las variables \textit{num\_points} y \textit{num\_indices} que se refieren a las dimensiones de la nube y vector de índices respectivamente.
+\item todas las líneas que comienzan por ``\#pragma'' indican la creación de buses en los que agrupar variables para su interpretación en hardware. En concreto, el bus A contiene las entradas del algoritmo, el bus B las salidas y el CFG el retorno del método. Se han configurado como interfaces AXI lite esclavas.
+
+\item Se ha eliminado la comprobación del atributo \textit{is\_dense} de la nube de puntos de entrada puesto que se no trabaja con nubes que contienen puntos cuya posición no esté determinada por un valor finito.
+
+\item Todas las instancias pertenecientes a la clase Eigen han sido suprimidas y sustituidas por variables del tipo correspondiente como es en el caso de la variable \textit{covariance\_matrix} que es una matriz de tipo flotante.
+
+\end{list}
+
+ \begin{lstlisting}[language=C++,breaklines]
+ #include "normal.h"
+
+int compute (volatile float covariance_matrix[3][3],
+		volatile float centroid[4],
+		volatile float cloud[MAXPOINTS][3],
+		volatile int indices[MAXINDICES],
+		int num_points,
+		int num_indices){
+
+	//entradas
+	#pragma HLS INTERFACE s_axilite port=cloud bundle=BUS_A
+	#pragma HLS INTERFACE s_axilite port=indices bundle=BUS_A
+	#pragma HLS INTERFACE s_axilite port=num_indices bundle=BUS_A
+	#pragma HLS INTERFACE s_axilite port=num_points bundle=BUS_A
+
+	//salidas
+	#pragma HLS INTERFACE s_axilite port=covariance_matrix bundle=BUS_B
+	#pragma HLS INTERFACE s_axilite port=centroid bundle=BUS_B
+	#pragma HLS INTERFACE s_axilite port=num_points bundle=BUS_B
+	//return
+	#pragma HLS INTERFACE s_axilite port=return bundle=CFG
+
+	float accu[9]={0};
+
+
+	compute_label0:for(int i = 0;i<num_indices;i++){
+		accu[0] += cloud[indices[i]][0] * cloud[indices[i]][0];
+		accu[1] += cloud[indices[i]][0] * cloud[indices[i]][1];
+		accu[2] += cloud[indices[i]][0] * cloud[indices[i]][2];
+		accu[3] += cloud[indices[i]][1] * cloud[indices[i]][1];
+		accu[4] += cloud[indices[i]][1] * cloud[indices[i]][2];
+		accu[5] += cloud[indices[i]][2] * cloud[indices[i]][2];
+		accu[6] += cloud[indices[i]][0];
+		accu[7] += cloud[indices[i]][1];
+		accu[8] += cloud[indices[i]][2];
+	}
+
+	for(int i = 0;i<9;i++){
+		accu[i]/=num_indices;
+	}
+	centroid[0] = accu[6];
+	centroid[1] = accu[7];
+	centroid[2] = accu[8];
+	centroid[3] = 1;
+
+	covariance_matrix[0][0] = accu [0] - accu [6] * accu [6];
+	covariance_matrix[0][1] = accu [1] - accu [6] * accu [7];
+	covariance_matrix[0][2] = accu [2] - accu [6] * accu [8];
+	covariance_matrix[1][1] = accu [3] - accu [7] * accu [7];
+	covariance_matrix[1][2] = accu [4] - accu [7] * accu [8];
+	covariance_matrix[2][2] = accu [5] - accu [8] * accu [8];
+
+	covariance_matrix[1][0] = accu [1] - accu [6] * accu [7];
+	covariance_matrix[2][0] = accu [2] - accu [6] * accu [8];
+	covariance_matrix[2][1] = accu [4] - accu [7] * accu [8];
+
+
+	return num_points;
+}
+\end{lstlisting}
+
+\subsubsection{normal\_tb.cpp}
+
+En lugar de mostrar código trivial de C++ se explican las operaciones realizadas por el test bench:
+
+\begin{list}{•}
+\item Creación de variables tales como dos matrices de tipo float que almacenan la nube (\textit{cloud}) y la matriz de covarianzas (\textit{covariance\_matrix}), vector de tipo float que almacena los índices de los puntos de la nube que forman una vecindad (\textit{indices}), vector de tipo float que almacena las coordenadas del centroide del conjunto de puntos que forman una vecindad (\textit{centroid}) y las ya mencionadas \textit{num\_points} y \textit{num\_indices}.
+
+\item La nube de puntos está almacenada en un fichero de formato .txt por lo que se efectúa su lectura y se almacena en \textit{cloud}. Se hace lo mismo con un fichero de texto que contiene los índices de los puntos que forman una vecindad: se leen de un fichero de texto y se almacenan en \textit{indices}.
+
+\item Se llama al método \textit{computeMeanAndCovarianceMatrix} para obtener los resultados deseados en las variables \textit{covariance\_matrix} y \textit{centroid}
+
+\item se leen los ficheros de texto que contienen la matriz de covarianzas y el centroide calculados por el código original gracias a la modificación de la librería PCL previamente mencionada y se compara con los resultados obtenidos por el código modificado.
+\end{list}
+
+Se muestra en la imagen ... que el valor de la matriz de covarianzas y el centroide calculados con el código original y modificado efectivamente coinciden.
+Esto se consigue con la herramienta de simulación del código, es decir, se corre el test bench que utiliza el algoritmo desarrollado en \textit{normal.cpp}
+
+\subsubsection{normal.hpp}
+
+Se incluyen las librerías necesarias y se declaran las variables y el método que se usan en normal\_tb.cpp y normal.cpp
+
+\begin{lstlisting}[language=C++,breaklines]
+#include <stdio.h>
+#include <iostream>
+#include <math.h>
+#include <fstream>
+#include <stdlib.h>
+#include <vector>
+
+#include <hls_stream.h>
+#include <ap_axi_sdata.h>
+
+#define MAXPOINTS 14000
+#define MAXINDICES 250
+
+
+
+int compute(volatile float covariance_matrix[MAXPOINTS][3],
+		volatile float centroid[4],
+		volatile float cloud[MAXPOINTS][3],
+		volatile int indices[MAXINDICES],
+		int num_points,
+		int num_indices);
+\end{lstlisting}
 
 \section{Conclusiones}
 
