@@ -6,7 +6,7 @@ Dejando asentado el fundamento teórico ofrecido por capítulos anteriores, se p
 Se cambia entonces la tonalidad del trabajo a partir del presente capítulo puesto que se trata de trabajo elaborado por el propio autor en vez de la constancia de investigación y explicaciones teóricas ya creadas y desarrolladas por terceros.
 
 \section{Generación de programas a partir de código en C++}
-La reproducción de los algoritmos de PCL está escrita en el mismo lenguaje que la propia librería, C++, a partir del cual hay que crear un ejecutable. Se parte de un directorio de trabajo llamado, por ejemplo, ``prueba'' en el que se encuentran:
+La reproducción de los algoritmos de PCL está escrita en lenguaje C++, a partir del cual hay que crear un ejecutable. Se parte de un directorio de trabajo llamado, por ejemplo, ``prueba'' en el que se encuentran:
 
 \begin{itemize}
 \item[•]prueba.cpp: Es el código escrito en C++ y que no tiene ninguna funcionalidad de por sí. 
@@ -48,11 +48,11 @@ $$sudo \;\; make$$
 
 Si todo sale bien, aparecerá un ejecutable en la carpeta build con el nombre indicado en CMakeLists.txt
 
-Puesto que el código escrito en cualquier lenguaje de programación puede resultar complicado de transmitir, la forma de proceder para conseguir dicho objetivo será la siguiente: en primer lugar se explicará en alto nivel el programa en cuestión sin necesidad de leer código y haciendo uso de flujogramas u otros métodos que se consideren adecuados. Después, habiendo entendido la funcionalidad del programa, se pasará a explicar el código que lo compone con el nivel de detalle adecuado en cada momento. Para esto, también aparecerán flujogramas así como la explicación de las partes más importantes.
+
+Puesto que el código escrito en cualquier lenguaje de programación puede resultar complicado de transmitir, la forma de proceder para conseguir dicho objetivo será la siguiente: en primer lugar se explicará en alto nivel el programa en cuestión sin necesidad de leer código y haciendo uso de flujogramas u otros métodos que se consideren adecuados. Después, habiendo entendido la funcionalidad del programa, se explicarán las partes más relevantes del código que lo compone con el nivel de detalle adecuado en cada momento. Para esto, también aparecerán flujogramas así como la explicación de las partes más importantes.
 
  
-\section{Visualización de nubes de puntos}
-
+\section{Programa de visualización de nubes de puntos}
 Tal y como se ha mencionado en el apartado de objetivos del presente trabajo, la visualización de nubes se considera un hito transversal pero que a la vez involucra todo el proyecto ya que es la parte más amigable al ojo humano para estudiar resultados. De este modo se aprovecha el libre uso de la documentación y los tutoriales ofrecidos por PCL para modificar el código a favor de los objetivos planteados en el TFG.
 %http://pointclouds.org/documentation/tutorials/
 
@@ -78,6 +78,9 @@ Este conjunto de operaciones se muestran en su explicación en alto nivel en for
 
 
 \subsubsection{Explicación en bajo nivel}
+Puesto que el código del programa de visualización no es objeto de estudio ni optimización se prescinde de su explicación detallada.
+
+\iffalse
 El ejecutable generado dentro de la carpeta build se llama $visualization$ y para hacer funcionar el programa se han de ejecutar estos comandos, que en caso de querer visualizar una nube sin sus puntos SIFT:
 
 $$./visualization \;\; nube1.pcd$$
@@ -85,9 +88,9 @@ $$./visualization \;\; nube1.pcd$$
 y para visualizar una nube y sus keypoints:
 $$./visualization \;\; nube1.pcd \;\; nube1\_keypoints.pcd$$
 
-Véase a continuación el código que hace posible la funcionalidad ya explicada.\\
 
-En primer lugar, se cargan las librerías de $iostream$ para las funcionalidades básicas de C++ y determinados módulos de la librería PCL: $IO$ para la lectura de nubes, $cloud\_viewer$ del módulo $visualization$ para la visualización de nubes y $parse$ del módulo $console$ para poder evaluar los argumentos introducidos por la consola de comandos.
+
+En relación al código que implementa esta funcionalidad, en primer lugar se cargan las librerías de $iostream$ para las funcionalidades básicas de C++ y determinados módulos de la librería PCL: $IO$ para la lectura de nubes, $cloud\_viewer$ del módulo $visualization$ para la visualización de nubes y $parse$ del módulo $console$ para poder evaluar los argumentos introducidos por la consola de comandos.
 Además, se crea la instancia $sift\_cloud$ de la clase $PointCloud$, es decir, una nube de puntos donde almacenar y modificar (resaltar puntos) la nube que contiene keypoints.
 
 \begin{lstlisting}[language=C++,breaklines]
@@ -156,7 +159,7 @@ main (int argc, char** argv)
     } 
 \end{lstlisting}
 
-Ahora se crea la instancia $cloud$ de la clase $PointCloud$ y se guarda en ella la nube original, se muestra por pantalla el número de puntos contenidos en la misma y se crea la instancia del visualizador llamada $viewer$
+Ahora se crea la instancia $cloud$ de la clase $PointCloud$ y se guarda en ella la nube original, se muestra por pantalla el número de puntos contenidos en la misma y se crea la instancia del visualizador llamada $viewer$.
 
 \begin{lstlisting}[language=C++,breaklines]
 pcl::PointCloud<pcl::PointXYZRGBA>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZRGBA>); 
@@ -199,6 +202,8 @@ Por último, el bloqueo del programa en el visualizador hasta que el usuario lo 
     return 0;
 }
 \end{lstlisting}
+\fi
+
 
 \section{Programa principal: Extracción de puntos SIFT}
 \subsubsection{Explicación en alto nivel}
@@ -219,9 +224,7 @@ $$sudo \;\; ./sift\_keypoints \;\; -parametro1 \;\; valor1 \;\; -parametro2 \;\;
 Se requieren permisos de super usuario debido a operaciones de escritura tal y como son modificar y guardar un fichero de texto o guardar nubes de puntos en formato PCD.
 
 
-Estudiando el código de este programa, en primer lugar se incluyen la librería \textit{iostream} y los módulos necesarios de la librería de PCL. No se muestra esta parte del código ya que es trivial y muy semejante al ya mostrado en el programa de visualización.
-
-A continuación se crean e inicializan el conjunto de variables globales necesarias cuyo significado se explicará según se requiera su uso a lo largo del programa. Como excepción se tienen las variables $begin$, $end$, $elapsed\_sec$, $normal\_estimation\_time$ y $sift\_estimation\_time$ que sirven para medir tiempos de ejecución por lo que entrarán en juego en el siguiente capítulo.
+Tras la inclusión de las librerías necesarias, se crean e inicializan el conjunto de variables globales necesarias cuyo significado se explicará según se requiera su uso a lo largo del programa. Como excepción se tienen las variables $begin$, $end$, $elapsed\_sec$, $normal\_estimation\_time$ y $sift\_estimation\_time$ que sirven para medir tiempos de ejecución por lo que entrarán en juego en el siguiente capítulo.
 
 \begin{lstlisting}[language=C++,breaklines]
 int normal_estimation_object = 0;
@@ -239,7 +242,7 @@ clock_t begin,end;
 double elapsed_sec;
 \end{lstlisting}
 
-
+\iffalse
 Se implementa ahora el método que muestra ayuda por pantalla que informa sobre cómo utilizar el programa y los posibles parámetros que acepta.
 
 \begin{lstlisting}[language=C++,breaklines]
@@ -259,7 +262,7 @@ printUsage (const char* progName)
             << "\n\n";
 }
 \end{lstlisting}
-
+\fi
 
 A continuación, se implementa el método principal ``main'' y que ocupa el resto del código.\\
 Primeramente, se comprueba si el número de argumentos es el correcto o se ha pedido ayuda con el argumento $-h$ y se muestran por pantalla el valor de los parámetros, ya sea el establecido con argumentos por línea de comandos o sus valores por defecto.
@@ -369,6 +372,7 @@ Una vez que todos los parámetros están asignados, se llama al método $compute
   std::cout << "Time needed for normal estimation (compute) in " << filename << ": " << normal_estimation_time << " seconds" << std::endl << std::endl;
 \end{lstlisting}
   
+\iffalse
 Debido a que el método $compute$ solamente guarda en $cloud\_normals$ los vectores normales extraídos de la nube $cloud\_xyz$, la primera carece de información de coordenadas XYZ sobre los puntos originales. Por lo tanto, se copia dicha información de $cloud\_xyz$ a $cloud\_normals$.
 
 \begin{lstlisting}[language=C++,breaklines]
@@ -387,6 +391,7 @@ Debido a que el método $compute$ solamente guarda en $cloud\_normals$ los vecto
   elapsed_sec = double(end-begin)/CLOCKS_PER_SEC;
   std::cout << "Time needed for copying the pointcloud: " << elapsed_sec <<" seconds" << std::endl << std::endl;
 \end{lstlisting}
+\fi
 
   Si la nube $cloud\_normals$ no está vacía, se guarda en formato PCD bajo el nombre $cloud\_normals.pcd$
   
@@ -397,6 +402,25 @@ Debido a que el método $compute$ solamente guarda en $cloud\_normals$ los vecto
 \end{lstlisting}
 
 El siguiente bloque de código hace referencia a la extracción de puntos SIFT creando en primer lugar la instancia $sift$ de la clase $SIFTKeypoint$, es decir, un punto del tipo SIFT sobre el cual se efectúan las operaciones pertinentes. Además, el resultado de la extracción, la nube con los puntos SIFT, se almacena en la instancia $result$ de la clase $PointCloud$.
+
+\begin{lstlisting}[language=C++,breaklines]
+  pcl::SIFTKeypoint<pcl::PointNormal, pcl::PointWithScale> sift;
+  pcl::PointCloud<pcl::PointWithScale>::Ptr result(new pcl::PointCloud<pcl::PointWithScale>);
+  pcl::search::KdTree<pcl::PointNormal>::Ptr tree(new pcl::search::KdTree<pcl::PointNormal> ());
+  sift.setSearchMethod(tree);
+  sift.setScales(min_scale, n_octaves, n_scales_per_octave);
+  sift.setMinimumContrast(min_contrast);
+  sift.setInputCloud(cloud_normals);
+ 
+  std::cout << "Estimating sift points in " << filename << "..." << std::endl;
+
+  begin = clock();
+  sift.compute(*result);
+  end = clock();
+  sift_estimation_time = double(end-begin)/CLOCKS_PER_SEC;
+  std::cout << "Time needed for sift point extraction: " << sift_estimation_time << " seconds" << std::endl << std::endl;
+\end{lstlisting}
+
 
 Aquí entran en juego más parámetros que en la extracción de normales. Como ya se ha indicado antes, se crea una instancia $tree$ de la clase $KdTree$ para la labor de partición y organización jerárquica del espacio en forma de árbol y se asigna a $sift$ mediante el método $setSearchMethod$.
 El método $setScales$ se encarga de asignar a $sift$ los parámetros $min\_scale$, $n\_octaves$ y $n\_scales\_per\_octave$ del tipo $float$, $int$ e $int$ respectivamente. Su significado es el siguiente:
@@ -445,26 +469,10 @@ Con $setInputCloud$ se asigna a $sift$ la nube con la que se trabaja que en el c
 
 %http://aishack.in/tutorials/harris-corner-detector/
 
-\begin{lstlisting}[language=C++,breaklines]
-  pcl::SIFTKeypoint<pcl::PointNormal, pcl::PointWithScale> sift;
-  pcl::PointCloud<pcl::PointWithScale>::Ptr result(new pcl::PointCloud<pcl::PointWithScale>);
-  pcl::search::KdTree<pcl::PointNormal>::Ptr tree(new pcl::search::KdTree<pcl::PointNormal> ());
-  sift.setSearchMethod(tree);
-  sift.setScales(min_scale, n_octaves, n_scales_per_octave);
-  sift.setMinimumContrast(min_contrast);
-  sift.setInputCloud(cloud_normals);
- 
-  std::cout << "Estimating sift points in " << filename << "..." << std::endl;
-
-  begin = clock();
-  sift.compute(*result);
-  end = clock();
-  sift_estimation_time = double(end-begin)/CLOCKS_PER_SEC;
-  std::cout << "Time needed for sift point extraction: " << sift_estimation_time << " seconds" << std::endl << std::endl;
-\end{lstlisting}
 
 Si la nube $result$ no está vacía, es decir, se han encontrado puntos SIFT, se crea una instancia de una nueva nube llamada $keypoints$ y en ella se almacenan los puntos SIFT encontrados con información adicional sobre su color pues ahora serán verdes para su fácil visualización. Después, se guarda la nube $keypoints$ en formato PCD bajo el nombre $sift\_keypoints.pcd$. Esta nube de puntos junto a la nube de la que procede y de la cual se han extraído los keypoints, son las que se utilizan en el visualizador par apreciar una nube de puntos con sus keypoints resaltados.
 
+\iffalse
 \begin{lstlisting}[language=C++,breaklines]
   if(result->points.size()>0){
   
@@ -496,9 +504,11 @@ Si la nube $result$ no está vacía, es decir, se han encontrado puntos SIFT, se
 	sift_points = 0;
   }
 \end{lstlisting}
+\fi
 
- Por último, se abre o crea un fichero de texto llamado $tests.txt$ en el que se indica el nombre de la nube de puntos de entrada y el número de puntos que contiene, el valor de los parámetros utilizados en todas las operaciones que los requieren y el número de puntos SIFT encontrados.
+ Por último, a efectos de registrar resultados, se abre o crea un fichero de texto llamado $tests.txt$ en el que se indica el nombre de la nube de puntos de entrada y el número de puntos que contiene, el valor de los parámetros utilizados en todas las operaciones que los requieren y el número de puntos SIFT encontrados.
  
+ \iffalse
 \begin{lstlisting}[language=C++,breaklines]
   std::fstream fs;
   fs.open("tests.txt", std::fstream::app);
@@ -520,9 +530,11 @@ Si la nube $result$ no está vacía, es decir, se han encontrado puntos SIFT, se
   return 0;
 }
 \end{lstlisting}
+\fi
 
+No se muestra el código de estas últimas operaciones ya que es trivial pues solamente se guardan resultados en ficheros de texto y variables.
 
-\section{Ejemplos de visualización y extracción de puntos SIFT}
+\section{Ejemplos}
 Los siguientes ejemplos se han llevado a cabo en una computadora que dispone de máquina virtual con sistema operativo basado en linux. Todos ellos son reproducibles en la FPGA salvo los de visualización como ya se ha indicado previamente.
 
 Se van a tomar como ejemplos tres nubes de puntos:

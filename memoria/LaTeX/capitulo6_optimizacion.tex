@@ -1,4 +1,4 @@
-\chapter{Cálculo de matriz de covarianzas: síntesis hardware y optimización}
+\chapter{Cálculo de matriz de covarianzas: síntesis hardware y optimización con HLS}
 
 \section{Introducción}
 Se ha expuesto a grandes rasgos en el capítulo anterior cómo es el proceso de obtención de vectores normales a una superficie definida por una nube de puntos. Además, se ha indicado qué parte de dicho proceso será objeto de optimización con hardware digital, la obtención de matrices de covarianzas.
@@ -12,7 +12,7 @@ En el presente capítulo se exponen las diferencias entre el código original y 
 
 En la librería PCL se puede encontrar el método que permite calcular la matriz de covarianzas asociada a un punto estudiado y sus vecinos dentro de la nube de puntos original sobre la que se desean obtener los vectores normales. Sobre éste se realizarán las modificaciones pertinentes para que el código resultante sea sintetizable en hardware.
 
-Como se ha explicado previamente, el método \textit{computeMeanAndCovarianceMatrix} recibe como argumentos la nube de puntos original como \textit{cloud} , un vector que contiene los índices de los puntos que forman una vecindad entorno al punto estudiado en la iteración actual como \textit{indices} y \textit{covariance\_matrix} y \textit{centroid} para guardar respectivamente la matriz de covarianzas y el centroide obtenidos.
+Como se ha explicado previamente, el método \textit{computeMeanAndCovarianceMatrix} recibe como argumentos la nube de puntos original como \textit{cloud}, un vector que contiene los índices de los puntos que forman una vecindad entorno al punto estudiado en la iteración actual como \textit{indices} y \textit{covariance\_matrix} y \textit{centroid} para guardar respectivamente la matriz de covarianzas y el centroide obtenidos.
 
 \begin{lstlisting}[language=C++,breaklines]
   template <typename PointT, typename Scalar> inline unsigned int
@@ -91,12 +91,14 @@ Por último, se almacenan en \textit{centroid} y \textit{covariance\_matrix} los
 
 
 
-\section{Algoritmo modificado e integración en HLS}
+\section{Algoritmo modificado e integración en Vivado HLS}
 Se ha mencionado previamente que el corazón del algoritmo la estimación de vectores normales a la superficie lo conforman el cálculo de matrices de covarianzas y las componentes de cada vector normal.
 
 Se ha decidido seleccionar el cálculo de la matriz de covarianzas explicado en la figura \ref{fig:compute_computeMean} para su optimización puesto que se reduce a operaciones con vectores y matrices que no requieren el uso de librerías específicas a diferencia del cálculo de las componentes del vector normal que necesita utilizar Eigen y complica la optimización.
 
-No solamente se mostrará a continuación el código modificado sino que se indicará su integración en el software Vivado HLS, del cual se hace uso para la síntesis en hardware y su otimización.
+No solamente se mostrará a continuación el código modificado sino que se indicará su integración en el software Vivado HLS, del cual se hace uso para la síntesis en hardware y su optimización.
+
+En primer lugar se crea un nuevo proyecto en Vivado HLS y se selecciona la FPGA con la que se trabaja en el presente trabajo, la PYNQ-Z1.
 
 A la hora de integrar en HLS el algoritmo de cálculo de matrices de covarianzas, se hace uso de tres ficheros de texto:
 
@@ -184,20 +186,27 @@ int compute (volatile float covariance_matrix[3][3],
 
 \subsubsection{normal\_tb.cpp}
 
-En lugar de mostrar código trivial de C++ se explican las operaciones realizadas por el test bench:
+Las operaciones realizadas por el test bench se resumen en los siguientes puntos:
 
 \begin{list}{•}
 \item Creación de variables tales como dos matrices de tipo float que almacenan la nube (\textit{cloud}) y la matriz de covarianzas (\textit{covariance\_matrix}), vector de tipo float que almacena los índices de los puntos de la nube que forman una vecindad (\textit{indices}), vector de tipo float que almacena las coordenadas del centroide del conjunto de puntos que forman una vecindad (\textit{centroid}) y las ya mencionadas \textit{num\_points} y \textit{num\_indices}.
 
 \item La nube de puntos está almacenada en un fichero de formato .txt por lo que se efectúa su lectura y se almacena en \textit{cloud}. Se hace lo mismo con un fichero de texto que contiene los índices de los puntos que forman una vecindad: se leen de un fichero de texto y se almacenan en \textit{indices}.
 
-\item Se llama al método \textit{computeMeanAndCovarianceMatrix} para obtener los resultados deseados en las variables \textit{covariance\_matrix} y \textit{centroid}
+\item Se llama al método implementado en \textit{normal.cpp} para obtener los resultados deseados en las variables \textit{covariance\_matrix} y \textit{centroid}
 
 \item se leen los ficheros de texto que contienen la matriz de covarianzas y el centroide calculados por el código original gracias a la modificación de la librería PCL previamente mencionada y se compara con los resultados obtenidos por el código modificado.
 \end{list}
 
-Se muestra en la imagen ... que el valor de la matriz de covarianzas y el centroide calculados con el código original y modificado efectivamente coinciden.
-Esto se consigue con la herramienta de simulación del código, es decir, se corre el test bench que utiliza el algoritmo desarrollado en \textit{normal.cpp}
+Se muestra en la imagen \ref{fig:resultados_hls} que el valor de la matriz de covarianzas y el centroide calculados con el código original y modificado efectivamente coinciden. Esto se consigue con la herramienta de simulación del código, es decir, se corre el test bench que utiliza el algoritmo desarrollado en \textit{normal.cpp}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.7]{resultados_hls}
+\caption{comparación de matriz de covarianzas y centroide obtenidos con Vivado HLS y PCL.}\label{fig:resultados_hls}
+\end{figure}
+
+
 
 \subsubsection{normal.hpp}
 
@@ -214,8 +223,8 @@ Se incluyen las librerías necesarias y se declaran las variables y el método q
 #include <hls_stream.h>
 #include <ap_axi_sdata.h>
 
-#define MAXPOINTS 14000
-#define MAXINDICES 250
+#define MAXPOINTS 970
+#define MAXINDICES 15
 
 
 
@@ -227,6 +236,29 @@ int compute(volatile float covariance_matrix[MAXPOINTS][3],
 		int num_indices);
 \end{lstlisting}
 
+
+\subsection{Generación de síntesis e IP}
+
+Una vez que comprobado que los resultados obtenidos con PCL y HLS coinciden, se procede a la ejecución de la síntesis para estimar el uso de los recursos de los que dispone la FPGA. Así pues, en la figura \ref{fig:resultados_sintesis_hls} se puede ver un uso del 10\% de la memoria disponible así como un 11\% y 29\% de flip flops y lookup tables respectivamente. El recurso más variable es la memoria en forma de block RAM o BRAM ya que depende del tamaño de la nube con la que se trabaja y por tanto la cantidad de información que tiene que manejar la FPGA. En la figura \ref{fig:resultados_sintesis_hls2} se aprecian resultados referentes a tiempos y latencia en forma de ciclos de reloj necesarios para ejecutar el algoritmo.
+
+\begin{figure}[!htb]
+\minipage{0.48\textwidth}
+  \includegraphics[width=\linewidth]{resultados_sintesis_hls}
+  \caption{Estimación de utilización de recursos de la FPGA.}\label{fig:resultados_sintesis_hls}
+\endminipage\hfill
+\minipage{0.48\textwidth}
+  \includegraphics[width=\linewidth]{resultados_sintesis_hls2}
+  \caption{Estimación de latencia y tiempos en la FPGA.}\label{fig:resultados_sintesis_hls2}
+\endminipage\hfill
+\end{figure}
+
+Tras comprobar que la FPGA tiene un uso correcto de sus recursos se puede exportar el Register Transfer Level (RTL) y generar la IP mediante la opción ``export RTL'' especificando que sea descrita en VHDL. Este bloque IP se utilizará en Vivado para configurar la FPGA para la aplicación del presente trabajo.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.7]{export_RTL}
+\caption{Exportación de RTL y generación de IP.}\label{fig:export_RTL}
+\end{figure}
 \section{Conclusiones}
 
 

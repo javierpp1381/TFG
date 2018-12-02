@@ -8,26 +8,9 @@ Además, se presentan los objetivos que se quieren alcanzar al término del TFG 
 
 \section{Capacidades de PCL}
 \subsection{Módulo IO}
-Uno de los módulos más importantes es el que se encarga de la lectura y escritura de nubes de puntos, es decir, el módulo IO del inglés input/output que se traduce como entrada/salida. Es por tanto esta librería capaz de interpretar la información otorgada por diferentes tipos de sensores así como de generar archivos que contienen nubes de puntos manipuladas por el resto de módulos.
-Existen varios tipos de formatos bajo los que almacenar una nube puntos.
+Uno de los módulos más importantes es el que se encarga de la lectura y escritura de nubes de puntos, es decir, el módulo IO del inglés input/output que se traduce como entrada/salida. Esta librería es capaz de interpretar la información otorgada por diferentes tipos de sensores así como de generar archivos que contienen nubes de puntos manipuladas por el resto de módulos.
 
-PCL ha creado el formato PCD, del inglés Point Cloud Data, es decir ``datos de nube de puntos''. No se trata de un formato revolucionario sino más bien de una forma de complementar a los ya existentes que debido a los propósitos para los que se han creado u otras razones, no soportan algunas de las características relacionas con el procesamiento de nubes de puntos de $n$ dimensiones. Además sufren de deficiencias en ciertos campos de computación debido a que fueron creados para fines diferentes, en diferentes épocas y en ocasiones mucho antes de la invención de los sensores y algoritmos hoy presentes.
-
-
-\iffalse
-Por lo tanto, el formato PCD no es único ni trata de reemplazar a los que ya están presentes creados por comunidades de computación gráfica y geométrica que en concreto sirven para describir polígonos arbitrarios y nubes de puntos obtenidas con escáneres láser. Por ejemplo se tienen formatos como los siguientes:
-
-\begin{itemize}
-\item[•]PLY: Formato de ficheros para polígonos creado por Turk et al de la universidad de Stanford.
-\item[•]STL: Un formato nativo para software CAD de estereolitografía creado por 3D systems .
-
-\item[•]OBJ: Un software de definición geométrica creado por Wavefront Technologies.
-
-\item[•]X3D: Un formato basado en la norma ISO de XML para la representación de gráficos en 3d para computadoras.
-\end{itemize}
- 
-Puesto que a partir de ahora se va a utilizar el formato PCD\cite{pcd_format}, se va a explicar con mayor profundidad cada una de sus partes.
-\fi
+PCL ha creado el formato PCD, del inglés Point Cloud Data, es decir ``datos de nube de puntos''. No se trata de un formato revolucionario sino más bien de una forma de complementar a los ya existentes que debido a los propósitos para los que se han creado u otras razones, no soportan algunas de las características relacionas con el procesamiento de nubes de puntos de $n$ dimensiones. 
 
 Un fichero PCD dispone de dos partes diferenciadas, encabezamiento y los puntos como tal. El encabezamiento se encarga de identificar y declarar las propiedades de la nube de puntos almacenados en el fichero y debe estar codificado en ASCII lo que implica que cada entrada en este formato está delimitada de las demás usando saltos de línea.
 
@@ -68,22 +51,6 @@ Indica el número total de puntos en la nube. Puesto que se trata de informació
 Es el tipo de dato con el que se ha generado el fichero PCD siendo dos formatos los soportados, ASCII y binary. El formato ASCII obliga a que cada punto se escriba en una nueva línea, mientras que en el formato binary, la información presente en el fichero es una copia en memoria de la nube de puntos como vector de forma que se incrementa la velocidad de lectura y escritura.
 \end{itemize}
 
-\iffalse
-Queda el encabezamiento entonces con la siguiente estructura:
-\begin{lstlisting}
-	VERSION
-	FIELDS
-	SIZE
-	TYPE
-	COUNT
-	WIDTH
-	HEIGHT
-	VIEWPOINT
-	POINTS
-	DATA
-\end{lstlisting}
-\fi
-
 Como se ha mencionado previamente, cada punto se introduce después del encabezado en una línea nueva indicando, separados por espacios, el valor de cada campo. Como ejemplo de nube de puntos en formato PCD se tiene lo siguiente:
 
 \begin{lstlisting}
@@ -104,10 +71,10 @@ Como se ha mencionado previamente, cada punto se introduce después del encabeza
 	0.944 0.29474 0 4.2108e+06
 \end{lstlisting}
 
-Hay otras características fundamentales\cite{PCD_extras} sobre cómo PCL trata las nubes de puntos y las cuales se reflejan en atributos y métodos relacionados con las mismas de modo que:
+Hay otras características fundamentales\cite{PCD_extras} sobre cómo PCL trata las nubes de puntos y las cuales se reflejan en atributos y métodos escritos en C++ tal y como se indica a continuación.
 
 \begin{itemize}
-\item[•]$pcl::points<pcl::PointCloud::points> (std::vector<PointT>)$: $points$ es un método de la clase $pcl$ que devuelve un vector que contiene las coordenadas de los puntos de la nube mediante la cual se llama a este método. El tipo de punto devuelto se especifica mediante $PointT$ haciendo uso de las plantillas de C++. Además, por ``índice'' se entiende el el lugar que ocupa un punto dentro del vector.
+\item[•]$pcl::points<pcl::PointCloud::points> (std::vector<PointT>)$: $points$ es un método de la clase $pcl$ que devuelve un vector que contiene las coordenadas de los puntos de la nube. El tipo de punto devuelto se especifica mediante $PointT$ haciendo uso de las plantillas de C++. Además, por ``índice'' se entiende el lugar que ocupa un punto dentro del vector.
 \item[•]$pcl::is\_dense<pcl::PointCloud::is\_dense> (bool)$: $is\_dense$ es un método de la clase $pcl$ que devuelve un valor booleano. Si devuelve $true$ significa que las coordenadas de todos los puntos de la nube son valores finitos. En caso contrario, se tiene que alguno de los puntos de la nube contiene valores del tipo $inf$ o $NaN$.
 \item[•]$pcl::sensor\_origin\_<pcl::PointCloud::sensor\_origin\_> (Eigen::Vector4f)$: $sensor\_origin$ es un método de la clase $pcl$ que devuelve un vector de variables tipo flotante (float) con las coordenadas del punto de vista desde el cual se ha adquirido la nube de puntos.
 
@@ -117,7 +84,7 @@ Hay otras características fundamentales\cite{PCD_extras} sobre cómo PCL trata 
 \subsection{Módulo registration}
 A parte del módulo básico de lectura y escritura, PCL dispone del módulo registration\cite{registration} que se encarga del alineamiento de nubes de puntos independientes para ser fusionadas en una sola de forma coherente y así poder proceder con futuras operaciones sobre la nube resultante como reconocimiento de objetos o reconstrucción de superficies. Además, el alineamiento de nubes es importante porque, normalmente, las nubes son adquiridas desde diferentes puntos de vista o incluso con varios sensores por lo que es fundamental encontrar las posiciones y orientaciones relativas de cada nube respecto a un sistema de coordenadas global de manera que las partes que son idénticas se solapen perfectamente. 
 
-El alineamiento de nubes de puntos se basa en encontrar correspondencias entre las mismas, es decir, puntos semejantes, y entonces estimar transformaciones que trasladan y rotan las nubes de entrada para que queden alineadas en una sola. Se suele tomar una nube de entrada como modelo o referencia de forma que sean las demás nubes a las que se les aplica la transformación adecuada para que se parezcan al modelo y que se pueden denominar como nubes fuente. Se trata de una fácil tarea si se conocen de antemano las correspondencias entre las nubes de entrada. Además, si las correspondencias y por tanto el alineamiento, son perfectos entonces se tiene una solución cerrada. Un sencillo ejemplo visual de lo que puede hacer este módulo se muestra en la figura \ref{fig:registration_bunny} donde se tienen dos nubes de puntos muy parecidas que se fusionan en una sola. 
+El alineamiento de nubes de puntos se basa en encontrar correspondencias entre las mismas, es decir, puntos semejantes, y entonces estimar transformaciones que trasladan y rotan las nubes de entrada para que queden alineadas en una sola. Se suele tomar una nube de entrada como modelo o referencia de forma que sean las demás nubes a las que se les aplica la transformación adecuada para que se parezcan al modelo y que se pueden denominar como nubes fuente. Se trata de una fácil tarea si se conocen de antemano las correspondencias entre las nubes de entrada. Un sencillo ejemplo visual de lo que puede hacer este módulo se muestra en la figura \ref{fig:registration_bunny} donde se tienen dos nubes de puntos muy parecidas que se fusionan en una. 
 
 
 \begin{figure}
@@ -159,23 +126,13 @@ Aunque las esquinas suponen una pequeña fracción de la nube, contienen la info
 \caption{Ejemplo de detección de puntos clave en forma de esquinas.}\label{fig:corner_detection}
 \end{figure}
 
-\iffalse
-Hasta el momento se ha hablado de puntos clave o keypoints de forma genérica sin embargo cabe destacar que existen diferentes tipos y es necesario especificar y definir cuál de ellos se va a utilizar de ahora en adelante.
 
-Se puede considerar el harris keypoint o punto clave harris el cual ya se ha mencionado de forma indirecta en la figura \ref{fig:corner_detection} pues en realidad, ``harris'' hace referencia al método de extracción de esquinas y otras características utilizado en algoritmos de visión por computador. Fue introducido por Chris Harris y Mike Stephens en 1988.
-
-Entrando ligeramente en detalle, una esquina puede definirse como un punto cuyo entorno toma dos direcciones dominantes y diferentes entre sí, es decir, una esquina es la intersección de dos bordes siendo un borde un cambio brusco del brillo en la imagen o en el caso, la nube de puntos. Por lo tanto, las esquinas son consideradas puntos de interés invariantes a la traslación, rotación y cambios de iluminación. 
-Aunque las esquinas suponen una pequeña fracción de la nube, contienen la información más importante sobre la misma la cual se puede utilizar para labores de restauración de la nube o minimizar el tamaño o número de puntos.
-\fi
-
-Se trabajará de ahora en adelante con los keypoints obtenidos mediante el algoritmo Scale Invariant Feature Transform (SIFT) utilizado en visión por computador para la extracción de características (features) locales en una imagen o nube de puntos. Las aplicaciones de este algoritmo son varias como reconocimiento de objetos, navegación, modelado 3D, reconocimiento de gestos o identificación de individuos.
-
-Este algoritmo es de alta robustez y consistencia porque puede identificar objetos y características incluso en ambientes borrosos, confusos o sometidos a oclusión parcial porque se trata de un algoritmo invariante a cambios de escala, orientación, cambios de iluminación y parcialmente invariante a la distorsión afín, es decir, puede trabajar con partes de una nube de puntos cuya única diferencia es su orientación mientras que el resto de atributos permanecen idénticos.
+Se trabajará de ahora en adelante con los keypoints obtenidos mediante el algoritmo Scale Invariant Feature Transform (SIFT) utilizado en visión por computador para la extracción de características (features) locales en una imagen o nube de puntos. Las aplicaciones de este algoritmo son varias como reconocimiento de objetos, navegación, modelado 3D, reconocimiento de gestos o identificación de individuos. Este algoritmo es de alta robustez y consistencia porque puede identificar objetos y características incluso en ambientes borrosos, confusos o sometidos a oclusión parcial porque se trata de un algoritmo invariante a cambios de escala, orientación, cambios de iluminación y parcialmente invariante a la distorsión afín, es decir, puede trabajar con partes de una nube de puntos cuya única diferencia es su orientación mientras que el resto de atributos permanecen idénticos.
 
 Obtener correctamente los keypoints es de vital importancia ya que intentar alinear dos nubes considerando todos y cada uno de sus puntos puede suponer una carga computacional inconcebible para el caso de nubes de cientos de miles o incluso millones de puntos. 
 
 \subsubsection{Estimación de descriptores de características}
-el siguiente paso indicado en la figura \ref{fig:registration_flow} indica la estimación de los feature descriptors, es decir, los vectores donde se almacenan las características de la nube entorno a cada keypoint para poder compararlos entre sí. Por ejemplo se puede tener un vector que contiene normales a la superficie en cada keypoint o bien información sobre el brillo o luminosidad.
+El siguiente paso indicado en la figura \ref{fig:registration_flow} indica la estimación de los feature descriptors, es decir, los vectores donde se almacenan las características de la nube entorno a cada keypoint para poder compararlos entre sí. Por ejemplo se puede tener un vector que contiene normales a la superficie en cada keypoint o bien información sobre el brillo o luminosidad.
 
 \subsubsection{Estimación de correspondencias}
 Una vez que se dispone de dos o más vectores de características, cada uno de una nube de puntos diferente, se pasa al siguiente paso en el que hay que encontrar la información equivalente entre vectores, es decir, las características de las nubes que pueden solaparse ya que son muy parecidas o idénticas. Dependiendo del tipo de característica que se quiera alinear o unificar existen diferentes métodos para encontrar correspondencias:
@@ -187,7 +144,7 @@ Una vez que se dispone de dos o más vectores de características, cada uno de u
 \item[•]Método de correspondencia recíproca con el que se buscan similitudes a la nube modelo en la nube fuente y viceversa quedándose solamente con la intersección.
 \end{itemize}
 
-No todas las correspondencias establecidas son correctas o de utilidad y es por esto por lo que hay que hacer una criba en el siguiente paso ya que las correspondencias inadecuadas pueden afectar negativamente a la transformación final. Para ello simplemente se puede utilizar una fracción del número total de correspondencias  o utilizar algunos criterios de rechazo como los siguientes:
+No todas las correspondencias establecidas son correctas o de utilidad y es por esto por lo que hay que hacer una criba en el siguiente paso ya que las correspondencias inadecuadas pueden afectar negativamente a la transformación final. Para ello simplemente se puede utilizar una fracción del número total de correspondencias o utilizar algunos criterios de rechazo como los siguientes:
 
 \begin{itemize}
 \item[•]Rechazo basado en la \textbf{distancia}:
@@ -218,7 +175,7 @@ En el último paso, se lleva a cabo la transformación de la nube fuente siguien
 \item[•]Optimizar la estructura de puntos resultante eliminando información redundante, por ejemplo.
 \end{itemize}
 
-Existen tres principales tipos de errores entre un punto de la nube fuente y su equivalente en la nube objetivo:
+Existen tres principales tipos de errores entre un punto de la nube fuente y su equivalente en la nube objetivo y que pueden visualizarse en la figura \ref{fig:tipos_errores} 
 
 \begin{itemize}
 \item[•]Error de distancia punto a punto:
@@ -241,16 +198,14 @@ Es una generalización de los dos tipos de errores anteriores. Utiliza las matri
 $$E_{generalizado}(T)=\sum_{k=1}^{N} {{d_{k}}^{(T)}}^{T} (\Sigma_{k}^{Q}+T\Sigma_{k}^{P}T^{T})^{-1}d_{k}^{(T)}$$
 
 Donde $d_{k}^{(T)}=q_{k}-Tp_{k}$ son las distancias entre las correspondencias de los puntos $(p_{k},q_{k})$, $T$ es la matriz de transformación y $T^T$ es su traspuesta. Además, se hace uso de las matrices de covarianzas de todos los puntos en la nube fuente $P$ y objetivo $Q$ que son respectivamente $\Sigma_{k}^{P}$ y $\Sigma_{k}^{Q}$.
-
 \end{itemize}
-
-Se pueden visualizar este tipo de errores en la figura \ref{fig:tipos_errores} 
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.5]{tipos_errores}
 \caption{Tipos de errores entre punto fuente y punto objetivo. Error de distancia punto a punto (a), error de distnacia punto a plano (b) y error generalizado (c)}\label{fig:tipos_errores}
 \end{figure}
+
 
 Se han mencionado los términos ``iterativa'' y ``converger'' y es que la transformación de la nube fuente hasta llegar a parecerse la máximo posible a la nube modelo no es única, se lleva a cabo un proceso iterativo. 
 
@@ -303,7 +258,7 @@ Se tiene un doble objetivo que involucra por una parte la reproducción de algor
 
 La parte de reproducción de algoritmos existentes se refiere a desarrollar un programa escrito en C++ que sea capaz de extraer keypoints de una nube de puntos cualquiera siempre y cuando su formato sea PCD. Para ello se hace uso de la documentación ofrecida por la web oficial de PCL y los conocimientos propios de programación en C++. 
 
-Habiendo desarrollado dicho programa, se procede a estudiar en detalle las partes de la librería PCL que utiliza, comprender cómo funcionan y medir tiempos de ejecución de los diferentes métodos nativos de PCL involucrados en todo el proceso de extracción de keypoints. De este modo, se detecta el algoritmo de mayor tiempo de ejecución y por lo tanto el de mayor carga computacional. Finalmente, se estudia la mencionada parte del código y se plantea cómo crear hardware digital exclusivamente para la optimización de la parte del código de PCL y no de las librerías adicionales en las que se apoya. Puesto que no todo tipo de software es sintetizable en hardware, deberán hacerse simplificaciones o incluso cambios sustanciales al código original para posibilitar su síntesis. Para llevar a cabo este proceso se utilizarán conocimientos de High Level Synthesis (HLS) que se traduce como síntesis de alto nivel y puede definirse como un proceso automatizado que interpreta una descripción algorítmica de un deseado comportamiento y crea hardware digital que implementa dicho comportamiento.
+Habiendo desarrollado dicho programa, se procede a estudiar en detalle las partes de la librería PCL que utiliza, comprender cómo funcionan y medir tiempos de ejecución de los diferentes métodos nativos de PCL involucrados en todo el proceso de extracción de keypoints. De este modo, se detecta el algoritmo de mayor tiempo de ejecución y por lo tanto el de mayor carga computacional. Finalmente, se estudia la mencionada parte del código y se plantea cómo crear hardware digital exclusivamente para la optimización de la parte del código de PCL y no de las librerías adicionales en las que se apoya. Puesto que no todo tipo de software es sintetizable en hardware, deberán hacerse simplificaciones o incluso cambios sustanciales al código original para posibilitar su síntesis. Para llevar a cabo este proceso se utilizarán conocimientos de High Level Synthesis (HLS) que se traduce como síntesis de alto nivel y puede definirse como un proceso automatizado que interpreta una descripción algorítmica de un deseado comportamiento y crea hardware digital que implementa dicho comportamiento. De esta manera se podrá crear una Intellectual Property (IP) que contiene la optimización mencionada para poder incluirla en la configuración de la FPGA.
 
 La plataforma sobre la que se comprobará la compleción de dichos objetivos es una FPGA cuyas características se exponen en el apartado \ref{herraminetas_hardware}
 
@@ -331,10 +286,11 @@ Algunas de las características principales de la Pynq-Z1 son:
 
 
 
-
 \subsection{Herramientas software}
 \subsubsection{Máquina virtual}
-La principal herramienta software utilizada para el desarrollo del TFG se trata de una máquina virtual. Esto se debe a que las computadoras con las que se realiza el trabajo, ya sean las disponibles en el laboratorio del CEI o el computador personal del autor, corren con un sistema operativo Windows. Por cuestiones de comodidad y sobre todo facilidad de instalación y desinstalación de software se opta por trabajar en un sistema operativo basado en linux, en concreto, las distribuciones ubuntu 18.04.1 64 bits para la computadora del autor y xubuntu 64 bits para las computadoras del laboratorio. Por lo tanto, a partir de este punto, salvo que se mencione lo contrario, el sistema de archivos e instrucciones ejecutadas por línea de comandos así como demás características propias de diferentes sistemas operativos se refieren a un sistema operativo basado en linux.
+Se hace uso de una máquina virtual con Ubuntu 18.04.1 64 bits ya que es un sistema operativo que facilita la instalación y uso de PCL y otras librerías, no como Windows. 
+
+Por lo tanto, a partir de este punto, salvo que se mencione lo contrario, el sistema de archivos e instrucciones ejecutadas por línea de comandos así como demás características propias de diferentes sistemas operativos se refieren a un sistema operativo basado en linux.
 
 La máquina virtual se crea haciendo uso del software VirtualBox el cual facilita la creación y personalización de máquinas virtuales no solamente basadas en linux sino en cualquier otro sistema operativo.
 
@@ -362,35 +318,11 @@ Cuando la instalación está completa, se generan una serie de carpetas en el di
 \item[•]vtk-x: versión x de la librería vtk 
 \end{itemize}
 
-\subsubsection{Vivado HLS}
-Ya está instalado PCL en el sistema, ahora falta adquirir una herramienta adecuada para síntesis de software en hardware digital. Para ello se elige la herramienta vivado HLS de Xilinx. Accediendo a la web oficial de descargas se puede descargar la versión deseada de este software ya sea como un archivo comprimido TAR o un instalador web para mayor comodidad.
+\subsubsection{Vivado Design Suite HLx Editions}
+Ya está instalado PCL en el sistema, ahora falta adquirir una herramienta adecuada para síntesis de software en hardware digital y configuración de FPGAs. Para ello se elige la herramienta vivado HLS de Xilinx. Accediendo a la web oficial de descargas se puede descargar la versión deseada de este software ya sea como un archivo comprimido TAR o un instalador web para mayor comodidad. En este caso se elige la versión 2017.1 puesto que es la disponible en el CEI.
 
 %https://www.xilinx.com/support/download.html
 %https://www.xilinx.com/products/design-tools/vivado/integration/esl-design.html
-\begin{figure}[!htb]
-\centering
-\minipage{0.8\textwidth}
-  \includegraphics[width=\linewidth]{instalacion_xilinx_web}
-  \caption{Selección de la versión 2018.2 para la instalación de Vivado}\label{fig:instalacion_xilinx_web}
-\endminipage\hfill
-\end{figure}
-
-Durante el proceso de instalación...
-
-
-Tras el proceso de instalación y habiendo otorgado los correspondientes permisos de licencia, se creará la carpeta Xilinx bajo el directorio /opt de forma que en /opt/Xilinx se pueden encontrar todas las herramientas que aporta este software.
-
-Para poder utilizar la herramienta de Vivado HLS en linux se deben ejecutar los siguientes comandos:
-
-\begin{verbatim}
-source /opt/Xilinx/
-vivado_hls
-\end{verbatim}
-El primero carga el archivo de configuración x en la sesión actual de la consola de comandos (hay que repetir este paso si se cierra la consola y se desea abrir de nuevo vivado hls)
-\\
-El segundo permite abrir el programa Vivado HLS para trabajar en la síntesis de hardware digital.
-
-
 
 
 
