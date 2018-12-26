@@ -92,11 +92,9 @@ Por último, se almacenan en \textit{centroid} y \textit{covariance\_matrix} los
 
 
 \section{Algoritmo modificado e integración en Vivado HLS}
-Se ha mencionado previamente que el corazón del algoritmo la estimación de vectores normales a la superficie lo conforman el cálculo de matrices de covarianzas y las componentes de cada vector normal.
-
 Se ha decidido seleccionar el cálculo de la matriz de covarianzas explicado en la figura \ref{fig:compute_computeMean} para su optimización puesto que se reduce a operaciones con vectores y matrices que no requieren el uso de librerías específicas a diferencia del cálculo de las componentes del vector normal que necesita utilizar Eigen y complica la optimización.
 
-No solamente se mostrará a continuación el código modificado sino que se indicará su integración en el software Vivado HLS, del cual se hace uso para la síntesis en hardware y su optimización.
+No solamente se mostrará a continuación el código modificado sino que se indicará su integración en el programa Vivado HLS, del cual se hace uso para la síntesis en hardware y su optimización.
 
 En primer lugar se crea un nuevo proyecto en Vivado HLS y se selecciona la FPGA con la que se trabaja en el presente trabajo, la PYNQ-Z1.
 
@@ -114,7 +112,7 @@ Las modificaciones realizadas sobre el método \textit{computeMeanAndCovarianceM
 
 \begin{list}{•}
 \item Puesto que en la síntesis de hardware digital no se pueden tener variables de tamaño no fijo, es decir, no se pueden manejar herramientas de asignación dinámica de memoria, los argumentos \textit{cloud} y \textit{indices} tienen un tamaño máximo del cual se utiliza el necesario según las variables \textit{num\_points} y \textit{num\_indices} que se refieren a las dimensiones de la nube y vector de índices respectivamente.
-\item todas las líneas que comienzan por ``\#pragma'' indican la creación de buses en los que agrupar variables para su interpretación en hardware. En concreto, el bus A contiene las entradas del algoritmo, el bus B las salidas y el CFG el retorno del método. Se han configurado como interfaces AXI lite esclavas.
+\item todas las líneas que comienzan por ``\#pragma'' indican la creación de buses en los que agrupar variables para su interpretación en hardware. En concreto, el bus A contiene las entradas del algoritmo y el bus B las salidas. 
 
 \item Se ha eliminado la comprobación del atributo \textit{is\_dense} de la nube de puntos de entrada puesto que se no trabaja con nubes que contienen puntos cuya posición no esté determinada por un valor finito.
 
@@ -142,8 +140,7 @@ int compute (volatile float covariance_matrix[3][3],
 	#pragma HLS INTERFACE s_axilite port=covariance_matrix bundle=BUS_B
 	#pragma HLS INTERFACE s_axilite port=centroid bundle=BUS_B
 	#pragma HLS INTERFACE s_axilite port=num_points bundle=BUS_B
-	//return
-	#pragma HLS INTERFACE s_axilite port=return bundle=CFG
+	#pragma HLS INTERFACE s_axilite port=return bundle=BUS_B
 
 	float accu[9]={0};
 
@@ -239,7 +236,7 @@ int compute(volatile float covariance_matrix[MAXPOINTS][3],
 
 \subsection{Generación de síntesis e IP}
 
-Una vez que comprobado que los resultados obtenidos con PCL y HLS coinciden, se procede a la ejecución de la síntesis para estimar el uso de los recursos de los que dispone la FPGA. Así pues, en la figura \ref{fig:resultados_sintesis_hls} se puede ver un uso del 10\% de la memoria disponible así como un 11\% y 29\% de flip flops y lookup tables respectivamente. El recurso más variable es la memoria en forma de block RAM o BRAM ya que depende del tamaño de la nube con la que se trabaja y por tanto la cantidad de información que tiene que manejar la FPGA. En la figura \ref{fig:resultados_sintesis_hls2} se aprecian resultados referentes a tiempos y latencia en forma de ciclos de reloj necesarios para ejecutar el algoritmo.
+Sabiendo que los resultados obtenidos con PCL y HLS coinciden, se procede a la ejecución de la síntesis para estimar el uso de los recursos de los que dispone la FPGA. Así pues, en la figura \ref{fig:resultados_sintesis_hls} se puede ver un uso del 10\% de la memoria disponible así como un 11\% y 29\% de flip flops y lookup tables respectivamente. El recurso más variable es la memoria en forma de block RAM o BRAM ya que depende del tamaño de la nube con la que se trabaja y por tanto la cantidad de información que tiene que manejar la FPGA. En la figura \ref{fig:resultados_sintesis_hls2} se aprecian resultados referentes a tiempos y latencia en forma de ciclos de reloj necesarios para ejecutar el algoritmo.
 
 \begin{figure}[!htb]
 \minipage{0.48\textwidth}
@@ -252,13 +249,40 @@ Una vez que comprobado que los resultados obtenidos con PCL y HLS coinciden, se 
 \endminipage\hfill
 \end{figure}
 
-Tras comprobar que la FPGA tiene un uso correcto de sus recursos se puede exportar el Register Transfer Level (RTL) y generar la IP mediante la opción ``export RTL'' especificando que sea descrita en VHDL. Este bloque IP se utilizará en Vivado para configurar la FPGA para la aplicación del presente trabajo.
+Tras comprobar que la FPGA tiene un uso correcto de sus recursos se puede exportar el Register Transfer Level (RTL) y generar la IP mediante la opción ``export RTL'' especificando que sea descrita en VHDL. Este bloque IP, que se llamará ``compute'', se utilizará en Vivado para configurar la FPGA para la aplicación del presente trabajo.
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.7]{export_RTL}
 \caption{Exportación de RTL y generación de IP.}\label{fig:export_RTL}
 \end{figure}
+
+\section{Utilización de la IP en Vivado}
+Teniendo la IP que permite calcular matrices de covarianzas mediante hardware exportada, se ha de configurar la FPGA con dicha funcionalidad.
+
+Se crea un nuevo proyecto en el programa Vivado y se genera un diagrama de bloques como se muestra en la figura \ref{fig:diagrama_vivado} sobre el cual se destaca:
+\begin{itemize}
+\item[•] \textbf{processing\_system7\_0}: Se trata del Processing System (PS) explciado en el capítulo 2.
+\item[•] \textbf{compute\_0}: Es la IP generada con Vivado HLS y que ha sido importada a Vivado.
+\item[•] \textbf{system\_ila\_0}: Se trata del Integrated Logic Analyzer (ILA) y se encarga de tareas de debug haciendo uso de los propios recursos de la FPGA, puesto que los buses A y B contienen las entradas y salidas de \textbf{compute\_0} y las cuales se quieren controlar y observar.
+\end{itemize}
+
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.55]{diagrama_vivado}
+\caption{Diagrama de bloques de la FPGA Pynq-Z1 y la IP de cálculo de matrices de covarianzas.}\label{fig:diagrama_vivado}
+\end{figure}
+
+Una vez comprobado que el diagrama es correcto se puede proceder a la generación del archivo de configuración que se cargará en la FPGA, el ``bitstream''. Esto se hace de forma automática y ofrece como resultado, a parte del mencionado archivo, una visión de los recursos utilizados de la capa de aplicación de la FPGA tal y como se aprecia en la figura \ref{fig:recursos_fpga}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.7]{recursos_fpga}
+\caption{Recursos hardware utilizados para implementar la IP generada en Vivado HLS.}\label{fig:recursos_fpga}
+\end{figure}
+
+
 \section{Conclusiones}
 
 

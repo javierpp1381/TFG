@@ -1,12 +1,12 @@
 \chapter{Medición de tiempos de ejecución}
 
 \section{Introducción}
-Se ha mencionado en el capítulo anterior que el programa de extracción de puntos SIFT, $sift\_keypoints$, consta de dos partes principales entre otras como pueden ser cargar librerías, crear o modificar ficheros de texto o copiar información de una nube de puntos a otra. Estas dos partes son la extracción de vectores normales a la superficie descrita por la nube de puntos con la que trabaja el programa y la estimación de puntos SIFT.
+Se ha mencionado en el capítulo anterior que el programa de extracción de puntos SIFT, $sift\_keypoints$, consta de dos partes principales entre otras como pueden ser cargar librerías, crear o modificar ficheros de texto. Estas dos partes son la extracción de vectores normales a la superficie descrita por la nube de puntos con la que trabaja el programa y la estimación de puntos SIFT.
 
 
 En este capítulo se va a presentar una forma sencilla de medir los tiempos de ejecución de estos dos procesos a la vez que se modifican los parámetros que influyen en ellos. De este modo, se determinará si será la estimación de normales o la de puntos SIFT la parte que necesita ser llevada a hardware digital para su posterior optimización. Estas pruebas se van a realizar sobre la FPGA puesto que es en este hardware donde se desarrollarán los objetivos principales del TFG.
 
-Además, se ha creado una sección exclusiva para los gráficos dada la gran cantidad de ellos que hay.
+Además, se ha creado la sección \ref{resultados_graficos} dada la gran cantidad de ellos que hay.
 
 
 \section{Método de medición}
@@ -104,7 +104,17 @@ Ahora se modifica el parámetro $n\_octaves$ y se aprecia que para casos realist
 Por último, se estudia el tiempo de estimación de keypoints ante la variación del parámetro $n\_scales\_per\_octave$ apreciándose los resultados en las figuras \ref{fig:grafico_n_scales_bunny}, \ref{fig:grafico_n_scales_cturtle} y \ref{fig:grafico_n_scales_milk}. Se tiene de nuevo un tiempo de estimación de normales predominante ante la extracción de puntos SIFT para nubes con una cantidad considerable de puntos como $cturtle.pcd$ y $milk\_cartoon\_all\_small\_clorox.pcd$. En esta ocasión, incrementar el número de convoluciones de la nube por octava implica realizar más operaciones y tener en cuenta la misma nube bajo más filtros para extraer keypoints por lo que el tiempo implicado en este proceso aumenta.
 
 
-\section{Resultados gráficos}
+\section{Conclusiones}
+Habiendo estudiado cómo varían los tiempos de estimación de normales y puntos SIFT con diferentes valores de los parámetros implicados se concluye que se va a desarrollar hardware digital para su posterior optimización sobre la parte de extracción de vectores normales a la superficie representada por la nube de puntos. Esto es así por dos motivos:
+
+\begin{itemize}
+\item[•]Para nubes de puntos de gran tamaño, el tiempo de estimación de normales predomina sobre el de extracción de puntos SIFT.
+\item[•]La estimación de vectores normales solamente varía bajo la acción de un parámetro, $radius\_search$, mientras que la extracción de puntos SIFT es más flexible puesto que está sometida a tres parámetros: $min\_scale$, $n\_octaves$ y $n\_scales\_per\_octave$.
+\end{itemize}
+
+En el siguiente capítulo se estudiará a fondo el algoritmo de extracción de normales puesto que se ha elegido éste para ser optimizado tras su síntesis en hardware digital.
+
+\section{Resultados gráficos}\label{resultados_graficos}
 
 \begin{figure}[h!]
 \centering
@@ -185,13 +195,3 @@ Por último, se estudia el tiempo de estimación de keypoints ante la variación
 \end{figure}
 
 
-
-\section{Conclusiones}
-Habiendo estudiado cómo varían los tiempos de estimación de normales y puntos SIFT con diferentes valores de los parámetros implicados se concluye que se va a desarrollar hardware digital para su posterior optimización sobre la parte de extracción de vectores normales a la superficie representada por la nube de puntos. Esto es así por dos motivos:
-
-\begin{itemize}
-\item[•]Para nubes de puntos de gran tamaño, el tiempo de estimación de normales predomina sobre el de extracción de puntos SIFT.
-\item[•]La estimación de vectores normales solamente varía bajo la acción de un parámetro, $radius\_search$, mientras que la extracción de puntos SIFT es más flexible puesto que está sometida a tres parámetros: $min\_scale$, $n\_octaves$ y $n\_scales\_per\_octave$.
-\end{itemize}
-
-En el siguiente capítulo se estudiará a fondo el algoritmo de extracción de normales puesto que se ha elegido éste para ser optimizado tras su síntesis en hardware digital.
