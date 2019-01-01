@@ -10,7 +10,7 @@ Además, se ha creado la sección \ref{resultados_graficos} dada la gran cantida
 
 
 \section{Método de medición}
-Trabajando en C++, como de costumbre, el proceso de medición de tiempos requiere la inclusión de la librería $ctime$ para lo cual se tiene al comienzo del código en $sift\_keypoints.cpp$.
+Trabajando en C++, como de costumbre, el proceso de medición de tiempos requiere la inclusión de la librería $ctime$\cite{ctime} para lo cual se tiene al comienzo del código en $sift\_keypoints.cpp$.
 
 \begin{lstlisting}[language=C++,breaklines]
 	#include <ctime>
@@ -82,11 +82,11 @@ Se procede de forma análoga en la parte de estimación de puntos SIFT puesto qu
   std::cout << "Time needed for sift point extraction: " << sift_estimation_time << " seconds" << std::endl << std::endl;
 \end{lstlisting}
 
-Los tiempos de ejecución del método $compute$ se almacenan en $normal\_estimation\_time$ y $sift\_estimation\_time$ para la parte de estimación de normales y puntos SIFT, respectivamente.
+Los tiempos de ejecución del método $compute$ se almacenan para la parte de estimación de normales y puntos SIFT respectivamente en $normal\_estimation\_time$ y $sift\_estimation\_time$.
 \\
 Para aportar mayor amplitud a los resultados obtenidos, se van a realizar mediciones de los métodos $compute$ variando ligeramente los parámetros involucrados en la estimación de normales y puntos SIFT. Como se ha visto en los fragmentos de código mostrados, la extracción de normales varía con un único parámetro, $radius\_search$, mientras que el tiempo de estimación de keypoints varía con $min\_scale$, $n\_octaves$ y $n\_scales\_per\_octave$. El parámetro $min\_contrast$ no afecta al tiempo del proceso estudiado porque, como se ha visto anteriormente, indica la dureza de la criba de los puntos SIFT ya obtenidos.
 
-Las nubes sobre las que se han realizado las pruebas son las mismas que las mostradas en el capítulo anterior: $bunny.pc$, $cturtle.pcd$ y $milk\_cartoon\_all\_small\_clorox.pcd$
+Las nubes sobre las que se han realizado las pruebas son las mismas que las mostradas en los ejemplos del capítulo anterior: $bunny.pc$, $cturtle.pcd$ y $milk\_cartoon\_all\_small\_clorox.pcd$
 
 Tras efectuar la medición de tiempos junto a la variación de parámetros, éstos se han plasmado en diferentes gráficas. En primer lugar, se analizan los tiempos de estimación de normales y puntos SIFT variando el parámetro $radius\_search$ puesto que la extracción de normales es la primera operación y afecta a las que vienen después. El resultado se aprecia en las figuras \ref{fig:grafico_radius_bunny}, \ref{fig:grafico_radius_cturtle} y \ref{fig:grafico_radius_milk} las cuales indican que en todos los casos un incremento del radio de búsqueda de normales a la superficie dispara el tiempo de computación mientras que el tiempo de extracción de puntos SIFT se mantiene entorno a un valor estable a pesar de que la cantidad de normales extraídas afecta a la estimación de keypoints. Resulta obvio este incremento del tiempo de computación ya que la información que hay que utilizar para estimar un vector normal se incrementa, es decir, se considera una porción de la superficie de la nube cada vez más grande.
 

@@ -10,7 +10,7 @@ En el presente capítulo se exponen las diferencias entre el código original y 
 
 \section{Algoritmo original de estimación de matrices de covarianzas}
 
-En la librería PCL se puede encontrar el método que permite calcular la matriz de covarianzas asociada a un punto estudiado y sus vecinos dentro de la nube de puntos original sobre la que se desean obtener los vectores normales. Sobre éste se realizarán las modificaciones pertinentes para que el código resultante sea sintetizable en hardware.
+En la librería PCL se puede encontrar el método que permite calcular la matriz de covarianzas asociada a un punto estudiado y sus vecinos dentro de la nube de puntos original sobre la que se desean obtener los vectores normales\cite{calculo_covarianzas}. Sobre éste se realizarán las modificaciones pertinentes para que el código resultante sea sintetizable en hardware.
 
 Como se ha explicado previamente, el método \textit{computeMeanAndCovarianceMatrix} recibe como argumentos la nube de puntos original como \textit{cloud}, un vector que contiene los índices de los puntos que forman una vecindad entorno al punto estudiado en la iteración actual como \textit{indices} y \textit{covariance\_matrix} y \textit{centroid} para guardar respectivamente la matriz de covarianzas y el centroide obtenidos.
 
@@ -96,14 +96,14 @@ Se ha decidido seleccionar el cálculo de la matriz de covarianzas explicado en 
 
 No solamente se mostrará a continuación el código modificado sino que se indicará su integración en el programa Vivado HLS, del cual se hace uso para la síntesis en hardware y su optimización.
 
-En primer lugar se crea un nuevo proyecto en Vivado HLS y se selecciona la FPGA con la que se trabaja en el presente trabajo, la PYNQ-Z1.
+En primer lugar se crea un nuevo proyecto en Vivado HLS y se selecciona la FPGA con la que se trabaja en el presente trabajo, la PYNQ-Z1 modelo xc7z020clg400-1.
 
 A la hora de integrar en HLS el algoritmo de cálculo de matrices de covarianzas, se hace uso de tres ficheros de texto:
 
 \begin{list}{•}
-\item \textit{normal.cpp}: Es el código de PCL modificado que permite extraer matrices de covarianzas, además de ciertos aspectos añadidos pertenecientes a la optimización y síntesis hardware.
-\item \textit{normal\_tb.cpp}: Se trata de un test bench que comprueba el correcto funcionamiento de normal.cpp pues compara resultados reales con simulados. Cabe destacar aquí que se ha modificado ligeramente la librería PCL para que tras cada cómputo de una matriz de covarianzas y centroide, éstos se guarden en un fichero de texto cada uno para así tener acceso a estos resultados en cualquier momento.
-\item \textit{normal.hpp}: Es el conjunto de herramientas y librerías necesarias para normal.cpp y normal\_tb.cpp
+\item[•] \textit{normal.cpp}: Es el código de PCL modificado que permite extraer matrices de covarianzas, además de ciertos aspectos añadidos pertenecientes a la optimización y síntesis hardware.
+\item[•] \textit{normal\_tb.cpp}: Se trata de un test bench que comprueba el correcto funcionamiento de normal.cpp pues compara resultados reales con simulados. Cabe destacar aquí que se ha modificado ligeramente la librería PCL para que tras cada cómputo de una matriz de covarianzas y centroide, éstos se guarden en un fichero de texto cada uno para así tener acceso a estos resultados en cualquier momento.
+\item[•] \textit{normal.hpp}: Es el conjunto de herramientas y librerías necesarias para normal.cpp y normal\_tb.cpp
 \end{list}
 
 \subsubsection{normal.cpp}
@@ -111,12 +111,13 @@ A la hora de integrar en HLS el algoritmo de cálculo de matrices de covarianzas
 Las modificaciones realizadas sobre el método \textit{computeMeanAndCovarianceMatrix} son las siguientes:
 
 \begin{list}{•}
-\item Puesto que en la síntesis de hardware digital no se pueden tener variables de tamaño no fijo, es decir, no se pueden manejar herramientas de asignación dinámica de memoria, los argumentos \textit{cloud} y \textit{indices} tienen un tamaño máximo del cual se utiliza el necesario según las variables \textit{num\_points} y \textit{num\_indices} que se refieren a las dimensiones de la nube y vector de índices respectivamente.
-\item todas las líneas que comienzan por ``\#pragma'' indican la creación de buses en los que agrupar variables para su interpretación en hardware. En concreto, el bus A contiene las entradas del algoritmo y el bus B las salidas. 
+\item[•] Puesto que en la síntesis de hardware digital no se pueden tener variables de tamaño no fijo, es decir, no se pueden manejar herramientas de asignación dinámica de memoria, los argumentos \textit{cloud} y \textit{indices} tienen un tamaño máximo del cual se utiliza el necesario según las variables \textit{num\_points} y \textit{num\_indices} que se refieren a las dimensiones de la nube y vector de índices respectivamente.
 
-\item Se ha eliminado la comprobación del atributo \textit{is\_dense} de la nube de puntos de entrada puesto que se no trabaja con nubes que contienen puntos cuya posición no esté determinada por un valor finito.
+\item[•] todas las líneas que comienzan por ``\#pragma'' indican la creación de buses en los que agrupar variables para su interpretación en hardware. En concreto, el bus A contiene las entradas del algoritmo y el bus B las salidas. 
 
-\item Todas las instancias pertenecientes a la clase Eigen han sido suprimidas y sustituidas por variables del tipo correspondiente como es en el caso de la variable \textit{covariance\_matrix} que es una matriz de tipo flotante.
+\item[•] Se ha eliminado la comprobación del atributo \textit{is\_dense} de la nube de puntos de entrada puesto que se no trabaja con nubes que contienen puntos cuya posición no esté determinada por un valor finito.
+
+\item[•] Todas las instancias pertenecientes a la clase Eigen han sido suprimidas y sustituidas por variables del tipo correspondiente como es en el caso de la variable \textit{covariance\_matrix} que es una matriz de tipo flotante.
 
 \end{list}
 
@@ -200,14 +201,14 @@ Se muestra en la imagen \ref{fig:resultados_hls} que el valor de la matriz de co
 \begin{figure}
 \centering
 \includegraphics[scale=0.7]{resultados_hls}
-\caption{comparación de matriz de covarianzas y centroide obtenidos con Vivado HLS y PCL.}\label{fig:resultados_hls}
+\caption{comparación de matriz de covarianzas y centroide obtenidos con Vivado HLS y PCL. ``covariance matrix before'' y ``centroid before'' indican que se muestran la matriz de covarianzas y el centroide inicializados a cero.}\label{fig:resultados_hls}
 \end{figure}
 
 
 
 \subsubsection{normal.hpp}
 
-Se incluyen las librerías necesarias y se declaran las variables y el método que se usan en normal\_tb.cpp y normal.cpp
+Se incluyen las librerías necesarias y se declaran las variables y el método que se usan en normal\_tb.cpp y normal.cpp además de definir las constantes ``MAXPOINTS'' y ``MAXINDICES'' que son las dimensiones máximas de la nube de puntos y el vector de índices como ya se ha discutido previamente sobre la imposibilidad de utilizar memoria dinámica en hardware.
 
 \begin{lstlisting}[language=C++,breaklines]
 #include <stdio.h>
@@ -249,7 +250,7 @@ Sabiendo que los resultados obtenidos con PCL y HLS coinciden, se procede a la e
 \endminipage\hfill
 \end{figure}
 
-Tras comprobar que la FPGA tiene un uso correcto de sus recursos se puede exportar el Register Transfer Level (RTL) y generar la IP mediante la opción ``export RTL'' especificando que sea descrita en VHDL. Este bloque IP, que se llamará ``compute'', se utilizará en Vivado para configurar la FPGA para la aplicación del presente trabajo.
+Tras comprobar que la FPGA tiene un uso correcto de sus recursos se puede exportar el Register Transfer Level (RTL) y generar la IP mediante la opción ``export RTL'' especificando que sea descrita en VHDL. Este bloque IP, que se llamará ``compute'', se utilizará en Vivado para configurar la FPGA para la aplicación del presente trabajo, optimización del cálculo de matriz de covarianzas.
 
 \begin{figure}
 \centering
@@ -257,8 +258,8 @@ Tras comprobar que la FPGA tiene un uso correcto de sus recursos se puede export
 \caption{Exportación de RTL y generación de IP.}\label{fig:export_RTL}
 \end{figure}
 
-\section{Utilización de la IP en Vivado}
-Teniendo la IP que permite calcular matrices de covarianzas mediante hardware exportada, se ha de configurar la FPGA con dicha funcionalidad.
+\section{Integración de la IP en Vivado}
+Teniendo exportada la IP que permite calcular matrices de covarianzas mediante hardware, se ha de configurar la FPGA con dicha funcionalidad.
 
 Se crea un nuevo proyecto en el programa Vivado y se genera un diagrama de bloques como se muestra en la figura \ref{fig:diagrama_vivado} sobre el cual se destaca:
 \begin{itemize}
@@ -274,13 +275,22 @@ Se crea un nuevo proyecto en el programa Vivado y se genera un diagrama de bloqu
 \caption{Diagrama de bloques de la FPGA Pynq-Z1 y la IP de cálculo de matrices de covarianzas.}\label{fig:diagrama_vivado}
 \end{figure}
 
-Una vez comprobado que el diagrama es correcto se puede proceder a la generación del archivo de configuración que se cargará en la FPGA, el ``bitstream''. Esto se hace de forma automática y ofrece como resultado, a parte del mencionado archivo, una visión de los recursos utilizados de la capa de aplicación de la FPGA tal y como se aprecia en la figura \ref{fig:recursos_fpga}
+Una vez comprobado que el diagrama es correcto se puede proceder a la generación del archivo de configuración que se cargará en la FPGA, el ``bitstream''. Esto se hace de forma automática y ofrece como resultado, a parte del mencionado archivo, una visión, en azul claro, de los recursos utilizados de la capa de aplicación de la FPGA tal y como se aprecia en la figura \ref{fig:recursos_fpga}
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.7]{recursos_fpga}
 \caption{Recursos hardware utilizados para implementar la IP generada en Vivado HLS.}\label{fig:recursos_fpga}
 \end{figure}
+
+\section{Comprobación del funcionamiento de la IP sobre la FPGA}
+El último paso antes de poder hacer uso de la IP ya configurada en la FPGA es comprobar que funciona adecuadamente sobre ésta. Para ello, utilizando Vivado, se exporta el hardware generado y los drivers para controlar la IP a un kit de desarrollo software (Software Deevlopement Kit o SDK) basado en Eclipse mediante el cual se puede hacer uso de la IP generada en Vivado HLS gracias a los mencionados drivers. 
+
+En el SDK se abre un nuevo proyecto vacío basado en el hardware exportado desde Vivado, es decir, la configuración de la FPGA y que se encuentra en el entorno de trabajo del kit de desarrollo. Para utilizar la IP cobre la FPGA se crea un archivo en lenguaje C que sirve de test bench para comprobar el correcto funcionamiento del cálculo de matrices de covarianzas. Este archivo es muy similar al test bench ya creado y explicado en Vivado HLS pero tiene ciertas diferencias:
+
+\begin{itemize}
+\item[•] Hay que comprobar que el cálculo de matrices de covarianzas da al mismo resultado ejecutándose mediante software (código en C compilado) y hardware (utilizando los drivers y los recursos hardware de la FPGA, es decir, su lógica programable PL) A efectos de cómo escribir el test bench solamente afecta al desdoblamiento de variables, esto es, se necesitan dos variables que almacenen la matriz de covarianzas (y otros resultados finales y/o intermedios) en una de ellas la calculada mediante software y la otra mediante hardware.
+\end{itemize} 
 
 
 \section{Conclusiones}

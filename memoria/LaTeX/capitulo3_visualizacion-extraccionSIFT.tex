@@ -5,8 +5,8 @@ Dejando asentado el fundamento teórico ofrecido por capítulos anteriores, se p
 
 Se cambia entonces la tonalidad del trabajo a partir del presente capítulo puesto que se trata de trabajo elaborado por el propio autor en vez de la constancia de investigación y explicaciones teóricas ya creadas y desarrolladas por terceros.
 
-\section{Generación de programas a partir de código en C++}
-La reproducción de los algoritmos de PCL está escrita en lenguaje C++, a partir del cual hay que crear un ejecutable. Se parte de un directorio de trabajo llamado, por ejemplo, ``prueba'' en el que se encuentran:
+\section{Generación de ejecutables a partir de código en C++}
+La reproducción de los algoritmos de PCL está escrita en lenguaje C++, a partir del cual hay que crear un ejecutable\cite{ejecutable}. Se parte de un directorio de trabajo llamado, por ejemplo, ``prueba'' en el que se encuentran:
 
 \begin{itemize}
 \item[•]prueba.cpp: Es el código escrito en C++ y que no tiene ninguna funcionalidad de por sí. 
@@ -53,7 +53,7 @@ Puesto que el código escrito en cualquier lenguaje de programación puede resul
 
  
 \section{Programa de visualización de nubes de puntos}
-Tal y como se ha mencionado en el apartado de objetivos del presente trabajo, la visualización de nubes se considera un hito transversal pero que a la vez involucra todo el proyecto ya que es la parte más amigable al ojo humano para estudiar resultados. De este modo se aprovecha el libre uso de la documentación y los tutoriales ofrecidos por PCL para modificar el código a favor de los objetivos planteados en el TFG.
+Tal y como se ha mencionado en el apartado de objetivos del presente trabajo, la visualización de nubes se considera un hito transversal pero que a la vez involucra todo el proyecto ya que es la parte más amigable al ojo humano para estudiar resultados. De este modo se aprovecha el libre uso de la documentación y los tutoriales ofrecidos por PCL\cite{modulo_io} para modificar el código a favor de los objetivos planteados en el TFG.
 %http://pointclouds.org/documentation/tutorials/
 
 Se recuerda que la visualización de nubes no puede llevarse a cabo en la FPGA sobre la que se implementan los objetivos principales del trabajo ya que ésta no dispone de interfaz gráfica.
@@ -63,7 +63,7 @@ Para la visualización de una nube de puntos con o sin sus puntos SIFT se necesi
 
 \begin{itemize}
 \item[•]Leer una única nube de puntos para mostrarla por pantalla como tal.
-\item[•]Leer dos nubes de puntos, en primer lugar una nube de puntos A y posteriormente una nube de puntos B que contiene los puntos SIFT de la nube A. De esta forma, se resaltan visualmente los puntos contenidos en la nube B y se visualiza junto a la nube A de modo que se pueden ver en conjunto todos los puntos de la nube original, tanto los que son keypoints como los que no. 
+\item[•]Leer dos nubes de puntos, en primer lugar una nube de puntos A y posteriormente una nube de puntos B que contiene los puntos SIFT de la nube A. De esta forma, se resaltan visualmente los puntos contenidos en la nube B y se visualiza junto a la nube A de modo que se pueden ver en conjunto todos los puntos de la nube original, tanto los que son keypoints como normales. 
 \end{itemize}
 
 Cuando la nube está cargada, utilizando el módulo visualization, se crea una nueva ventana que hace de visualizador y en la que aparecen los tres ejes coordenados XYZ y el conjunto de puntos que conforman la nube situados en el espacio respecto al origen de los mencionados ejes. Cuando el usuario lo desee, puede cerrar la ventana que el programa ha creado para terminarlo.
@@ -205,10 +205,10 @@ Por último, el bloqueo del programa en el visualizador hasta que el usuario lo 
 \fi
 
 
-\section{Programa principal: Extracción de puntos SIFT}
+\section{Programa de extracción de puntos SIFT}
 \subsubsection{Explicación en alto nivel}
-Se muestra en la figura \ref{fig:main_HL_diagram} el flujograma que representa el funcionamiento del programa principal capaz de extraer puntos SIFT dada una nube de puntos como entrada. Se aprecia que hay dos operaciones principales: extracción de normales y extracción de puntos SIFT. Más adelante se estudiarán los tiempos necesarios para efectuar cada una de las operaciones y se decidirá cuál es la de mayor carga computacional y por tanto cuál hay que optimizar.
-
+Se muestra en la figura \ref{fig:main_HL_diagram} el flujograma que representa el funcionamiento del programa principal capaz de extraer puntos SIFT dada una nube de puntos como entrada. Se aprecia que hay dos operaciones principales: extracción de normales\cite{normal} y extracción de puntos SIFT\cite{narf}. Más adelante se estudiarán los tiempos necesarios para efectuar cada una de las operaciones y se decidirá cuál es la de mayor carga computacional y por tanto cuál hay que optimizar.
+%http://pointclouds.org/documentation/tutorials/normal_estimation.php
 \begin{figure}
 \centering
 \includegraphics[scale=0.45]{main_HL_diagram}
@@ -268,7 +268,7 @@ A continuación, se implementa el método principal ``main'' y que ocupa el rest
 Primeramente, se comprueba si el número de argumentos es el correcto o se ha pedido ayuda con el argumento $-h$ y se muestran por pantalla el valor de los parámetros, ya sea el establecido con argumentos por línea de comandos o sus valores por defecto.
 Además, se crea la instancia $ne$ de la clase $NormalEstimation$ o $NormalEstimationOMP$ según el valor del parámetro correspondiente pasado por línea de comandos. La clase $NormalEstimation$ sirve para la estimación estándar de normales mientras que $NormalEstimationOMP$ permite realizar esta misma operación entre 6 y 8 veces más rápido para equipos con procesadores de 8 núcleos (queda excluida la FPGA usada en el presente trabajo). Esta clase es compatible con la estándar pero solamente se aprecian mejoras sustanciales en tiempo de computación si se dispone de un equipo suficientemente potente.
 
-%http://pointclouds.org/documentation/tutorials/normal_estimation.php
+
 
 \begin{lstlisting}[language=C++,breaklines]
 int main(int argc, char** argv)
@@ -348,7 +348,7 @@ Ahora se efectúa la lectura de la nube de puntos comprobando que se ha introduc
 \end{lstlisting}
   
   
-La siguiente parte del código se encarga de la extracción de normales en la superficie de la nube. Para ello se crea una instancia de la clase $PointCloud$ llamada $cloud\_normals$ y que va a almacenar una nube de puntos idéntica a la de entrada pero con información adicional sobre los vectores normales.
+La siguiente parte del código se encarga de la extracción de normales en la superficie de la nube\cite{extraccion_normales}. Para ello se crea una instancia de la clase $PointCloud$ llamada $cloud\_normals$ y que va a almacenar una nube de puntos idéntica a la de entrada pero con información adicional sobre los vectores normales.
 Retomando la instancia $ne$ de la clase $NormalEstimation$, se llama al método $setInputCloud$ para asignar a esta instancia la nube de puntos con la que va a trabajar, es decir, $cloud\_xyz$, para que extraiga de ella los vectores normales.
 Además, entran en juego un par de parámetros que se asignan con los métodos $setSearchMethod$ y $setRadiusSearch$ y sirven para establecer respectivamente el método de búsqueda de normales y el radio de la esfera (en centímetros) dentro de la que buscar normales, siendo el centro de la misma cada punto de la nube en cada iteración. Debe cumplirse que $radius\_search>0.$
 El método de búsqueda de normales se establece usando la instancia $tree\_n$ de la clase $KdTree$ y hace referencia a la partición o clasificación jerárquica del espacio en forma de árbol para agilizar las operaciones sobre la nube $cloud\_xyz$.\\
@@ -422,7 +422,7 @@ El siguiente bloque de código hace referencia a la extracción de puntos SIFT c
 \end{lstlisting}
 
 
-Aquí entran en juego más parámetros que en la extracción de normales. Como ya se ha indicado antes, se crea una instancia $tree$ de la clase $KdTree$ para la labor de partición y organización jerárquica del espacio en forma de árbol y se asigna a $sift$ mediante el método $setSearchMethod$.
+Aquí entran en juego más parámetros que en la extracción de normales. Como ya se ha indicado antes, se crea una instancia $tree$ de la clase $KdTree$\cite{kdtree} para la labor de partición y organización jerárquica del espacio en forma de árbol y se asigna a $sift$ mediante el método $setSearchMethod$.
 El método $setScales$ se encarga de asignar a $sift$ los parámetros $min\_scale$, $n\_octaves$ y $n\_scales\_per\_octave$ del tipo $float$, $int$ e $int$ respectivamente. Su significado es el siguiente:
 
 \begin{itemize}
@@ -431,7 +431,7 @@ El método $setScales$ se encarga de asignar a $sift$ los parámetros $min\_scal
 \item[•]$n\_scales\_per\_octave$: Es el número de desenfoques por octava.
 \end{itemize}
 
-Para comprender estos parámetros, hay que tener en cuenta que el algoritmo de extracción de puntos SIFT crea un espacio escalado a partir de la nube con la que trabaja. Esto se debe a que trata de reproducir la naturaleza ``multiescala'' de los objetos en la realidad, es decir, los detalles que se aprecian de un árbol, por ejemplo, varían según la distancia a la que se encuentra el observador: a cincuenta metros de distancia se precia la forma, tamaño y colores principales del árbol mientras que a un metro de distancia se pueden ver otros detalles como la rugosidad del tronco o forma de las hojas. Además, dependiendo del observador, el nivel de los detalles detectados en el árbol varían.
+Para comprender estos parámetros, hay que tener en cuenta que el algoritmo de extracción de puntos SIFT crea un espacio escalado a partir de la nube con la que trabaja. Esto se debe a que trata de reproducir la naturaleza ``multiescala''\cite{sift_escala} de los objetos en la realidad, es decir, los detalles que se aprecian de un árbol, por ejemplo, varían según la distancia a la que se encuentra el observador: a cincuenta metros de distancia se precia la forma, tamaño y colores principales del árbol mientras que a un metro de distancia se pueden ver otros detalles como la rugosidad del tronco o forma de las hojas. Además, dependiendo del observador, el nivel de los detalles detectados en el árbol varían.
 
 Considerando una nube de puntos en dos dimensiones como una imagen plana, para construir un espacio escalado en primer lugar se toma la nube de puntos original con la función que la describe: 
 $$f(x,y)$$ 
@@ -439,7 +439,7 @@ $$f(x,y)$$
 junto a la función Gaussiana:
 $$G(x,y,\sigma)=\frac{1}{2\pi\sigma^2}e^{-\frac{x^2+y^2}{2\sigma^2}}$$
 
-y se difumina, es decir, se hace una convolución: 
+y se difumina, es decir, se hace una convolución\cite{gaussiana} 
 $$L(\cdot,\cdot,\sigma)=G(\cdot,\cdot,\sigma)*f(\cdot,\cdot)$$
 
 La convolución se aplica para cada valor $x$ e $y$ siendo así el parámetro principal de la función Gaussiana la desviación típica $\sigma$ que se indica con $min\_scale$. Esta operación se repite un número de veces indicado por el parámetro $n\_scales\_per\_octave$ e incrementando en cada iteración el valor de la desviación típica y por tanto el nivel de desenfoque.

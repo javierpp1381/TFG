@@ -279,7 +279,7 @@ En los últimos veinte años, se han hecho grandes progresos en lo que a sensore
 Centrándose en los sensores láser, la adquisición de información cobra sentido cuando se estudia el comportamiento de los rayos de luz ya sea visible o infrarroja, por ejemplo. Para poder llevar a cabo el escaneo de objetos tridimensionales así como entornos, se usa el escaneo láser o también conocido como Light Detection And Ranging (LIDAR),originalmente se conocía por la unión de ``light'' ``radar'', 
 procedimiento que se originó a principios de la década de los sesenta tras la invención del láser y que permite medir distancias a un objetivo iluminándolo con pulsos de luz.
 
-Pero ¿Cómo se pueden medir distancias utilizando luz?\cite{lidar} el concepto entorno al que el escáner láser gira es el tiempo de vuelo. Esto quiere decir que se utiliza un dispositivo conocido como ``range finder'' capaz de medir con precisión el tiempo que transcurre desde que se emite un pulso de luz hasta que vuelve otra vez al mismo tras rebotar sobre el objeto que desea detectarse. Considerando entonces $c$ constante conocida que representa la velocidad de la luz, la distancia del escáner a un punto en concreto donde rebota un determinado pulso de luz puede determinarse como:
+Pero, ¿Cómo se pueden medir distancias utilizando luz?\cite{lidar} el concepto entorno al que el escáner láser gira es el tiempo de vuelo. Esto quiere decir que se utiliza un dispositivo conocido como ``range finder'' capaz de medir con precisión el tiempo que transcurre desde que se emite un pulso de luz hasta que vuelve otra vez al mismo tras rebotar sobre el objeto que desea detectarse. Considerando entonces $c$ constante conocida que representa la velocidad de la luz, la distancia del escáner a un punto en concreto donde rebota un determinado pulso de luz puede determinarse como:
 
 $$d = \frac{c*t}{2}$$
 
@@ -565,7 +565,6 @@ El alineamiento de nubes de puntos se basa en encontrar correspondencias entre l
 \caption{Ejemplo de alineamiento de dos nubes de puntos.}\label{fig:registration_bunny}
 \end{figure}
 
-
 Para conocer en mayor detalle el proceso de alineamiento, se muestra en la figura \ref{fig:registration_flow} el conjunto de pasos que se siguen desde que se indican las nubes de entrada hasta que se obtiene la fusión de las mismas.
 
 \begin{figure}
@@ -575,7 +574,7 @@ Para conocer en mayor detalle el proceso de alineamiento, se muestra en la figur
 \end{figure}
 
 \subsubsection{Extracción de puntos clave}
-Puesto que la adquisición de información ya se ha tratado, se explica ahora el proceso de estimación de puntos clave. Una vez se han adquirido dos o más nubes de puntos como entrada, se procede a extraer keypoints o puntos clave de cada una de ellas. Por keypoint, punto clave o punto de interés se entiende como un punto de la nube que representa características especiales de la misma tal y como son esquinas o bordes. Por lo tanto, las principales características de un keypoint pueden resumirse en los siguientes puntos:
+Puesto que la adquisición de información ya se ha tratado, se explica ahora el proceso de estimación de puntos clave\cite{puntos_clave}. Una vez se han adquirido dos o más nubes de puntos como entrada, se procede a extraer keypoints o puntos clave de cada una de ellas. Por keypoint, punto clave o punto de interés se entiende como un punto de la nube que representa características especiales de la misma tal y como son esquinas o bordes. Por lo tanto, las principales características de un keypoint pueden resumirse en los siguientes puntos:
 
 %https://en.wikipedia.org/wiki/Interest_point_detection
 
@@ -589,7 +588,7 @@ Puesto que la adquisición de información ya se ha tratado, se explica ahora el
 
 %COMPLETAR CON http://www.pointclouds.org/assets/uploads/cglibs13_features.pdf
 
-Por ejemplo, las esquinas detectadas en una nube de puntos o imagen pueden considerarse puntos clave pues muestran información característica sobre las delimitaciones del objeto detectado tal y como se aprecia en la figura \ref{fig:corner_detection}. Una esquina puede definirse como un punto cuyo entorno toma dos direcciones dominantes y diferentes entre sí, es decir, una esquina es la intersección de dos bordes siendo un borde un cambio brusco del brillo en la imagen o en el caso, la nube de puntos. Por lo tanto, las esquinas son consideradas puntos de interés invariantes a la traslación, rotación y cambios de iluminación. 
+Por ejemplo, las esquinas detectadas en una nube de puntos o imagen pueden considerarse puntos clave pues muestran información característica\cite{puntos_clave_pwp} sobre las delimitaciones del objeto detectado tal y como se aprecia en la figura \ref{fig:corner_detection}. Una esquina puede definirse como un punto cuyo entorno toma dos direcciones dominantes y diferentes entre sí, es decir, una esquina es la intersección de dos bordes siendo un borde un cambio brusco del brillo en la imagen o en el caso, la nube de puntos. Por lo tanto, las esquinas son consideradas puntos de interés invariantes a la traslación, rotación y cambios de iluminación. 
 Aunque las esquinas suponen una pequeña fracción de la nube, contienen la información más importante sobre la misma la cual se puede utilizar para labores de restauración de la nube o minimizar el tamaño o número de puntos.
 
 \begin{figure}
@@ -599,7 +598,7 @@ Aunque las esquinas suponen una pequeña fracción de la nube, contienen la info
 \end{figure}
 
 
-Se trabajará de ahora en adelante con los keypoints obtenidos mediante el algoritmo Scale Invariant Feature Transform (SIFT) utilizado en visión por computador para la extracción de características (features) locales en una imagen o nube de puntos. Las aplicaciones de este algoritmo son varias como reconocimiento de objetos, navegación, modelado 3D, reconocimiento de gestos o identificación de individuos. Este algoritmo es de alta robustez y consistencia porque puede identificar objetos y características incluso en ambientes borrosos, confusos o sometidos a oclusión parcial porque se trata de un algoritmo invariante a cambios de escala, orientación, cambios de iluminación y parcialmente invariante a la distorsión afín, es decir, puede trabajar con partes de una nube de puntos cuya única diferencia es su orientación mientras que el resto de atributos permanecen idénticos.
+Se trabajará de ahora en adelante con los keypoints obtenidos mediante el algoritmo Scale Invariant Feature Transform (SIFT)\cite{sift_opencv} utilizado en visión por computador para la extracción de características (features) locales en una imagen o nube de puntos. Las aplicaciones de este algoritmo son varias como reconocimiento de objetos, navegación, modelado 3D, reconocimiento de gestos o identificación de individuos. Este algoritmo es de alta robustez y consistencia porque puede identificar objetos y características incluso en ambientes borrosos, confusos o sometidos a oclusión parcial porque se trata de un algoritmo invariante a cambios de escala, orientación, cambios de iluminación y parcialmente invariante a la distorsión afín, es decir, puede trabajar con partes de una nube de puntos cuya única diferencia es su orientación mientras que el resto de atributos permanecen idénticos.
 
 Obtener correctamente los keypoints es de vital importancia ya que intentar alinear dos nubes considerando todos y cada uno de sus puntos puede suponer una carga computacional inconcebible para el caso de nubes de cientos de miles o incluso millones de puntos. 
 
@@ -607,7 +606,7 @@ Obtener correctamente los keypoints es de vital importancia ya que intentar alin
 El siguiente paso indicado en la figura \ref{fig:registration_flow} indica la estimación de los feature descriptors, es decir, los vectores donde se almacenan las características de la nube entorno a cada keypoint para poder compararlos entre sí. Por ejemplo se puede tener un vector que contiene normales a la superficie en cada keypoint o bien información sobre el brillo o luminosidad.
 
 \subsubsection{Estimación de correspondencias}
-Una vez que se dispone de dos o más vectores de características, cada uno de una nube de puntos diferente, se pasa al siguiente paso en el que hay que encontrar la información equivalente entre vectores, es decir, las características de las nubes que pueden solaparse ya que son muy parecidas o idénticas. Dependiendo del tipo de característica que se quiera alinear o unificar existen diferentes métodos para encontrar correspondencias:
+Una vez que se dispone de dos o más vectores de características, cada uno de una nube de puntos diferente, se pasa al siguiente paso en el que hay que encontrar la información equivalente entre vectores, es decir, las características de las nubes que pueden solaparse ya que son muy parecidas o idénticas. Dependiendo del tipo de característica que se quiera alinear o unificar existen diferentes métodos para encontrar correspondencias\cite{paper_registration}
 
 \begin{itemize}
 \item[•]Emparejamiento por fuerza bruta.
@@ -616,7 +615,7 @@ Una vez que se dispone de dos o más vectores de características, cada uno de u
 \item[•]Método de correspondencia recíproca con el que se buscan similitudes a la nube modelo en la nube fuente y viceversa quedándose solamente con la intersección.
 \end{itemize}
 
-No todas las correspondencias establecidas son correctas o de utilidad y es por esto por lo que hay que hacer una criba en el siguiente paso ya que las correspondencias inadecuadas pueden afectar negativamente a la transformación final. Para ello simplemente se puede utilizar una fracción del número total de correspondencias o utilizar algunos criterios de rechazo como los siguientes:
+No todas las correspondencias establecidas son correctas o de utilidad y es por esto por lo que hay que hacer una criba en el siguiente paso ya que las correspondencias inadecuadas pueden afectar negativamente a la transformación final. Para ello simplemente se puede utilizar una fracción del número total de correspondencias o utilizar algunos criterios de rechazo como los siguientes\cite{paper_registration}:
 
 \begin{itemize}
 \item[•]Rechazo basado en la \textbf{distancia}:
@@ -638,7 +637,7 @@ Estos criterios de criba de correspondencias pueden apreciarse visualmente en la
 \end{figure}
 
 \subsubsection{Estimación de la transformación}
-En el último paso, se lleva a cabo la transformación de la nube fuente siguiendo estos puntos:
+En el último paso, se lleva a cabo la transformación de la nube fuente siguiendo estos puntos\cite{paper_registration}:
 
 \begin{itemize}
 \item[•]Evaluar el error existente entre los puntos de la nube fuente y sus equivalentes en la nube modelo (por ejemplo, la distancia que los separa cuando ambas nubes se representan en el mismo espacio)
@@ -647,7 +646,7 @@ En el último paso, se lleva a cabo la transformación de la nube fuente siguien
 \item[•]Optimizar la estructura de puntos resultante eliminando información redundante, por ejemplo.
 \end{itemize}
 
-Existen tres principales tipos de errores entre un punto de la nube fuente y su equivalente en la nube objetivo y que pueden visualizarse en la figura \ref{fig:tipos_errores} 
+Existen tres principales tipos de errores\cite{paper_registration} entre un punto de la nube fuente y su equivalente en la nube objetivo y que pueden visualizarse en la figura \ref{fig:tipos_errores} 
 
 \begin{itemize}
 \item[•]Error de distancia punto a punto:
@@ -679,7 +678,7 @@ Donde $d_{k}^{(T)}=q_{k}-Tp_{k}$ son las distancias entre las correspondencias d
 \end{figure}
 
 
-Se han mencionado los términos ``iterativa'' y ``converger'' y es que la transformación de la nube fuente hasta llegar a parecerse la máximo posible a la nube modelo no es única, se lleva a cabo un proceso iterativo. 
+Se han mencionado los términos ``iterativa'' y ``converger'' y es que la transformación de la nube fuente hasta llegar a parecerse la máximo posible a la nube modelo no es única, se lleva a cabo un proceso iterativo\cite{paper_registration}. 
 
 Sean dos nubes de puntos $n-dimensionales$:
 
@@ -715,7 +714,7 @@ Se pueden visualizar estos criterios de convergencia en la figura \ref{fig:metod
 \begin{figure}
 \centering
 \includegraphics[scale=0.5]{metodos_convergencia}
-\caption{Criterios de convergencia para la transformación iterativa. Máximo número de iteraciones (a), límite absoluto de tranformación (b), límite relativo de tranformación (c), límite de iteraciones similares (d), error de mínimos cuadrados relativo (e) y error de mínimos cuadrados absoluto (f). MSE significa Minimum Square Error, es decir, erro de mínimos cuadrados. }\label{fig:metodos_convergencia}
+\caption{Criterios de convergencia para la transformación iterativa. Máximo número de iteraciones (a), límite absoluto de tranformación (b), límite relativo de tranformación (c), límite de iteraciones similares (d), error de mínimos cuadrados relativo (e) y error de mínimos cuadrados absoluto (f). MSE significa Minimum Square Error, es decir, error de mínimos cuadrados.}\label{fig:metodos_convergencia}
 \end{figure}
 
 %registration with the point cloud library ---> pdf

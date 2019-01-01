@@ -5,9 +5,6 @@ Habiendo tratado en el capítulo anterior el fundamento teórico que concierne a
 
 Además, se presentan los objetivos que se quieren alcanzar al término del TFG así como las herramientas necesarias para conseguirlo.
 
-
-
-
 \section{Objetivos del TFG}
 Una vez establecido el fundamento teórico relativo a las nubes de puntos en general y a la librería PCL se procede a continuación a exponer el motivo de este trabajo fin de grado.
 
@@ -20,9 +17,9 @@ Se tiene un doble objetivo que involucra por una parte la reproducción de algor
 
 Se tienen a continuación algunas notas importantes sobre el desarrollo del trabajo:
 \begin{itemize}
-\item[•] Para llevar a cabo el objetivo 2) se utilizarán conocimientos de High Level Synthesis (HLS) que se traduce como síntesis de alto nivel y puede definirse como un proceso automatizado que interpreta una descripción algorítmica de un deseado comportamiento y crea hardware digital que implementa dicho comportamiento. De esta manera se podrá crear una Intellectual Property (IP) que contiene la optimización mencionada para poder incluirla en la configuración de la FPGA.
+\item[•] Para llevar a cabo el objetivo 2) se utilizarán conocimientos de High Level Synthesis (HLS) que se traduce como síntesis de alto nivel y puede definirse como un proceso automatizado que interpreta una descripción algorítmica de un deseado comportamiento y crea hardware digital que implementa dicho comportamiento. De esta manera se podrá crear una Intellectual Property (IP) que contiene la optimización mencionada y así hacer uso de ella.
 \item[•] La plataforma sobre la que se comprobará la compleción de dichos objetivos es una FPGA cuyas características se exponen en el apartado \ref{herraminetas_hardware}
-\item[•] Como objetivo o punto adicional, se desarrolla también código en C++ para mostrar nubes de nubes de puntos por pantalla y así poder representar de una manera visual e intuitiva diferentes conjuntos de puntos y las operaciones efectuadas sobre los mismos. Es importante destacar que esta funcionalidad no funciona en la FPGA ya que no tiene soporte gráfico.
+\item[•] Como objetivo o punto adicional, se desarrolla también código en C++ para mostrar nubes de nubes de puntos por pantalla y así poder representar de una manera visual e intuitiva diferentes conjuntos de puntos y las operaciones efectuadas sobre los mismos. Es importante destacar que esta funcionalidad no funciona en la FPGA ya que no tiene interfaz gráfica.
 
 \end{itemize}
 
@@ -31,21 +28,18 @@ Se tienen a continuación algunas notas importantes sobre el desarrollo del trab
 \section{Descripción de herramientas para desarrollar el trabajo}
 Para realizar el presente trabajo se requieren herramientas que pueden clasificarse en dos tipos: software y hardware.
 
-
-
-
 \subsection{Herramientas software}
 \subsubsection{Máquina virtual}
-Se hace uso de una máquina virtual con Ubuntu 18.04.1 64 bits ya que es un sistema operativo que facilita la instalación y uso de PCL y otras librerías, no como Windows. 
+Se hace uso de una máquina virtual con Ubuntu\cite{ubuntu} 18.04.1 64 bits ya que es un sistema operativo que facilita la instalación y uso de PCL y otras librerías, no como Windows. 
 
-Por lo tanto, a partir de este punto, salvo que se mencione lo contrario, el sistema de archivos e instrucciones ejecutadas por línea de comandos así como demás características propias de diferentes sistemas operativos se refieren a un sistema operativo basado en linux.
+Por lo tanto, a partir de este punto, salvo que se mencione lo contrario, el sistema de archivos e instrucciones ejecutadas por línea de comandos así como demás características propias de diferentes sistemas operativos se refieren a un sistema operativo basado en Linux.
 
-La máquina virtual se crea haciendo uso del software VirtualBox el cual facilita la creación y personalización de máquinas virtuales no solamente basadas en linux sino en cualquier otro sistema operativo.
+La máquina virtual se crea haciendo uso del software VirtualBox\cite{virtualbox} el cual facilita la creación y personalización de máquinas virtuales no solamente basadas en Linux sino en cualquier otro sistema operativo.
 
 %https://www.virtualbox.org/
 
 \subsubsection{PCL}
-Dicho lo cual, disponiendo ya de una máquina virtual, es necesario instalar las librerías de PCL. Para ello se visita la web oficial de PCL pues ésta ofrece las instrucciones adecuadas. Para poder instalar PCL en linux se deben ejecutar los siguientes comandos:
+Una vez se dispone de la máquina virtual, es necesario instalar las librerías de PCL\cite{pcl_installation}. Para ello se visita la web oficial de PCL pues ésta ofrece las instrucciones adecuadas. Para poder instalar PCL en linux se deben ejecutar los siguientes comandos:
 
 %http://pointclouds.org/downloads/
 
@@ -67,25 +61,25 @@ Cuando la instalación está completa, se generan una serie de carpetas en el di
 \end{itemize}
 
 \subsubsection{Vivado Design Suite HLx Editions}
-Ya está instalado PCL en el sistema, ahora falta adquirir una herramienta adecuada para síntesis de software en hardware digital y configuración de FPGAs. Para ello se elige la herramienta vivado HLS de Xilinx. Accediendo a la web oficial de descargas se puede descargar la versión deseada de este software ya sea como un archivo comprimido TAR o un instalador web para mayor comodidad. En este caso se elige la versión 2017.1 puesto que es la disponible en el CEI.
+Ya está instalado PCL en el sistema, ahora falta adquirir una herramienta adecuada para síntesis de software en hardware digital y configuración de FPGAs. Para ello se elige la herramienta vivado HLS de Xilinx. Accediendo a la web oficial de descargas\cite{vivado_descarga} se puede descargar la versión deseada de este software ya sea como un archivo comprimido un instalador web para mayor comodidad. En este caso se elige la versión 2017.1
 
 %https://www.xilinx.com/support/download.html
 %https://www.xilinx.com/products/design-tools/vivado/integration/esl-design.html
 
 \subsection{Herramientas hardware} \label{herraminetas_hardware}
-La principal herramienta hardware de la que se dispone y sobre la cual se comprobarán los resultados de la aplicación de los objetivos del presente trabajo es una Pynq-Z1\cite{pynq} del modelo xc7z020clg400-1 que se puede ver en la figura \ref{fig:pynq}. Se trata de una FPPGA siglas del inglés ``Field programmable Gate Array'' y se trata, a grandes rasgos, de un dispositivo que combina recursos hardware y software para aprovechar la potencia de la ejecución en paralelo de tareas del primero y la flexibilidad, rutinas software y tareas relacionadas con sistemas operativos del segundo. Los recursos hardware quedan dentro de la Programmable Logic (PL) o lógica programable y los recursos software en el Processing System (PS)
+La principal herramienta hardware de la que se dispone y sobre la cual se comprobarán los resultados de la aplicación de los objetivos del presente trabajo es una Pynq-Z1\cite{pynq} del modelo xc7z020clg400-1 que se puede ver en la figura \ref{fig:pynq}. Se trata de una FPGA, siglas del inglés ``Field Programmable Gate Array'' y se trata, a grandes rasgos, de un dispositivo que combina recursos hardware y software para aprovechar la potencia de la ejecución en paralelo de tareas del primero y la flexibilidad, rutinas software y tareas relacionadas con sistemas operativos del segundo. Los recursos hardware quedan dentro de lo que se conoce como Programmable Logic (PL) o lógica programable y los recursos software en el Processing System (PS)
 
 Además, una FPGA dispone de dos capas: aplicación y configuración. La primera se compone de todos sus recursos hardware que han de ser configurados e interconectados haciendo uso de la segunda, la capa de configuración en la que se carga un ``bitstream'' es decir un archivo de configuración que se puede generar, entre otras formas, haciendo uso del programa Vivado de Xilinx y que permite para cada ``bitstream'' que se cargue, dotar a la FPGA de diferentes funcionalidades.
 
 
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[scale=1.0]{pynq}
   \caption{FPGA Pynq-Z1 xc7z020clg400-1 de Xilinx.}\label{fig:pynq}
 \end{figure}
 
-Se trata del soporte hardware para la tecnología PYNQ que es de libre uso. Ésta permite explotar las capacidades de los sistemas en chip programables sin tener que diseñar circuitos de lógica programable la cual ya ha sido diseñada usando el lenguaje de programación Python. De este modo, los circuitos de lógica programable son importados como librerías hardware y configurados según sus APIs de la misma forma que las librerías software son importadas y configuradas.
+La Pynq-Z1 es el soporte hardware para la tecnología PYNQ que es de libre uso. Ésta permite explotar las capacidades de los sistemas en chip programables sin tener que diseñar circuitos de lógica programable la cual ya ha sido diseñada usando el lenguaje de programación Python. De este modo, los circuitos de lógica programable son importados como librerías hardware y configurados según sus APIs de la misma forma que las librerías software son importadas y configuradas.
 
 Algunas de las características principales de la Pynq-Z1 son:
 
