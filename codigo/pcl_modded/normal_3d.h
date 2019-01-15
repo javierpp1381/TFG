@@ -44,9 +44,9 @@
 #include <pcl/features/feature.h>
 #include <pcl/common/centroid.h>
 
-//includes de javi
-#include <ctime>
-
+#include <stdlib.h>
+#include <iostream>
+#include <stdio.h>
 namespace pcl
 {
   /** \brief Compute the Least-Squares plane fit for a given set of points, and return the estimated plane
@@ -61,7 +61,7 @@ namespace pcl
     */
   template <typename PointT> inline bool
   computePointNormal (const pcl::PointCloud<PointT> &cloud,
-                      Eigen::Vector4f &plane_parameters, float &curvature, double &time_covariance, double &time_solvePlaneParameters)
+                      Eigen::Vector4f &plane_parameters, float &curvature)
   {
     // Placeholder for the 3x3 covariance matrix at each surface patch
     EIGEN_ALIGN16 Eigen::Matrix3f covariance_matrix;
@@ -69,7 +69,7 @@ namespace pcl
     Eigen::Vector4f xyz_centroid;
 
     if (cloud.size () < 3 ||
-        computeMeanAndCovarianceMatrix (cloud, covariance_matrix, xyz_centroid) == 0)
+       	computeMeanAndCovarianceMatrix (cloud, covariance_matrix, xyz_centroid) == 0)
     {
       plane_parameters.setConstant (std::numeric_limits<float>::quiet_NaN ());
       curvature = std::numeric_limits<float>::quiet_NaN ();
@@ -94,14 +94,15 @@ namespace pcl
     */
   template <typename PointT> inline bool
   computePointNormal (const pcl::PointCloud<PointT> &cloud, const std::vector<int> &indices,
-                      Eigen::Vector4f &plane_parameters, float &curvature, double &time_covariance, double &time_solvePlaneParameters)
+                      Eigen::Vector4f &plane_parameters, float &curvature)
   {
     // Placeholder for the 3x3 covariance matrix at each surface patch
     EIGEN_ALIGN16 Eigen::Matrix3f covariance_matrix;
     // 16-bytes aligned placeholder for the XYZ centroid of a surface patch
     Eigen::Vector4f xyz_centroid;
     if (indices.size () < 3 ||
-        computeMeanAndCovarianceMatrix (cloud, indices, covariance_matrix, xyz_centroid) == 0)
+        
+	computeMeanAndCovarianceMatrix (cloud, indices, covariance_matrix, xyz_centroid) == 0)
     {
       plane_parameters.setConstant (std::numeric_limits<float>::quiet_NaN ());
       curvature = std::numeric_limits<float>::quiet_NaN ();
@@ -243,18 +244,11 @@ namespace pcl
         */
       inline bool
       computePointNormal (const pcl::PointCloud<PointInT> &cloud, const std::vector<int> &indices,
-                          Eigen::Vector4f &plane_parameters, float &curvature, double &time_covariance, double &time_solvePlaneParameters)
+                          Eigen::Vector4f &plane_parameters, float &curvature)
       {
-	clock_t begin,end;
-	int computeCovariance; 
-	
-	begin = clock();
-        computeCovariance = computeMeanAndCovarianceMatrix (cloud, indices, covariance_matrix_, xyz_centroid_); 
-	end = clock();
-	time_covariance += double(end-begin)/CLOCKS_PER_SEC;
+        if (indices.size () < 3 ||
 
-	if (indices.size () < 3 ||
-            computeCovariance == 0)
+			computeMeanAndCovarianceMatrix (cloud, indices, covariance_matrix_, xyz_centroid_) == 0)
         {
           plane_parameters.setConstant (std::numeric_limits<float>::quiet_NaN ());
           curvature = std::numeric_limits<float>::quiet_NaN ();
@@ -262,10 +256,7 @@ namespace pcl
         }
 
         // Get the plane normal and surface curvature
-	begin = clock();
         solvePlaneParameters (covariance_matrix_, xyz_centroid_, plane_parameters, curvature);
-	end = clock();
-	time_solvePlaneParameters += double(end-begin)/CLOCKS_PER_SEC;
         return true;
       }
 
@@ -281,12 +272,37 @@ namespace pcl
         * \lambda_0 / (\lambda_0 + \lambda_1 + \lambda_2)
         * \f]
         */
+  
+  //------------------------------------------ESTE ES EL QUE USO----------------------------------------
       inline bool
       computePointNormal (const pcl::PointCloud<PointInT> &cloud, const std::vector<int> &indices,
-                          float &nx, float &ny, float &nz, float &curvature, double &time_covariance, double &time_solvePlaneParameters)
+                          float &nx, float &ny, float &nz, float &curvature)
+      
       {
-        if (indices.size () < 3 ||
-            computeMeanAndCovarianceMatrix (cloud, indices, covariance_matrix_, xyz_centroid_) == 0)
+	//-------------------------------------------------------------------
+	printf("normal_3d.h\n");
+	int *indices_int;
+	float *cloud_x, *cloud_y, *cloud_z;
+	cloud_x =(float*)malloc(sizeof(float)*cloud.points.size());
+	cloud_y =(float*)malloc(sizeof(float)*cloud.points.size());
+	cloud_z =(float*)malloc(sizeof(float)*cloud.points.size());
+	for(int i = 0; i < cloud.points.size(); i++){
+				cloud_x[i]=cloud.points[i].x;
+				cloud_y[i]=cloud.points[i].y;
+				cloud_z[i]=cloud.points[i].z;
+	}
+	indices_int = (int*)malloc(sizeof(int*)*indices.size());
+	for(int i=0;i<indices.size();i++) indices_int[i]=indices[i];
+
+	
+	printf("indices\n");
+	for(int i=0;i<indices.size();i++) printf("%d ",indices_int[i]);
+	printf("\n");
+       
+//	for(int i=0; i<cloud.points.size();i++) printf("%f %f %f \n",cloud_x[i], cloud_y[i], cloud_z[i]);
+	//------------------------------------------------------------------------------------------------
+	if (indices.size () < 3 ||
+		computeMeanAndCovarianceMatrix (cloud, indices, covariance_matrix_, xyz_centroid_) == 0)
         {
           nx = ny = nz = curvature = std::numeric_limits<float>::quiet_NaN ();
           return false;

@@ -61,7 +61,8 @@ pcl::NormalEstimation<PointInT, PointOutT>::computeFeature (PointCloudOut &outpu
   FILE *file;
  
   //save point cloud in txt
-  file_name = "/home/embedded/pcl/sift_keypoints/build/results/cloud.txt";
+  /*
+  file_name = "/home/jefelinux/pcl/sift_keypoints/build/results/cloud.txt";
   file=fopen(file_name,"w");
 	
   fprintf(file,"%d\n",surface_->points.size()); 
@@ -71,6 +72,26 @@ pcl::NormalEstimation<PointInT, PointOutT>::computeFeature (PointCloudOut &outpu
   }
   fclose(file);
   file=NULL;
+  */
+  FILE *file_x,*file_y,*file_z;
+  file_x=fopen("/home/jefelinux/pcl/sift_keypoints/build/results/cloud_x.txt","w");
+  file_y=fopen("/home/jefelinux/pcl/sift_keypoints/build/results/cloud_y.txt","w");
+  file_z=fopen("/home/jefelinux/pcl/sift_keypoints/build/results/cloud_z.txt","w");
+
+  fprintf(file_x,"%d\n",surface_->points.size()); 
+  fprintf(file_y,"%d\n",surface_->points.size()); 
+  fprintf(file_z,"%d\n",surface_->points.size()); 
+
+  for(size_t i=0; i<surface_->points.size();i++){
+  	fprintf(file_x,"%f \n",surface_->points[i].x);
+	fprintf(file_y,"%f \n",surface_->points[i].y);
+	fprintf(file_z,"%f \n",surface_->points[i].z);
+
+  }
+  fclose(file_x);
+  fclose(file_y);
+  fclose(file_z); 
+  file_x=NULL;file_y=NULL;file_z=NULL;
 
 
   // Save a few cycles by not checking every point for NaN/Inf values if the cloud is set to dense
@@ -86,7 +107,7 @@ pcl::NormalEstimation<PointInT, PointOutT>::computeFeature (PointCloudOut &outpu
         output.is_dense = false;
         continue;
       }
-	file_name ="/home/embedded/pcl/sift_keypoints/build/results/indices.txt";
+	file_name ="/home/jefelinux/pcl/sift_keypoints/build/results/indices.txt";
 
 	file = fopen(file_name,"w");
 	
@@ -104,7 +125,7 @@ pcl::NormalEstimation<PointInT, PointOutT>::computeFeature (PointCloudOut &outpu
                           output.points[idx].normal[0], output.points[idx].normal[1], output.points[idx].normal[2], output.points[idx].curvature);
 
 
-        file_name = "/home/embedded/pcl/sift_keypoints/build/results/covariance_matrix_PCL.txt";
+        file_name = "/home/jefelinux/pcl/sift_keypoints/build/results/covariance_matrix_PCL.txt";
 
 	file = fopen(file_name,"w");
 	fprintf(file,"%f %f %f\n",covariance_matrix_(0,0),covariance_matrix_(0,1),covariance_matrix_(0,2));
@@ -114,7 +135,7 @@ pcl::NormalEstimation<PointInT, PointOutT>::computeFeature (PointCloudOut &outpu
 	fclose(file);
 	file = NULL;
 
-	file_name="/home/embedded/pcl/sift_keypoints/build/results/centroid_PCL.txt";
+	file_name="/home/jefelinux/pcl/sift_keypoints/build/results/centroid_PCL.txt";
 
 	file=fopen(file_name,"w");
 
