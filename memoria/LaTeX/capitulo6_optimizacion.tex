@@ -110,9 +110,9 @@ A la hora de integrar en HLS el algoritmo de cálculo de matrices de covarianzas
 \end{itemize}
 
 \subsubsection{normal.cpp}
-Antes de escribir código en Vivado HLS para sintetizarlo en hardware se deben tener en cuenta las limitaciones del hardware respecto al software, es decir, ciertas prácticas software que no pueden sintetizarse en hardware o que dan problemas y por lo tanto hay que tomar diferentes aproximaciones para llevar a cabo el algoritmo deseado.
+Antes de escribir código en Vivado HLS para sintetizarlo en hardware se deben tener en cuenta las limitaciones del hardware respecto al software, es decir, ciertas prácticas software que no pueden sintetizarse en hardware o que dan problemas y por lo tanto hay que tomar diferentes aproximaciones para llevar a cabo el algoritmo deseado. 
 
-Las modificaciones realizadas sobre el método \textit{computeMeanAndCovarianceMatrix} son las siguientes:
+Por lo tanto, deben realizarse modificaciones sobre el método \textit{computeMeanAndCovarianceMatrix} de forma que el código original quede mínimamnete alterado posible así como lo más cerca posible de la realidad hardware para que esta metodología o método de modificación sea extensible al resto de bloques de sistema de visión:
 
 \begin{itemize}
 \item[•] Trabajar con matrices en software es sencillo ya que una matriz de números enteros, por ejemplo, se trata de un conjunto de vectores de la misma dimensión y que conforman las filas de la matriz. Para trabajar con ella se tiene un puntero que apunta a $n$ punteros a entero, siendo $n$ el número de filas. En hardware es más sencillo trabajar directamente con arreglos o arrays, es decir, solamente vectores o punteros a entero y no un puntero que apunta a otro puntero. Por lo tanto, la matriz de covarianzas de dimensión 3x3 se trata como un vector de nueve elementos y la nube de puntos con la que se trabaja se divide en tres vectores: si la nube de puntos en forma matricial tiene $n$ filas (número de puntos) y tres columnas (coordenadas x, y, z de cada punto) ahora se tienen las tres columnas como tres vectores independientes que se llamarán \textit{cloud\_x}, \textit{cloud\_y} y \textit{cloud\_z}.

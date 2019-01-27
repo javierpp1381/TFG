@@ -1,9 +1,11 @@
 \chapter{Análisis del algoritmo de extracción de normales usando PCL}
 
 \section{Introducción}
-Se ha justificado en el capítulo anterior que será el algoritmo de extracción de vectores normales el que se llevará a hardware digital para ser optimizado. 
+Se ha justificado en el capítulo anterior que será el algoritmo de extracción de vectores normales el que se llevará a hardware digital para ser acelerado. 
 \\
-En este capítulo, se va a estudiar en profundidad dicho algoritmo exclusivamente en el ámbito de la librería PCL ya que ésta se sirve de librerías externas como son principalmente Eigen y boost. Este estudio es necesario para comprender cómo funciona el algoritmo y así poder realizar la optimización del hardware digital obtenido a partir de éste.
+\\
+En este capítulo, se va a estudiar en profundidad dicho algoritmo exclusivamente en el ámbito de la librería PCL ya que ésta se sirve de librerías externas como son principalmente Eigen y boost. Este estudio es necesario para comprender cómo funciona el algoritmo y así poder realizar implementarlo en hardware digital.
+\\
 \\
 Por lo tanto, se explicará tanto en alto como en bajo nivel cómo PCL estima normales a la superficie de una nube de puntos de un modo semejante al que se ha utilizado para explicar fragmentos de código en capítulos anteriores. Finalmente, se mostrará el código en C++ que será modificado y sintetizado en hardware en el siguiente capítulo, empleando para ello herramientas de síntesis de alto nivel.
 
@@ -99,7 +101,7 @@ Se recuerda que el método que lleva a cabo el algoritmo de estimación es $comp
 
 \section{Estimación de normales a la superficie de una nube: bajo nivel}
 \subsection{Consideraciones previas}
-Para la explicación en bajo nivel (código en C++) de cómo PCL extrae las normales de una nube de puntos, se va a proceder de una forma mixta entre las explicaciones previas en alto y bajo nivel: se plantearán los flujogramas pertinentes cuyo contenido es la parte más relevante del código junto a las aclaraciones necesarias. Se procede de esta forma porque la estimación de normales no queda enteramente contenida al método $compute$ mencionado previamente, es decir, se hacen llamadas a otros métodos de la librería PCL o incluso de librerías externas y las cuales no se explicarán puesto que no son objetivo de optimización.
+Para la explicación en bajo nivel (código en C++) de cómo PCL extrae las normales de una nube de puntos, se va a proceder de una forma mixta entre las explicaciones previas en alto y bajo nivel: se plantearán los flujogramas pertinentes cuyo contenido es la parte más relevante del código junto a las aclaraciones necesarias. Se procede de esta forma porque la estimación de normales no queda enteramente contenida al método $compute$ mencionado previamente, es decir, se hacen llamadas a otros métodos de la librería PCL o incluso de librerías externas y las cuales no se explicarán puesto que no son objetivo de aceleración.
 \\
 \\
 Para llevar a cabo la explicación, se van a mostrar diferentes flujogramas conectados entre sí, cada uno con una funcionalidad y propósito propios, pero que en conjunto permiten reproducir el algoritmo de estimación de normales en una nube de puntos. Estos flujogramas se dividen en tres tipos: A, B y C que dividen la explicación en proceso de inicialización del algoritmo, estimación de normales y proceso de cierre del algoritmo, respectivamente.
@@ -120,7 +122,7 @@ Además, en los flujogramas, las partes del código en las que se centra la expl
 En la figura \ref{fig:compute_main} se puede ver el cuerpo del algoritmo de extracción de normales. El cuadro con un color naranja más intenso que los demás indica la llamada al método que desencadena todas las operaciones directamente relacionadas con la estimación de normales a parte de los procesos de inicialización y comprobaciones que efectúan los demás bloques. Tanto el desarrollo de la estimación de normales como los procesos auxiliares se implementan en flujogramas separados.
 
 \subsubsection{Flujogramas tipo A: proceso de inicialización}
-Este tipo de flujogramas se refieren al proceso de inicialización explicado en la figura \ref{fig:compute_main}. Este proceso está implementado en la librería de PCL pero no se explica ya que no es de interés para su optimización puesto que implementa operaciones triviales y simples tales como asignaciones y comprobaciones que ocupan una pequeña parte del código.
+Este tipo de flujogramas se refieren al proceso de inicialización explicado en la figura \ref{fig:compute_main}. Este proceso está implementado en la librería de PCL pero no se explica ya que no es de interés para su aceleración puesto que implementa operaciones triviales y simples tales como asignaciones y comprobaciones que ocupan una pequeña parte del código.
 
 
 %\begin{figure}[h!]
@@ -135,7 +137,7 @@ Este tipo de flujogramas se refieren al proceso de inicialización explicado en 
 La figura \ref{fig:compute_compute_feature} muestra el flujograma principal de tipo B que explica el bucle que recorre todos los puntos de la nube y dentro del cual se llaman a tres métodos: $searchForNeighbors$, $computePointNormal$ y $flipNormalTowardsViewpoint$. Estos métodos se explican en sus respectivos flujogramas.
 \\
 \\
-Las tres extensiones del flujograma B son B.1, B.2 y B.3 y explican, respectivamente, la búsqueda de vecinos entorno al punto estudiado, el cálculo de la normal en el punto estudiado y el proceso de cambiar de sentido la normal, si fuera necesario. No se muestran en detalle B.1 ni B.3 pues su contenido no está la librería de PCL para el caso del cálculo de vecinos y la operación de voltear un vector es bastante escueta y difícilmente optimizable. Por otra parte, se tiene el corazón del algoritmo en el flujograma B.2 que implementa el método \textit{computePointNormal}\cite{calculo_compute_point_normal} (en la figura \ref{fig:compute_computePointNormal}) y es el que llama a los métodos que explican el cálculo de la matriz de covarianzas (\textit{computeMeanAndCovarianceMatrix}) y la obtención del vector normal (\textit{solvePlaneParameters}) procesos que se explican en los flujogramas B.2.1 y B.2.2 respectivamente (figuras \ref{fig:compute_computeMean} y \ref{fig:compute_solvePlane})
+Las tres extensiones del flujograma B son B.1, B.2 y B.3 y explican, respectivamente, la búsqueda de vecinos entorno al punto estudiado, el cálculo de la normal en el punto estudiado y el proceso de cambiar de sentido la normal, si fuera necesario. No se muestran en detalle B.1 ni B.3 pues su contenido no está la librería de PCL para el caso del cálculo de vecinos y la operación de voltear un vector es bastante escueta y difícilmente acelerable. Por otra parte, se tiene el corazón del algoritmo en el flujograma B.2 que implementa el método \textit{computePointNormal}\cite{calculo_compute_point_normal} (en la figura \ref{fig:compute_computePointNormal}) y es el que llama a los métodos que explican el cálculo de la matriz de covarianzas (\textit{computeMeanAndCovarianceMatrix}) y la obtención del vector normal (\textit{solvePlaneParameters}) procesos que se explican en los flujogramas B.2.1 y B.2.2 respectivamente (figuras \ref{fig:compute_computeMean} y \ref{fig:compute_solvePlane})
 
 
 
@@ -146,7 +148,7 @@ Las tres extensiones del flujograma B son B.1, B.2 y B.3 y explican, respectivam
 %\end{figure}
 
 \subsubsection{Flujogramas tipo C: cierre del algoritmo}
-Por último, se tiene un proceso de cierre del algoritmo que enlaza con la comprobación de la superficie de la nube sobre la que se van a buscar normales y que es realizada en la parte de inicialización. No se dan más detalles sobre este proceso ya que es realizado en software y no es objetivo de optimización.
+Por último, se tiene un proceso de cierre del algoritmo que enlaza con la comprobación de la superficie de la nube sobre la que se van a buscar normales y que es realizada en la parte de inicialización. No se dan más detalles sobre este proceso ya que es realizado en software y no es objetivo de aceleración.
 
 
 %\begin{figure}[h!]
@@ -155,17 +157,17 @@ Por último, se tiene un proceso de cierre del algoritmo que enlaza con la compr
 %\caption{Flujograma C que explica la última operación antes del %cierre del algoritmo.}\label{fig:compute_deinit}
 %\end{figure}
 
-\section{Selección del fragmento del algoritmo para su optimización}
+\section{Selección del fragmento del algoritmo para su aceleración}
 Se ha mencionado previamente que el núcleo del algoritmo la estimación de vectores normales a la superficie lo conforman el cálculo de matrices de covarianzas y las componentes de cada vector normal.
 \\
 \\
-Se ha decidido seleccionar el cálculo de la matriz de covarianzas explicado en la figura \ref{fig:compute_computeMean} para su optimización puesto que se reduce a operaciones con vectores y matrices que no requieren el uso de librerías específicas a diferencia del cálculo de las componentes del vector normal que necesita utilizar Eigen y da lugar a elementos no sintetizables en hardware. 
+Se ha decidido seleccionar el cálculo de la matriz de covarianzas explicado en la figura \ref{fig:compute_computeMean} para su aceleración puesto que se reduce a operaciones con vectores y matrices que no requieren el uso de librerías específicas a diferencia del cálculo de las componentes del vector normal que necesita utilizar Eigen y da lugar a elementos no sintetizables en hardware. 
 
 \section{Conclusiones}
 
 Se ha explicado en este capítulo tanto a nivel teórico como práctico, es decir, haciendo uso de la librería PCL, la obtención de vectores normales a una superficie definida por una nube de puntos.
 \\
-En el siguiente capítulo, se mostrarán las modificaciones pertinentes al algoritmo de estimación de normales para que sea sintetizable en hardware y se explicará el proceso de optimización llevado a cabo.
+En el siguiente capítulo, se mostrarán las modificaciones pertinentes al algoritmo de estimación de normales para que sea sintetizable en hardware y se explicará el proceso de aceleración llevado a cabo.
 
 \section{Diagramas}
 

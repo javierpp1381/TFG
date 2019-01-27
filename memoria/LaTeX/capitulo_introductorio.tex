@@ -130,7 +130,7 @@ Una nube de puntos se puede definir como una estructura $P$ que representa un co
 \\
 Por lo tanto una nube de puntos\cite{point_cloud} es un conjunto desestructurado de puntos individuales sin relación alguna entre ellos, cuya
 posición, color\cite{point_cloud_rgb} y otro tipo de características tienen definición, edición y representación muy simple. Esto implica que sea realmente práctico y sencillo manejar una gran cantidad de puntos sin tener que preocuparse por
-conceptos como escala, rotaciones y demás relaciones entre diferentes puntos de un mismo objeto, siempre y cuando se tome la consideración más básica de la idea de nube de puntos.
+conceptos como escala, rotaciones y demás relaciones entre ellos, siempre y cuando se tome la consideración más básica de la idea de nube de puntos.
 \\
 \\
 %https://www.3deling.com/whta-is-a-point-cloud/
@@ -230,7 +230,7 @@ Una vez vistos ejemplos de nubes de puntos con la información suficiente para r
   \caption{Nube de puntos con reconstrucción de superficie representando un conejo con información de color.}\label{fig:bunny_colored}
 \endminipage\hfill
 \end{figure}
-Esta nube de puntos proviene del departamento de computación gráfica de la universidad de Stanford e hicieron falta un total de 10 escaneos con el escaner Cyberware 3030 MS\cite{escaner_cyberware} para llegar al resultado final. Para hacerse una idea del tipo de sensor utilizado, se tiene como dato relevante su precio de unos 10000 dólares teniendo en cuenta además de que se trata de un sensor antiguo pues el escaneo se produjo en 1993.
+Estas nube de puntos proviene del departamento de computación gráfica de la universidad de Stanford e hicieron falta un total de 10 escaneos con el escaner Cyberware 3030 MS\cite{escaner_cyberware} para llegar al resultado final. Para hacerse una idea del tipo de sensor utilizado, se tiene como dato relevante su precio de unos 10000 dólares teniendo en cuenta además de que se trata de un sensor antiguo pues el escaneo se produjo en 1993.
 \\
 \\
 Otro objeto de elevada complejidad que ha sido escaneado en las mismas condiciones que el mencionado conejo es el ángel Lucy\cite{pcl_conejo_stanford} mostrado en la figura \ref{fig:angel_lucy}. Un total de 47 escaneos dan lugar a un resultado final de 14027932 puntos y 28055742 triángulos y para este caso un peso de 508MB tomando la nube de puntos reconstruida y descomprimida.
@@ -274,7 +274,7 @@ En los últimos veinte años, se han hecho grandes progresos en lo que a sensore
 Existen dos métodos para generar nubes de puntos tridimensionales: escaneo en tres dimensiones con un láser y fotogrametría.
 
 \subsection{Escaneo en tres dimensiones: LIDAR}
-Centrándose en los sensores láser, la adquisición de información cobra sentido cuando se estudia el comportamiento de los rayos de luz ya sea visible o infrarroja, por ejemplo. Para poder llevar a cabo el escaneo de objetos tridimensionales así como entornos, se usa el escaneo láser o también conocido como Light Detection And Ranging (LIDAR)\cite{lidar},originalmente se conocía por la unión de ``light'' ``radar'', 
+Centrándose en los sensores láser, la adquisición de información cobra sentido cuando se estudia el comportamiento de los rayos de luz ya sea visible o infrarroja, por ejemplo. Para poder llevar a cabo el escaneo de objetos tridimensionales así como entornos, se usa el escaneo láser o también conocido como Light Detection And Ranging (LIDAR)\cite{lidar},originalmente se conocía por la unión de ``light'' y ``radar'', 
 procedimiento que se originó a principios de la década de los sesenta tras la invención del láser y que permite medir distancias a un objetivo iluminándolo con pulsos de luz.
 \\
 \\
@@ -316,7 +316,7 @@ Por otra parte, los sistemas de alta energía, requieren medidas de seguridad m�
 \\
 \\
 \fi
-En cuanto al control del láser\cite{control_laser}, en la mayoría de los escaneres, la dirección de emisión del rayo de luz es constante por lo que para poder apuntar el haz hacia la dirección deseada se hace uso de espejos. Esto implica lanzar el láser contra un espejo y controlar éste con diferentes movimientos de rotación; en un eje para un movimiento unidimensional (un grado de libertad) o en dos ejes para un alcance espacial total quedando fija la posición del foco emisor (dos grados de libertad)
+En cuanto al control del láser\cite{control_laser}, en la mayoría de los escaneres, la dirección de emisión del rayo de luz es constante por lo que para poder apuntar el haz hacia la dirección deseada se hace uso de espejos. Esto implica lanzar el láser contra un espejo y controlar éste con diferentes movimientos de rotación: en un eje para un movimiento unidimensional (un grado de libertad) o en dos ejes para un alcance espacial total quedando fija la posición del foco emisor (dos grados de libertad)
 
 \begin{figure}[!htb]
 \minipage{0.32\textwidth}
@@ -336,11 +336,11 @@ En cuanto al control del láser\cite{control_laser}, en la mayoría de los escan
 Una alternativa para controlar el rayo láser en dos dimensiones incumbe el uso de dos espejos montados en ejes ortogonales y entonces hacer movimientos de rotación entorno a un eje para cada uno de los espejos.
 
 \begin{figure}
-\minipage{0.45\textwidth}
+\minipage{0.42\textwidth}
   \includegraphics[width=\linewidth]{sensor_dos_espejos}
   \caption{Uso de dos espejos con un grado de libertad en cada uno y accionados con galvanómetros}\label{fig:sensor dos espejos}
 \endminipage\hfill
-\minipage{0.45\textwidth}
+\minipage{0.42\textwidth}
   \includegraphics[width=\linewidth]{movimiento_lidar_2D}
   \caption{Sensor lidar con dos grados de libertad.}\label{fig:movimiento lidar 2D}
 \endminipage\hfill
@@ -410,7 +410,7 @@ Como ejemplo, se muestra en la figura \ref{fig:cloud_photo} el resultado de apli
   \caption{Construcción de nube de puntos mediante fotogrametría. El cuadro rojo indica detección de falsos puntos clave debido a reflejos de la luz en el metal.}\label{fig:cloud_photo}
 \endminipage\hfill
 \end{figure}
-Las fotografías fueron tomadas con una Canon 550d\cite{canon} la cual es fácilmente adquirible a minoristas. Para ello, se movió la cámara alrededor del vehículo y se tomaban las respectivas fotografías para capturar todos sus puntos clave. se repitió este proceso posicionando la cámara a diferentes alturas.
+Las fotografías fueron tomadas con una Canon 550d\cite{canon} la cual es fácilmente adquirible a minoristas. Para ello, se movió la cámara alrededor del vehículo y se tomaban las respectivas fotografías para capturar todos sus puntos clave. Se repitió este proceso posicionando la cámara a diferentes alturas.
 \\
 \\
 El software utilizado para procesar las fotografías y obtener la nube de puntos es Agisofts photoscan\cite{agisoft}, un software de fotogrametría comercial. Este software ofrece gran control al usuario sobre la nube de puntos final pues puede determinar parámetros como el tamaño de la nube y su formato. Además, Agisofts photoscan puede no solamente producir una red de triángulos a partir de la nube estimada y añadirle textura sino exportar la nube de puntos para que pueda ser procesada con otro software.
@@ -439,16 +439,19 @@ Una aplicación muy extendida de LIDAR es el reconocimiento de terreno. Para ell
 \\
 \\
 Como contrapartida, hay que tener en cuenta que el sensor tiene una posición variable respecto al terreno ya que va embarcado en una aeronave. Para considerar esto en el resultado final de la nube de puntos generada, se ha de disponer de un sistema de navegación, para el posicionamiento del sensor con GPS por ejemplo, así como de una Intertial Measurement Unit (IMU) o unidad de medidas inerciales para obtener información sobre la orientación absoluta del sensor.
+\\
+\\
+En las figuras \ref{fig:airborne_lidar} y \ref{fig:airborne_city} se puede ver, respectivamente, una simplificación del proceso de digitalización de terreno mediante LIDAR y una zona urbana digitalizada con este método.
 
  
 \begin{figure}
 \minipage{0.45\textwidth}
   \includegraphics[width=\linewidth]{airborne_lidar}
-  \caption{Esquema de utilización del método lidar en una aeroanve}\label{fig:airborne_lidar}
+  \caption{Esquema de utilización del método LIDAR en una aeroanve}\label{fig:airborne_lidar}
 \endminipage\hfill
 \minipage{0.45\textwidth}
   \includegraphics[width=\linewidth]{airborne_city}
-  \caption{Entorno urbano recreado con el método lidar}\label{fig:airborne_city}
+  \caption{Entorno urbano recreado con el método LIDAR}\label{fig:airborne_city}
 \endminipage\hfill
 
 \end{figure}
@@ -480,7 +483,7 @@ Una nueva solución puede basarse en el escaneo del entorno con cámaras y escá
 En el trabajo realizado por Vivien Potó, József Árpád Somogyi, Tamás Lovas, Árpád Barsi\cite{vehiculos_autonomos} de la universidad de tecnología y economía de Budapest, se puede apreciar el escaneo realizado sobre las calles Piarista y Váci. Para ello se utilizó el escáner láser Faro Focus 3D 120S\cite{faro} y el sistema de mapeado móvil Riegl VMX-450\cite{riegl_450}.
 \\
 \\
-El escáner láser tiene un alcance máximo para tomar mediciones de 120m y puede generar 976000 puntos por segundo. Su ángulo de visión es de 360º horizontalmente y 305º en vertical. La resolución fue ajustada a 6mm a una distancia de 10m.
+El escáner láser tiene un alcance máximo para tomar mediciones de 120m y puede generar 976000 puntos por segundo. Su ángulo de visión es de 360º horizontalmente y 305º en vertical. La resolución fue ajustada a 6mm para una distancia de 10m.
 \\
 \\
 Para cubrir toda la calle, se realizaron 16 mediciones en total capturando por lo tanto más de 458 millones de puntos. En la figura \ref{fig:calles_budapest} se puede apreciar el fragmento de vía que fue escaneado y a partir del cual se generó la nube de puntos de la figura \ref{fig:calles_budapest_escaneo}
@@ -503,22 +506,21 @@ Para cubrir toda la calle, se realizaron 16 mediciones en total capturando por l
 
 \end{figure}
 
-\section{Procesamiento software de nubes de puntos}\label{librerias}
+\section{Procesamiento software de nubes de puntos y librería PCL}\label{librerias}
 Una vez se dispone de una nube de puntos, se precisa ahora de un mecanismo para trabajar con la información que hay en ella. El software existente para dicha tarea es diverso y no siempre gratuito. Como ejemplo se tiene RealityCapture\cite{realitycapture} o RC, un software capaz de crear modelos 3D a partir de fotografías o escaneos láser desordenados. Su alcance abarca aspectos como arte, arquitectura, escaneo completo del cuerpo humano, videojuegos, mapeado, efectos visuales y realidad virtual.
 \\
 Entre sus características se encuentran cálculo de redes de polígonos, coloreado, texturizado, georreferenciación, conversión de sistema de coordenadas, suavizado y operaciones de lectura/escritura de datos.
 \\
 \\
 Existe más software semejante al descrito y la inmensa mayoría tiene limitaciones de licencias o de hardware demasiado potente, y por lo tanto de un valor económico elevado, ya no solamente para un usuario particular sino para muchas universidades y empresas. Pero entre todos ellos destaca PCL, siglas que en inglés se refieren a Point Cloud Library\cite{PCL}, es decir, ``librería de nubes de puntos'' y que está escrita en lenguaje C++. Es una librería única, de gran escala y un proyecto abierto a la comunidad para procesamiento de imágenes y nubes de puntos tanto en 2D como en 3D. Es más, PCL se somete a los términos de la licencia Berkeley Software Distribution (BSD) lo que implica que es de uso libre tanto para fines comerciales como de investigación. 
+
+\iffalse
 \begin{figure}
 \centering
-\minipage{0.45\textwidth}
-  \includegraphics[width=\linewidth]{pcl_logo}
-  \caption{Logo de PCL}\label{fig:pcl logo}
-\endminipage\hfill
+\includegraphics[scale=0.45]{pcl_logo}
+\caption{Logo de PCL.}\label{fig:pcl_logo}
 \end{figure}
-\\
-\\
+\fi
 PCL dispone de multitud de herramientas para el procesamiento de nubes de puntos y dado que es una librería sometida a constante crecimiento y modificaciones, tener las herramientas debidamente organizadas y estructuradas es de vital importancia. Es por esto por lo que PCL tiene una organización en forma de módulos\cite{PCL_modulos}, es decir, el conjunto de herramientas se clasifica según su utilidad según la tabla \ref{tablaPCL}. Abordar en profundidad todos y cada uno de estos módulos conllevaría un trabajo demasiado extenso de modo que únicamente se entrará en detalle en aquellos que sean de utilidad para el propósito del presente trabajo y a lo cual se procede en el siguiente capítulo.
 \begin{table}
 \centering
@@ -642,7 +644,7 @@ A parte del módulo básico de lectura y escritura, PCL dispone del módulo regi
 Un ejemplo donde esto sucede es en la robótica móvil, dónde la realización de la reconstrucción del entorno se lleva a cabo mediante capturas sucesivas conforme el robot va avanzando, y por lo tanto, desde distintos puntos de vista.
 \\
 \\
-El alineamiento de nubes de puntos se basa en encontrar correspondencias entre las mismas, es decir, puntos semejantes, y entonces estimar transformaciones que trasladan y rotan las nubes de entrada para que queden alineadas en una sola. Se suele tomar una nube de entrada como modelo o referencia de forma que sean las demás nubes a las que se les aplica la transformación adecuada para que se parezcan al modelo y que se pueden denominar como nubes fuente. Se trata de una fácil tarea si se conocen de antemano las correspondencias entre las nubes de entrada. Un sencillo ejemplo visual de lo que puede hacer este módulo se muestra en la figura \ref{fig:registration_bunny} donde se tienen dos nubes de puntos muy parecidas que se fusionan en una. 
+El alineamiento de nubes de puntos se basa en encontrar correspondencias entre las mismas, es decir, puntos semejantes, y entonces estimar transformaciones que trasladan y rotan las nubes de entrada para que queden alineadas en una sola. Se suele tomar una nube de entrada como modelo o referencia de forma que sean las demás nubes a las que se les aplica la transformación adecuada para que se parezcan al modelo y que se pueden denominar como nubes fuente. Se trata de una tarea fácil si se conocen de antemano las correspondencias entre las nubes de entrada. Un sencillo ejemplo visual de lo que puede hacer este módulo se muestra en la figura \ref{fig:registration_bunny} donde se tienen dos nubes de puntos muy parecidas que se fusionan en una. 
 \begin{figure}
 \centering
 \includegraphics[scale=0.15]{registration_bunny}
@@ -688,7 +690,7 @@ Obtener correctamente los keypoints es de vital importancia ya que intentar alin
 El siguiente paso indicado en la figura \ref{fig:registration_flow} indica la estimación de los feature descriptors, es decir, los vectores donde se almacenan las características de la nube entorno a cada keypoint para poder compararlos entre sí. Por ejemplo se puede tener un vector que contiene normales a la superficie en cada keypoint o bien información sobre el brillo o luminosidad.
 
 \subsubsection{Estimación de correspondencias}
-Una vez que se dispone de dos o más vectores de características, cada uno de una nube de puntos diferente, se pasa al siguiente paso en el que hay que encontrar la información equivalente entre vectores, es decir, las características de las nubes que pueden solaparse ya que son muy parecidas o idénticas. Dependiendo del tipo de característica que se quiera alinear o unificar existen diferentes métodos para encontrar correspondencias\cite{paper_registration}
+Una vez que se dispone de dos o más vectores de características, cada uno de una nube de puntos diferente, se pasa al siguiente paso en el que hay que encontrar la información equivalente entre vectores, es decir, las características de las nubes que pueden solaparse ya que son muy parecidas o idénticas. Dependiendo del tipo de característica que se quiera alinear o unificar existen diferentes métodos para encontrar correspondencias\cite{paper_registration}:
 \begin{itemize}
 \item[•]Emparejamiento por fuerza bruta.
 \item[•]Búsqueda del vecino más cercano mediante la librería FLANN.
@@ -719,28 +721,28 @@ Estos criterios de criba de correspondencias pueden apreciarse visualmente en la
 En el último paso, se lleva a cabo la transformación de la nube fuente siguiendo estos puntos\cite{paper_registration}:
 \begin{itemize}
 \item[•]Evaluar el error existente entre los puntos de la nube fuente y sus equivalentes en la nube modelo (por ejemplo, la distancia que los separa cuando ambas nubes se representan en el mismo espacio)
-\item[•]Estimar una transformación rígida de la nube fuente (es decir, conservando distancias y ángulos dentro de la misma nube) para minimizar el error evaluado anteriormente.
+\item[•]Estimar una transformación rígida de la nube fuente conservando distancias y ángulos dentro de la misma para minimizar el error evaluado anteriormente.
 \item[•]Realizar la transformación de forma iterativa hasta converger a una solución aceptable.
 \item[•]Optimizar la estructura de puntos resultante eliminando información redundante, por ejemplo.
 \end{itemize}
 
 Existen tres principales tipos de errores\cite{paper_registration} entre un punto de la nube fuente y su equivalente en la nube objetivo y que pueden visualizarse en la figura \ref{fig:tipos_errores} 
 \begin{itemize}
-\item[•]Error de distancia punto a punto:
+\item[•]\textbf{Error de distancia punto a punto:}
 Se trata de la distancia geométrica entre el punto de la nube fuente y su equivalente en la nube objetivo.
 
 $$E_{punto\_punto}(T)=\sum_{k=1}^{N} w_{k}\| Tp_{k}-q_{k} \|^2$$
 
 Donde $T$ es la matriz de transformación, $(p_{k},q_{k})$ es la $k-ésima$ de las $N$ correspondencias entre los puntos $p_k$ de la nube fuente y los puntos $q_k$ de la nube modelo. De forma opcional, se puede añadir un factor de peso $w_k$ para dar más o menos importancia a la correspondencia de puntos.
 
-\item[•]Error de distancia punto a plano:
+\item[•]\textbf{Error de distancia punto a plano:}
 Es la distancia entre el punto de la nube fuente y el plano descrito por su punto equivalente junto a su vector normal en la nube objetivo.
 
 $$E_{punto\_plano}(T)=\sum_{k=1}^{N} w_{k} ((Tp_{k}-q_{k})n_{qk}) ^2$$
 
 Donde $T$ es la matriz de transformación, y $n_{qk}$ es el vector normal al plano.
 
-\item[•]Error generalizado:
+\item[•]\textbf{Error generalizado:}
 Es una generalización de los dos tipos de errores anteriores. Utiliza las matrices de covarianzas de los entornos locales del punto de la nube fuente y su equivalente de la nube objetivo para alinear superficies en vez de puntos.
 
 $$E_{generalizado}(T)=\sum_{k=1}^{N} {{d_{k}}^{(T)}}^{T} (\Sigma_{k}^{Q}+T\Sigma_{k}^{P}T^{T})^{-1}d_{k}^{(T)}$$
@@ -765,23 +767,23 @@ Dicha transformación puede definirse de la siguiente manera:
 $$E(R,\Delta T)=\sum_{i=1}^{N_m} \sum_{j=1}^{N_f} w_{ij} \| m_{i}-(Rf_{j}+\Delta t)  \|^2$$
 \\
 \\
-con $w_{ij}$ como el peso que determina la dureza de la transformación pues permite que haya transformación si $w_{ij}=1$ o la anula en el caso $w_{ij}=0$
+con $R$ la matriz de rotación, $\Delta T$ la matriz de traslación y $w_{ij}$ como el peso que determina la dureza de la transformación pues permite que haya transformación si $w_{ij}=1$ o la anula en el caso $w_{ij}=0$
 \\
 \\
 Esta operación se repite una y otra vez hasta que se converge a una solución y para lo cual hay que establecer criterios como los siguientes:
 
 \begin{itemize}
-\item[•]Máximo número de iteraciones:
+\item[•]\textbf{Máximo número de iteraciones:}
 Se ajusta un valor de máximo número de iteraciones dependiendo de la complejidad de la nube. Si se supera dicho valor, significa que la operación de alineamiento diverge.
 \item[•]Límite absoluto de transformación: 
 La iteraciones se detienen cuando se alcanza un valor de transformación lo suficientemente diferente a la transformación inicial
-\item[•]Límite relativo de transformación:
+\item[•]\textbf{Límite relativo de transformación:}
 Indica la máxima diferencia entre una operación de transformación y la anterior. Si se supera dicho límite se detiene el proceso de transformación.
-\item[•]Límite de iteraciones similares: 
+\item[•]\textbf{Límite de iteraciones similares: }
 Se establece un límite de iteraciones para las cuales la transformación realizada es muy similar, es decir, las operaciones de trasformación a penas efectúan cambios en la nube.
-\item[•]Error de mínimos cuadrados relativo:
+\item[•]\textbf{Error de mínimos cuadrados relativo:}
 Este criterio es similar al de límite relativo de transformación pero utilizando el valor del error de mínimos cuadrados en vez de el de transformación.
-\item[•]Error de mínimos cuadrados absoluto:
+\item[•]\textbf{Error de mínimos cuadrados absoluto:}
 Este criterio es similar al de límite absoluto de transformación pero utilizando el valor del error de mínimos cuadrados en vez de el de transformación.
 \end{itemize}
 
@@ -808,7 +810,7 @@ Una vez establecido el fundamento teórico relativo a las nubes de puntos en gen
 \\
 Un sistema embebido puede definirse como un sistema de computación diseñado para realizar una tarea o tipo de tarea en concreto, es decir, necesidades específicas, todo lo contrario a lo que es un ordenador de propósito general (ordenador personal por ejemplo) que está diseñado para cumplir un amplio rango de necesidades muy diferentes entre sí y con diferentes requerimientos de recursos.
 \\
-A efectos prácticos, un sistema embebido se suele construir con una placa base sobre la que se colocan todos sus recursos hardware (procesador, comunicaciones, almacenamiento etc.) mientras que un ordenador de propósito general dispone de una placa base con una serie de componentes básicos pero además dispone de otros elementos como una tarjeta gráfica, fuente de alimentación o memoria en forma modular, es decir, intercambiables y mucho más potentes.
+A efectos prácticos, un sistema embebido se suele construir con una tarjeta de circuito impreso sobre la que se colocan todos sus recursos hardware (procesador, comunicaciones, almacenamiento etc.) mientras que un ordenador de propósito general dispone de una placa base con una serie de componentes básicos además de otros elementos como una tarjeta gráfica, fuente de alimentación o memoria en forma modular, es decir, intercambiables y mucho más potentes.
 \\
 \\
 Por lo tanto, cabe esperar de un sistema embebido una lista de recursos muy limitados para el procesamiento software pero con la posibilidad de acelerarlos mediante el hardware del que dispone ya que puede configurarse para realizar tareas específicas.
@@ -823,7 +825,7 @@ Para conseguir el objetivo mencionado, el autor divide su trabajo en las siguien
 
 Se tienen a continuación algunas notas importantes sobre el desarrollo del trabajo:
 \begin{itemize}
-\item[•] Para llevar a cabo el paso 2) previamente mencionado se utilizarán conocimientos de High Level Synthesis (HLS) que se traduce como síntesis de alto nivel y puede definirse como un proceso automatizado que interpreta una descripción algorítmica de un deseado comportamiento implementado en un lenguaje de programación de alto nivel (C o C++ por ejemplo) y crea hardware digital que implementa dicho comportamiento. De esta manera se podrá crear una Intellectual Property (IP) que contiene la optimización mencionada y así hacer uso de ella.
+\item[•] Para llevar a cabo el paso 2) previamente mencionado se utilizarán conocimientos de High Level Synthesis (HLS) que se traduce como síntesis de alto nivel y puede definirse como un proceso automatizado que interpreta una descripción algorítmica de un deseado comportamiento descrito en un lenguaje de programación de alto nivel (C o C++ por ejemplo) y crea hardware digital que implementa dicho comportamiento. De esta manera se podrá crear una Intellectual Property (IP) que contiene la aceleración mencionada y así hacer uso de ella sobre el sistema embebido.
 \item[•] La plataforma sobre la que se comprobará la compleción de dichos objetivos es un sistema en chip: chip que integra un conjunto de elementos prefabricados con funcionalidades diferentes y que pueden verse como cajas negras que tienen señales de entrada y salida. Entre los elementos que pueden incluirse en un sistema en chip destacan el microprocesador, bloque FPGA, memoria, reloj o interfaces de comunicación.
 \item[•] Como objetivo adicional, haciendo uso de la librería PCL se reproduce sobre un ordenador de propósito general el algoritmo correspondiente de PCL para visualizar nubes de puntos por pantalla así como sus keypoints. Este objetivo se lleva a cabo para poder apreciar visualmente los resultados de la extracción de puntos clave y no se desarrolla sobre el sistema embebido puesto que no dispone de interfaz gráfica debido a sus recursos limitados.
 \end{itemize}
@@ -835,22 +837,26 @@ La memoria del trabajo consta de un total de seis capítulos teniendo en cada un
 \textbf{Capítulo 2, Herramientas empleadas para la realización del proyecto:} Se trata de la definición y explicaciones necesarias sobre las herramientas utilizadas durante el desarrollo del trabajo y por qué se han elegido.
 \\
 \\
-\textbf{Capítulo 3, Implementación de un pipeline de visulaización y procesamiento de nubes de puntos:} En este capítulo se explica en primer lugar como es el proceso de compilación de bibliotecas de PCL para proceder a la explicación sobre cómo,haciendo uso de esta biblioteca, se han implementado dos programas que sirven para visualizar nubes de puntos y extraer keypoints de las mismas.
+\textbf{Capítulo 3, Implementación de un pipeline de visulaización y procesamiento de nubes de puntos:} En este capítulo se explica en primer lugar como es el proceso de compilación de bibliotecas de PCL para proceder a la explicación sobre cómo, haciendo uso de esta biblioteca, se han implementado dos programas que sirven para visualizar nubes de puntos y extraer keypoints de las mismas.
 \\
 \\
-\textbf{Capítulo 4, Medición de tiempos de ejecución de algoritmos de PCL:} Se explica de forma genérica cómo se pueden medir tiempos de ejecución de algoritmos haciendo uso de las librerías adecuadas  y se aplica dicho método a los algoritmos involucrados en el proceso de extracción de keypoints. Esto sirve para determinar cuál es el de mayor carga computacional, esto es, el que más tiempo lleva su ejecución para ser implementado en hardware digital y así poder ser acelerado.
+\textbf{Capítulo 4, Medición de tiempos de ejecución de algoritmos de PCL:} Se explica de forma genérica cómo se pueden medir tiempos de ejecución de algoritmos en C++ haciendo uso de las librerías adecuadas  y se aplica dicho método a los algoritmos involucrados en el proceso de extracción de keypoints. Esto sirve para determinar cuál es el de mayor carga computacional, esto es, el que más tiempo lleva su ejecución para ser implementado en hardware digital y así poder ser acelerado.
 \\
 \\
 \textbf{Capítulo 5, Análisis del algoritmo de extracción de normales usando PCL:} Se explica el algoritmo seleccionado en el capítulo anterior tanto a nivel teórico como práctico (cómo se lleva a cabo en la librería PCL) Una vez comprendido el funcionamiento del mencionado algoritmo, se selecciona una de sus partes para ser acelerada mediante hardware digital atendiendo a los criterios de la síntesis de alto nivel y la aceleración de operaciones triviales y de elevada frecuencia como puede ser cualquier tipo de operación aritmética.
 \\
 \\
-\textbf{Capítulo 6, Implementantación de la extracción de normales mediante síntesis de alto nivel:} En este capítulo se plantea el fragmento original (de la librería PCL) del algoritmo seleccionado para su aceleración para contrastar los cambios que el autor efectúa sobre el mismo para que se posible su sínteis en hardware digital. A continuación, se explica cómo se genera la IP de aceleración de hardware utilizando Vivado así como se muestra la validación de su correcto funcionamiento sobre la placa de desarrollo Pynq-Z1.
+\textbf{Capítulo 6, Implementantación de la extracción de normales mediante síntesis de alto nivel:} En este capítulo se plantea el fragmento original (de la librería PCL) del algoritmo seleccionado para su aceleración y así poder contrastar los cambios que el autor efectúa sobre el mismo para que sea posible su sínteis en hardware digital. A continuación, se explica cómo se genera la IP de aceleración de hardware utilizando Vivado así como se muestra la validación de su correcto funcionamiento sobre la placa de desarrollo Pynq-Z1.
 
 
 \section{Conclusiones}
 Se ha visto en este capítulo el fundamento teórico referente a las nubes de puntos, el software existente para procesar tal información y algunas de sus capacidades.
 \\
-Además, se han expuesto los objetivos del presente trabajo y en el siguiente capítulo se explicarán las principales herramientas necesarias para conseguirlos.
+\\
+Además, se han expuesto los objetivos del presente trabajo y una organización de la memoria para conocer lo que se cabe esperar de cada capítulo.
+\\
+\\
+En el siguiente capítulo se explicarán las principales herramientas necesarias para conseguir los objetivos propuestos.
 
 
 

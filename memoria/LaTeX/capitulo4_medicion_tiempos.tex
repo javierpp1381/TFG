@@ -4,10 +4,8 @@
 Se ha mencionado en el capítulo anterior que el programa de extracción de puntos SIFT, $sift\_keypoints$, consta de dos partes principales: extracción de vectores normales a la superficie descrita por la nube de puntos con la que trabaja el programa y la estimación de puntos SIFT.
 \\
 En este capítulo se va a presentar una forma sencilla de medir los tiempos de ejecución de estos dos procesos a la vez que se modifican los parámetros que influyen en ellos. De este modo, se determinará si será la estimación de normales o la de puntos SIFT la parte que necesita ser llevada a hardware digital para su posterior aceleración y así determinar cual de estas dos operaciones se implementarán sobre un sistema embebido. \\
-La medición de tiempos de ejecución se va a medir con el procesador de la Zynq que se corresponde al PS, Processing System, es decir la parte de software sobre la que corre Linux.
+La medición de tiempos de ejecución se va a medir con el procesador de la Zynq que se corresponde al PS, Processing System, es decir la parte de software sobre la que corre el sistema operativo Debian basado en Linux.
  
-
-
 
 \section{Método de medición}
 Trabajando en C++, como de costumbre, el proceso de medición de tiempos requiere la inclusión de la librería $ctime$\cite{ctime} para lo cual se tiene al comienzo del código en $sift\_keypoints.cpp$.
@@ -25,6 +23,7 @@ Incluída esta librería, ahora se pueden utilizar las variables globales $begin
 
 Las variables $begin$ y $end$ son del tipo $clock\_t$ y sirven para almacenar cuentas de $clock ticks$ o ciclos de reloj mientras que $elapsed\_sec$ es del tipo double para almacenar el tiempo en segundos que ha llevado efectuar una determinada operación.
 \\
+\\
 El proceso de medición de tiempo es el siguiente: 
 
 \begin{lstlisting}[language=C++,breaklines]
@@ -38,7 +37,7 @@ El proceso de medición de tiempo es el siguiente:
 En primer lugar se almacena en $begin$ el valor devuelto por la función $clock()$, es decir, número de ciclos de reloj que han transcurrido en el procesador desde el inicio del programa hasta su llamada. A continuación se ejecuta el proceso cuyo tiempo de ejecución desea medirse, para este ejemplo, $process()$. Ahora se actúa de manera similar al primer paso ya que se almacena en $end$ el número de ciclos transcurridos desde el inicio del programa hasta la llamada a $clock()$ después de haberse ejecutado $process()$. Por último, se toma la diferencia de ciclos entre $end$ y $begin$ para saber cuántos ciclos ha tomado la ejecución de $process()$. Sin embargo esto no es una medida directa de tiempo por lo que el número de ciclos de ejecución del proceso se divide entre una constante, el número de ciclos que duran un segundo y que se llama $CLOCKS\_PER\_SEC$. El resultado se almacena en $elapsed\_sec$ como el tiempo en segundos que ha durado la ejecución de $process()$.
 
 
-\section{Resultados de medición de rendimiento sobre el PL de la FPGA}
+\section{Resultados de mediciones sobre el PL de la FPGA}
 Una vez visto cómo se mide el tiempo de ejecución de cualquier parte del programa $sift\_keypoints$, se rescata parte del código del mismo para indicar qué procesos van a ser sometidos a esta medición.
 \\
 \\
@@ -84,6 +83,7 @@ Se procede de forma análoga en la parte de estimación de puntos SIFT puesto qu
 \end{lstlisting}
 
 Los tiempos de ejecución del método $compute$ se almacenan para la parte de estimación de normales y puntos SIFT respectivamente en $normal\_estimation\_time$ y $sift\_estimation\_time$.
+\\
 \\
 Para aportar mayor amplitud a los resultados obtenidos, se van a realizar mediciones de los métodos $compute$ variando ligeramente los parámetros involucrados en la estimación de normales y puntos SIFT. Como se ha visto en los fragmentos de código mostrados, la extracción de normales varía con un único parámetro, $radius\_search$, mientras que el tiempo de estimación de keypoints varía con $min\_scale$, $n\_octaves$ y $n\_scales\_per\_octave$. El parámetro $min\_contrast$ no afecta al tiempo del proceso estudiado porque, como se ha visto anteriormente, indica la dureza de la criba de los puntos SIFT ya obtenidos.
 \\
@@ -182,11 +182,11 @@ Por último, se varía $n\_scales\_per\_octave$ y se estudia el tiempo de estima
 
 
 \section{Análisis de los resultados}
-Habiendo estudiado cómo varían los tiempos de estimación de normales y puntos SIFT con diferentes valores de los parámetros implicados se concluye que se va a desarrollar hardware digital para su posterior optimización sobre la parte de extracción de vectores normales a la superficie representada por la nube de puntos. Esto es así por dos motivos:
+Habiendo estudiado cómo varían los tiempos de estimación de normales y puntos SIFT con diferentes valores de los parámetros implicados se concluye que se va a desarrollar hardware digital para su posterior aceleración sobre la parte de extracción de vectores normales a la superficie representada por la nube de puntos. Esto es así por dos motivos:
 
 \begin{itemize}
 \item[•]Para nubes de puntos de gran tamaño, el tiempo de estimación de normales predomina sobre el de extracción de puntos SIFT.
 \item[•]La estimación de vectores normales solamente varía bajo la acción de un parámetro, $radius\_search$, mientras que la extracción de puntos SIFT es más flexible puesto que está sometida a tres parámetros: $min\_scale$, $n\_octaves$ y $n\_scales\_per\_octave$.
 \end{itemize}
 
-En el siguiente capítulo se estudiará a fondo el algoritmo de extracción de normales puesto que se ha elegido éste para ser optimizado tras su síntesis en hardware digital.
+En el siguiente capítulo se estudiará a fondo el algoritmo de extracción de normales puesto que se ha elegido éste para ser acelerado tras su síntesis en hardware digital.

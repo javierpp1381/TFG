@@ -3,7 +3,7 @@
 \section{Introducción}
 Dejando asentado el fundamento teórico ofrecido por capítulos anteriores, se plantea a continuación la posibilidad de no solamente disponer de un sistema de visión funcionando sobre un dispositivo embebido sino además poder realizar mediciones sobre el rendimiento de los algoritmos de PCL involucrados. Para ello, se crean dos programas de modo que, dada una nube de puntos, uno de ellos pueda visualizarla y otro extraiga keypoints.
 \\
-Como ya se ha mencionado en el primer capítulo de la memoria, el objetivo principal del trabajo es la reproducción de un algoritmo de extracción de keypoints sobre un sistema embebido. Como objetivo adicional, se reproduce también la visualización de nubes de puntos usando PCL. Es por esto por lo que se crean los dos programas mencionados y que se explican en el presente capítulo.
+Como ya se ha mencionado en el primer capítulo de la memoria, el objetivo principal del trabajo es la reproducción de un algoritmo de extracción de keypoints sobre un sistema embebido. Como objetivo adicional, se reproduce también la visualización de nubes de puntos usando PCL. Es por esto por lo que se crean los dos programas mencionados y que se explican en el presente capítulo. Se recuerda que la relación entre ambos es la de poder visualizar los resultados del programa de extracción de keypoints en un ordenador de propósito general.
 \\
 Se describe a partir de este punto el trabajo técnico realizado por el propio autor como desarrollo del proyecto.
 
@@ -63,12 +63,13 @@ Puesto que el código escrito en cualquier lenguaje de programación puede resul
 Tal y como se ha mencionado en el apartado de objetivos del presente trabajo, la visualización de nubes se considera un hito transversal pero que a la vez involucra todo el proyecto ya que es la parte más amigable al ojo humano para estudiar resultados. De este modo se aprovecha el libre uso de la documentación y los tutoriales ofrecidos por PCL\cite{modulo_io} para modificar el código a favor de los objetivos planteados en el TFG.
 %http://pointclouds.org/documentation/tutorials/
 \\
+\\
 Para la visualización de nubes se parte de un ejemplo disponible en la documentación de PCL\cite{ejemplo_visualizacion} que permite ver la representación espacial de la nube de puntos así como añadir esferas en cualquiera de ellos y así distinguirlos de los demás.
 \\
 De este modo, el autor del presente trabajo ha introducido las modificaciones necesarias para no solamente visualizar una nube de puntos como tal, sino resaltar en ella sus puntos SIFT.
 \\
 \\
-Se recuerda que la visualización de nubes no puede llevarse a cabo en la FPGA sobre la que se implementan los objetivos principales del trabajo ya que ésta no dispone de interfaz gráfica.
+Se recuerda que la visualización de nubes no puede llevarse a cabo en el sistema embebido ya que no dispone de interfaz gráfica.
 
 \subsubsection{Explicación en alto nivel}
 Para la visualización de una nube de puntos con o sin sus puntos SIFT se necesita en primer lugar hacer uso del módulo IO que permite leer nubes en formato PCD. De esta forma se puede:
@@ -90,7 +91,7 @@ Este conjunto de operaciones se muestran en su explicación en alto nivel en for
 
 
 \subsubsection{Explicación en bajo nivel}
-Puesto que el código del programa de visualización no es objeto de estudio ni optimización se prescinde de su explicación detallada.
+Puesto que el código del programa de visualización no es objeto de estudio ni aceleración se prescinde de su explicación detallada.
 
 \iffalse
 El ejecutable generado dentro de la carpeta build se llama $visualization$ y para hacer funcionar el programa se han de ejecutar estos comandos, que en caso de querer visualizar una nube sin sus puntos SIFT:
@@ -226,8 +227,9 @@ Se muestra en la figura \ref{fig:main_HL_diagram} el flujograma que representa e
 \end{figure}
 
 \subsubsection{Explicación en bajo nivel}\label{sift_bajo_nivel}
-En esta ocasión se parte de un ejemplo disponible en la documentación de PCL\cite{ejemplo_narf} en el que se extraen otro tipo de keypoints, NARF en vez de SIFT. Para conseguir extraer puntos SIFT, el autor de este trabajo ha hecho uso de la documentación disponible en cuanto a la clase y métodos de C++ correspondientes\cite{sift_class} y ha procedido de forma análoga al ejemplo mencionado efectuando las modificaciones pertinentes, entre ellas, eliminando la visualización de los keypoints resultantes (de ello ya se encarga el programa de visualización ya visto en el apartado \ref{visualizacion}) y haciendo uso de otro tipo de parámetros necesarios para la estimación.
-
+En esta ocasión se parte de un ejemplo disponible en la documentación de PCL\cite{ejemplo_narf} en el que se extraen otro tipo de keypoints, NARF en vez de SIFT. Para conseguir extraer puntos SIFT, el autor de este trabajo ha hecho uso de la documentación disponible en cuanto a la clase y métodos de C++ correspondientes\cite{sift_class} y ha procedido de forma análoga al ejemplo mencionado efectuando las modificaciones pertinentes, entre ellas, eliminando la visualización de los keypoints resultantes (de ello se encarga el programa de visualización ya visto en el apartado \ref{visualizacion}) y haciendo uso de otro tipo de parámetros necesarios para la estimación.
+\\
+\\
 En lo que al código se refiere, tras la inclusión de las librerías necesarias, se crean e inicializan el conjunto de variables globales necesarias cuyo significado se explicará según se requiera su uso a lo largo del programa. Como excepción se tienen las variables $begin$, $end$, $elapsed\_sec$, $normal\_estimation\_time$ y $sift\_estimation\_time$ que sirven para medir tiempos de ejecución por lo que entrarán en juego en el siguiente capítulo.
 
 \begin{lstlisting}[language=C++,breaklines]
@@ -479,7 +481,7 @@ El último parámetro es $min\_contrast$ y se asigna a $sift$ con $setMinimumCon
 Con $setInputCloud$ se asigna a $sift$ la nube con la que se trabaja que en el caso es $cloud\_normals$ y con $compute$ se efectúa la operación de extracción de puntos SIFT para almacenarlos en $result$.
 \\
 %http://aishack.in/tutorials/harris-corner-detector/
-Si la nube $result$ no está vacía, es decir, se han encontrado puntos SIFT, se crea una instancia de una nueva nube llamada $keypoints$ y en ella se almacenan los puntos SIFT encontrados con información adicional sobre su color pues ahora serán verdes para su fácil visualización. Después, se guarda la nube $keypoints$ en formato PCD bajo el nombre $sift\_keypoints.pcd$. Esta nube de puntos junto a la nube de la que procede y de la cual se han extraído los keypoints, son las que se utilizan en el visualizador par apreciar una nube de puntos con sus keypoints resaltados.
+Si la nube $result$ no está vacía, es decir, se han encontrado puntos SIFT, se crea una instancia de una nueva nube llamada $keypoints$ y en ella se almacenan los puntos SIFT encontrados con información adicional sobre su color pues ahora serán verdes para su fácil visualización. Después, se guarda la nube $keypoints$ en formato PCD bajo el nombre $sift\_keypoints.pcd$. Esta nube de puntos junto a la nube de la que procede y de la cual se han extraído los keypoints, son las que se utilizan en el visualizador para apreciar una nube de puntos con sus keypoints resaltados.
 \\
 \\
 \iffalse
@@ -543,7 +545,7 @@ Por último, a efectos de registrar resultados, se abre o crea un fichero de tex
 No se muestra el código de estas últimas operaciones ya que es trivial pues solamente se guardan resultados en ficheros de texto y variables.
 
 \section{Ejemplos}
-Los siguientes ejemplos se han llevado a cabo en una computadora que dispone de máquina virtual con sistema operativo basado en linux. Todos ellos son reproducibles en la FPGA salvo los de visualización como ya se ha indicado previamente.
+Los siguientes ejemplos se han llevado a cabo en una computadora que dispone de máquina virtual con sistema operativo basado en linux. Todos ellos son reproducibles en el sistema embebido salvo los de visualización como ya se ha indicado previamente.
 
 Se van a tomar como ejemplos tres nubes de puntos:
 \begin{itemize}
@@ -631,12 +633,12 @@ $$-parametro1 \;\; valor1 \;\; -parametro2 \;\; valor2 \;\; ... \;\; -parametroN
 \\
 La lista de parámetros que acepta el programa y las variables internas a las que se refieren (ya explicadas en el apartado \ref{sift_bajo_nivel}) es la siguiente:
 \begin{itemize}
-\item[•]-r: $radius\_search$, por defecto 0.02
-\item[•]-ms: $min\_scale$, por defecto 0.01
-\item[•]-no: $n\_octaves$, por defecto 3
-\item[•]-ns: $n\_scales\_per\_octave$, por defecto 4
-\item[•]-mc: $min\_contrast$, por defecto 0.001
-\item[•]-h: help, muestra ayuda por pantalla
+\item[•]\textbf{-r:} $radius\_search$, por defecto 0.02
+\item[•]\textbf{-ms:} $min\_scale$, por defecto 0.01
+\item[•]\textbf{-no:} $n\_octaves$, por defecto 3
+\item[•]\textbf{-ns:} $n\_scales\_per\_octave$, por defecto 4
+\item[•]\textbf{-mc:} $min\_contrast$, por defecto 0.001
+\item[•]\textbf{-h:} help, muestra ayuda por pantalla
 \end{itemize}
 Además, para ejecutar este programa, se requieren permisos de super usuario debido a operaciones de escritura tal y como son modificar y guardar un fichero de texto o guardar nubes de puntos en formato PCD.
 \\

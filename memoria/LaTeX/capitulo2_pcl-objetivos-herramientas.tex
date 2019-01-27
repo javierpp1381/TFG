@@ -14,7 +14,7 @@ Se hace uso de una máquina virtual con Ubuntu\cite{ubuntu} 18.04.1 64 bits ya q
 Por lo tanto, a partir de este punto, salvo que se mencione lo contrario, el sistema de archivos e instrucciones ejecutadas por línea de comandos así como demás características propias de diferentes sistemas operativos se refieren a un sistema operativo basado en Linux.
 \\
 \\
-La máquina virtual se crea haciendo uso del software VirtualBox\cite{virtualbox} el cual facilita la creación y personalización de máquinas virtuales no solamente basadas en Linux sino en cualquier otro sistema operativo.
+La máquina virtual se crea haciendo uso del software VirtualBox\cite{virtualbox} el cual facilita la creación y personalización de máquinas virtuales no solamente basadas en Linux sino con cualquier otro sistema operativo.
 
 %https://www.virtualbox.org/
 \subsubsection{Instalación de PCL sobre un sistema basado en Linux}
@@ -29,6 +29,9 @@ sudo apt-get install libpcl-all
 \end{verbatim}
 
 La primera instrucción añade al sistema el repositorio en el que se encuentra la librería, el segundo busca actualizaciones disponibles y por último se procede a la instalación de todos los archivos actualizados.
+\\
+\\
+Estas mismas instrucciones sirven para instalar PCL en el sistema embebido ya que dispone del un sistema operativo Debian basado en Linux.
 \\
 \\
 Cuando la instalación está completa, se generan una serie de carpetas en el directorio /usr/include:
@@ -101,20 +104,31 @@ Volviendo al ámbito de un SoPC, los núcleos del procesador pueden ser ``hard''
 \\
 Los núcleos duros ofrecen mucho rendimiento y bajo consumo pero son poco flexibles en cuanto a las operaciones que pueden realizar. Éstos forman el Processing System (PS) dentro del SoPC para rutinas software y operaciones relacionadas con sistemas operativos a diferencia de la FPGA que conforma la Programmable Logic (PL) que sirve para implementar lógica de alta velocidad y aritmética.
 \\
+La PS dispone en este caso de un sistema operativo Debian basado en el kernel Linux.
+\\
 \\
 %http://ati.ttu.ee/~alsu/05_SoPC.pdf
-Algunas de las características principales de la FPGA integrada en el SoPC mencionado son:
+Algunas de las características principales del PS del SoPC mencionado son:
 
 \begin{itemize}
-\item[•] Un procesador Cortex-A9 de dos núcleos a 650MHz y arquitectura ARM
+\item[•] Un procesador Cortex-A9 de dos núcleos a 650MHz y arquitectura ARM, memoria caché de nivel 1 con 32KB pra instrucciones y 32KB para datos, memoria caché de nivel 2 y 512KB y memoria en chip de 256KB.
 \item[•] Controlador de memoria DDR3 con 8 canales DMA y 4 puertos esclavos AXI3 de alto rendimiento
-\item[•] Periféricos con elevado ancho de banda: Ethernet 1G, USB 2.0 y SDIO 
+\item[•] Controladores de periféricos con elevado ancho de banda: Ethernet 1G, USB 2.0 y SDIO 
 \item[•] Controlador de periféricos de gran ancho de banda: SPI, UART, CAN, I2C
 \item[•] 630KB de memoria RAM
 \item[•] Programable con JTAG, flash Quad-SPI y tarjeta micro SD
 \end{itemize}
 
 
+En cuanto al PL del SoPC:
+\begin{itemize}
+\item[•] 13300 secciones de lógica cada una de ellas con 4 Look-up Tables de 6 entradas y 8 Flip-Flops
+\item[•]630KB de block RAM
+\item[•] 4 unidades de administración de la señal de reloj
+\item[•] 220 secciones de lógica para procesamiento de señales digitales (DSP)
+\item[•] Conversor analógico-digital integrado en chip (XADC)
+
+\end{itemize}
 
 \section{Conclusiones}
 Con el cierre del presente capítulo terminan las explicaciones fundamentales tanto de teoría como de herramientas que permiten estructurar el TFG.
