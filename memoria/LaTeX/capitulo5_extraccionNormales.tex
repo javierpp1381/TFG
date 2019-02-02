@@ -99,7 +99,7 @@ Se retoma brevemente el código que permite calcular las normales en una nube de
 Se recuerda que el método que lleva a cabo el algoritmo de estimación es $compute$ y cuyo contenido, explicado en alto nivel, es el que muestra el flujograma de la figura \ref{fig:compute_alto_nivel_diagram}.
 
 
-\section{Estimación de normales a la superficie de una nube: bajo nivel}
+\section{Estimación de normales a la superficie de una nube: bajo nivel}\label{normales_bajo_nivel}
 \subsection{Consideraciones previas}
 Para la explicación en bajo nivel (código en C++) de cómo PCL extrae las normales de una nube de puntos, se va a proceder de una forma mixta entre las explicaciones previas en alto y bajo nivel: se plantearán los flujogramas pertinentes cuyo contenido es la parte más relevante del código junto a las aclaraciones necesarias. Se procede de esta forma porque la estimación de normales no queda enteramente contenida al método $compute$ mencionado previamente, es decir, se hacen llamadas a otros métodos de la librería PCL o incluso de librerías externas y las cuales no se explicarán puesto que no son objetivo de aceleración.
 \\

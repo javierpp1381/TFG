@@ -3,20 +3,20 @@
 \contentsline {section}{\numberline {1.1}Concepto de nube de puntos}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Sensores para captura de nubes de puntos}{5}{section.1.2}
 \contentsline {subsection}{\numberline {1.2.1}Escaneo en tres dimensiones: LIDAR}{5}{subsection.1.2.1}
-\contentsline {subsubsection}{Control de la luz utilizada por el sensor}{6}{section*.12}
+\contentsline {subsubsection}{Control de la luz utilizada por el sensor}{6}{section*.13}
 \contentsline {subsection}{\numberline {1.2.2}Fotogrametr\IeC {\'\i }a}{6}{subsection.1.2.2}
-\contentsline {subsubsection}{Comparaci\IeC {\'o}n entre LIDAR y fotogrametr\IeC {\'\i }a}{8}{section*.16}
+\contentsline {subsubsection}{Comparaci\IeC {\'o}n entre LIDAR y fotogrametr\IeC {\'\i }a}{8}{section*.17}
 \contentsline {subsection}{\numberline {1.2.3}Aplicaciones potenciales de nubes de puntos}{8}{subsection.1.2.3}
-\contentsline {subsubsection}{Reconocimiento de terreno}{8}{section*.17}
-\contentsline {subsubsection}{Veh\IeC {\'\i }culos aut\IeC {\'o}nomos}{8}{section*.19}
+\contentsline {subsubsection}{Reconocimiento de terreno}{8}{section*.18}
+\contentsline {subsubsection}{Veh\IeC {\'\i }culos aut\IeC {\'o}nomos}{8}{section*.20}
 \contentsline {section}{\numberline {1.3}Procesamiento software de nubes de puntos y librer\IeC {\'\i }a PCL}{10}{section.1.3}
 \contentsline {section}{\numberline {1.4}Capacidades de PCL}{12}{section.1.4}
 \contentsline {subsection}{\numberline {1.4.1}M\IeC {\'o}dulo IO}{12}{subsection.1.4.1}
 \contentsline {subsection}{\numberline {1.4.2}M\IeC {\'o}dulo registration}{13}{subsection.1.4.2}
-\contentsline {subsubsection}{Extracci\IeC {\'o}n de puntos clave}{14}{section*.25}
-\contentsline {subsubsection}{Estimaci\IeC {\'o}n de descriptores de caracter\IeC {\'\i }sticas}{16}{section*.27}
-\contentsline {subsubsection}{Estimaci\IeC {\'o}n de correspondencias}{16}{section*.28}
-\contentsline {subsubsection}{Estimaci\IeC {\'o}n de la transformaci\IeC {\'o}n}{17}{section*.30}
+\contentsline {subsubsection}{Extracci\IeC {\'o}n de puntos clave}{14}{section*.26}
+\contentsline {subsubsection}{Estimaci\IeC {\'o}n de descriptores de caracter\IeC {\'\i }sticas}{16}{section*.28}
+\contentsline {subsubsection}{Estimaci\IeC {\'o}n de correspondencias}{16}{section*.29}
+\contentsline {subsubsection}{Estimaci\IeC {\'o}n de la transformaci\IeC {\'o}n}{17}{section*.31}
 \contentsline {section}{\numberline {1.5}Objetivos del TFG}{19}{section.1.5}
 \contentsline {section}{\numberline {1.6}Organizaci\IeC {\'o}n de la memoria}{21}{section.1.6}
 \contentsline {section}{\numberline {1.7}Conclusiones}{21}{section.1.7}
@@ -24,20 +24,20 @@
 \contentsline {section}{\numberline {2.1}Introducci\IeC {\'o}n}{23}{section.2.1}
 \contentsline {section}{\numberline {2.2}Descripci\IeC {\'o}n de herramientas para desarrollar el trabajo}{23}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Herramientas software}{23}{subsection.2.2.1}
-\contentsline {subsubsection}{M\IeC {\'a}quina virtual}{23}{section*.33}
-\contentsline {subsubsection}{Instalaci\IeC {\'o}n de PCL sobre un sistema basado en Linux}{23}{section*.34}
-\contentsline {subsubsection}{Vivado Design Suite HLx Editions}{24}{section*.35}
+\contentsline {subsubsection}{M\IeC {\'a}quina virtual}{23}{section*.34}
+\contentsline {subsubsection}{Instalaci\IeC {\'o}n de PCL sobre un sistema basado en Linux}{23}{section*.35}
+\contentsline {subsubsection}{Vivado Design Suite HLx Editions}{24}{section*.36}
 \contentsline {subsection}{\numberline {2.2.2}Herramientas hardware}{25}{subsection.2.2.2}
 \contentsline {section}{\numberline {2.3}Conclusiones}{26}{section.2.3}
-\contentsline {chapter}{\numberline {3}Implementaci\IeC {\'o}n de un pipeline de visulaizaci\IeC {\'o}n y procesamiento de nubes de puntos}{27}{chapter.3}
+\contentsline {chapter}{\numberline {3}Desarrollo de un pipeline de visualizaci\IeC {\'o}n y procesamiento de nubes}{27}{chapter.3}
 \contentsline {section}{\numberline {3.1}Introducci\IeC {\'o}n}{27}{section.3.1}
 \contentsline {section}{\numberline {3.2}Compilaci\IeC {\'o}n de bibliotecas PCL mediante CMake}{27}{section.3.2}
 \contentsline {section}{\numberline {3.3}Programa de visualizaci\IeC {\'o}n de nubes de puntos}{28}{section.3.3}
-\contentsline {subsubsection}{Explicaci\IeC {\'o}n en alto nivel}{29}{section*.38}
-\contentsline {subsubsection}{Explicaci\IeC {\'o}n en bajo nivel}{29}{section*.40}
+\contentsline {subsubsection}{Explicaci\IeC {\'o}n en alto nivel}{29}{section*.39}
+\contentsline {subsubsection}{Explicaci\IeC {\'o}n en bajo nivel}{29}{section*.41}
 \contentsline {section}{\numberline {3.4}Programa de extracci\IeC {\'o}n de puntos SIFT}{29}{section.3.4}
-\contentsline {subsubsection}{Explicaci\IeC {\'o}n en alto nivel}{29}{section*.41}
-\contentsline {subsubsection}{Explicaci\IeC {\'o}n en bajo nivel}{29}{section*.43}
+\contentsline {subsubsection}{Explicaci\IeC {\'o}n en alto nivel}{29}{section*.42}
+\contentsline {subsubsection}{Explicaci\IeC {\'o}n en bajo nivel}{29}{section*.44}
 \contentsline {section}{\numberline {3.5}Ejemplos}{36}{section.3.5}
 \contentsline {subsection}{\numberline {3.5.1}Visualizaci\IeC {\'o}n de nubes}{37}{subsection.3.5.1}
 \contentsline {subsection}{\numberline {3.5.2}Extracci\IeC {\'o}n de puntos SIFT}{37}{subsection.3.5.2}
@@ -55,20 +55,23 @@
 \contentsline {section}{\numberline {5.4}Estimaci\IeC {\'o}n de normales a la superficie de una nube: bajo nivel}{53}{section.5.4}
 \contentsline {subsection}{\numberline {5.4.1}Consideraciones previas}{53}{subsection.5.4.1}
 \contentsline {subsection}{\numberline {5.4.2}Cuerpo principal del algoritmo}{54}{subsection.5.4.2}
-\contentsline {subsubsection}{Flujogramas tipo A: proceso de inicializaci\IeC {\'o}n}{54}{section*.60}
-\contentsline {subsubsection}{Flujogramas tipo B: estimaci\IeC {\'o}n de normales}{54}{section*.61}
-\contentsline {subsubsection}{Flujogramas tipo C: cierre del algoritmo}{54}{section*.62}
+\contentsline {subsubsection}{Flujogramas tipo A: proceso de inicializaci\IeC {\'o}n}{54}{section*.61}
+\contentsline {subsubsection}{Flujogramas tipo B: estimaci\IeC {\'o}n de normales}{54}{section*.62}
+\contentsline {subsubsection}{Flujogramas tipo C: cierre del algoritmo}{54}{section*.63}
 \contentsline {section}{\numberline {5.5}Selecci\IeC {\'o}n del fragmento del algoritmo para su aceleraci\IeC {\'o}n}{54}{section.5.5}
 \contentsline {section}{\numberline {5.6}Conclusiones}{54}{section.5.6}
 \contentsline {section}{\numberline {5.7}Diagramas}{55}{section.5.7}
-\contentsline {chapter}{\numberline {6}Implementantaci\IeC {\'o}n de la extracci\IeC {\'o}n de normales mediante s\IeC {\'\i }ntesis de alto nivel}{63}{chapter.6}
+\contentsline {chapter}{\numberline {6}Extracci\IeC {\'o}n de normales mediante s\IeC {\'\i }ntesis de alto nivel}{63}{chapter.6}
 \contentsline {section}{\numberline {6.1}Introducci\IeC {\'o}n}{63}{section.6.1}
 \contentsline {section}{\numberline {6.2}Algoritmo original de estimaci\IeC {\'o}n de matrices de covarianzas}{63}{section.6.2}
 \contentsline {section}{\numberline {6.3}Algoritmo modificado e integraci\IeC {\'o}n en Vivado HLS}{64}{section.6.3}
-\contentsline {subsubsection}{normal.cpp}{65}{section*.70}
-\contentsline {subsubsection}{normal\_tb.cpp}{66}{section*.71}
-\contentsline {subsubsection}{normal.hpp}{67}{section*.73}
+\contentsline {subsubsection}{normal.cpp}{65}{section*.71}
+\contentsline {subsubsection}{normal\_tb.cpp}{67}{section*.72}
+\contentsline {subsubsection}{normal.hpp}{68}{section*.74}
 \contentsline {subsection}{\numberline {6.3.1}Generaci\IeC {\'o}n de s\IeC {\'\i }ntesis e IP}{68}{subsection.6.3.1}
-\contentsline {section}{\numberline {6.4}Integraci\IeC {\'o}n de la IP en Vivado}{68}{section.6.4}
-\contentsline {section}{\numberline {6.5}Validacion del IP hardware sobre la FPGA}{69}{section.6.5}
-\contentsline {section}{\numberline {6.6}Conclusiones}{71}{section.6.6}
+\contentsline {section}{\numberline {6.4}Implementaci\IeC {\'o}n de la IP en Vivado}{69}{section.6.4}
+\contentsline {section}{\numberline {6.5}Validacion del IP hardware sobre la FPGA}{70}{section.6.5}
+\contentsline {chapter}{\numberline {7}Finalizaci\IeC {\'o}n del trabajo}{75}{chapter.7}
+\contentsline {section}{\numberline {7.1}Conclusiones y trabajo futuro}{75}{section.7.1}
+\contentsline {section}{\numberline {7.2}Organizaci\IeC {\'o}n del trabajo}{75}{section.7.2}
+\contentsline {section}{\numberline {7.3}Presupuesto}{78}{section.7.3}

@@ -1,0 +1,137 @@
+\chapter{Finalización del trabajo}
+\section{Conclusiones y trabajo futuro}
+En el presente trabajo se ha desarrollado en primer lugar un trabajo de investigación sobre el concepto de nube de puntos, los sensores que permiten crear nubes, sus aplicaciones y cómo trabajar con ellas mediante la librería PCL. Se ha profundizado en el proceso de alineamiento de nubes de puntos tratando la estimación de puntos clave de tipo SIFT y las normales a la superficie que la nube representa, todo ello mediante software, tanto el disponible en la librería PCL tanto el creado por el propio autor. Se han hecho las mediciones adecuadas para determinar que la estimación de vectores normales es la parte más costosa del proceso. A partir de dicha estimación, se ha seleccionado uno de sus algoritmos, puramente aritmético, que consiste en calcular matrices de covarianzas y centroides dados un conjunto de puntos distribuidos en un espacio tridimensional. A continuación, mediante la síntesis de alto nivel, se ha generado una IP de hardware digital que lleva a cabo el anterior algoritmo de forma acelerada. Además, se ha comprobado el correcto funcionamiento de la IP sobre un sistema embebido y se ha demostrado una reducción de más del 160\% de tiempo de ejecución del algoritmo ejecutado mediante hardware respecto a si se ejecuta en software.
+\\
+\\
+El siguiente paso para tener un sistema de visión funcionando sobre el sistema embebido es integrar la IP sobre el mismo y hacer que el programa de cálculo de keypoints SIFT la utilice para estimar matrices de covarianzas y centroides en lugar de efectuar dicha operación mediante software.
+\\
+\\
+Para ello, no hay que modificar el programa desarrollado por el autor del trabajo y ya explicado en el apartado \ref{extraccion_sift} sino que hay que modificar la propia librería de PCL, en concreto sustituir la llamada al método $ComputeMeanAndCovarianceMatrix$ explicado en el apartado \ref{normales_bajo_nivel} por la llamada a la ejecución de la IP hardware. Además, hay que crear las entradas adecuadas a esta IP, es decir, tres vectores de coordenadas X,Y,Z de cada punto de la nube así como un vector que contiene los índices que forman la vecindad en la iteración actual, tal y como se ha explicado en el apartado \ref{explicacion_software}
+\\
+\\
+Con la integración de la IP en el sistema embebido se puede acelerar el proceso de cálculo de vectores normales a la superficie que representa una nube de puntos y que contribuye a la estimación de puntos SIFT en la misma y en última instancia al proceso de alineamiento de nubes. Así pues, un conjunto de nubes alineadas en una sola quedan preparadas para usarse como mapas del entorno próximo de vehículos autónomos, digitalización del terreno o creación de representaciones de objetos en forma de nubes de puntos con diferentes niveles de detalle y la posibilidad de reconstruir superficies.
+
+\section{Organización del trabajo}
+La duración total del proyecto abarca 11 meses: comienza en marzo de 2018 y finaliza en enero de 2019. Se estima que el autor del proyecto ha invertido de media 2.5 horas diarias lo que significa un total de 
+
+$$11 meses * 30 \frac{dias}{mes} * 2.5 \frac{horas}{dia} = 825 horas$$
+
+Sin embargo, se agrupan en dos meses, julio y agosto, los periodos de vacaciones, realización de exámenes y tiempo invertido en actividad profesional (prácticas extracurriculares durante el verano) así como cualquier otro periodo de inactividad. Esto significa que el número total de horas invertidas queda en:
+
+$$9 meses * 30 \frac{dias}{mes} * 2.5 \frac{horas}{dia} = 675 horas$$
+
+El conjunto de tareas realizadas son las siguientes, teniendo cada una su identificador numérico para el diagrama Gantt presentado:
+\begin{itemize}
+\item[1)] Estudio del concepto de nube de puntos, librería PCL y desarrollo del marco teórico
+\item[2)] Desarrollo de objetivos y selección de herramientas
+\item[3)] Desarrollo de pipeline de visualización y estimación de puntos SIFT
+\item[4)] Medición de tiempos de ejecución de algoritmos de PCL
+\item[5)] Análisis del algoritmo de extracción de normales
+\item[6)] Síntesis de alto nivel para generación de IP hardware
+\item[7)] Implementación y validación de la IP hardware
+\item[8)] Desarrollo de la memoria
+\end{itemize}
+
+En el diagrama Gantt presentado se resaltan en verde las tareas relacionadas con el trabajo desarrollado por el autor y en rojo las tareas de investigación.
+
+
+\begin{landscape}
+\newpage
+
+\begin{ganttchart}{1}{44}\label{gantt}
+
+%titulo diagrama
+\gantttitle{Diagrama Gantt para el desarrollo del trabajo}{44} \\[grid]
+
+%meses
+\gantttitle{Marzo}{4}
+\gantttitle{Abril}{4}
+\gantttitle{Mayo}{4}
+\gantttitle{Junio}{4}
+\gantttitle{Julio}{4}
+\gantttitle{Agosto}{4}
+\gantttitle{Septiembre}{4}
+\gantttitle{Octubre}{4}
+\gantttitle{Noviembre}{4}
+\gantttitle{Diciembre}{4}
+\gantttitle{Enero}{4}\\
+
+%semanas
+\gantttitle[
+title label node/.append style={left=7pt and -3pt}
+]{Semana: }{0}
+\gantttitlelist{1,...,44}{1} \\
+
+
+%tareas
+\ganttbar[bar/.append style={fill=red!80}]{Tarea 1)}{1}{16} \\
+\ganttbar[bar/.append style={fill=green!80}]{Tarea 2)}{7}{10} \\
+\ganttlinkedbar[bar/.append style={fill=green!80}]{Tarea 3)}{9}{16}\\
+\ganttlinkedbar[bar/.append style={fill=green!80}]{Tarea 4)}{13}{16}\\
+\ganttlinkedbar[bar/.append style={fill=red!80}]{Tarea 5)}{25}{32}\\
+\ganttlinkedbar[bar/.append style={fill=green!80}]{Tarea 6)}{32}{36}\\
+\ganttlinkedbar[bar/.append style={fill=green!80}]{Tarea 7)}{36}{42}\\
+\ganttbar[bar/.append style={fill=green!80}]{Tarea 8)}{13}{16}\\
+\ganttlinkedbar[bar/.append style={fill=green!80}]{Tarea 8)}{25}{44}
+
+
+\end{ganttchart}
+\end{landscape}
+\newpage
+\section{Presupuesto}
+Para la realización del presente trabajo se han utilizado tanto recursos materiales o hardware como software y propiedades intelectuales en forma de licencias además de las horas de trabajo y invertidas por el autor y el tutor. 
+\\
+\\
+Se muestra en la tabla \ref{coste_material} el análisis económico de los recursos materiales lo que resulta en un total de $813 euros$ 
+\\
+\\
+En el caso del software y licencias se tiene un coste nulo puesto que se ha utilizado software gratuito o bien se dispone de una licencia de estudiante. Se muestra el presupuesto de software y licencias en la tabla \ref{coste_software}
+\\
+\\
+Por último, según el BOE del ministerio de empleo y seguridad social del año 2018\cite{BOE} se tiene en la tabla \ref{coste_humano} los salarios correspondientes a un ingeniero técnico e ingeniero. Se considera también una joranda laboral de 40 horas semanales o lo que es lo mismo, 8 horas diarias.
+\\
+\\
+Con estos datos y considerando un número total de horas invertidas por el alumno y el tutor de 675 y 20, respectivamente se tiene un total de:
+
+$$675 horas * 58.05 \frac{ euros }{dia} * \frac{1 dia}{8 horas} + 20 horas * 63.24 \frac{ euros }{dia} * \frac{1 dia}{8 horas} =  4897.96 euros + 158.1 euros = 5056.06 euros$$
+\\
+\\
+\textbf{Por lo tanto, sumando los costes materiales, de software y humanos se estima una valoración del presente trabajo en $813 euros+ 5056.06 euros= 5869.06 euros$}
+\begin{table}[!htb]
+\begin{tabular}{cccc|c|}
+\cline{2-5}
+\multicolumn{1}{c|}{} & \multicolumn{1}{c|}{Recursos materiales}       & \multicolumn{1}{c|}{Coste unitario euros} & Cantidad              & Coste total euros \\ \cline{2-5} 
+\multicolumn{1}{c|}{} & \multicolumn{1}{c|}{Pynq-Z1}                   & \multicolumn{1}{c|}{199}              & 1                     & 199           \\ \cline{2-5} 
+\multicolumn{1}{c|}{} & \multicolumn{1}{c|}{Tarjeta micro SD}          & \multicolumn{1}{c|}{14}               & 1                     & 14            \\ \cline{2-5} 
+\multicolumn{1}{c|}{} & \multicolumn{1}{c|}{Ordenador laboratorio CEI} & \multicolumn{1}{c|}{600}              & 1                     & 600           \\ \cline{2-5} 
+\multicolumn{1}{l}{}  & \multicolumn{1}{l}{}                           & \multicolumn{1}{l}{}                  & \multicolumn{1}{l|}{} & 813           \\ \cline{5-5} 
+\end{tabular}
+\caption{Presupuesto de recursos materiales.}
+\label{coste_material}
+\end{table}
+
+\begin{table}[!htb]
+\begin{tabular}{cccc|c|}
+\cline{2-5}
+\multicolumn{1}{c|}{} & \multicolumn{1}{c|}{Recursos materiales}              & \multicolumn{1}{c|}{Coste unitario euros}       & Cantidad              & Coste total euros \\ \cline{2-5} 
+\multicolumn{1}{c|}{} & \multicolumn{1}{c|}{PCL}                              & \multicolumn{1}{c|}{Gratuito}               & 1                     & 0             \\ \cline{2-5} 
+\multicolumn{1}{c|}{} & \multicolumn{1}{c|}{Máquina virtual Ubuntu}           & \multicolumn{1}{c|}{Gratuito}               & 1                     & 0             \\ \cline{2-5} 
+\multicolumn{1}{c|}{} & \multicolumn{1}{c|}{Vivado Design Suite HLx Editions} & \multicolumn{1}{c|}{Licencia de estudiante} & 1                     & 0             \\ \cline{2-5} 
+\multicolumn{1}{l}{}  & \multicolumn{1}{l}{}                                  & \multicolumn{1}{l}{}                        & \multicolumn{1}{l|}{} & 0             \\ \cline{5-5} 
+\end{tabular}
+\caption{Presupuesto de recursos software y licencias.}
+\label{coste_software}
+\end{table}
+
+\begin{table}[!htb]
+\begin{tabular}{cccccll}
+\cline{2-5}
+\multicolumn{1}{c|}{} & \multicolumn{1}{c|}{Costes humanos}    & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Salario  anual 2018 euros \\ 1,30 \%\end{tabular}} & \multicolumn{1}{c|}{Salario mes euros} & \multicolumn{1}{c|}{Salario día euros} &  &  \\ \cline{2-5}
+\multicolumn{1}{c|}{} & \multicolumn{1}{c|}{Ingeniero técnico} & \multicolumn{1}{c|}{24.669,15}                                                                & \multicolumn{1}{c|}{1.762,08}    & \multicolumn{1}{c|}{58,05}       &  &  \\ \cline{2-5}
+\multicolumn{1}{c|}{} & \multicolumn{1}{c|}{Ingeniero}         & \multicolumn{1}{c|}{26.876,99}                                                                 & \multicolumn{1}{c|}{1.919,78}    & \multicolumn{1}{c|}{63,24}       &  &  \\ \cline{2-5}
+                      &                                        &                                                                                               &                                  &                                  &  &  \\
+\multicolumn{1}{l}{}  & \multicolumn{1}{l}{}                   & \multicolumn{1}{l}{}                                                                          & \multicolumn{1}{l}{}             &                                  &  & 
+\end{tabular}
+\caption{Salarios de ingeniero e ingeniero técnico a 2018.}
+\label{coste_humano}
+\end{table}

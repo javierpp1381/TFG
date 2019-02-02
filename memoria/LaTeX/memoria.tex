@@ -12,6 +12,11 @@
 \usepackage{enumerate}
 \usepackage{float}
 \setlength{\parindent}{0cm}
+\usepackage{titling}
+\usepackage{eurosym}
+\usepackage{pgfgantt}
+\usepackage{lscape}
+\usepackage{lmodern,textcomp}
 
 \usepackage{subcaption}
 \usepackage{import} 
@@ -42,7 +47,7 @@
 }
 
 \input{funciones}
-
+\iffalse
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %PORTADA                         
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -51,25 +56,103 @@
 \title{\Huge \textbf{Estudio del proceso de obtención de puntos clave en nubes de puntos}   \\ \huge Reproducción de algoritmos de PCL y aceleración por hardware digital}
 % Author
 \author{\textsc{Javier Pina De Paz}} %
+\fi
+
+
+%%%%%%%otro titulo%%%%%%%%%%%
+\pretitle{%
+  \begin{center}
+  \LARGE
+  \includegraphics[]{politecnica}\\[\bigskipamount]
+}
+\posttitle{\end{center}}
+
+
+
 
 \begin{document}
+
+
+\title{\Huge \textbf{Estudio del proceso de obtención de puntos clave en nubes de puntos}   \\ \huge Reproducción de algoritmos de PCL y aceleración por hardware digital}
+\author{\textsc{Javier Pina De Paz}}
+\date{02/02/2019} 
+
 
 \frontmatter
 \maketitle
 
+\iffalse
 \begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.8]{politecnica}
 \end{figure}
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %DEDICATORIA
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\iffalse
 \begin{dedication}
-dedicatoria
+Agradezco el apoyo y cariño que he encontrado siempre en mi familia, mi madre y mi hermana que nunca me han fallado y en quienes siempre puedo encontrar mi hogar. 
+
+
+Me siento afortunado de haber conocido a personas con talento, inteligentes y con buen corazón siendo algunas de ellas ahora mis amigos, gracias por todos los momentos que hemos pasado juntos y los que están por venir.
+
+
+Agradezco la labor, el apoyo y ayuda de mi tutor de quien también he tomado clases y he podido aprender mucho así como estoy agradecido a todos los docentes involucrados en mi formación durante el grado y máster, sin ellos ni todas las personas que forman parte de mi vida, no podría estar donde estoy ni ser quien soy.
+
 \end{dedication}
-\fi 
+
+
+
+\begin{center}
+\Huge{Resumen}
+\end{center}
+
+A partir de la invención del láser y el desarrollo de sistemas con mayor capacidad de computación y almacenamiento de información, han proliferado   herramientas y aplicaciones basadas en la visión por computador lo que involucra un proceso de adquisición de información, procesamiento de la misma y efectuar una acción en consecuencia si fuera necesario. Este tipo de herramientas aportan nuevas funcionalidades y capacidades tanto en la industria como en la investigación pues ofrecen métodos potentes para analizar y trasladar de la realidad a un ordenador tanto objetos sencillos como entornos exteriores amplios con gran cantidad de detalles.
+\\
+\\
+Una herramienta muy extendida para operaciones de visión por computador es la nube de puntos: conjunto de puntos distribuidos en un espacio tridimensional de manera que crean una superficie discontinua, es decir, puntual, y que son capaces de recrear entornos y objetos. 
+\\
+\\
+Existe una gran variedad de sensores capaces de crear nubes de puntos a partir de su entorno y cuyas diferencias radican en la cantidad de puntos que son capaces de generar y el tiempo que necesitan para ello dando como resultado nubes de puntos de diferentes resoluciones y niveles de detalle tal y como se puede apreciar en las figuras \ref{fig:bunny_simple} y \ref{fig:bunny}
+
+\begin{figure}[!htb]
+\minipage{0.48\textwidth}
+  \includegraphics[scale=1.0]{bunny_simple_copia}
+  \caption{Nube de puntos que representa un conejo.
+  Peso total de la nube: 10.6KB.
+  Número total de puntos: 397.}\label{fig:bunny_simple}
+\endminipage\hfill
+\minipage{0.48\textwidth}
+  \includegraphics[scale=0.35]{bunny}
+  \caption{Nube de puntos que representa un conejo.
+  Peso total de la nube: 42.6KB.
+  Número total de puntos: 3400.}\label{fig:bunny}
+\endminipage\hfill
+\end{figure}
+
+Una vez se dispone de una o varias nubes de puntos almacenadas en un computador, es usual realizar algún tipo de operaciones con ellas puesto que generalmente requieren algún tipo de procesamiento para que sean verdaderamente útiles.
+\\
+\\
+Existe una librería de uso gratuito llamada PCL (Point Cloud Library del inglés librería de nubes de puntos) para el procesamiento de nubes de puntos. PCL dispone de algoritmos involucrados en el proceso de alineamiento de nubes de puntos: póngase que se desea crear una nube de puntos a partir de la fachada de un edificio de 200 metros de largo y el sensor debe situarse a una distancia del edificio tal que es capaz de generar nubes que abarcan hasta 120 metros de la fachada. Para crear una única nube de puntos que contenga la totalidad de la fachada del edificio se genera una primera nube que contiene un primer tramo de la fachada, se mueve el sensor lateralmente, se genera otra nube de puntos y se fusionan las dos nubes. 
+\\
+Para poder fusionar dos o más nubes hay que considerar que éstas tienen puntos semejantes o solapamientos, es decir, hay puntos en ellas que son idénticos. Estos puntos son los llamados puntos clave o keypoints y sirven como enlace para que dos nubes tomadas desde diferentes posiciones, como se ha planteado en el ejemplo, formen una sola.
+\\
+El ejemplo mencionado se puede apreciar en la figura \ref{fig:fachada} donde la zona de color naranja es el solapamiento de las dos nubes de puntos que conforman la totalidad de la fachada.
+\\
+\\
+\begin{figure}
+\centering
+\includegraphics[scale=1.0]{fachada}
+  \caption{Representación de la creación de dos nubes de puntos sobre una fachada de 200 metros.}\label{fig:fachada}
+\end{figure}
+En este trabajo se va a estudiar la parte de la librería PCL involucrada con la estimación de keypoints y que es necesaria para el alineamiento de nubes de puntos. Con ello se pretende determinar cuál del los algoritmos ejecutados en software que intervienen en este proceso  necesita más tiempo para ejecutarse. A continuación, se procederá a acelerar dicho algoritmo mediante hardware y se demostrará su correcto funcionamiento sobre un sistema embebido.
+\\
+\\
+Palabras clave: Nube, puntos, clave, keypoint, hardware, software, aceleración, estimación, embebido.
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INDICE AUTOGENERADO
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tableofcontents
@@ -85,7 +168,7 @@ dedicatoria
 \input{capitulo4_medicion_tiempos}
 \input{capitulo5_extraccionNormales}
 \input{capitulo6_optimizacion}
-
+\input{capitulo7_finale}
 \input{bibliografía}
 
 

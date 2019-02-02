@@ -17,7 +17,7 @@
 \BOOKMARK [2][-]{subsection.2.2.1}{Herramientas software}{section.2.2}% 17
 \BOOKMARK [2][-]{subsection.2.2.2}{Herramientas hardware}{section.2.2}% 18
 \BOOKMARK [1][-]{section.2.3}{Conclusiones}{chapter.2}% 19
-\BOOKMARK [0][-]{chapter.3}{Implementaci\363n de un pipeline de visulaizaci\363n y procesamiento de nubes de puntos}{}% 20
+\BOOKMARK [0][-]{chapter.3}{Desarrollo de un pipeline de visualizaci\363n y procesamiento de nubes}{}% 20
 \BOOKMARK [1][-]{section.3.1}{Introducci\363n}{chapter.3}% 21
 \BOOKMARK [1][-]{section.3.2}{Compilaci\363n de bibliotecas PCL mediante CMake}{chapter.3}% 22
 \BOOKMARK [1][-]{section.3.3}{Programa de visualizaci\363n de nubes de puntos}{chapter.3}% 23
@@ -42,11 +42,14 @@
 \BOOKMARK [1][-]{section.5.5}{Selecci\363n del fragmento del algoritmo para su aceleraci\363n}{chapter.5}% 42
 \BOOKMARK [1][-]{section.5.6}{Conclusiones}{chapter.5}% 43
 \BOOKMARK [1][-]{section.5.7}{Diagramas}{chapter.5}% 44
-\BOOKMARK [0][-]{chapter.6}{Implementantaci\363n de la extracci\363n de normales mediante s\355ntesis de alto nivel}{}% 45
+\BOOKMARK [0][-]{chapter.6}{Extracci\363n de normales mediante s\355ntesis de alto nivel}{}% 45
 \BOOKMARK [1][-]{section.6.1}{Introducci\363n}{chapter.6}% 46
 \BOOKMARK [1][-]{section.6.2}{Algoritmo original de estimaci\363n de matrices de covarianzas}{chapter.6}% 47
 \BOOKMARK [1][-]{section.6.3}{Algoritmo modificado e integraci\363n en Vivado HLS}{chapter.6}% 48
 \BOOKMARK [2][-]{subsection.6.3.1}{Generaci\363n de s\355ntesis e IP}{section.6.3}% 49
-\BOOKMARK [1][-]{section.6.4}{Integraci\363n de la IP en Vivado}{chapter.6}% 50
+\BOOKMARK [1][-]{section.6.4}{Implementaci\363n de la IP en Vivado}{chapter.6}% 50
 \BOOKMARK [1][-]{section.6.5}{Validacion del IP hardware sobre la FPGA}{chapter.6}% 51
-\BOOKMARK [1][-]{section.6.6}{Conclusiones}{chapter.6}% 52
+\BOOKMARK [0][-]{chapter.7}{Finalizaci\363n del trabajo}{}% 52
+\BOOKMARK [1][-]{section.7.1}{Conclusiones y trabajo futuro}{chapter.7}% 53
+\BOOKMARK [1][-]{section.7.2}{Organizaci\363n del trabajo}{chapter.7}% 54
+\BOOKMARK [1][-]{section.7.3}{Presupuesto}{chapter.7}% 55

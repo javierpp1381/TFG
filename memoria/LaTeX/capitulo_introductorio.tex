@@ -218,7 +218,7 @@ Otro ejemplo de mayor complejidad permite observar en la figura \ref{fig:botes_g
 %http://www.pointclouds.org/news/2013/01/07/point-cloud-data-sets/
 %https://www.cc.gatech.edu/~turk/bunny/bunny.html
 Una vez vistos ejemplos de nubes de puntos con la información suficiente para reconocer qué objeto representan sin más ayuda que la de los propios ojos, es momento de subir el nivel de complejidad para dar lugar a nubes de puntos más elaboradas y complejas. Se ha visto anteriormente una sencilla representación de un conejo con solamente 397 puntos. El nivel de detalle puede incrementarse a niveles del orden de decenas de miles de puntos tal y como es el caso de la figura \ref{fig:bunny} que representa un conejo de arcilla\cite{pcl_conejo_stanford} de 7.5 pulgadas de alto con unos 69451 triángulos ya que se ha llevado a cabo la reconstrucción de la superficie. Además, en la figura \ref{fig:bunny_colored} se aprecia el resultado si se añade información sobre color en cada punto. Como consecuencia de añadir más información (más de 90 veces la cantidad de puntos y el color) se tiene en este caso un peso de 22MB y hasta 35947 puntos.
-\\
+
 %http://graphics.stanford.edu/data/3Dscanrep/
 \begin{figure}[!htb]
 \minipage{0.45\textwidth}
@@ -661,7 +661,7 @@ Para conocer en mayor detalle el proceso de alineamiento, se muestra en la figur
 \end{figure}
 
 \subsubsection{Extracción de puntos clave}
-Se explica ahora el proceso de estimación de puntos clave\cite{puntos_clave}. Una vez se han adquirido dos o más nubes de puntos como entrada, se procede a extraer keypoints o puntos clave de cada una de ellas. Por keypoint, punto clave o punto de interés se entiende como un punto de la nube que representa características especiales de la misma tal y como son esquinas o bordes. Por lo tanto, las principales características de un keypoint pueden resumirse en los siguientes puntos:
+Se explica ahora el proceso de estimación de puntos clave\cite{registration}. Una vez se han adquirido dos o más nubes de puntos como entrada, se procede a extraer keypoints o puntos clave de cada una de ellas. Por keypoint, punto clave o punto de interés se entiende como un punto de la nube que representa características especiales de la misma tal y como son esquinas o bordes. Por lo tanto, las principales características de un keypoint pueden resumirse en los siguientes puntos:
 %https://en.wikipedia.org/wiki/Interest_point_detection
 \begin{itemize}
 \item[•] Tiene una clara definición matemática.
@@ -847,6 +847,9 @@ La memoria del trabajo consta de un total de seis capítulos teniendo en cada un
 \\
 \\
 \textbf{Capítulo 6, Implementantación de la extracción de normales mediante síntesis de alto nivel:} En este capítulo se plantea el fragmento original (de la librería PCL) del algoritmo seleccionado para su aceleración y así poder contrastar los cambios que el autor efectúa sobre el mismo para que sea posible su sínteis en hardware digital. A continuación, se explica cómo se genera la IP de aceleración de hardware utilizando Vivado así como se muestra la validación de su correcto funcionamiento sobre la placa de desarrollo Pynq-Z1.
+\\
+\\
+\textbf{Capítulo 7, Finalización del trabajo:} Se muestran las conclusiones extraídas del presente trabajo, las líneas de trabajo futuro así como la organización temporal y el presupuesto.
 
 
 \section{Conclusiones}

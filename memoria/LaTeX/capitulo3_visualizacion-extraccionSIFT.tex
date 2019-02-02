@@ -1,4 +1,4 @@
-\chapter{Implementación de un pipeline de visulaización y procesamiento de nubes de puntos}
+\chapter{Desarrollo de un pipeline de visualización y procesamiento de nubes}
 
 \section{Introducción}
 Dejando asentado el fundamento teórico ofrecido por capítulos anteriores, se plantea a continuación la posibilidad de no solamente disponer de un sistema de visión funcionando sobre un dispositivo embebido sino además poder realizar mediciones sobre el rendimiento de los algoritmos de PCL involucrados. Para ello, se crean dos programas de modo que, dada una nube de puntos, uno de ellos pueda visualizarla y otro extraiga keypoints.
@@ -216,7 +216,7 @@ Por último, el bloqueo del programa en el visualizador hasta que el usuario lo 
 \fi
 
 
-\section{Programa de extracción de puntos SIFT}
+\section{Programa de extracción de puntos SIFT}\label{extraccion_sift}
 \subsubsection{Explicación en alto nivel}
 Se muestra en la figura \ref{fig:main_HL_diagram} el flujograma que representa el funcionamiento del programa principal capaz de extraer puntos SIFT dada una nube de puntos como entrada. Se aprecia que hay dos operaciones principales: extracción de normales\cite{normal} y extracción de puntos SIFT\cite{narf}. Más adelante se estudiarán los tiempos necesarios para efectuar cada una de las operaciones y se decidirá cuál es la de mayor carga computacional y por tanto cuál hay que optimizar.
 %http://pointclouds.org/documentation/tutorials/normal_estimation.php
@@ -354,7 +354,7 @@ Ahora se efectúa la lectura de la nube de puntos comprobando que se ha introduc
 \end{lstlisting}
   
   
-La siguiente parte del código se encarga de la extracción de normales en la superficie de la nube\cite{extraccion_normales}. Para ello se crea una instancia de la clase $PointCloud$ llamada $cloud\_normals$ y que va a almacenar una nube de puntos idéntica a la de entrada pero con información adicional sobre los vectores normales.
+La siguiente parte del código se encarga de la extracción de normales en la superficie de la nube\cite{normal}. Para ello se crea una instancia de la clase $PointCloud$ llamada $cloud\_normals$ y que va a almacenar una nube de puntos idéntica a la de entrada pero con información adicional sobre los vectores normales.
 \\
 \\
 Retomando la instancia $ne$ de la clase $NormalEstimation$, se llama al método $setInputCloud$ para asignar a esta instancia la nube de puntos con la que va a trabajar, es decir, $cloud\_xyz$, para que extraiga de ella los vectores normales.
@@ -723,6 +723,6 @@ $$./visualization\;\;cturtle.pcd\;\;sift\_keypoints.pcd$$
 
 
 \section{Conclusiones}
-Se ha visto en este capítulo cómo funcionan dos programas generados a partir de la documentación de PCL para visualizar nubes de puntos y obtener puntos SIFT. Además se ha mostrado su uso en tres nubes de puntos de diferentes características.
+Se ha visto en este capítulo cómo el autor ha creado un pipeline completo de visualización de nubes de puntos y extracción de puntos SIFT a partir de la documentación de PCL. Además se ha mostrado su uso en tres nubes de puntos de diferentes características.
 \\
 En el siguiente capítulo se procederá a medir los tiempos de ejecución de los algoritmos de estimación de vectores normales y puntos SIFT para determinar cuál es el de mayor carga computacional.
